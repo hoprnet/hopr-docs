@@ -70,8 +70,9 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
-        ],
-      },
+	],
+      },    
+	    
       footer: {
        /** style: 'dark',
         links: [
@@ -85,7 +86,7 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Community and Releases',
             items: [
               {
                 label: 'Stack Overflow',
@@ -99,6 +100,15 @@ const config = {
                 label: 'Twitter',
                 href: 'https://twitter.com/docusaurus',
               },
+	      {
+	      /* Put here link for release 1 in href  and link for release 2 in next href*/
+	      label: 'Release1',
+	      href: ''
+	      },
+	      {
+	      label: 'Release2',
+	      href: ''
+	      },
             ],
           },
           {
