@@ -1,3 +1,8 @@
+/*
+  This component adds links to docs releases in the navbar dropdown.
+  Unfortunately, Docosaurus doesn't support custom react components in the navbar. That's why the react [portal](https://reactjs.org/docs/portals.html) is used to add docs versions to the dropdown list.
+  Releases tags are fetched from github API, and converted to docs versions.
+*/
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import {
