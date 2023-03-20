@@ -1,139 +1,146 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/github')
+const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const math = require('remark-math')
+const katex = require('rehype-katex')
+const { DOCS_URL } = require('./consts')
+const { DOCS_ALGOLIA_APP_ID, DOCS_ALGOLIA_API_KEY } = process.env
+
+let extraThemeConfig = {}
+// only configure Algolia if credentials are given
+if (DOCS_ALGOLIA_APP_ID && DOCS_ALGOLIA_API_KEY) {
+  extraThemeConfig.algolia = {
+    appId: DOCS_ALGOLIA_APP_ID,
+    apiKey: DOCS_ALGOLIA_API_KEY,
+    indexName: 'docs-hoprnet',
+    contextualSearch: true
+  }
+}
+
+const redocusaurus = [
+  'redocusaurus',
+  {
+    debug: Boolean(process.env.DEBUG || process.env.CI),
+    specs: [
+      {
+        id: 'placerholder-rest-api',
+        route: '/developers/placeholder-rest-api/',
+        spec: 'rest-api-v2-full-spec.json'
+      }
+    ],
+    theme: {
+      /**
+       * Highlight color for docs
+       */
+      primaryColor: '#0000b4',
+      /**
+       * Options to pass to redoc
+       * @see https://github.com/redocly/redoc#redoc-options-object
+       */
+      redocOptions: {}
+    }
+  }
+]
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'HOPR',
-  tagline: 'HOPR docs',
-  url: 'https://docs.hoprnet.org',
+  title: 'HOPR Docs',
+  tagline: 'HOPR',
+  url: DOCS_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: '/img/hopr_icon.svg',
-  organizationName: 'Jaguaras', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
-  
+  organizationName: 'hoprnet',
+  projectName: 'hopr-docs',
+
   stylesheets: [
-    "https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap",
-    "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap",
-    "https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css",
-    "https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css",
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous'
+    },
+    'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap',
+    'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap',
+    'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css',
+    'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
   ],
+  scripts: [{ src: 'https://cdn.usefathom.com/script.js', 'data-site': 'WMCAULEA', defer: true }],
   presets: [
+    redocusaurus,
     [
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
-	  routeBasePath: '/',
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+          routeBasePath: '/',
+          editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
+          lastVersion: 'v1.92'
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      }),
-    ],
+          customCss: require.resolve('./src/css/custom.css')
+        }
+      })
+    ]
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
-	      disableSwitch: true,
+        disableSwitch: true
       },
       navbar: {
         /* title: 'HOPR',*/
         logo: {
           alt: 'HOPR Logo',
-          src: 'img/HOPR_logo.svg',
+          src: 'img/HOPR_logo.svg'
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            type: 'docsVersionDropdown',
             position: 'left',
-            label: 'Docs',
+            dropdownItemsAfter: [],
+            dropdownActiveClassDisabled: true
           },
-         /** {to: '/blog', label: 'Blog', position: 'left'},**/
           {
             href: 'https://twitter.com/hoprnet',
             label: 'Twitter',
-            position: 'right',
+            position: 'right'
           },
-	  {
+          {
+            href: 'https://discord.gg/dEAWC4G',
+            label: 'Discord',
+            position: 'right'
+          },
+          {
             href: 'https://t.me/hoprnet',
             label: 'Telegram',
-            position: 'right',
+            position: 'right'
           },
-	  {
+          {
             href: 'https://github.com/hoprnet',
-	    label: 'GitHub',
-	    position: 'right',
-            className: 'header-github-link',
-          },
-        ],
+            label: 'GitHub',
+            position: 'right',
+            className: 'header-github-link'
+          }
+        ]
       },
+      ...extraThemeConfig,
       footer: {
-       /** style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],**/
-        copyright: `©${new Date().getFullYear()} HOPR Association, all rights reserved`,
+        copyright: `©${new Date().getFullYear()} HOPR Association, all rights reserved`
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
-};
+        additionalLanguages: ['solidity'],
+        theme: darkCodeTheme
+      }
+    })
+}
 
-module.exports = config;
+module.exports = config
