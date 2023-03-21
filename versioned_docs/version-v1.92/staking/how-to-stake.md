@@ -57,7 +57,7 @@ Visit [https://stake.hoprnet.org](https://stake.hoprnet.org) You’ll see the st
 
 Choose your wallet type. For this tutorial we’ll use MetaMask.
 
-![Staking on HOPR smart contract](/img/staking/staking-3.png)
+![Connect 1](/img/staking/Staking_New_6.png)
 
 A popup will appear.
 
@@ -65,7 +65,7 @@ A popup will appear.
 
 (**3**) After you selected your staking address, click “Next”.
 
-![Staking on HOPR smart contract](/img/staking/staking-4.png)
+![Connect 2](/img/staking/Staking_New_7.png)
 
 (**4**) Another popup will appear. Click “Connect” to give the staking interface permission to access your balance details.
 
