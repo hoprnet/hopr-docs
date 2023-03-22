@@ -49,7 +49,7 @@ Once you have the xHOPR you want to stake in your wallet, and your wallet connec
 
 Visit [https://stake.hoprnet.org](https://stake.hoprnet.org) You’ll see the staking interface.
 
-![Connect Wallet](/img/staking/Staking_New_1.png)
+![Connect Wallet](/img/staking/SS6_1.png)
 
 (**1**) Press the “Connect to a wallet” button in the top right.
 
@@ -57,7 +57,7 @@ Visit [https://stake.hoprnet.org](https://stake.hoprnet.org) You’ll see the st
 
 Choose your wallet type. For this tutorial we’ll use MetaMask.
 
-![Connect 1](/img/staking/Staking_New_6.png)
+![Connect 1](/img/staking/SS6_2.png)
 
 A popup will appear.
 
@@ -65,11 +65,11 @@ A popup will appear.
 
 (**3**) After you selected your staking address, click “Next”.
 
-![Connect 2](/img/staking/Staking_New_7.png)
+![Connect 2](/img/staking/SS6_3.png)
 
 (**4**) Another popup will appear. Click “Connect” to give the staking interface permission to access your balance details.
 
-![Account details](/img/staking/Staking_New_3.png)
+![Account details](/img/staking/SS6_4.png)
 
 (**5**) Once connected, the site will update to show your personal staking details. The wxHOPR, xHOPR and xDAI balances of your wallet will show. In our example there’s 10 xHOPR available to stake.
 
@@ -77,13 +77,13 @@ A popup will appear.
 
 (**7**) After you entered the amount, press the “Stake” button.
 
-![Confirm Stake](/img/staking/Staking_New_4.png)
+![Confirm Stake](/img/staking/SS6_5.png)
 
 (**8**) Another popup will appear. Press “Confirm” to stake your tokens. You’ll need some xDAI to pay the extremely small fee associated with this. (In this example, the fee was less than a cent.)
 
 Wait for the transaction to confirm. This should take just a few seconds, but it may take several minutes if the chain is busy. Once the transaction is confirmed, your balances should update.
 
-![Results](/img/staking/Staking_New_5.png)
+![Results](/img/staking/SS6_6.png)
 
 (**9**) As you can see in the example bellow, the available xHOPR balance is now 0, and the staked balance is now 10.
 
