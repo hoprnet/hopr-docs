@@ -21,11 +21,11 @@ After you have installed the HOPR package, you can find the HOPR client in `my D
 
 ![MyDapps](/img/node/avado-2.png)
 
-Your **security token** is set to `!5qxc9Lp1BE7IFQ-nrtttU`. You will need this to access the hopr-admin.
+Your **security token** is set to `!5qxc9Lp1BE7IFQ-nrtttU`. You will need this to access your node.
 
 If you are in the process of registering your node on the network registry, please complete the process [here](./network-registry-tutorial.md) before continuing.
 
-Otherwise, the installation process is complete! You can proceed to our [hopr-admin tutorial](using-hopr-admin).
+Otherwise, the installation process is complete! You can proceed to our [hoprd tutorial](using-hopr-admin).
 
 ### Alternative method: using your identity file
 

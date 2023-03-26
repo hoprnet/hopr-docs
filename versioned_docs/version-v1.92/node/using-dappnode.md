@@ -19,13 +19,13 @@ That's all! You should now be able to find the HOPR client in your 'Packages'.
 
 ![MyDapps](/img/node/Dappnode-2.png)
 
-Simply open the client, and you should be greeted with the hopr-admin interface.
+Simply open the client, and you should be greeted with the hoprd UI interface.
 
-Your **security token** is set to `!5qxc9Lp1BE7IFQ-nrtttU`. You will need this to access hopr-admin.
+Your **security token** is set to `!5qxc9Lp1BE7IFQ-nrtttU`. You will need this to access your node.
 
 If you are in the process of registering your node on the network registry, please complete the process [here](./network-registry-tutorial.md) before continuing.
 
-Otherwise, the installation process is complete! You can proceed to our [hopr-admin tutorial](using-hopr-admin).
+Otherwise, the installation process is complete! You can proceed to our [hoprd tutorial](using-hopr-admin).
 
 ### Restoring an old node
 
