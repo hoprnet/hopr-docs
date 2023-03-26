@@ -1,9 +1,9 @@
 ---
 id: using-hopr-admin
-title: How to use hopr-admin
+title: How to use hoprd
 ---
 
-This is a guide on how to use `hopr-admin`. It is not exhaustive and is intended only as a brief overview of its functionality and use.
+This is a guide on how to use `hoprd` through `hopr-admin` or the `hoprd` UI. It is not exhaustive and is intended only as a brief overview of its functionality and use.
 
 Make sure you have installed a `hoprd` node either through Docker or with a hardware node such as Avado or Dappnode. If you have not completed the installation process, please [start here](start-here).
 
