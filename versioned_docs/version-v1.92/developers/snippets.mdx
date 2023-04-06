@@ -80,11 +80,6 @@ import TabItem from '@theme/TabItem';
   marginWidth="0"
 />
 
----
-id: api-examples
-title: API Example Use
----
-
 ## API Example Use
 
 Here are some examples of how to use HOPR APIs with your terminal, Python or JS. HOPR is code agnostic so any language would work, you could even use API platforms like [Postman](https://web.postman.co/) to interact with your HOPR node. 
@@ -142,6 +137,81 @@ const payload = {
 };
 ```
 
+</TabItem>
+</Tabs>
+
+### accountBalances
+<Tabs>
+<TabItem value="Terminal" label="Terminal">
+
+```
+curl -X GET http://YOUR_API_URL:3001/api/v2/account/balances \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/account/balances"
+headers = {'x-auth-token': 'YOUR_API_KEY'}
+
+response = requests.request("GET", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="JS" label="JavaScript">
+
+```
+const axios = require("axios");
+
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/account/balances';
+
+const headers = {
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+axios.get(API_URL, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
+```
+</TabItem>
+</Tabs>
+
+### accountAddresses
+<Tabs>
+<TabItem value="Terminal" label="Terminal">
+
+```
+curl -X GET http://YOUR_API_URL:3001/api/v2/account/addresses \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="Python" label="Python">
+
+```
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/account/addresses"
+headers = {'x-auth-token': 'YOUR_API_KEY'}
+
+response = requests.request("GET", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="JS" label="JavaScript">
+```
+const axios = require("axios");
+
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/account/addresses';
+
+const headers = {
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+axios.get(API_URL, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
+```
 </TabItem>
 </Tabs>
 
