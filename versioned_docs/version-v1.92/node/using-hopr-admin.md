@@ -13,6 +13,10 @@ Please be aware that it can take 10 minutes for your `hoprd` node to boot up.
 
 **Network Registry:** If you have registered your node on the network registry, you will have been airdropped mHOPR/xDAI along with your NFT. In **step three** of Admin UI & Funding below, make sure to use the **mHOPR** and **xDAI** provided instead of purchasing **wxHOPR**.
 
+If you don't see your "mHOPR" within your wallet, make sure to import the token using the contract address `0x66225dE86Cac02b32f34992eb3410F59DE416698`
+
+![Import mHOPR](/img/node/Import_mHOPR.png)
+
 ## Admin UI & Funding
 
 If you used Docker to install your node, you should be able to access it at: [http://localhost:3000](http://localhost:3000) (replace `localhost` with your server IP address if you are using a VPS). Otherwise, locate the HOPR client on your hardware node's associated browser. You should end up with an interface that looks like this:
