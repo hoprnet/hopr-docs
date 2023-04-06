@@ -305,7 +305,7 @@ axios.post(API_URL, data, { headers })
 <TabItem value="channelsRedeemTicketsTerminal" label="Terminal">
 
 ```bash
-curl -X POST http://YOUR_API_URL:3001/api/v2/channels/{peerid}/tickets/redeem \
+curl -X POST http://YOUR_API_URL:3001/api/v2/channels/tickets/redeem \
   -H "Content-Type: application/json" \
   -H "x-auth-token: YOUR_API_KEY"
 ```
@@ -315,7 +315,7 @@ curl -X POST http://YOUR_API_URL:3001/api/v2/channels/{peerid}/tickets/redeem \
 ```Python
 import requests
 
-api_url = "https://YOUR_API_URL/api/v2/channels/{peerid}/tickets/redeem"
+api_url = "https://YOUR_API_URL/api/v2/channels/tickets/redeem"
 
 headers = {
   'x-auth-token': YOUR_API_KEY,
@@ -327,7 +327,7 @@ response = requests.request("POST", api_url, headers=headers)
 </TabItem>
 <TabItem value="channelsRedeemTicketsJS" label="JavaScript">
 ```JavaScript
-const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/{peerid}/tickets/redeem';
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/tickets/redeem';
 
 const headers = {
     'Content-Type': 'application/json',
@@ -348,17 +348,18 @@ const response = await fetch(API_URL, {
 <TabItem value="channelsGetTicketsTerminal" label="Terminal">
 
 ```bash
-curl -X GET http://YOUR_API_URL:3001/api/v2/channels/{peerid}/tickets \
+curl -X GET http://YOUR_API_URL:3001/api/v2/channels/tickets \
   -H "Content-Type: application/json" \
   -H "x-auth-token: YOUR_API_KEY"
 ```
+
 </TabItem>
 <TabItem value="channelsGetTicketsPython" label="Python">
 
 ```Python
 import requests
 
-api_url = "https://YOUR_API_URL/api/v2/channels/{peerid}/tickets"
+api_url = "https://YOUR_API_URL/api/v2/channels/tickets"
 
 headers = {
   'x-auth-token': YOUR_API_KEY,
@@ -370,7 +371,7 @@ response = requests.request("GET", api_url, headers=headers)
 </TabItem>
 <TabItem value="channelsGetTicketsJS" label="JavaScript">
 ```JavaScript
-const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/{peerid}/tickets';
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/tickets';
 
 const headers = {
     'Content-Type': 'application/json',
@@ -391,7 +392,7 @@ const response = await fetch(API_URL, {
 <TabItem value="channelsCloseChannelTerminal" label="Terminal">
 
 ```bash
-curl -X DELETE http://YOUR_API_URL:3001/api/v2/channels/{peerid}/{direction} \
+curl -X DELETE http://YOUR_API_URL:3001/api/v2/channels \
   -H "Content-Type: application/json" \
   -H "x-auth-token: YOUR_API_KEY"
 ```
@@ -401,7 +402,7 @@ curl -X DELETE http://YOUR_API_URL:3001/api/v2/channels/{peerid}/{direction} \
 ```Python
 import requests
 
-api_url = "https://YOUR_API_URL/api/v2/channels/{peerid}/{direction}"
+api_url = "https://YOUR_API_URL/api/v2/channels"
 
 headers = {
   'x-auth-token': YOUR_API_KEY,
@@ -413,7 +414,7 @@ response = requests.request("DELETE", api_url, headers=headers)
 </TabItem>
 <TabItem value="channelsCloseChannelJS" label="JavaScript">
 ```JavaScript
-const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/{peerid}/{direction}';
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels';
 
 const headers = {
     'Content-Type': 'application/json',
