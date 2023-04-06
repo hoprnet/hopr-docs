@@ -15,8 +15,6 @@ Please be aware that it can take 10 minutes for your `hoprd` node to boot up.
 
 If you don't see your "mHOPR" within your wallet, make sure to import the token using the contract address `0x66225dE86Cac02b32f34992eb3410F59DE416698`
 
-![Import mHOPR](/img/node/Import_mHOPR.png)
-
 ## Admin UI & Funding
 
 If you used Docker to install your node, you should be able to access it at: [http://localhost:3000](http://localhost:3000) (replace `localhost` with your server IP address if you are using a VPS). Otherwise, locate the HOPR client on your hardware node's associated browser. You should end up with an interface that looks like this:
@@ -37,9 +35,9 @@ The `API Token` is whatever you set your security token as in the installation p
 
 (**3**) You will see a newly generated ETH & Node address. Use the ETH address to send [xDAI](https://www.xdaichain.com/for-users/get-xdai-tokens) and [HOPR tokens](/staking/how-to-get-hopr) to in order to fund your node. **Your node will not start until it is funded.**
 
-**Monte Rosa release:** If you are participating in the Monte Rosa release, send the **mHOPR** and **xDAI** you have been airdropped.
+**Monte Rosa release:** If you are participating in the Monte Rosa release (this will be the case if you followed the Docker/Avado/Dappnode installation instructions), send the **mHOPR** and **xDAI** you have been airdropped.
 
-**Local network:** If using a local network, we recommend you fund your node with **0.01 xDai & 10 wxHOPR**.
+**Local network:** If using a local network (e.g. for testing), we recommend you fund your node with **0.01 xDai & 10 wxHOPR**.
 
 After funding your node, you will have to wait a few minutes for it to start. When the process is complete, you should see the output: **Node has started!**
 

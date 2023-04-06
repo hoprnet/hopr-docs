@@ -49,7 +49,8 @@
         "version-v1.92/developers/rest-api",
         "version-v1.92/developers/smart-contract",
         "version-v1.92/developers/snippets",
-        "version-v1.92/developers/visualising-hopr-network-topology"
+        "version-v1.92/developers/visualising-hopr-network-topology",
+        "version-v1.92/developers/heartbeat"
       ]
     },
     {

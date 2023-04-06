@@ -33,7 +33,7 @@ If you are chosen to join the registry, you will be sent a network registry NFT 
 
 (**1**) Go to [stake.hoprnet.org](https://stake.hoprnet.org/)
 
-(**2**) Connect your wallet (make sure this is the one containing your NFT). You should see an icon for this on the top right of the site.
+(**2**) Connect your wallet (make sure this is the one containing your NFT). You should see an icon for this on the top right of the site. If you are unsure if this is the right wallet, check the `HOPR NFTs` & `Staked HOPR NFTs` section once your wallet is connected to see if your Network Registry NFT is visible. 
 
 ![connect wallet](/img/node/NR_connect_wallet2.png)
 
