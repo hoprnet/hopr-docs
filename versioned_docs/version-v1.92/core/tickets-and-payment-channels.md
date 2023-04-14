@@ -47,4 +47,4 @@ When the channel closes, the two ending balances are recorded on-chain, and thes
 
 ## Further Improvements
 
-Using payment channels and tickets goes a long way to decoupling the blockchain transaction data from what’s actually happening in the HOPR network, but there’s still a problem in that each relayed packet generates its own reward which needs to be redeemed on chain. This is very inefficient, and introduces an unacceptable privacy week. HOPR fixes this by using **probabilistic payments**, a method to ensure everyone receives the same reward as in the one ticket, one reward system, but with far fewer on-chain transactions.
+Using payment channels and tickets goes a long way to decoupling the blockchain transaction data from what’s actually happening in the HOPR network, but there’s still a problem in that each relayed packet generates its own reward which needs to be redeemed on chain. This is very inefficient, and introduces an unacceptable privacy weakness. HOPR fixes this by using **probabilistic payments**, a method to ensure everyone receives the same reward as in the one ticket, one reward system, but with far fewer on-chain transactions.
