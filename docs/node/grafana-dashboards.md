@@ -73,6 +73,19 @@ You should get a login screen, where you'll need to use the following credential
 - Username: `admin`
 - Password: `hopr`
 
+### Using an Existing Docker Node
+
+It is possible to migrate another node's identity into your new Grafana-enabled docker node by moving your identity file into the running docker container.
+
+For example, you could migrate your identity file suffixed with the release `Riga` into the new node with commands such as the following:
+
+```
+mv $HOME/.hoprd-db-riga $HOME/.hoprd-db-bratislava
+mv $HOME/.hoprd-db-bratislava/.hopr-id-riga $HOME/.hoprd-db-bratislava/.hopr-id-bratislava
+```
+
+**Note:** This requires the Docker compose file containing the identity file to be mapped to `$HOME`, which is not the default. Also, the new node still won't have an authentication token, so this is not recommended. 
+
 ## Using Grafana
 
 Once you have logged into Grafana, you can access your node's metrics by locating the dashboard: `HOPR NODE Overview`.
