@@ -46,6 +46,8 @@ To set up Grafana with docker you will need to have installed:
 - Docker with docker-compose support, you may need to install this seperately. Read [here.](https://docs.docker.com/compose/install/)
 - git E.g. through shell with `sudo apt-get install git`
 
+**Note:** It is hghly recommended to change the default `HOPRD_PASSWORD` in the `scripts/compose/.env` file when running the HOPRd using docker compose.
+
 The following are command line instructions for Linux:
 
 (**1**) Clone the hoprnet monorepo using the following command
