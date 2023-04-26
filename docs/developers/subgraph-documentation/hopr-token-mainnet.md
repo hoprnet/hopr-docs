@@ -11,10 +11,10 @@ title: Entities & Sample Queries
 
 ## Account
 
-| Field  | Type    | Description     |
-| ------ | ------- | --------------- |
-| id     | Bytes!  | Account address |
-| amount | BigInt! | Token amount    |
+| Field  | Type    | Description                            |
+| ------ | ------- | -------------------------------------- |
+| id     | Bytes!  | Account address                        |
+| amount | BigInt! | Current balance of the account in HOPR |
 
 ## Sample Queries
 
