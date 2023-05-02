@@ -65,7 +65,7 @@ const sidebars = {
         'developers/demo-boomerang-chat',
         'developers/demo-rps-game',
         'developers/rest-api',
-        'developers/rest-api',
+        'developers/introduction',
         'developers/all-seasons', 
         'developers/channels',
         'developers/hopr-token-gnosis',
