@@ -65,6 +65,12 @@ const sidebars = {
         'developers/demo-boomerang-chat',
         'developers/demo-rps-game',
         'developers/rest-api',
+        'developers/introduction',
+        'developers/all-seasons',
+        'developers/channels',
+        'developers/hopr-token-gnosis',
+        'developers/hopr-token-mainnet',
+        'developers/stake-season6',
         'developers/smart-contract',
         'developers/snippets',
         'developers/visualising-hopr-network-topology'
