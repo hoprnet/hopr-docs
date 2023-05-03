@@ -1,11 +1,8 @@
 ---
-id: entities-and-queries
-sidebar_position: 6
-sidebar_label: All Seasons
-title: Entities & Sample Queries
+id: all-seasons
+title: Hopr All Seasons Subgraph Entities & Sample Queries
 ---
 
-## All Seasons Entities
 
 - [`StakingParticipation`](#stakingparticipation)
 - [`Boost`](#boost)

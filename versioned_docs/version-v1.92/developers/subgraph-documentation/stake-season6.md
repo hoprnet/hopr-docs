@@ -1,11 +1,8 @@
 ---
-id: entities-and-queries
-sidebar_position: 5
-sidebar_label: Stake Season6
-title: Entities & Sample Queries
+id: stake-season6
+title: Hopr Stake Seasons 6 Subgraph Entities & Sample Queries
 ---
 
-## HOPR Stake Season6 - Entities
 
 - [Account](#account)
 - [Boost](#boost)
