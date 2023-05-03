@@ -1,8 +1,11 @@
 ---
-id: introduction
-title: Hopr Subgraph Introduction
+id: subgraph-intro
+sidebar_position: 1
+sidebar_label: Subgraph Introduction
+title: Introduction
 ---
 
+## HOPR Subgraph Introduction
 
 The following pages contain everything you need to know about the HOPR suite of subgraphs.
 
