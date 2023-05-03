@@ -65,6 +65,7 @@ const sidebars = {
         'developers/demo-boomerang-chat',
         'developers/demo-rps-game',
         'developers/rest-api',
+        'developers/smart-contract',
         'developers/snippets',
         'developers/visualising-hopr-network-topology'
       ]
@@ -74,13 +75,12 @@ const sidebars = {
       type: 'category',
       label: 'Subgraph Documentation',
       items: [
-        'developers/introduction',
-        'developers/all-seasons', 
-        'developers/channels',
-        'developers/hopr-token-gnosis',
-        'developers/hopr-token-mainnet',
-        'developers/stake-season6',
-        'developers/smart-contract'
+        'subgraph-docs/introduction',
+        'subgraph-docs/all-seasons', 
+        'subgraph-docs/channels.md',
+        'subgraph-docs/hopr-token-gnosis',
+        'subgraph-docs/hopr-token-mainnet',
+        'subgraph-docs/stake-season6.md'
       ]
     },
 
