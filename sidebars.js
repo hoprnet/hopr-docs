@@ -77,10 +77,10 @@ const sidebars = {
       items: [
         'subgraph-docs/introduction',
         'subgraph-docs/all-seasons', 
-        'subgraph-docs/channels.md',
+        'subgraph-docs/channels',
         'subgraph-docs/hopr-token-gnosis',
         'subgraph-docs/hopr-token-mainnet',
-        'subgraph-docs/stake-season6.md'
+        'subgraph-docs/stake-season6'
       ]
     },
 
