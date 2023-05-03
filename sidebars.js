@@ -73,19 +73,6 @@ const sidebars = {
 
     {
       type: 'category',
-      label: 'Subgraph Documentation',
-      items: [
-        'subgraph-docs/introduction',
-        'subgraph-docs/all-seasons', 
-        'subgraph-docs/channels',
-        'subgraph-docs/hopr-token-gnosis',
-        'subgraph-docs/hopr-token-mainnet',
-        'subgraph-docs/stake-season6'
-      ]
-    },
-
-    {
-      type: 'category',
       label: 'HOPR dApps',
       items: [
         'dapps/visualizer',
