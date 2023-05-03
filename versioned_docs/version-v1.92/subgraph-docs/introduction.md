@@ -3,7 +3,6 @@ id: introduction
 title: Hopr Subgraph Introduction
 ---
 
-## HOPR Subgraph Introduction
 
 The following pages contain everything you need to know about the HOPR suite of subgraphs.
 

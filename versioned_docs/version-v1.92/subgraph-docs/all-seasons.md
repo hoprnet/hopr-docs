@@ -3,7 +3,6 @@ id: all-seasons
 title: Hopr All Seasons Subgraph Entities & Sample Queries
 ---
 
-## All Seasons Entities
 
 - [`StakingParticipation`](#stakingparticipation)
 - [`Boost`](#boost)

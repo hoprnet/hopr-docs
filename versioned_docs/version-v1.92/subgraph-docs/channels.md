@@ -3,7 +3,6 @@ id: channels
 title: Hopr Channels Subgraph Entities & Sample Queries
 ---
 
-## HOPR Channels (`monte_rosa` release) - Entities
 
 - [Account](#account)
 - [StatusSnapshot](#statussnapshot)

@@ -3,7 +3,7 @@ id: stake-season6
 title: Hopr Stake Season 6 Subgraph Entities & Sample Queries
 ---
 
-## HOPR Stake Season6 - Entities
+
 
 - [Account](#account)
 - [Boost](#boost)

@@ -3,7 +3,6 @@ id: hopr-token-gnosis
 title: Hopr Token Gnosis Subgraph Entities & Sample Queries
 ---
 
-## HOPR Token (Gnosis) - Entities
 
 - [Account](#account)
 

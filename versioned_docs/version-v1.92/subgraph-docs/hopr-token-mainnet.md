@@ -3,7 +3,7 @@ id: hopr-token-mainnet
 title: Hopr Token Mainnet Subgraph Entities & Sample Queries
 ---
 
-## HOPR Token (Mainnet) - Entities
+
 
 - [Account](#account)
 
