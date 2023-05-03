@@ -1,11 +1,8 @@
 ---
-id: entities-and-queries
-sidebar_position: 2
-sidebar_label: Token (Mainnet)
-title: Entities & Sample Queries
+id: hopr-token-mainnet
+title: Hopr Token (Mainnet) Subgraph Entities & Sample Queries
 ---
 
-## HOPR Token (Mainnet) - Entities
 
 - [Account](#account)
 

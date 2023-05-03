@@ -1,11 +1,8 @@
 ---
-id: entities-and-queries
-sidebar_position: 3
-sidebar_label: Token (Gnosis)
-title: Entities & Sample Queries
+id: hopr-token-gnosis
+title: Hopr Token (Gnosis) Subgraph Entities & Sample Queries
 ---
 
-## HOPR Token (Gnosis) - Entities
 
 - [Account](#account)
 
