@@ -96,7 +96,7 @@ Before downloading the HOPRd image, make sure **Docker** is installed.
 
 All our docker images can be found in [our Google Cloud Container Registry](https://console.cloud.google.com/gcr/images/hoprassociation/global/hoprd).
 Each image is prefixed with `gcr.io/hoprassociation/hoprd`.
-The `1.92.12` tag represents the latest community release version.
+The `1.93.5` tag represents the latest community release version.
 
 ### Install HOPRd with Grafana
 
