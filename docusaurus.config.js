@@ -68,7 +68,7 @@ const config = {
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css',
     'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
   ],
-  scripts: [{ src: 'https://cdn.usefathom.com/script.js', 'data-site': 'WMCAULEA', 'data-included-domains': 'docs.hoprnet.org', defer: true }],
+  scripts: [{ src: 'https://cdn-eu.usefathom.com/script.js', 'data-site': 'WMCAULEA', 'data-included-domains': 'docs.hoprnet.org', defer: true }],
   presets: [
     redocusaurus,
     [
