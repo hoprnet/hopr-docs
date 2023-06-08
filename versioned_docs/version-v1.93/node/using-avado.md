@@ -43,6 +43,18 @@ If you have previously installed a node and have the [identity file downloaded](
 
 (**4**) In the second text field, paste `/app/hoprd-db`, then click `Upload` to the right of the text field.
 
+### Backup Identity File
+
+For Avado, you have to specify you want to download /app/hoprd-db in the Avado UI. Locate your HOPR package and click on the 'manage' icon.
+
+![avado manage](/img/node/avado-manage.png)
+
+From here, scroll down to the file manager and enter `/app/hoprd-db/.hopr-identity` in the field under `Download from DNP`. Then click 'Download'. This will download the file `hopr-identity.tar.gz` which you will need to rename to `.hopr-identity`.
+
+![avado download](/img/node/avado-db.png)
+
+Use this to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
+
 ## Collecting Logs
 
 If your node crashes, you will want to collect the logs and pass them on to our ambassadors on telegram or create an issue on GitHub.
