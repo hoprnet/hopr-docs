@@ -129,7 +129,7 @@ From here, scroll down to the file manager and enter `/app/hoprd-db/.hopr-identi
 
 ![avado download](/img/node/avado-db.png)
 
-Use this to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
+Use the identity file to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
 
 **_Note:_** Make sure you enter `/app/hoprd-db` and not `/app/hoprd-db/`.
 
