@@ -37,6 +37,24 @@ Find HOPR in your packages and navigate to the backup section. From there, all y
 
 ![dappnode restore](/img/node/dappnode-backup.png)
 
+### Backup Identity File
+
+Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](using-dappnode#restoring-an-old-node) if needed.
+
+![dappnode backup](/img/node/dappnode-backup.png)
+
+#### How to view your DAppNode identity file:
+
+You will not be able to use the identity file alone to [restore your old node](using-dappnode#restoring-an-old-node) on DAppNode and should use the entire zipped backup file. The instructions below are simply to view your identity file.
+
+(**1**) Extract the zipped file downloaded to see the DB folder and identity file.
+
+(**2**) Once extracted, open the folder: `db`.
+
+![dappnode db folder](/img/node/Dappnode-DB-folder.png)
+
+(**3**) You will see the file `identity` if hidden files are visible.
+
 ## Collecting Logs
 
 If your node crashes, you will want to collect the logs and pass them on to our ambassadors on telegram or create an issue on GitHub.

@@ -60,6 +60,8 @@ git clone https://github.com/hoprnet/hoprnet.git
 cd hoprnet
 ```
 
+**NOTE:** It is highly recomended to change the default `HOPRD_PASSWORD` in the `scripts/compose/.env` file when running the HOPRd using Docker Compose.
+
 (**3**) Run the following command to start up a HOPRd node with monitoring capabilities:
 
 ```bash

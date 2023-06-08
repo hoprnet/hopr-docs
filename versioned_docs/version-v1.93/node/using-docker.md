@@ -211,9 +211,15 @@ In general, you will only want to change these port numbers if you intend to run
 
 **Note:** For the initial Monte Rosa release, you will only be allowed to register a single node at a time.
 
+## Backup Identity file 
+
+For Docker the identity fle is automatically created and stored on your OS at the path specified: `/<computer username>/.hoprd-db-monte-rosa/.hopr-id-monte-rosa`.
+
+Use this file to restore an old node when moving between devices.
+
 ## Collecting Logs
 
-If your node crashes, you will want to collect the logs and pass them on to our ambassadors on telegram or create an issue on GitHub.
+If your node crashes, you will want to collect the logs and pass them on to our ambassadors on [telegram](https://t.me/hoprnet) or create an issue on GitHub.
 
 To collect the logs:
 
