@@ -127,7 +127,7 @@ You will not be able to use the identity file alone to [restore your old node](u
 
 From here, scroll down to the file manager and enter `/app/hoprd-db/.hopr-identity` in the field under `Download from DNP`. Then click 'Download'. This will download the file `hopr-identity.tar.gz` which you will need to rename to `.hopr-identity`.
 
-![avado download](/img/node/avado-db.png)
+![avado download](/img/node/Avado_backup_identity_file.png)
 
 Use the identity file to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
 

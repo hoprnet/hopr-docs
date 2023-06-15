@@ -3,6 +3,9 @@ id: starting-local-cluster
 title: HOPR Cluster Development Setup
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The best way to learn and develop the HOPR protocol is by interacting with a HOPR node connected inside the HOPR network.
 A series of HOPR nodes fully interconnected with each other is called a HOPR cluster.
 
@@ -23,13 +26,15 @@ You can run a HOPR cluster locally or use [Playground](https://playground.hoprne
 ## Use the latest release
 
 Due to the rapid development done on the project, you might be better off using a stable
-release. The latest stable release known at the time of writing is [`Valencia`](https://github.com/hoprnet/hoprnet/archive/refs/heads/release/valencia.zip).
+release. The latest stable release known at the time of writing is [`Bratislava`](https://github.com/hoprnet/hoprnet/archive/refs/heads/release/bratislava.zip).
 
 ## Which setup should I use?
 
-- [Playground](https://docs.hoprnet.org/developers/starting-local-cluster#playground) is the preferred setup for most dApp developers. You can launch a fully interconnected cluster without installation or funding and test with the generated endpoints and API Keys.
+- [Playground](./starting-local-cluster.md#playground) is the preferred setup for most dApp developers. You can launch a fully interconnected cluster without installation or funding and test with the generated endpoints and API Keys.
 
-- [Local setup:](https://docs.hoprnet.org/developers/starting-local-cluster#local-setup) is the setup used by our core developers. It requires installing Rust and quite a few dependencies and is generally a much longer setup but still relatively simple if you are on Linux or macOS. This comes with the advantage of not having to launch a new cluster every 20 minutes, as Playground clusters only last 20 minutes at a time.
+- [Local setup:](./starting-local-cluster.md#local-setup) is a setup used by our core developers. It requires installing Rust and quite a few dependencies and is generally a much longer setup but still relatively simple if you are on Linux or macOS. This comes with the advantage of not having to launch a new cluster every 20 minutes, as Playground clusters only last 20 minutes at a time.
+
+- [Docker setup](./starting-local-cluster.md#docker-setup) is a new local setup which is faster and easier to use than the original. 
 
 **Note:** Playground uses HTTPS/WSS, and the local setup uses HTTP/WS.
 
@@ -40,13 +45,13 @@ Your ideal setup will depend on your personal preferences and what operating sys
 Running a local setup will give you a similar setup to the one the HOPR team works with on a daily basis. After all dependencies are installed,
 this configuration will allow you to develop HOPR apps offline.
 
-1. **Download the latest version of the repository**: Download a local version of our [GitHub repository monorepo](https://github.com/hoprnet/hoprnet/tree/release/valencia)
-   with the latest release (`valencia` at the time of writing) and unzip it in your local folder (roughly `~30 Mb` at the time of writing). For the next tasks, we will assume you are within that folder.
+1. **Download the latest version of the repository**: Download a local version of our [GitHub repository monorepo](https://github.com/hoprnet/hoprnet/tree/release/bratislava)
+   with the latest release (`bratislava` at the time of writing) and unzip it in your local folder. For the next tasks, we will assume you are within that folder.
 
 ```bash
-wget https://github.com/hoprnet/hoprnet/archive/refs/heads/release/valencia.zip
-unzip valencia.zip
-cd hoprnet-release-valencia
+wget https://github.com/hoprnet/hoprnet/archive/refs/heads/release/bratislava.zip
+unzip bratislava.zip
+cd hoprnet-release-bratislava
 ```
 
 2. **Install the dependencies of the project and build it**:
@@ -99,6 +104,66 @@ export HOPR_NODE_2_HTTP_URL=http://127.0.0.1:13302 HOPR_NODE_2_WS_URL=ws://127.0
 export HOPR_NODE_3_HTTP_URL=http://127.0.0.1:13303 HOPR_NODE_3_WS_URL=ws://127.0.0.1:13303/api/v2/messages/websocket
 export HOPR_NODE_4_HTTP_URL=http://127.0.0.1:13304 HOPR_NODE_4_WS_URL=ws://127.0.0.1:13304/api/v2/messages/websocket
 export HOPR_NODE_5_HTTP_URL=http://127.0.0.1:13305 HOPR_NODE_5_WS_URL=ws://127.0.0.1:13305/api/v2/messages/websocket
+```
+
+## Docker Setup 
+
+The Docker setup will give you a similar setup to what the HOPR devs use on a daily basis. 
+
+1. **Make sure you have Docker installed**:
+
+Before doing anything else, you need to install **Docker** on your machine.
+
+<Tabs>
+<TabItem value="Linux" label="Linux">
+
+Depending on your distribution, please follow the official guidelines to install and run Docker on your workstation.
+
+- [Installing Docker in Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [Installing Docker in Fedora](https://docs.docker.com/engine/install/fedora/)
+- [Installing Docker in Debian](https://docs.docker.com/engine/install/debian/)
+- [Installing Docker in CentOS](https://docs.docker.com/engine/install/centos/)
+
+</TabItem>
+<TabItem value="mac" label="macOS">
+
+1. Visit [Docker](https://www.docker.com/get-started) and download Docker Desktop to your computer.
+2. Follow the wizard steps to ensure Docker is installed.
+3. Ensure the installation was successful by running `docker ps` in your terminal.
+
+</TabItem>
+</Tabs>
+
+2. **Start up the cluster**:
+
+With Docker installed, you can create a fully interconnected cluster of nodes with the single command:
+
+```
+docker run -ti -p 13301-13305:13301-13305 gcr.io/hoprassociation/hopr-pluto:1.93.7
+```
+
+As the script runs, a set of accounts with their respective HTTP REST API, HOPR Admin, and WebSocket interfaces will be displayed
+on your screen. As soon as the script finishes starting up the local cluster, it will suggest that you `source` the `local-cluster.env` file.
+This should be done in each terminal you'll be communicating with the local cluster nodes as it will set up all the environment variables
+necessary for the following pages.
+
+Alternatively, you can copy and paste these URLs and `export` them to your terminal:
+
+```bash
+export apiToken=^^LOCAL-testing-123^^
+export HOPR_NODE_1_HTTP_URL=http://127.0.0.1:13301 HOPR_NODE_1_WS_URL=ws://127.0.0.1:13301/api/v2/messages/websocket
+export HOPR_NODE_2_HTTP_URL=http://127.0.0.1:13302 HOPR_NODE_2_WS_URL=ws://127.0.0.1:13302/api/v2/messages/websocket
+export HOPR_NODE_3_HTTP_URL=http://127.0.0.1:13303 HOPR_NODE_3_WS_URL=ws://127.0.0.1:13303/api/v2/messages/websocket
+export HOPR_NODE_4_HTTP_URL=http://127.0.0.1:13304 HOPR_NODE_4_WS_URL=ws://127.0.0.1:13304/api/v2/messages/websocket
+export HOPR_NODE_5_HTTP_URL=http://127.0.0.1:13305 HOPR_NODE_5_WS_URL=ws://127.0.0.1:13305/api/v2/messages/websocket
+```
+
+3. **Setup HOPR-Admin**:
+
+You will have to seperately launch HOPR-Admin. You can do this using the following command:
+
+```
+docker run -d --name hopr_admin -p 3000:3000 gcr.io/hoprassociation/hopr-admin
 ```
 
 ## Playground
