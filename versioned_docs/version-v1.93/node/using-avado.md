@@ -105,3 +105,126 @@ To change your RPC endpoint:
 (**4**) Click 'Update environment variables' and wait for your node to restart.
 
 All done! Your Avado node will now use your specified RPC endpoint.
+
+## Transitioning to Dappnode
+
+:::info INFO
+**Important:** Before following this guide to install DappnodeOS on your Avado device, make sure to first [backup your identity file.](./using-avado.md#backup-identity-file)
+
+If you are running a validator or any other dApp, creating a backup of the data is crucial, as the migration process will wipe out all existing data.
+:::
+
+### Prerequisites
+
+To complete the transition, you will need the following:
+
+- An empty USB with at least 2 GB of space
+- Physical access to your Avado node 
+
+### How to convert your Avado node to a Dappnode 
+
+(**1**) Create a bootable USB from the provided ISO file: [https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso). 
+
+We strongly recommend using this tool [https://etcher.balena.io/#download-etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
+
+<!-- INSERT INSTRUCTIONS ON HOW TO USE ETCHER BALENA -->
+
+(**2**) Attach the bootable USB to any Avado USB port and connect an Ethernet cable to provide internet connectivity to the Avado device.
+
+(**3**) Turn on the Avado device, sit back, relax, and set a timer for 15 minutes.
+
+(**4**) After 15 minutes, turn off the Avado device by clicking on the button located in front and wait until the red light goes off.
+
+(**5**) Turn on the Avado device, remove the USB, and wait 5 minutes, and afterwards, check if `DappNodeWifi` has appeared on your computer's wifi list. Wifi password: `dappnode`
+
+**Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
+
+(**6**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: http://my.dappnode/
+
+### Additional Steps To Complete The Installation 
+
+These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
+
+To login to your new Dappnode, you will need either:
+
+- An external monitor, external keyboard & HDMI cable.
+- Or, the [internal IP of your connected Avado/Dappnode](./using-avado.md#how-to-find-your-internal-ip-address). 
+
+If you have the internal IP address of your device you can [login using SSH](./using-avado.md#login-using-ssh), otherwise you can [use an external monitor and keyboard](./using-avado.md#login-using-an-external-monitor--keyboard) to interact with your Avado/Dappnode directly.  
+
+### Login Using SSH 
+
+To complete the installation using SSH, you will need to make sure you know your device's internal IP address. You can follow [these steps](./using-avado.md#how-to-find-your-internal-ip-address) to find your internal IP address, if you haven't already.
+
+(**1**) Connect to your now converted dappnode by entering the following command into your terminal:
+
+```bash 
+ssh dappnode@<YourInternalIPAddress> 
+```
+
+**Note:** replace <YourInternalIPAddress> with your devices' internal IP address. 
+
+<!-- ADD SCREENSHOT OF SSH COMMAND -->
+
+(**2**) You will then be asked to log in. Use the following default credentials to log in:
+
+```bash
+Username: dappnode
+Password: dappnode.s0
+```
+
+<!-- ADD SCREENSHOT OF LOGIN -->
+
+(**3**) Once you've logged in, complete the installation through the terminal as documented [here.](./using-avado.md#complete-installation)
+
+### Login Using An External Monitor & Keyboard
+
+You can log in to your node using an external monitor & keyboard. 
+
+(**1**) Plug in your monitor to your Avado/Dappnode using an HDMI cable.
+
+(**2**) Plug in your external keyboard to your Avado/Dappnode device. 
+
+Your monitor should display a screen similar to the following, asking for your login details:
+
+<!-- INSERT SCREENSHOT -->
+
+(**3**) Use the following default credentials to login:
+
+```bash
+Username: dappnode
+Password: dappnode.s0
+```
+
+<!-- ADD SCREENSHOT OF LOGIN -->
+
+(**4**) Once you've logged in, complete the installation through the terminal as documented [here.](./using-avado.md#complete-installation)
+
+### Complete Installation
+
+(**1**) Install the prerequisites using the following command:
+
+```bash
+sudo wget -O - https://prerequisites.dappnode.io | sudo bash
+```
+
+(**2**) Install the dappnode package using the following command:
+
+```bash
+Install dappnode package: sudo wget -O - https://installer.dappnode.io | sudo bash
+```
+
+**Note:** You may receive the following error running this command: `openvt: command not found`. If this is the case, then run the following command `sudo apt-get install -y kbd` followed by `sudo reboot`. Then try running the command again. 
+
+(**3**) Finally, run the command:
+
+```bash 
+sudo reboot 
+```
+
+(**4**) Wait a few minutes and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
+
+
+### How to find your internal IP address
+
+
