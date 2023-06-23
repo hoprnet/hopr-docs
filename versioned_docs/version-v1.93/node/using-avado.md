@@ -139,7 +139,7 @@ We strongly recommend using this tool [https://etcher.balena.io/#download-etcher
 
 **Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
 
-(**6**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: http://my.dappnode/
+(**6**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/)
 
 ### Additional Steps To Complete The Installation 
 
