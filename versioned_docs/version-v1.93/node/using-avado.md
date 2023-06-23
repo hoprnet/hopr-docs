@@ -150,7 +150,7 @@ To login to your new Dappnode, you will need either:
 - An external monitor, external keyboard & HDMI cable.
 - Or, the [internal IP of your connected Avado/Dappnode](./using-avado.md#how-to-find-your-internal-ip-address). 
 
-If you have the internal IP address of your device you can [login using SSH](./using-avado.md#login-using-ssh), otherwise you can [use an external monitor and keyboard](./using-avado.md#login-using-an-external-monitor--keyboard) to interact with your Avado/Dappnode directly.  
+If you have the internal IP address of your device you can [login using SSH](./using-avado.md#login-using-ssh), otherwise you can [use an external monitor and keyboard](./using-avado.md#login-using-an-external-monitor-and-keyboard) to interact with your Avado/Dappnode directly.  
 
 ### Login Using SSH 
 
@@ -177,7 +177,7 @@ Password: dappnode.s0
 
 (**3**) Once you've logged in, complete the installation through the terminal as documented [here.](./using-avado.md#complete-installation)
 
-### Login Using An External Monitor & Keyboard
+### Login Using An External Monitor and Keyboard
 
 You can log in to your node using an external monitor & keyboard. 
 
