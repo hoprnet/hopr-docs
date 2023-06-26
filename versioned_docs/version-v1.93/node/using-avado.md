@@ -188,7 +188,7 @@ ssh dappnode@[INSERT_YourInternalIPAddress]
 
 **Note:** replace `[INSERT_YourInternalIPAddress]` with your devices' internal IP address E.g. `192.xxx.x.xxx`. 
 
-![Dappnode Login](/img/node/Dappnode_ssh.png)
+![Dappnode Login](/img/node/Dappnode_ssh_1.png)
 
 (**2**) You will then be asked to log in. Use the following default credentials to log in:
 
@@ -260,7 +260,7 @@ To find your Device's internal IP address, you need to look through the connecte
 
 (**3**) Login to your browser's UI, and then locate the connected devices panel. Here you should find the device `dappnode` along with the IP address of the device. 
 
-![Dappnode internal IP](/img/node/Dappnode_internal_IP.png)
+![Dappnode internal IP](/img/node/Dappnode_internal_IP_1.png)
 
 ### How To Re-Install Dappnode 
 
