@@ -127,7 +127,7 @@ To complete the transition, you will need the following:
 
 We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
 
-**Note:** The following few instructions show how to use Etcher to create a bootable USB. But you can use any tool for this.
+**Note:** The following instructions show how to use Etcher to create a bootable USB. But you can use any tool for this.
 
 (**2**) Download Etcher; you can download it [here.](https://etcher.balena.io/#download-etcher)
 
@@ -149,7 +149,7 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 (**8**) Attach the bootable USB to any Avado USB port and connect an Ethernet cable to provide internet to the Avado device.
 
-(**9**) With the USB attached, turn on the Avado device, and **wait 15 minutes**.
+(**9**) With the USB attached, turn on the Avado device and **wait 15 minutes**.
 
 (**10**) **After 15 minutes**, turn off the Avado device by holding the power button and waiting until the red light goes off.
 
@@ -161,9 +161,9 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 **Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
 
-(**13**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md)  
+(**13**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md) 
 
-### Additional Steps To Complete The Installation 
+### Additional Steps To Troubleshoot Your Installation 
 
 These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
 
