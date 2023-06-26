@@ -145,7 +145,7 @@ You can see how to create a bootable USB using Etcher [here.](./using-avado.md#h
 
 **Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
 
-(**7**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to setup your HOPR node.](./using-dappnode.md)  
+(**7**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md)  
 
 ### Additional Steps To Complete The Installation 
 
@@ -232,12 +232,11 @@ sudo reboot
 
 (**4**) Wait a few minutes and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
 
-
 ### How To Find Your Device's Internal IP Address
 
-To find your Device's internal IP address you need to look through teh connected devices in your browser's UI. Where this is located on your UI will depend on your internet provider but the general format can be followed as is below. 
+To find your Device's internal IP address, you need to look through the connected devices in your browser's UI. Where this is located on your UI will depend on your internet provider, but the general format can be followed as is below. 
 
-(**1**) Find your Router's IP address. For Window's and macOS users you can use [this guide.](https://www.hellotech.com/guide/for/how-do-i-find-my-router-ip-address)
+(**1**) Find your Router's IP address. For Windows and macOS users, you can use [this guide.](https://www.hellotech.com/guide/for/how-do-i-find-my-router-ip-address)
 
 (**2**) Log in to your router's UI by entering your IP address into your browser. You will be greeted with a screen similar to the following (this will vary depending on your provider):
 
@@ -249,12 +248,12 @@ To find your Device's internal IP address you need to look through teh connected
 
 ### How To Create A Bootable USB Using Etcher
 
-These instructions are specifically to create a bootable USB to install Dappnode and assumes you have:
+These instructions are specifically to create a bootable USB to install Dappnode and assume you have:
 
 - An emptied USB with 2 GB of space 
-- A downloaded copy this [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso)
+- A downloaded copy of this [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso)
 
-(**1**) Download Etcher, you can downlaod it [here.](https://etcher.balena.io/#download-etcher)
+(**1**) Download Etcher; you can download it [here.](https://etcher.balena.io/#download-etcher)
 
 ![Download Etcher](/img/node/Download_Etcher.png)
 
@@ -268,13 +267,13 @@ These instructions are specifically to create a bootable USB to install Dappnode
 
 ![Loading Flash](/img/node/Loading_flash.png)
 
-(**5**) Once the downlaod completes you can remove the USB and use it to upgrade your Avado node's software.
+(**5**) Once the download completes, you can remove the USB and use it to upgrade your Avado node's software.
 
 ### How To Re-Install Dappnode 
 
 These are instructions to re-install Dappnode software on your Avado. This is only for troubleshooting a failed previous installation.
 
-To do this you will need:
+To do this, you will need:
 
 - Physical access to your Avado device
 - A micro screwdriver
@@ -282,15 +281,15 @@ To do this you will need:
 
 (**1**) Remove the power cable and any other cables from your Avado device.
 
-(**2**) Remove the bottom of your Avado (you will need a micro scredriver for this).
+(**2**) Remove the bottom of your Avado (you will need a micro screwdriver for this).
 
-(**3**) Locate the Battery (it will be located under the ram module) and remove it.
+(**3**) Locate the battery (it will be located under the ram module) and remove it.
 
-(**4**) After removing the battery, wait **10 minutes.** Then add teh battery and any otehr detached modules back to the device and screw back on the bottom.
+(**4**) After removing the battery, wait for **10 minutes.** Then add the battery and any other detached modules back to the device and screw back on the bottom.
 
 (**5**) Re-attach the power supply and ethernet cable.
 
-(**6**) Turn on the Avado device for 2 minutes and then turn the device back on.
+(**6**) Turn on the Avado device for 2 minutes, and then turn the device back on.
 
 (**7**) Plug in the USB stick, and turn the device back on. 
 
@@ -298,4 +297,4 @@ To do this you will need:
 
 (**9**) Detach the USB and turn on your device.
 
-(**10**) Wait **5 minutes** and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
+(**10**) Wait for **5 minutes** and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
