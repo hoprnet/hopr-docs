@@ -165,9 +165,11 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 ### Additional Steps To Troubleshoot Your Installation 
 
+:::info Tip
 These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
 
 **Note:** If you can see the wifi network "DappNodeWifi" on your computer's list of available networks, you do not have to complete these additional steps.
+:::
 
 To login to your new Dappnode, you will need either:
 
