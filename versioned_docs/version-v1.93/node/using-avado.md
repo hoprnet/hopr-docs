@@ -108,7 +108,7 @@ All done! Your Avado node will now use your specified RPC endpoint.
 
 ## Transitioning To Dappnode
 
-:::info INFO
+:::caution Warning
 **Important:** Before following this guide to install DappnodeOS on your Avado device, make sure to first [backup your identity file.](./using-avado.md#backup-identity-file)
 
 If you are running a validator or any other dApp, creating a backup of the data is crucial, as the migration process will wipe out all existing data.
@@ -165,9 +165,11 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 ### Additional Steps To Troubleshoot Your Installation 
 
+:::info INFO
 These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
 
 **Note:** If you can see the wifi network "DappNodeWifi" on your computer's list of available networks, you do not have to complete these additional steps.
+:::
 
 To login to your new Dappnode, you will need either:
 
@@ -235,7 +237,7 @@ sudo wget -O - https://prerequisites.dappnode.io | sudo bash
 (**2**) Install the dappnode package using the following command:
 
 ```bash
-Install dappnode package: sudo wget -O - https://installer.dappnode.io | sudo bash
+sudo wget -O - https://installer.dappnode.io | sudo bash
 ```
 
 **Note:** You may receive the following error running this command: `openvt: command not found`. If this is the case, then run the following command `sudo apt-get install -y kbd` followed by `sudo reboot`. Then try running the command again. 
