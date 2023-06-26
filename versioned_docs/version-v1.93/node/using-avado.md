@@ -106,7 +106,7 @@ To change your RPC endpoint:
 
 All done! Your Avado node will now use your specified RPC endpoint.
 
-## Transitioning to Dappnode
+## Transitioning To Dappnode
 
 :::info INFO
 **Important:** Before following this guide to install DappnodeOS on your Avado device, make sure to first [backup your identity file.](./using-avado.md#backup-identity-file)
@@ -127,23 +127,31 @@ To complete the transition, you will need the following:
 
 We strongly recommend using this tool [https://etcher.balena.io/#download-etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
 
-<!-- INSERT INSTRUCTIONS ON HOW TO USE ETCHER BALENA -->
+You can see how to create a bootable USB using Etcher [here.](./using-avado.md#how-to-create-a-bootable-usb)
 
-(**2**) Attach the bootable USB to any Avado USB port and connect an Ethernet cable to provide internet connectivity to the Avado device.
+(**2**) Turn off your Avado device by holding the power button at the front.
 
-(**3**) Turn on the Avado device, sit back, relax, and set a timer for 15 minutes.
+(**3**) Attach the bootable USB to any Avado USB port and connect an Ethernet cable to provide internet to the Avado device.
 
-(**4**) After 15 minutes, turn off the Avado device by clicking on the button located in front and wait until the red light goes off.
+(**4**) With the USB attached, turn on the Avado device, and **wait 15 minutes**.
 
-(**5**) Turn on the Avado device, remove the USB, and wait 5 minutes, and afterwards, check if `DappNodeWifi` has appeared on your computer's wifi list. Wifi password: `dappnode`
+(**5**) **After 15 minutes**, turn off the Avado device by holding the power button and waiting until the red light goes off.
+
+(**6**) Now remove the USB, turn the Avado device back on, and **wait 5 minutes**. 
+
+(**7**) After 5 minutes have passed, check if `DappNodeWifi` has appeared on your computer's wifi list. If it has, try and log in with the Wifi password: `dappnode`
+
+![Dappnode Wifi](/img/node/Dappnode_wifi.png)
 
 **Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
 
-(**6**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/)
+(**7**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to setup your HOPR node.](./using-dappnode.md)  
 
 ### Additional Steps To Complete The Installation 
 
 These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
+
+**Note:** If you can see the wifi network "DappNodeWifi" on your computer's list of available networks, you do not have to complete these additional steps.
 
 To login to your new Dappnode, you will need either:
 
@@ -159,12 +167,12 @@ To complete the installation using SSH, you will need to make sure you know your
 (**1**) Connect to your now converted dappnode by entering the following command into your terminal:
 
 ```bash 
-ssh dappnode@<YourInternalIPAddress> 
+ssh dappnode@[INSERT_YourInternalIPAddress]
 ```
 
-**Note:** replace <YourInternalIPAddress> with your devices' internal IP address. 
+**Note:** replace `[INSERT_YourInternalIPAddress]` with your devices' internal IP address E.g. `192.xxx.x.xxx`. 
 
-<!-- ADD SCREENSHOT OF SSH COMMAND -->
+![Dappnode Login](/img/node/Dappnode_ssh.png)
 
 (**2**) You will then be asked to log in. Use the following default credentials to log in:
 
@@ -172,8 +180,6 @@ ssh dappnode@<YourInternalIPAddress>
 Username: dappnode
 Password: dappnode.s0
 ```
-
-<!-- ADD SCREENSHOT OF LOGIN -->
 
 (**3**) Once you've logged in, complete the installation through the terminal as documented [here.](./using-avado.md#complete-installation)
 
@@ -185,9 +191,7 @@ You can log in to your node using an external monitor & keyboard.
 
 (**2**) Plug in your external keyboard to your Avado/Dappnode device. 
 
-Your monitor should display a screen similar to the following, asking for your login details:
-
-<!-- INSERT SCREENSHOT -->
+Your monitor should display a screen asking for your login details.
 
 (**3**) Use the following default credentials to login:
 
@@ -196,11 +200,15 @@ Username: dappnode
 Password: dappnode.s0
 ```
 
-<!-- ADD SCREENSHOT OF LOGIN -->
-
 (**4**) Once you've logged in, complete the installation through the terminal as documented [here.](./using-avado.md#complete-installation)
 
-### Complete Installation
+### Complete Installation 
+
+These are additional steps to complete the installation of Dappnode software in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
+
+Follow these steps after having logged into your now semi-transitioned Avado device. You should see the following screen:
+
+![Dappnode Screen](/img/node/Dappnode_screen.png)
 
 (**1**) Install the prerequisites using the following command:
 
@@ -225,6 +233,69 @@ sudo reboot
 (**4**) Wait a few minutes and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
 
 
-### How to find your internal IP address
+### How To Find Your Device's Internal IP Address
 
+To find your Device's internal IP address you need to look through teh connected devices in your browser's UI. Where this is located on your UI will depend on your internet provider but the general format can be followed as is below. 
 
+(**1**) Find your Router's IP address. For Window's and macOS users you can use [this guide.](https://www.hellotech.com/guide/for/how-do-i-find-my-router-ip-address)
+
+(**2**) Log in to your router's UI by entering your IP address into your browser. You will be greeted with a screen similar to the following (this will vary depending on your provider):
+
+![Browser UI Login](/img/node/browser_UI_login.png)
+
+(**3**) Login to your browser's UI, and then locate the connected devices panel. Here you should find the device `dappnode` along with the IP address of the device. 
+
+![Dappnode internal IP](/img/node/Dappnode_internal_IP.png)
+
+### How To Create A Bootable USB Using Etcher
+
+These instructions are specifically to create a bootable USB to install Dappnode and assumes you have:
+
+- An emptied USB with 2 GB of space 
+- A downloaded copy this [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso)
+
+(**1**) Download Etcher, you can downlaod it [here.](https://etcher.balena.io/#download-etcher)
+
+![Download Etcher](/img/node/Download_Etcher.png)
+
+(**2**) Plug your USB stick into your computer and open Etcher.
+
+![Open Etcher](/img/node/Open_Etcher.png)
+
+(**3**) Press the `Flash from file` button and select the Dappnode ISO file when prompted.
+
+(**4**) Then press `Flash!` and wait for the download to complete.
+
+![Loading Flash](/img/node/Loading_flash.png)
+
+(**5**) Once the downlaod completes you can remove the USB and use it to upgrade your Avado node's software.
+
+### How To Re-Install Dappnode 
+
+These are instructions to re-install Dappnode software on your Avado. This is only for troubleshooting a failed previous installation.
+
+To do this you will need:
+
+- Physical access to your Avado device
+- A micro screwdriver
+- A bootable USB with Dappnode software
+
+(**1**) Remove the power cable and any other cables from your Avado device.
+
+(**2**) Remove the bottom of your Avado (you will need a micro scredriver for this).
+
+(**3**) Locate the Battery (it will be located under the ram module) and remove it.
+
+(**4**) After removing the battery, wait **10 minutes.** Then add teh battery and any otehr detached modules back to the device and screw back on the bottom.
+
+(**5**) Re-attach the power supply and ethernet cable.
+
+(**6**) Turn on the Avado device for 2 minutes and then turn the device back on.
+
+(**7**) Plug in the USB stick, and turn the device back on. 
+
+(**8**) Wait for **15 minutes**, then turn off the device.
+
+(**9**) Detach the USB and turn on your device.
+
+(**10**) Wait **5 minutes** and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
