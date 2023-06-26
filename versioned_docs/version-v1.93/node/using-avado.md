@@ -237,7 +237,7 @@ sudo wget -O - https://prerequisites.dappnode.io | sudo bash
 (**2**) Install the dappnode package using the following command:
 
 ```bash
-Install dappnode package: sudo wget -O - https://installer.dappnode.io | sudo bash
+sudo wget -O - https://installer.dappnode.io | sudo bash
 ```
 
 **Note:** You may receive the following error running this command: `openvt: command not found`. If this is the case, then run the following command `sudo apt-get install -y kbd` followed by `sudo reboot`. Then try running the command again. 
