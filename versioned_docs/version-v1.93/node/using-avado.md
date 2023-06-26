@@ -108,7 +108,7 @@ All done! Your Avado node will now use your specified RPC endpoint.
 
 ## Transitioning To Dappnode
 
-:::info INFO
+:::caution Warning
 **Important:** Before following this guide to install DappnodeOS on your Avado device, make sure to first [backup your identity file.](./using-avado.md#backup-identity-file)
 
 If you are running a validator or any other dApp, creating a backup of the data is crucial, as the migration process will wipe out all existing data.
@@ -165,7 +165,7 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 ### Additional Steps To Troubleshoot Your Installation 
 
-:::info Tip
+:::info INFO
 These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
 
 **Note:** If you can see the wifi network "DappNodeWifi" on your computer's list of available networks, you do not have to complete these additional steps.
