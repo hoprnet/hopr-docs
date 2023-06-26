@@ -123,7 +123,7 @@ To complete the transition, you will need the following:
 
 ### How to convert your Avado node to a Dappnode 
 
-(**1**) Create a bootable USB from [this ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso). 
+(**1**) Create a bootable USB from [this ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.73/DAppNode-v0.2.73-debian-bullseye-amd64-unattended.iso). 
 
 We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
 
@@ -137,7 +137,7 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 ![Open Etcher](/img/node/Open_Etcher.png)
 
-(**4**) Press the `Flash from file` button and select the Dappnode ISO file when prompted.
+(**4**) Press the `Flash from file` button and select the [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.73/DAppNode-v0.2.73-debian-bullseye-amd64-unattended.iso) when prompted.
 
 (**5**) Then press `Flash!` and wait for the download to complete.
 
