@@ -123,29 +123,45 @@ To complete the transition, you will need the following:
 
 ### How to convert your Avado node to a Dappnode 
 
-(**1**) Create a bootable USB from the provided ISO file: [https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso). 
+(**1**) Create a bootable USB from [this ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso). 
 
-We strongly recommend using this tool [https://etcher.balena.io/#download-etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
+We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
 
-You can see how to create a bootable USB using Etcher [here.](./using-avado.md#how-to-create-a-bootable-usb)
+**Note:** The following few instructions show how to use Etcher to create a bootable USB. But you can use any tool for this.
 
-(**2**) Turn off your Avado device by holding the power button at the front.
+(**2**) Download Etcher; you can download it [here.](https://etcher.balena.io/#download-etcher)
 
-(**3**) Attach the bootable USB to any Avado USB port and connect an Ethernet cable to provide internet to the Avado device.
+![Download Etcher](/img/node/Download_Etcher.png)
 
-(**4**) With the USB attached, turn on the Avado device, and **wait 15 minutes**.
+(**3**) Plug your USB stick into your computer and open Etcher.
 
-(**5**) **After 15 minutes**, turn off the Avado device by holding the power button and waiting until the red light goes off.
+![Open Etcher](/img/node/Open_Etcher.png)
 
-(**6**) Now remove the USB, turn the Avado device back on, and **wait 5 minutes**. 
+(**4**) Press the `Flash from file` button and select the Dappnode ISO file when prompted.
 
-(**7**) After 5 minutes have passed, check if `DappNodeWifi` has appeared on your computer's wifi list. If it has, try and log in with the Wifi password: `dappnode`
+(**5**) Then press `Flash!` and wait for the download to complete.
+
+![Loading Flash](/img/node/Loading_flash.png)
+
+(**6**) Once the download completes, you can remove the USB and use it to upgrade your Avado node's software.
+
+(**7**) Turn off your Avado device by holding the power button at the front.
+
+(**8**) Attach the bootable USB to any Avado USB port and connect an Ethernet cable to provide internet to the Avado device.
+
+(**9**) With the USB attached, turn on the Avado device, and **wait 15 minutes**.
+
+(**10**) **After 15 minutes**, turn off the Avado device by holding the power button and waiting until the red light goes off.
+
+(**11**) Now remove the USB, turn the Avado device back on, and **wait 5 minutes**. 
+
+(**12**) After 5 minutes have passed, check if `DappNodeWifi` has appeared on your computer's wifi list. If it has, try and log in with the Wifi password: `dappnode`
 
 ![Dappnode Wifi](/img/node/Dappnode_wifi.png)
 
 **Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
 
-(**7**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md)  
+(**13**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md)  
 
 ### Additional Steps To Complete The Installation 
 
@@ -245,29 +261,6 @@ To find your Device's internal IP address, you need to look through the connecte
 (**3**) Login to your browser's UI, and then locate the connected devices panel. Here you should find the device `dappnode` along with the IP address of the device. 
 
 ![Dappnode internal IP](/img/node/Dappnode_internal_IP.png)
-
-### How To Create A Bootable USB Using Etcher
-
-These instructions are specifically to create a bootable USB to install Dappnode and assume you have:
-
-- An emptied USB with 2 GB of space 
-- A downloaded copy of this [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.69/DAppNode-v0.2.69-debian-bullseye-amd64-unattended.iso)
-
-(**1**) Download Etcher; you can download it [here.](https://etcher.balena.io/#download-etcher)
-
-![Download Etcher](/img/node/Download_Etcher.png)
-
-(**2**) Plug your USB stick into your computer and open Etcher.
-
-![Open Etcher](/img/node/Open_Etcher.png)
-
-(**3**) Press the `Flash from file` button and select the Dappnode ISO file when prompted.
-
-(**4**) Then press `Flash!` and wait for the download to complete.
-
-![Loading Flash](/img/node/Loading_flash.png)
-
-(**5**) Once the download completes, you can remove the USB and use it to upgrade your Avado node's software.
 
 ### How To Re-Install Dappnode 
 
