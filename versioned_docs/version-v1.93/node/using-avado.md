@@ -119,7 +119,7 @@ If you are running a validator or any other dApp, creating a backup of the data 
 To complete the transition, you will need the following:
 
 - An empty USB with at least 2 GB of space
-- Physical access to your Avado node 
+- Physical access to your Avado device 
 
 ### How to convert your Avado node to a Dappnode 
 
@@ -190,7 +190,7 @@ ssh dappnode@[INSERT_YourInternalIPAddress]
 
 **Note:** replace `[INSERT_YourInternalIPAddress]` with your devices' internal IP address E.g. `192.xxx.x.xxx`. 
 
-![Dappnode Login](/img/node/Dappnode_ssh_1.png)
+![Dappnode Login](/img/node/Dappnode_ssh.png)
 
 (**2**) You will then be asked to log in. Use the following default credentials to log in:
 
@@ -262,7 +262,7 @@ To find your Device's internal IP address, you need to look through the connecte
 
 (**3**) Login to your browser's UI, and then locate the connected devices panel. Here you should find the device `dappnode` along with the IP address of the device. 
 
-![Dappnode internal IP](/img/node/Dappnode_internal_IP_1.png)
+![Dappnode internal IP](/img/node/Dappnode_internal_IP.png)
 
 ### How To Re-Install Dappnode 
 
