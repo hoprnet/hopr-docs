@@ -159,7 +159,7 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 ![Dappnode Wifi](/img/node/Dappnode_wifi.png)
 
-**Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-complete-the-installation) to complete the installation.
+**Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-troubleshoot-your-installation) to complete the installation.
 
 (**13**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md) 
 
