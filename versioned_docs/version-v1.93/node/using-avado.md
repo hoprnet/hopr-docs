@@ -45,15 +45,41 @@ If you have previously installed a node and have the [identity file downloaded](
 
 ### Backup Identity File
 
-For Avado, you have to specify you want to download /app/hoprd-db in the Avado UI. Locate your HOPR package and click on the 'manage' icon.
+For Avado, you have to specify you want to download /app/hoprd-db in the Avado UI. 
+
+(**1**) Locate your HOPR package and click on the 'manage' icon.
 
 ![avado manage](/img/node/avado-manage.png)
 
-From here, scroll down to the file manager and enter `/app/hoprd-db/.hopr-identity` in the field under `Download from DNP`. Then click 'Download'. This will download the file `hopr-identity.tar.gz` which you will need to rename to `.hopr-identity`.
+(**2**) From here, scroll down to the file manager and enter `/app/hoprd-db/.hopr-identity` in the field under `Download from DNP`.
 
 ![avado download](/img/node/avado-db.png)
 
-Use the identity file to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
+(**3**) Then click `Download`. This will download the file `hopr-identity.tar.gz` which you will need to rename to `.hopr-identity`.
+
+**Note:** Make sure to rename the file, as the incorrect file suffix will make using it or opening it impossible. On Windows this should be easy through the UI of the file manager. For mac users, you can follwo these additional [instructions to rename the file.](./using-avado.md#renaming-identity-file-on-macos)
+
+**Restoring an old node:** Use the identity file to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
+
+### Renaming Identity File On macOS
+
+Downloading the HOPR identity file on Avado downloads a text file tagged with an incorrect file type (.tar.gz), this means to use the file you will need to rename the file. On MacOS you will need to do following steps:
+
+(**1**) Open the terminal window and locate the dorectory of the downloaded HOPR identity file. E.g. for the default location `Downloads` use the command:
+
+```
+cd downloads
+```
+
+(**2**) Once in the correct directory, use the following command to rename the file:
+
+```
+mv hopr-identity.tar.gz .hopr-identity
+```
+
+(**3**) To see hidden files when prompted (E.g. when uploading the identity file to restore an old node) use the key combination: `Shift + command + .` 
+
+Make sure you are in the correct folder when looking for the idnetity file. 
 
 ## Collecting Logs
 
@@ -120,6 +146,14 @@ To complete the transition, you will need the following:
 
 - An empty USB with at least 2 GB of space
 - Physical access to your Avado device 
+
+**Please note your internal Avado IP address before starting this process**
+
+(**1**) Connect to your Avado Dashboard. You can do this by connecting to your Avado Wifi and going to this [page.](http://my.ava.do/)
+
+(**2**) Here click on the Avatar icon on the top right and from the drop down note your internal IP address. This will be extreemly useful in case troubleshooting is needed.
+
+![Avado Internal IP](/img/node/Avado_Internal_IP.png)
 
 ### How to convert your Avado node to a Dappnode 
 
@@ -284,7 +318,7 @@ To do this, you will need:
 
 (**5**) Re-attach the power supply and ethernet cable.
 
-(**6**) Turn on the Avado device for 2 minutes, and then turn the device back on.
+(**6**) Turn on the Avado device for 2 minutes, and then turn the device back off.
 
 (**7**) Plug in the USB stick, and turn the device back on. 
 
@@ -293,3 +327,6 @@ To do this, you will need:
 (**9**) Detach the USB and turn on your device.
 
 (**10**) Wait for **5 minutes** and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
+
+
+
