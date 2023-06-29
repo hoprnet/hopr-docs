@@ -27,17 +27,27 @@ If you are in the process of registering your node on the network registry, plea
 
 Otherwise, the installation process is complete! You can proceed to our [hoprd tutorial](using-hopr-admin).
 
-### Restoring an old node
+### Restoring an old node 
 
-If you have previously installed a node and have the [identity file downloaded](using-hopr-admin#backing-up-your-identity-file), you can use it to restore your old node.
+:::caution Warning
+**Important:** You should download the latest version of HOPR before trying to restore your node.
+:::
 
-**Note:** For DAppNode, you should download the latest version of HOPR before trying to restore your node.
+If you have previously installed a node and have the [identity Backup folder downloaded](./using-dappnode.md#backup-identity-file-backup-folder), you can use it to restore your old node.
 
-Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Restore' and open your [zipped backup file](using-hopr-admin#backing-up-your-identity-file) when prompted.
+**If you are restoring an Avado node**, you will have downloaded just the identity file, rather than the whole DB. As such will need to follow [these instructions instead.](./using-dappnode.md#restoring-an-avado-node-on-dappnode) 
+
+**If you are restoring a node backed up on Dappnode**, simply follow the instructions below.
+
+(**1**) Find HOPR in your packages and navigate to the backup section.
 
 ![dappnode restore](/img/node/dappnode-backup.png)
 
-### Backup Identity File
+(**2**) Simply, click `Restore` and open your [zipped backup file](./using-dappnode.md#backup-identity-file-backup-folder) when prompted.
+
+### Restoring An Avado Node On Dappnode
+
+### Backup Identity File (Backup Folder)
 
 Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](using-dappnode#restoring-an-old-node) if needed.
 

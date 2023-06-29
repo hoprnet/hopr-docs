@@ -57,15 +57,15 @@ For Avado, you have to specify you want to download /app/hoprd-db in the Avado U
 
 (**3**) Then click `Download`. This will download the file `hopr-identity.tar.gz` which you will need to rename to `.hopr-identity`.
 
-**Note:** Make sure to rename the file, as the incorrect file suffix will make using it or opening it impossible. On Windows this should be easy through the UI of the file manager. For mac users, you can follwo these additional [instructions to rename the file.](./using-avado.md#renaming-identity-file-on-macos)
+**Note:** Make sure to rename the file, as the incorrect file suffix will make using it or opening it impossible. On Windows, this should be easy through the UI of the file manager. For Mac users, you can follow these additional [instructions to rename the file.](./using-avado.md#renaming-identity-file-on-macos)
 
 **Restoring an old node:** Use the identity file to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
 
 ### Renaming Identity File On macOS
 
-Downloading the HOPR identity file on Avado downloads a text file tagged with an incorrect file type (.tar.gz), this means to use the file you will need to rename the file. On MacOS you will need to do following steps:
+Downloading the HOPR identity file on Avado downloads a text file tagged with an incorrect file type (.tar.gz). This means to use the file, you will need to rename the file. On MacOS, you will need to do the following steps:
 
-(**1**) Open the terminal window and locate the dorectory of the downloaded HOPR identity file. E.g. for the default location `Downloads` use the command:
+(**1**) Open the terminal window and locate the directory of the downloaded HOPR identity file. E.g. for the default location, `Downloads` use the command:
 
 ```
 cd downloads
@@ -77,9 +77,9 @@ cd downloads
 mv hopr-identity.tar.gz .hopr-identity
 ```
 
-(**3**) To see hidden files when prompted (E.g. when uploading the identity file to restore an old node) use the key combination: `Shift + command + .` 
+(**3**) To see hidden files when prompted (E.g. when uploading the identity file to restore an old node), use the key combination: `Shift + command + .` 
 
-Make sure you are in the correct folder when looking for the idnetity file. 
+Make sure you are in the correct folder when looking for the identity file. 
 
 ## Collecting Logs
 
@@ -147,15 +147,7 @@ To complete the transition, you will need the following:
 - An empty USB with at least 2 GB of space
 - Physical access to your Avado device 
 
-**Please note your internal Avado IP address before starting this process**
-
-(**1**) Connect to your Avado Dashboard. You can do this by connecting to your Avado Wifi and going to this [page.](http://my.ava.do/)
-
-(**2**) Here click on the Avatar icon on the top right and from the drop down note your internal IP address. This will be extreemly useful in case troubleshooting is needed.
-
-![Avado Internal IP](/img/node/Avado_Internal_IP.png)
-
-### How to convert your Avado node to a Dappnode 
+### How To Migrate Your Avado Node To A Dappnode 
 
 (**1**) Create a bootable USB from [this ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.73/DAppNode-v0.2.73-debian-bullseye-amd64-unattended.iso). 
 
@@ -193,14 +185,16 @@ We strongly recommend using [Etcher](https://etcher.balena.io/#download-etcher) 
 
 ![Dappnode Wifi](/img/node/Dappnode_wifi.png)
 
-**Note:** If you cannot find the Dappnode wifi, follow [these additional steps](./using-avado.md#additional-steps-to-troubleshoot-your-installation) to complete the installation.
+**If you cannot find the Dappnode wifi** follow [these additional steps](./using-avado.md#additional-steps-to-troubleshoot-your-installation) to complete the installation.
+
+**If you cannot find the Dappnode wifi and still see your Avado wifi** follow [these additional step](./using-avado.md#additional-step-if-you-still-see-your-avado-wifi-after-migrating) to complete the installation.
 
 (**13**) Once connected to the Dappnode wifi, access the Dappnode Dashboard at: [http://my.dappnode/](http://my.dappnode/) and you can follow the instructions [here to set up your HOPR node.](./using-dappnode.md) 
 
 ### Additional Steps To Troubleshoot Your Installation 
 
 :::info INFO
-These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
+These are additional steps to be followed in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-migrate-your-avado-node-to-a-dappnode).
 
 **Note:** If you can see the wifi network "DappNodeWifi" on your computer's list of available networks, you do not have to complete these additional steps.
 :::
@@ -256,27 +250,31 @@ Password: dappnode.s0
 
 ### Complete Installation 
 
-These are additional steps to complete the installation of Dappnode software in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-convert-your-avado-node-to-a-dappnode).
+These are additional steps to complete the installation of Dappnode software in case you cannot find the Dappnode wifi after following the [above instructions](./using-avado.md#how-to-migrate-your-avado-node-to-a-dappnode).
 
 Follow these steps after having logged into your now semi-transitioned Avado device. You should see the following screen:
 
 ![Dappnode Screen](/img/node/Dappnode_screen.png)
 
-(**1**) Install the prerequisites using the following command:
+(**1**) Install the follwoing package and enter the password `dappnode.s0` if prompted. 
+
+```bash
+sudo apt-get install -y kbd
+```
+
+(**2**) Install the prerequisites using the following command:
 
 ```bash
 sudo wget -O - https://prerequisites.dappnode.io | sudo bash
 ```
 
-(**2**) Install the dappnode package using the following command:
+(**3**) Install the dappnode package using the following command:
 
 ```bash
 sudo wget -O - https://installer.dappnode.io | sudo bash
 ```
 
-**Note:** You may receive the following error running this command: `openvt: command not found`. If this is the case, then run the following command `sudo apt-get install -y kbd` followed by `sudo reboot`. Then try running the command again. 
-
-(**3**) Finally, run the command:
+(**4**) Finally, run the command:
 
 ```bash 
 sudo reboot 
@@ -312,9 +310,11 @@ To do this, you will need:
 
 (**2**) Remove the bottom of your Avado (you will need a micro screwdriver for this).
 
-(**3**) Locate the battery (it will be located under the ram module) and remove it.
+(**3**) Now detach the Ram module by gently pulling the two pins outwards. The module should pop upwards without any pressure. Remove the erected module and you should see a circular battery underneath.
 
-(**4**) After removing the battery, wait for **10 minutes.** Then add the battery and any other detached modules back to the device and screw back on the bottom.
+(**4**) Remove the battery and wait **10 minutes.**
+
+(**5**) Then add the battery and any other detached modules back to the device and screw back on the bottom.
 
 (**5**) Re-attach the power supply and ethernet cable.
 
@@ -327,6 +327,33 @@ To do this, you will need:
 (**9**) Detach the USB and turn on your device.
 
 (**10**) Wait for **5 minutes** and check if `DappNodeWifi` has appeared in your computer's wifi list. Wifi password: `dappnode`
+
+### Additional Step If You Still See Your Avado Wifi After Migrating
+
+If after having completed the [migration steps](./using-avado.md#how-to-migrate-your-avado-node-to-a-dappnode) you still see your Avado wifi instead of `DappNodeWifi`. Then there is likely an issue with your USB's boot options.
+
+To solve this issue with the instructions below, you will need access to the following:
+
+- An external keyboard
+- An external monitor
+
+**If you do not have an external monitor & keyboard** Follow the instructions [here](./using-avado.md#how-to-re-install-dappnode) instead.
+
+(**1**) Turn off your Avado device.
+
+(**2**) Attach the external keyboard using one of the USB ports on the Avado. And attach the external monitor to the Avado using an HDMI cable.
+
+(**3**) With your external monitor & keyboard connected, plug in the bootable USB you created earlier.
+
+(**4**) Now turn on the Avado, and start pressing the `Esc` key until you enter the BIOS. This should be visible on the monitor you have connected.
+
+(**5**) Use the arrow keys to navigate to the `Boot` tab.
+
+(**6**) Here, under `Boot Option Priorities`, select `Boot Option #` and then change it to your attached USB.
+
+(**7**) Now using your arrow keys, navigate to the `Save & Exit` tab and save your settings.
+
+(**8**) Your device should now restart and begin booting from your attached USB. You can now resume the [initial installation method](./using-avado.md#how-to-migrate-your-avado-node-to-a-dappnode) but now starting directly from the 10th step.
 
 
 
