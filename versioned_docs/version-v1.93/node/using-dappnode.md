@@ -13,7 +13,7 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DappStore](/img/node/DappStore-NR-1.png)
 
-(**2**) You should now see the latest version of the HOPR client. Just click Get or Update and wait for it to install.
+(**2**) You should now see the latest version of the HOPR client among the list of dApps. Click `Get` and then on the new interface click `Install`.
 
 That's all! You should now be able to find the HOPR client in your 'Packages'.
 
@@ -46,6 +46,10 @@ If you have previously installed a node and have the [identity Backup folder dow
 (**2**) Simply, click `Restore` and open your [zipped backup file](./using-dappnode.md#backup-identity-file-backup-folder) when prompted.
 
 ### Restoring An Avado Node On Dappnode
+
+You will need to use the file manager to restore an Avado identity file on DappnodeOS. 
+
+(**1**) Find HOPR in your packages and locate the 
 
 ### Backup Identity File (Backup Folder)
 

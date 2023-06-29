@@ -359,7 +359,7 @@ To use another node on the network to relay data, you have to pay them for their
 
 Payment channels are funded edges between two nodes. They are a link between two nodes with some HOPR tokens staked in them to pay the nodes that relay data for the sender.
 
-![payment channel](/static/img/node/payment-channel-hopr.png)
+![payment channel](/img/node/payment-channel-hopr.png)
 
 ### Opening a channel
 
@@ -389,7 +389,7 @@ This will open a channel from you to Betty with **0.2 HOPR** staked in it. You c
 
 **_Note:_** Channels are unidirectional; opening this channel does not mean a channel from Betty to your node exists.
 
-![Channel direction](/static/img/node/channel-direction-hopr.png)
+![Channel direction](/img/node/channel-direction-hopr.png)
 
 Only one channel can exist in a single direction between two nodes. You can have both a channel from Betty → Chāo & Chāo → Betty but not more than one channel from Betty → Chāo.
 
@@ -488,7 +488,7 @@ In this example, we’re using Betty’s node to relay a message back to ourselv
 
 This is also why 0-HOP/direct messages are possible without open payment channels.
 
-![1-HOP message](/static/img/node/1-hop-hopr.png)
+![1-HOP message](/img/node/1-hop-hopr.png)
 
 This is a manually selected 1-HOP path. If you try and replicate this with Chāo, it should fail as you have no open channels with Chāo.
 
@@ -516,7 +516,7 @@ Now let’s try and send a 2-HOP message. For this to work, every node in the pa
 
 So a 2-HOP message to yourself through Betty and Chāo: me → Betty → Chāo → me would require channels to be open from me → Betty & Betty → Chāo (me → Betty → Chāo). The final channel from Chāo → me is not required as the last HOP of a relay is not incentivised. We assume that the reciever has an inherant desire to receive messages.
 
-![2-hop-success](/static/img/node/2-hop-success-hopr.png)
+![2-hop-success](/img/node/2-hop-success-hopr.png)
 
 You can try and send a 2-HOP message by typing:
 
@@ -528,7 +528,7 @@ send Betty,Chāo,me Hi!
 
 If it fails to send, it is likely, that Betty does not have a channel open to Chāo (Betty → Chāo) since you should have a channel open to Betty (me → Betty) with sufficient funds staked. A successful message costs 0.01 HOPR tokens per HOP currently.
 
-![2-hop-fail](/static/img/node/2-hop-fail-hopr.png)
+![2-hop-fail](/img/node/2-hop-fail-hopr.png)
 
 ### Path directionality
 
