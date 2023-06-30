@@ -49,7 +49,15 @@ If you have previously installed a node and have the [identity Backup folder dow
 
 You will need to use the file manager to restore an Avado identity file on DappnodeOS. 
 
-(**1**) Find HOPR in your packages and locate the 
+(**1**) Find HOPR in your packages and navigate to the `File Manager` tab. 
+
+![File Manager](/img/node/Dappnode-file-manager.png)
+
+(**2**) Click the `Browse` button next to the `Choose file` text field. And select your downloaded identity file.
+
+(**3**) Then press the `Upload` button and wait for the upload to complete. 
+
+All done, you should now have restored your old node!
 
 ### Backup Identity File (Backup Folder)
 
