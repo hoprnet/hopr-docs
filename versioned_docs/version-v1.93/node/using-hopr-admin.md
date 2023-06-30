@@ -359,7 +359,7 @@ To use another node on the network to relay data, you have to pay them for their
 
 Payment channels are funded edges between two nodes. They are a link between two nodes with some HOPR tokens staked in them to pay the nodes that relay data for the sender.
 
-![payment channel](/img/node/payment-channel-2.png)
+![payment channel](/img/node/payment-channel-hopr-white.png)
 
 ### Opening a channel
 
@@ -389,7 +389,7 @@ This will open a channel from you to Betty with **0.2 HOPR** staked in it. You c
 
 **_Note:_** Channels are unidirectional; opening this channel does not mean a channel from Betty to your node exists.
 
-![Channel direction](/img/node/channel-direction-2.png)
+![Channel direction](/img/node/channel-direction-hopr-white.png)
 
 Only one channel can exist in a single direction between two nodes. You can have both a channel from Betty → Chāo & Chāo → Betty but not more than one channel from Betty → Chāo.
 
@@ -488,7 +488,7 @@ In this example, we’re using Betty’s node to relay a message back to ourselv
 
 This is also why 0-HOP/direct messages are possible without open payment channels.
 
-![1-HOP message](/img/node/1-hop-2.png)
+![1-HOP message](/img/node/1-hop-hopr-white.png)
 
 This is a manually selected 1-HOP path. If you try and replicate this with Chāo, it should fail as you have no open channels with Chāo.
 
@@ -516,7 +516,7 @@ Now let’s try and send a 2-HOP message. For this to work, every node in the pa
 
 So a 2-HOP message to yourself through Betty and Chāo: me → Betty → Chāo → me would require channels to be open from me → Betty & Betty → Chāo (me → Betty → Chāo). The final channel from Chāo → me is not required as the last HOP of a relay is not incentivised. We assume that the reciever has an inherant desire to receive messages.
 
-![2-hop-success](/img/node/2-hop-success-3.png)
+![2-hop-success](/img/node/2-hop-success-hopr-white.png)
 
 You can try and send a 2-HOP message by typing:
 
@@ -528,13 +528,13 @@ send Betty,Chāo,me Hi!
 
 If it fails to send, it is likely, that Betty does not have a channel open to Chāo (Betty → Chāo) since you should have a channel open to Betty (me → Betty) with sufficient funds staked. A successful message costs 0.01 HOPR tokens per HOP currently.
 
-![2-hop-fail](/img/node/2-hop-fail-3.png)
+![2-hop-fail](/img/node/2-hop-fail-hopr-white.png)
 
 ### Path directionality
 
 Even if the message succeeds, you should note that you won’t be able to make this 2-HOP message in the other direction as you don’t have an open channel with Chāo. And Chāo may not have an open channel with Betty.
 
-![Reverse route](/img/node/reverse-directionality-3.png)
+![Reverse route](/img/node/reverse-directionality-hopr-white.png)
 
 Here the first route is viable, whereas the second route will fail.
 
@@ -546,7 +546,7 @@ You want to connect to other well-connected nodes to increase your pathing optio
 
 You can not have consecutively repeating nodes. For example, me → Betty → Betty → Zoë.
 
-![Consecutively repeating node](/img/node/consecutively-repeating-3.png)
+![Consecutively repeating node](/img/node/consecutively-repeating-hopr-white.png)
 
 This is also why the first node specified on a path cannot be yourself, as you are also the sending node.
 
@@ -635,7 +635,7 @@ Tickets are redeemed automatically, so the tickets which contain value will be c
 
 If a channel exists in both directions between consecutive nodes on the relay, the ticket is redeemed into the following nodes channel instead of its balance.
 
-![tickets-channels](/img/node/tickets-channels-3.png)
+![tickets-channels](/img/node/tickets-channels-hopr-white.png)
 
 In the above example, you, as the sender, will create two tickets of value 0.02 HOPR to pay for the entire relay. Since no channel exists from Betty -> me, the tickets are redeemed into Betty's node. Betty now generates a ticket of value 0.01 HOPR to pay for the remaining relay, and since a channel does exist from Chāo -> Betty, the ticket is redeemed into this channel instead of Chāo's balance.
 
