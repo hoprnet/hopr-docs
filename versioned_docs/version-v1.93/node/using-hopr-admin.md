@@ -516,7 +516,7 @@ Now let’s try and send a 2-HOP message. For this to work, every node in the pa
 
 So a 2-HOP message to yourself through Betty and Chāo: me → Betty → Chāo → me would require channels to be open from me → Betty & Betty → Chāo (me → Betty → Chāo). The final channel from Chāo → me is not required as the last HOP of a relay is not incentivised. We assume that the reciever has an inherant desire to receive messages.
 
-![2-hop-success](/img/node/2-hop-success-hopr.png)
+![2-hop-success](/img/node/2-hop-success-hopr-white.png)
 
 You can try and send a 2-HOP message by typing:
 
