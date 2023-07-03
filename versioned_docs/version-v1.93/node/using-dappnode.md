@@ -49,6 +49,14 @@ If you have previously installed a node and have the [identity Backup folder dow
 
 You will need to use the file manager to restore an Avado identity file on DappnodeOS. 
 
+(**1**) Make sure you can view hidden files.
+
+**For Windows:** Go to your File Manager app, and under `View -> Show`, make sure `hidden files` is ticked on. 
+
+![Hiden Files](/img/node/Hidden_files_windows.png)
+
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during Step 2 on Mac. 
+ 
 (**1**) Find HOPR in your packages and navigate to the `File Manager` tab. 
 
 ![File Manager](/img/node/Dappnode-file-manager.png)
@@ -76,6 +84,14 @@ You will not be able to use the identity file alone to [restore your old node](u
 ![dappnode db folder](/img/node/Dappnode-DB-folder.png)
 
 (**3**) You will see the file `identity` if hidden files are visible.
+
+## Default ports
+
+- 3000 on TCP : Admin UI port (speaks HTTP protocol)
+- 3001 on TCP: REST API port (speaks HTTP)
+- 8080 on TCP: Healthcheck service - is used to see that the node is up & running (speaks HTTP)
+- 9091 on TCP: main P2P port used for HOPR protocol
+- 9091 on UDP: used for STUN requests by other non-public nodes reaching out to you to see what their IP address is
 
 ## Collecting Logs
 
