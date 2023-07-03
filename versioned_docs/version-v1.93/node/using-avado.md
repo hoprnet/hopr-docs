@@ -81,6 +81,14 @@ mv hopr-identity.tar.gz .hopr-identity
 
 Make sure you are in the correct folder when looking for the identity file. 
 
+## Default ports
+
+- 3000 on TCP : Admin UI port (speaks HTTP protocol)
+- 3001 on TCP: REST API port (speaks HTTP)
+- 8080 on TCP: Healthcheck service - is used to see that the node is up & running (speaks HTTP)
+- 9091 on TCP: main P2P port used for HOPR protocol
+- 9091 on UDP: used for STUN requests by other non-public nodes reaching out to you to see what their IP address is
+
 ## Collecting Logs
 
 If your node crashes, you will want to collect the logs and pass them on to our ambassadors on telegram or create an issue on GitHub.
