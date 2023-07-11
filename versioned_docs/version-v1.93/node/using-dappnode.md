@@ -13,13 +13,29 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DappStore](/img/node/DappStore-NR-1.png)
 
-(**2**) You should now see the latest version of the HOPR client among the list of dApps. Click `Get` and then on the new interface click `Install`.
+(**2**) Search for the "HOPR" ins the Dappstore using the searchbar, you should see the latest version of the HOPR client in the listed dApps. Click `Get`. This should take you to a new interface.
 
-That's all! You should now be able to find the HOPR client in your 'Packages'.
+(**3**) Click `install`.
+
+![Install Dappnode](/img/node/Dappnode-install.png)
+
+(**4**) This will open the setup wizard. If you don't have the identity file of an old node, you would like to restore, then just press `submit`. If you have one, then press `Browse` next to the bottom text field and select your identity file before clicking submit.
+
+**Note:** You can only use your identity file here if you have downloaded a zip file containing the DB folder and your identity file, you can either locate the file or [restore your node after the HOPR package is installed.](./using-dappnode.md#restoring-an-old-node) 
+
+![Dappnode Setup](/img/node/Dappnode-setup.png)
+
+(**5**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
+
+That's all! Once installed, you should now be able to find the HOPR client in your 'Packages'.
 
 ![MyDapps](/img/node/Dappnode-2.png)
 
-Simply open the client, and you should be greeted with the hoprd UI interface.
+Simply open the client, and you should be greeted with an interface similar to the one below.
+
+![Dappnode UI](/static/img/node/Dappnode-UI.png)
+
+Here you can click the UI hyperlink to proceed to the HOPRd graphical interface. 
 
 Your **security token** is set to `!5qxc9Lp1BE7IFQ-nrtttU`. You will need this to access your node.
 
