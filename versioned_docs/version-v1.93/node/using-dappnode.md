@@ -33,7 +33,7 @@ That's all! Once installed, you should now be able to find the HOPR client in yo
 
 Simply open the client, and you should be greeted with an interface similar to the one below.
 
-![Dappnode UI](/static/img/node/Dappnode-UI.png)
+![Dappnode UI](/img/node/Dappnode-UI.png)
 
 Here you can click the UI hyperlink to proceed to the HOPRd graphical interface. 
 
