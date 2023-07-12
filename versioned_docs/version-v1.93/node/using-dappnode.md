@@ -3,7 +3,7 @@ id: using-dappnode
 title: Using Dappnode
 ---
 
-To set up your DAppNode, follow the instructions that came with the box. Then, just install the HOPR client and you can start using your node right away!
+To set up your DAppNode, follow the instructions that came with the box. Then, just install the HOPR client, and you can start using your node right away!
 
 ## Installing the HOPR Client: 1.93.5 (Monte Rosa)
 
@@ -13,19 +13,23 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DappStore](/img/node/DappStore-NR-1.png)
 
-(**2**) Search for the "HOPR" ins the Dappstore using the searchbar, you should see the latest version of the HOPR client in the listed dApps. Click `Get`. This should take you to a new interface.
-
-(**3**) Click `install`.
+(**2**) Search for the "HOPR" ins the Dappstore using the search bar. You should see the latest version of the HOPR client in the listed dApps. Click `Get`. This should take you to a new interface.
 
 ![Install Dappnode](/img/node/Dappnode-install.png)
 
-(**4**) This will open the setup wizard. If you don't have the identity file of an old node, you would like to restore, then just press `submit`. If you have one, then press `Browse` next to the bottom text field and select your identity file before clicking submit.
+(**3**) Click `install`; this will open the setup wizard. 
 
-**Note:** You can only use your identity file here if you have downloaded a zip file containing the DB folder and your identity file, you can either locate the file or [restore your node after the HOPR package is installed.](./using-dappnode.md#restoring-an-old-node) 
+**If you don't have an old node you want to restore** simply click `submit` at the bottom of the page.
+
+**If you do have an old node you would like to restore** In the final text field under `custom identity file` enter the path `/app/hoprd-db`. Then click `Browse` next to this text field and locate the identity file of the node you wish to restore. Once selected, click `submit` at the bottom of the page.
+
+**Note:** You can only use your identity file here if you have downloaded a zip file containing the DB folder and your identity file; you can either locate the file or [restore your node after the HOPR package is installed.](./using-dappnode.md#restoring-an-old-node) 
 
 ![Dappnode Setup](/img/node/Dappnode-setup.png)
 
 (**5**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
+
+![Accept dsclaimer](/img/node/Dappnode-accept-disclaimer.png)
 
 That's all! Once installed, you should now be able to find the HOPR client in your 'Packages'.
 
@@ -51,7 +55,7 @@ Otherwise, the installation process is complete! You can proceed to our [hoprd t
 
 If you have previously installed a node and have the [identity Backup folder downloaded](./using-dappnode.md#backup-identity-file-backup-folder), you can use it to restore your old node.
 
-**If you are restoring an Avado node**, you will have downloaded just the identity file, rather than the whole DB. As such will need to follow [these instructions instead.](./using-dappnode.md#restoring-an-avado-node-on-dappnode) 
+**If you are restoring an Avado node**, you will have downloaded just the identity file rather than the whole DB. As such will need to follow [these instructions instead.](./using-dappnode.md#restoring-an-avado-node-on-dappnode) 
 
 **If you are restoring a node backed up on Dappnode**, simply follow the instructions below.
 
@@ -59,7 +63,7 @@ If you have previously installed a node and have the [identity Backup folder dow
 
 ![dappnode restore](/img/node/dappnode-backup.png)
 
-(**2**) Simply, click `Restore` and open your [zipped backup file](./using-dappnode.md#backup-identity-file-backup-folder) when prompted.
+(**2**) Simply click `Restore` and open your [zipped backup file](./using-dappnode.md#backup-identity-file-backup-folder) when prompted.
 
 ### Restoring An Avado Node On Dappnode
 
@@ -77,15 +81,19 @@ You will need to use the file manager to restore an Avado identity file on Dappn
 
 ![File Manager](/img/node/Dappnode-file-manager.png)
 
-(**2**) Click the `Browse` button next to the `Choose file` text field. And select your downloaded identity file.
+(**2**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
 
-(**3**) Then press the `Upload` button and wait for the upload to complete. 
+![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
+
+(**3**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
+
+(**4**) Finally, press the `Upload` button and wait for the upload to complete. 
 
 All done, you should now have restored your old node!
 
 ### Backup Identity File (Backup Folder)
 
-Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](using-dappnode#restoring-an-old-node) if needed.
+Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click `Download backup`. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](using-dappnode#restoring-an-old-node) if needed.
 
 ![dappnode backup](/img/node/dappnode-backup.png)
 
@@ -100,6 +108,18 @@ You will not be able to use the identity file alone to [restore your old node](u
 ![dappnode db folder](/img/node/Dappnode-DB-folder.png)
 
 (**3**) You will see the file `identity` if hidden files are visible.
+
+### Backup Identity File Without DB
+
+(**1**) Find HOPR in your packages and navigate to the `File Manager` tab. 
+
+![File Manager](/img/node/Dappnode-file-manager.png)
+
+(**2**) In the text field under `Download file` enter the path `/app/hoprd-db/.hopr-identity`.
+
+![Download ID File](/img/node/Dappnode-downlaod-ID.png)
+
+(**3**) Finally, press the `Download` button next to the bottom text field. Once the file downloads, store it somewhere safe for future use. 
 
 ## Default ports
 
