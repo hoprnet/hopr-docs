@@ -19,9 +19,8 @@ While connected to your Dappnode's network or via a VPN:
 
 (**3**) Click `install`; this will open the setup wizard. 
 
-**If you don't have an old node you want to restore** simply click `submit` at the bottom of the page.
-
-**If you do have an old node you would like to restore** In the final text field under `custom identity file` enter the path `/app/hoprd-db`. Then click `Browse` next to this text field and locate the identity file of the node you wish to restore. Once selected, click `submit` at the bottom of the page.
+- **If you don't have an old node you want to restore:** simply click `submit` at the bottom of the page.
+- **If you do have an old node you would like to restore:** In the final text field under `custom identity file` enter the path `/app/hoprd-db`. Then click `Browse` next to this text field and locate the identity file of the node you wish to restore. Once selected, click `submit` at the bottom of the page.
 
 **Note:** You can only use your identity file here if you have downloaded a zip file containing the DB folder and your identity file; you can either locate the file or [restore your node after the HOPR package is installed.](./using-dappnode.md#restoring-an-old-node) 
 
