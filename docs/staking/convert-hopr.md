@@ -6,14 +6,14 @@ title: Converting HOPR token
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Like DAI and xDAI, HOPR and xHOPR exist in a 1:1 relationship on Gnosis Chain and Ethereum mainnet, respectively. To convert between them, you need to use a tool called a Omnibridge found at [https://omni.xdaichain.com](https://omni.xdaichain.com)
+Like DAI and xDAI, HOPR and xHOPR exist in a 1:1 relationship on Gnosis Chain and Ethereum mainnet, respectively. To convert between them, you need to use a tool called a Omnibridge found at [https://omni.gnosischain.com/](https://omni.gnosischain.com/)
 
 <Tabs>
 <TabItem value="xhtoh" label="xHOPR to HOPR">
 
 :::tip
 
-Your wallet needs to be connected to Gnosis Chain. If you haven’t set that up yet, you can find the details [here](https://www.xdaichain.com/for-users/wallets/metamask/metamask-setup). You’ll need to select “Add Custom RPC” in your wallet and fill in the information.
+Your wallet needs to be connected to Gnosis Chain. If you haven’t set that up yet, you can find the details [here](https://docs.gnosischain.com/tools/wallets/metamask/). You’ll need to select “Add Custom RPC” in your wallet and fill in the information.
 
 :::
 
