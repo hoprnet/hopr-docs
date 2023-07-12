@@ -27,9 +27,7 @@ While connected to your Dappnode's network or via a VPN:
 
 ![Dappnode Setup](/img/node/Dappnode-setup.png)
 
-(**5**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
-
-![Accept dsclaimer](/img/node/Dappnode-accept-disclaimer.png)
+(**4**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
 
 That's all! Once installed, you should now be able to find the HOPR client in your 'Packages'.
 
