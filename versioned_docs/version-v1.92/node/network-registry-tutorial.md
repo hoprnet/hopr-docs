@@ -87,11 +87,11 @@ At this point, you should have the peerID of the node you want to register copie
 
 ### Step 3: Registering your peerID
 
-(**1**) Go to [the network registry smart contract on blockscout](https://blockscout.com/xdai/mainnet/address/0x819E6a81e1e3f96CF1ac9200477C2d09c676959D/write-contract#address-tabs)
+(**1**) Go to [the network registry smart contract on gnosisscan](https://gnosisscan.io/address/0x819E6a81e1e3f96CF1ac9200477C2d09c676959D#writeContract)
 
 Scroll down and make sure you are on the **Write Contract** tab.
 
-![connect wallet blockscout](/img/node/blockscout-NR-connect-wallet.png)
+![connect wallet gnosisscan](/img/node/gnosisscan-NR-connect-wallet.png)
 
 (**2**) Connect the wallet which you used to stake your NFT
 
@@ -99,11 +99,11 @@ Scroll down and make sure you are on the **Write Contract** tab.
 
 ![selfRegister NR](/img/node/NR-SelfRegister.png)
 
-(**4**) In the text field, paste your peerID
+(**4**) In the text field, paste your peerID. The Peer Id must be enclosed in square brackets and quotation marks. Example: `["16Uiu2HAmMBYpQVq7rfFxV5iP3JPXJKs1dqRe2Z6HX7zXJgwjTzjV"]` 
 
 (**5**) Click **Write** and confirm the transaction (if prompted to do so by your wallet).
 
-If you have connected a wallet which has staked an NFT and entered a valid peerID, this transaction should succeed. You can find your block confirmation on Blockscout.
+If you have connected a wallet which has staked an NFT and entered a valid peerID, this transaction should succeed. You can find your block confirmation on Gnosisscan.
 
 If it fails, make sure you:
 
@@ -117,7 +117,7 @@ If all of the above is true and the transaction still fails, message us on [tele
 
 You may want to de-register your peerID to use a different node since each community NFT currently only allows access to a single node.
 
-You can do this using the selfDeregister function under ['Write Contract'.](https://blockscout.com/xdai/mainnet/address/0x819E6a81e1e3f96CF1ac9200477C2d09c676959D/write-contract#address-tabs) Follow the same steps as when registering your node. Enter the peerID of the node you wish to de-register whilst having your wallet connected. The connected wallet must be the same as the one used to stake your NFT.
+You can do this using the selfDeregister function under ['Write Contract'.](https://gnosisscan.io/address/0x819E6a81e1e3f96CF1ac9200477C2d09c676959D#writeContract) Follow the same steps as when registering your node. Enter the peerID of the node you wish to de-register whilst having your wallet connected. The connected wallet must be the same as the one used to stake your NFT. The Peer Id must be enclosed in square brackets and quotation marks. Example: `["16Uiu2HAmMBYpQVq7rfFxV5iP3JPXJKs1dqRe2Z6HX7zXJgwjTzjV"]` 
 
 Then, follow step 3 above to register the node you want to use.
 
@@ -129,7 +129,7 @@ Once the transaction has successfully been completed, you can use the same smart
 
 To check if you have been registered:
 
-(**1**) Switch to the [**Read Contract** tab.](https://blockscout.com/xdai/mainnet/address/0x819E6a81e1e3f96CF1ac9200477C2d09c676959D/read-contract#address-tabs)
+(**1**) Switch to the [**Read Contract** tab.](https://gnosisscan.io/address/0x819E6a81e1e3f96CF1ac9200477C2d09c676959D#readContract)
 
 ![Read Contract Tab](/img/node/Read-contract-NR.png)
 
