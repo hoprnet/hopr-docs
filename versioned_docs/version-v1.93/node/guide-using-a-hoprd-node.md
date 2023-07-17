@@ -344,3 +344,5 @@ Closing channel. Receipt: 0x2bbf3181024b1580eba7554f46378cef69e9c7612580eb331795
 ```
 
 This means you have successfully closed payment channel with Bob and received hash, which you can check on the blockchain. You can also check your opened channels list to be sure that you have close payment channel, see the [7th step](guide-using-a-hoprd-node#7-check-opened-channels-list).
+
+![Image Dump](/img/node/HOPR-Twitter-Logo.png)
