@@ -6,7 +6,11 @@ title: Converting HOPR token
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<<<<<<< HEAD
+Like DAI and xDAI, HOPR and xHOPR exist in a 1:1 relationship on Ethereum mainnet and Gnosis Chain, respectively. To convert between them, you need to use a tool called a Omnibridge found at [https://omni.gnosischain.com/](https://omni.gnosischain.com/)
+=======
 Like DAI and xDAI, HOPR and xHOPR exist in a 1:1 relationship on Gnosis Chain and Ethereum mainnet, respectively. To convert between them, you need to use a tool called a Omnibridge found at [https://omni.gnosischain.com/](https://omni.gnosischain.com/)
+>>>>>>> 359b04691c0a2fa960d73c8622c83c799993b7a9
 
 <Tabs>
 <TabItem value="xhtoh" label="xHOPR to HOPR">
