@@ -33,7 +33,7 @@ The HOPR staking contract lives on Gnosis chain, and stakes are in xHOPR. You ne
 
 :::
 
-If you’re using Metamask, you can find a tutorial for [adding xDAI here](https://www.xdaichain.com/for-users/wallets/metamask/metamask-setup). If you need to know how to convert HOPR on ETH to xHOPR, or unwrap wxHOPR to xHOPR, you can find that [here](convert-hopr)
+If you’re using Metamask, you can find a tutorial for [adding xDAI here](https://docs.gnosischain.com/tools/wallets/metamask/). If you need to know how to convert HOPR on ETH to xHOPR, or unwrap wxHOPR to xHOPR, you can find that [here](convert-hopr)
 
 :::tip
 
