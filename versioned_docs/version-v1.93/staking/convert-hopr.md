@@ -13,7 +13,7 @@ Like DAI and xDAI, HOPR and xHOPR exist in a 1:1 relationship on Ethereum mainne
 
 :::tip
 
-Your wallet needs to be connected to Gnosis Chain. If you haven’t set that up yet, you can find the details [here](https://www.xdaichain.com/for-users/wallets/metamask/metamask-setup). You’ll need to select “Add Custom RPC” in your wallet and fill in the information.
+Your wallet needs to be connected to Gnosis Chain. If you haven’t set that up yet, you can find the details [here](https://docs.gnosischain.com/tools/wallets/metamask/). You’ll need to select “Add Custom RPC” in your wallet and fill in the information.
 
 :::
 
