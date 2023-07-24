@@ -86,7 +86,7 @@ To exit your current session without closing it. To be clear, you press ctrl and
 
 Please make sure you are in a newly opened session and haven't exited it before continuing.
 
-## Installing HOPRd
+## Installing HOPRd: 1.93.5 (Monte Rosa)
 
 :::info NOTE
 
@@ -96,7 +96,19 @@ Before downloading the HOPRd image, make sure **Docker** is installed.
 
 All our docker images can be found in [our Google Cloud Container Registry](https://console.cloud.google.com/gcr/images/hoprassociation/global/hoprd).
 Each image is prefixed with `gcr.io/hoprassociation/hoprd`.
-The `bogota` tag represents the latest community release version.
+The `1.93.5` tag represents the latest community release version.
+
+### Install HOPRd with Grafana
+
+:::info INFO
+Using this setup will generate a new node, it will not migrate your old node. To keep using your old node, follow the setup without Grafana.
+:::
+
+To install HOPRd with Grafana, you can follow the instructions [here.](./grafana-dashboards.md#docker)
+
+**Note:** Following these instructions will generate a node with no authentication, so no security/api token will be needed to access your node.
+
+### Install HOPRd without Grafana
 
 (**1**) Open your terminal.
 
@@ -119,8 +131,7 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 (**3**) Copy the following command and replace **YOUR_SECURITY_TOKEN** with your own.
 
 ```bash
-export RELEASE_NAME=bogota
-docker run --pull always --restart on-failure -m 2g -ti -v $HOME/.hoprd-db-${RELEASE_NAME}:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 3000:3000 -p 3001:3001 -e DEBUG="hopr*" gcr.io/hoprassociation/hoprd:${RELEASE_NAME} --environment monte_rosa --init --api --admin --identity /app/hoprd-db/.hopr-id-${RELEASE_NAME} --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --adminHost "0.0.0.0" --healthCheck --healthCheckHost "0.0.0.0"
+docker run --pull always --restart on-failure -m 2g --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-monte-rosa:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 -e DEBUG="hopr*" gcr.io/hoprassociation/hoprd:1.93.5 --environment monte_rosa --init --api --identity /app/hoprd-db/.hopr-id-monte-rosa --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0"
 ```
 
 If you are not logged in as the root user, add sudo to the start of the above command. E.g. `sudo docker run ...`. If you are using a VPS, you are likely a root user and can use the default command.
@@ -129,18 +140,68 @@ If you are not logged in as the root user, add sudo to the start of the above co
 
 (**5**) Wait until the node is installed. This can take up to 10 minutes.
 
-Please note the `--apiToken` (Security token), as this will be used to access hopr-admin. It may also be a good idea to note the `--password`, in case you want to decrypt your identity file and retrieve your private key or funds later.
+Please note the `--apiToken` (Security token), as this will be used to access hopr-admin or the hoprd UI. It may also be a good idea to note the `--password`, in case you want to decrypt your identity file and retrieve your private key or funds later.
 
-**Note:** Withdrawing funds is possible through hopr-admin. This is just a precaution for safekeeping.
+**Note:** Withdrawing funds is possible through hopr-admin/hoprd. This is just a precaution for safekeeping.
 
-All ports are mapped to your local host, assuming you stick to the default port numbers. You should be able to view the `hopr-admin` interface at [http://localhost:3000](http://localhost:3000) (replace `localhost` with your `server IP address` if you are using a VPS, for example `http://142.93.5.175:3000`).
+### Launching HOPR admin UI
+
+From 1.92 version HOPR admin UI was separated from the HOPRd node. This means you will need additionally to launch a new docker command. You will need to execute docker command in a new **tmux** session, more details you will find [here](using-docker#using-tmux).
+
+Docker command to start HOPR admin UI:
+
+```bash
+docker run -d --restart always --name hopr_admin -p 3000:3000 gcr.io/hoprassociation/hopr-admin
+```
+
+All ports are mapped to your local host, assuming you stick to the default port numbers. You should be able to view the `hoprd` UI interface at [http://localhost:3000](http://localhost:3000) (replace `localhost` with your `server IP address` if you are using a VPS, for example `http://142.93.5.175:3000`).
 
 If you are in the process of registering your node on the network registry, please complete the process [here](./network-registry-tutorial.md) before continuing.
 
-Otherwise, the installation process is complete! You can proceed to our [hopr-admin tutorial](using-hopr-admin).
+Otherwise, the installation process is complete! You can proceed to our [hoprd tutorial](using-hopr-admin).
+
+### Breakdown of arguments
+
+```
+hoprd
+  --restart on-failure -m 2g                  # restart node if it crashes or consumes 2GB of memory 
+                                                (-m 2g)
+  --log-opt max-size                          # maximum size of a single log file, will use a new one
+                                                if reached
+  --log-opt max-file                          # maximum number of log files per docker container
+  --identity /app/hoprd-db/.hopr-identity     # store your node identity information in the
+                                                persisted database folder
+  --password switzerland   	                  # set the encryption password for your identity
+  --init 				                      # initialize the database and identity if not present
+  --announce 				                  # announce the node to other nodes in the network 
+                                                and act as a relay
+  --host "0.0.0.0:9091"   	                  # set IP and port of the P2P API to the container's
+                                                external IP
+  --apiToken <MY_TOKEN>                       # specify password for accessing REST API
+```
+
+## Updating to a new release
+
+When migrating between releases, Docker users need to either move their identity file to the newly specified location or edit the command to point to their old location. Otherwise, you will be running a new node instead of accessing your old node's information.
+
+For example, when we update from version `1.91.24` (Bogota) to `1.92.12` (Monte Rosa), the location the command points to will change as such:
+
+1.) `$HOME/.hoprd-db-bogota` to `$HOME/.hoprd-db-monte-rosa`
+
+2.) `$HOME/.hoprd-db-bogota/.hopr-id-bogota` to `$HOME/.hoprd-db-monte-rosa/.hopr-id-monte-rosa`
+
+### Moving your identity file over
+
+Preferably you would move your identity file to the new location, E.g. with the following commands for a migration from Bogota to Monte Rosa.
+
+```bash
+cp -r $HOME/.hoprd-db-bogota $HOME/.hoprd-db-monte-rosa
+cp -r $HOME/.hoprd-db-bogota/.hopr-id-bogota $HOME/.hoprd-db-monte-rosa/.hopr-id-monte-rosa
+```
 
 ## Default ports
 
+- 3000 on TCP : Admin UI port (speaks HTTP protocol)
 - 3001 on TCP: REST API port (speaks HTTP)
 - 8080 on TCP: Healthcheck service - is used to see that the node is up & running (speaks HTTP)
 - 9091 on TCP: main P2P port used for HOPR protocol
@@ -150,9 +211,15 @@ In general, you will only want to change these port numbers if you intend to run
 
 **Note:** For the initial Monte Rosa release, you will only be allowed to register a single node at a time.
 
+## Backup Identity file 
+
+For Docker the identity fle is automatically created and stored on your OS at the path specified: `/<computer username>/.hoprd-db-monte-rosa/.hopr-id-monte-rosa`.
+
+Use this file to restore an old node when moving between devices.
+
 ## Collecting Logs
 
-If your node crashes, you will want to collect the logs and pass them on to our ambassadors on telegram or create an issue on GitHub.
+If your node crashes, you will want to collect the logs and pass them on to our ambassadors on [telegram](https://t.me/hoprnet) or create an issue on GitHub.
 
 To collect the logs:
 
