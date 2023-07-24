@@ -73,8 +73,7 @@ const sidebars = {
         "developers/subgraph-documentation/stake-season6",
         "developers/smart-contract",
         "developers/snippets",
-        "developers/visualising-hopr-network-topology",
-        "developers/heartbeat"
+        "developers/visualising-hopr-network-topology"
       ]
     },
 
