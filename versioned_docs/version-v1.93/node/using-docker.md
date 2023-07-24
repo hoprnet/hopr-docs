@@ -151,7 +151,7 @@ From 1.92 version HOPR admin UI was separated from the HOPRd node. This means yo
 Docker command to start HOPR admin UI:
 
 ```bash
-docker run -d --name hopr_admin -p 3000:3000 gcr.io/hoprassociation/hopr-admin
+docker run -d --restart always --name hopr_admin -p 3000:3000 gcr.io/hoprassociation/hopr-admin
 ```
 
 All ports are mapped to your local host, assuming you stick to the default port numbers. You should be able to view the `hoprd` UI interface at [http://localhost:3000](http://localhost:3000) (replace `localhost` with your `server IP address` if you are using a VPS, for example `http://142.93.5.175:3000`).
