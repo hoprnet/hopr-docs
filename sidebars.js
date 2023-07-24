@@ -58,16 +58,22 @@ const sidebars = {
       type: 'category',
       label: 'Developers',
       link: { type: 'doc', id: 'developers/intro' },
-      items: [
-        'developers/starting-local-cluster',
-        'developers/connecting-node',
-        'developers/tutorial-hello-world',
-        'developers/demo-boomerang-chat',
-        'developers/demo-rps-game',
-        'developers/rest-api',
-        'developers/smart-contract',
-        'developers/snippets',
-        'developers/visualising-hopr-network-topology'
+      "items": [
+        "developers/starting-local-cluster",
+        "developers/connecting-node",
+        "developers/tutorial-hello-world",
+        "developers/demo-boomerang-chat",
+        "developers/demo-rps-game",
+        "developers/rest-api",
+        "developers/subgraph-documentation/introduction",
+        "developers/subgraph-documentation/all-seasons", 
+        "developers/subgraph-documentation/channels",
+        "developers/subgraph-documentation/hopr-token-gnosis",
+        "developers/subgraph-documentation/hopr-token-mainnet",
+        "developers/subgraph-documentation/stake-season6",
+        "developers/smart-contract",
+        "developers/snippets",
+        "developers/visualising-hopr-network-topology"
       ]
     },
 
