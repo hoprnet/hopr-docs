@@ -710,3 +710,135 @@ If you have [backed up your identity file,](using-hopr-admin#backing-up-your-ide
 (**5**) Click import, and you are all done!
 
 You should now have your funds accessible in your new MetaMask account.
+
+## Types Of Nodes
+
+### NAT Nodes
+
+If you create a node by default without setting up port forwarding, this is likely the node you are running. A NAT (Network Address Translation) node is a node that relies on the translation of IP addresses for it to receive traffic sent to the public IP addresses it and many other devices are connected to. 
+
+In this example, think of your router having a single public IP address, and many devices are connected to it. Your laptop, a separate PC, your node etc... All of which have their own internal IP address. 
+
+Traffic that is meant to be received by your node is sent to the public IP address and then has to be routed correctly to your node. The problem is your router can be pretty picky about how it routes the traffic it receives, creating problems when two NAT nodes try to communicate with each other. This is why the HOPR network runs several PRNs (Public Relay Nodes).
+
+### PRNs (Public Relay Nodes)
+
+A NAT node has no trouble sending outgoing traffic but receiving incoming traffic through its public IP can be complicated. And two NAT nodes that both have trouble receiving traffic will not be able to communicate without an intermediary, which is where PRN nodes come in.
+
+PRNS take the traffic NAT nodes send and help create a connection through which they can communicate with each other. PRNs are run exclusively by our core devs at the moment, and it is not recommended for community members to run such nodes as they are required to be run with high stability to ensure network health.
+
+### Public Nodes
+
+If you set up port forwarding on your NAT node, you can make it a public node. The problem NAT nodes have is that routing incoming traffic sent to your public IP address to the internal IP address of your node can have many complications. But if you map a certain port of your public IP address to by default, send the traffic it receives to the same port of your node's internal IP address, the node essentially becomes "public". The public IP address and port number now become synonymous with the internal IP address and port number of your node.
+
+This solves the problem two NAT nodes have when communicating with each other and allows nodes to communicate with each other without the need for a PRN. 
+
+![public nodes communicating](/img/node/public-public-node.png)
+
+## How To Setup Port Forwarding For My Node
+
+You will need to set up port forwarding on your node to participate in our next major release, as the initial release will only support public nodes. This tutorial will give the basic outline of how to set up port forwarding for your node, but it is important to note this will vary depending on your internet provider and router. 
+
+**You will need the following to complete this tutorial:**
+
+- The internal IP address of your running HOPR node
+- Direct admin access to your router
+
+### How To Find The Internal IP Address Of Your Node
+
+**If you are running a HOPR node on a MAC:**
+
+(**1**) Open your terminal window.
+
+(**2**) Run the following command:
+
+```
+ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'
+```
+
+(**3**) The output should show your node's internal IP address.
+
+**If you are running a HOPR node on a PC with WSL (Windows Subsystem for Linux):**
+
+(**1**) Open Windows PowerShell with administrator rights (In Windows, right-click on the PowerShell icon, then select "Run as Administrator" from the context menu).
+
+(**2**) Run the following command:
+
+```
+wsl hostname -i
+```
+
+(**3**) The output should show your node's internal IP address.
+
+**If you are running a HOPR node on Linux OS:**
+
+(**1**) Open the terminal
+
+(**2**) Run the following command:
+
+```
+hostname -I | cut -d' ' -f1
+```
+
+(**3**) The output should show your node's internal IP address.
+
+**If you are running a Dappnode/Avado**
+
+:::caution Warning
+**Important:** If you are running your HOPR node on Avado, please [migrate to Dappnode](./using-avado.md#how-to-migrate-your-avado-node-to-a-dappnode) ASAP. The next release will not support Avado.
+:::
+
+(**1**) Connect to your Dappnode dashboard
+
+(**2**) On the top right corner, click on the avatar icon (4th from the right) and note the internal IP address.
+
+### Setting Up Port Forwarding
+
+**Port Forwarding on a VPS**
+
+On a VPS, you usually have a dedicated IP address. In this case, you will only need to open a port. To open the port, please follow these steps:
+
+(**1**) Login to your VPS via ssh
+(**2**) Execute the following command: `sudo iptables -I INPUT -p tcp -m tcp –dport 9091 -j ACCEPT`
+(**3**) Execute the command: `sudo iptables -I INPUT -p udp -m tcp –dport 9091 -j ACCEPT`
+(**4**) Execute the command: `sudo service iptables save`
+
+**Port forwarding under for Dappnode / Avado or Personal computer**
+
+To access your router admin, you will need to find your router's default gateway IP address. Please follow these steps:
+
+(**1**) For Linux/macOS users, open the terminal.
+
+(**2**) Execute the command: `ip route show default | awk '/default/ {print $3}'`. It will print out your router's gateway IP address. Commonly, the gateway IP addresses of your router are 192.168.1.1 or 192.168.0.1
+
+(**3**) Enter the router's gateway IP address into the browser. This will load the login screen to your router, and usually, it should show the model of your router.
+
+![Router Browser](/img/node/IP-browser.png)
+
+(**4**) Please access your router admin interface.
+
+(**5**) Each router brand will have its own method of setting up port forwarding, but it usually should not be very difficult. Here is a list of instructions for the most popular router brands:
+
+- [TP-Link Router](https://www.tp-link.com/us/support/faq/134/)
+
+- [Netgear Router](https://kb.netgear.com/24290/How-do-I-add-a-custom-port-forwarding-service-on-my-NETGEAR-router)
+
+- [Linksys Router](https://www.linksys.com/dk/support-article/?articleNum=138535)
+
+- [Asus Router](https://www.asus.com/support/FAQ/1037906/)
+
+(**6**) Then setup port forwarding using the following settings:
+
+- Internal Ip address should be that of your HOPR node. If you need help finding this see the instructions [here.](./using-hopr-admin.md#how-to-find-the-internal-ip-address-of-your-node)
+
+- Protocol: You will need to setup port forwarding for both TCP & UDP
+
+- Set the local and end ports to `9091`. 
+
+![Portforwarding rule](/img/node/portforwarding-add-rule.png)
+
+This basic guide should help you with port forwarding for our next release. If you need any assistance, please join the HOPR TG group: https://t.me/hoprnet, where Ambassadors & Moderators will help you out!
+
+ 
+
+
