@@ -799,9 +799,12 @@ hostname -I | cut -d' ' -f1
 On a VPS, you usually have a dedicated IP address. In this case, you will only need to open a port. To open the port, please follow these steps:
 
 (**1**) Login to your VPS via ssh
-(**2**) Execute the following command: `sudo iptables -I INPUT -p tcp -m tcp –dport 9091 -j ACCEPT`
-(**3**) Execute the command: `sudo iptables -I INPUT -p udp -m tcp –dport 9091 -j ACCEPT`
-(**4**) Execute the command: `sudo service iptables save`
+
+(**2**) Execute the following command:
+
+```
+sudo iptables -I INPUT -p tcp -m tcp --dport 9091 -j ACCEPT && sudo iptables -I INPUT -p udp -m udp --dport 9091 -j ACCEPT && sudo iptables-save
+```
 
 **Port forwarding under for Dappnode / Avado or Personal computer**
 
@@ -838,7 +841,3 @@ To access your router admin, you will need to find your router's default gateway
 ![Portforwarding rule](/img/node/portforwarding-add-rule.png)
 
 This basic guide should help you with port forwarding for our next release. If you need any assistance, please join the HOPR TG group: https://t.me/hoprnet, where Ambassadors & Moderators will help you out!
-
- 
-
-
