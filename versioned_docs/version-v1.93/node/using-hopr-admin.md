@@ -790,7 +790,7 @@ hostname -I | cut -d' ' -f1
 
 (**1**) Connect to your Dappnode dashboard
 
-(**2**) On the top right corner, click on the avatar icon (4th from the right) and note the internal IP address.
+(**2**) On the top right corner, click on the rounded pixeled circle (4th from the right) and note the internal IP address.
 
 ### Setting Up Port Forwarding
 
@@ -806,7 +806,7 @@ On a VPS, you usually have a dedicated IP address. In this case, you will only n
 sudo iptables -I INPUT -p tcp -m tcp --dport 9091 -j ACCEPT && sudo iptables -I INPUT -p udp -m udp --dport 9091 -j ACCEPT && sudo iptables-save
 ```
 
-**Port forwarding under for Dappnode / Avado or Personal computer**
+**Port forwarding for your Dappnode/Avado or Personal computer**
 
 To access your router admin, you will need to find your router's default gateway IP address. Please follow these steps:
 
@@ -834,7 +834,7 @@ To access your router admin, you will need to find your router's default gateway
 
 - Internal Ip address should be that of your HOPR node. If you need help finding this see the instructions [here.](./using-hopr-admin.md#how-to-find-the-internal-ip-address-of-your-node)
 
-- Protocol: You will need to setup port forwarding for both TCP & UDP
+- Protocol: You will need to setup port forwarding for both **TCP** & **UDP**
 
 - Set the local and end ports to `9091`. 
 
