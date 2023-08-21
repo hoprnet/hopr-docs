@@ -3,13 +3,7 @@ id: how-to-get-hopr
 title: How to get HOPR
 ---
 
-## Buy on AscendEx
-
-**HOPR / USDT** pair - [get here](https://ascendex.com/en/basic/cashtrade-spottrading/usdt/hopr).
-
-On AscendEx you will be able to get **xHOPR** token, just buy HOPR token and withdraw using xDai chain.
-
-## Buy on Uniswap
+## Buy on CoWSwap
 
 :::caution Warning
 
@@ -19,7 +13,7 @@ HOPR (ETH chain): [0xf5581dfefd8fb0e4aec526be659cfab1f8c781da](https://etherscan
 
 :::
 
-**DAI / HOPR** pair - [get here](https://app.uniswap.org/#/swap?inputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&outputCurrency=0xf5581dfefd8fb0e4aec526be659cfab1f8c781da).
+**DAI / HOPR** pair - [get here](https://swap.cow.fi/#/1/swap/DAI/HOPR).
 
 If you have **HOPR** and want to convert to **xHOPR**, find more details [here](convert-hopr).
 
@@ -29,9 +23,9 @@ If you have **HOPR** and want to convert to **xHOPR**, find more details [here](
 
 Before buying, always double check HOPR token smart contract:
 
-xHOPR (Gnosis chain): [0xD057604A14982FE8D88c5fC25Aac3267eA142a08](https://gnosisscan.io/token/0xd057604a14982fe8d88c5fc25aac3267ea142a08)
+xHOPR (Gnosis chain): [0xD057604A14982FE8D88c5fC25Aac3267eA142a08](https://blockscout.com/xdai/mainnet/token/0xD057604A14982FE8D88c5fC25Aac3267eA142a08/token-transfers)
 
-wxHOPR (Gnosis chain): [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://gnosisscan.io/token/0xd4fdec44db9d44b8f2b6d529620f9c0c7066a2c1)
+wxHOPR (Gnosis chain): [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://blockscout.com/xdai/mainnet/token/0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1/token-transfers)
 
 :::
 
