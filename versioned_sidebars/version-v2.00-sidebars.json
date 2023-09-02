@@ -24,6 +24,8 @@
       "items": [
         "version-v2.00/node/start-here",
         "version-v2.00/node/using-docker",
+        "version-v2.00/node/using-dappnode",
+        "version-v2.00/node/using-avado",
         "version-v2.00/node/hoprd-commands",
         "version-v2.00/node/waitlist-FAQ",
         "version-v2.00/node/staking-FAQ"
@@ -52,19 +54,6 @@
         "version-v2.00/developers/smart-contract",
         "version-v2.00/developers/snippets",
         "version-v2.00/developers/visualising-hopr-network-topology"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "HOPR dApps",
-      "items": [
-        "version-v2.00/dapps/visualizer",
-        "version-v2.00/dapps/hopr-admin",
-        "version-v2.00/dapps/cockpit",
-        "version-v2.00/dapps/chess",
-        "version-v2.00/dapps/myne-chat-playground",
-        "version-v2.00/dapps/playground",
-        "version-v2.00/dapps/boomerang"
       ]
     },
     {
