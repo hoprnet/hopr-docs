@@ -53,7 +53,7 @@ This should output your logs, copy them and either:
 (**2**) Copy, paste and execute the following command: 
 
 ```bash
---curl ifconfig.me
+curl ifconfig.me
 ```
 
 (**3**) Note your public IP address from the output

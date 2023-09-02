@@ -82,10 +82,29 @@ For people looking to restart an old node, you will need to find your Safe and M
 
 (**2**) replace the `safeAddress` and `moduleAddress` within your docker command with your own security token. 
 
-For example: 
+For example replace: 
 
-- replace `--safeAddress <SAFE_WALLET_ADDRESS>` with `--safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9`
-- replace `--moduleAddress <Module_ADDRESS>` with `--moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2`
+```bash
+--safeAddress <SAFE_WALLET_ADDRESS>
+```
+
+with
+
+```bash
+--safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9
+```
+
+And replace:
+
+```bash
+--moduleAddress <Module_ADDRESS>
+```
+
+with
+
+```bash
+--moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2
+```
 
 ### 2.3 Adjust Public IP Address
 
