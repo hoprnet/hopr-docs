@@ -94,7 +94,7 @@ Make sure not to remove the port `:9091` at the end.
 
 **Note:** Dynamic IPs will not work for this, as once your IP address changes, your node will no longer be reachable.
 
-## 3 Start Your Node
+## 3. Start Your Node
 
 Once you have [configured your docker command](using-docker.md#configure-command) correctly, you can start your node by using the now adjusted docker command.
 
