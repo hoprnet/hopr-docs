@@ -10,19 +10,7 @@ import TabItem from '@theme/TabItem';
 The instructions below are for Linux and macOS. If you are using Windows, please use a VPS.
 :::
 
-You can use Docker to install a `hoprd` node on your device quickly without worrying too much about any additional software. There are, however, some hardware requirements needed to complete the installation.
-
-## Requirements
-
-To use Docker, you will need a device that supports hardware-level virtualization: VT-x for Intel-based PCs and AMD-V for AMD processors. Most Mac and Linux machines support it out of the box, so just ensure your device meets the following minimum requirements to run `hoprd`:
-
-- Dual Core CPU ~ 2 GHz
-- 4 GB RAM
-- at least 3 GB Disk Space
-
-At least 8 GB RAM and 10 GB Disk Space is ideal but not required.
-
-### Install Docker
+## Install Docker
 
 Before doing anything else, you need to install **Docker Desktop** on your machine.
 
@@ -47,46 +35,6 @@ Depending on your distribution, please follow the official guidelines to install
 </Tabs>
 
 All our docker images can be found in [our Google Cloud Container Registry](https://console.cloud.google.com/gcr/images/hoprassociation/global/hoprd). Each image is prefixed with `gcr.io/hoprassociation/hoprd`.
-
-### Install Tmux (For VPS Users)
-
-If you are using a VPS, it is highly recommended that you use Tmux to run your node in the background. Otherwise, your node will terminate as soon as you exit the terminal.
-
-You can use these basic commands to set up a separate session:
-
-(**1**) First, install Tmux.
-
-```bash
-sudo apt install tmux
-```
-
-(**2**) Enter `tmux` to open a new session.
-
-```bash
-tmux
-```
-
-That's it! A new session is running in the background even when you close your terminal. To navigate between sessions, you should familiarise yourself with other [Tmux commands](https://linuxize.com/post/getting-started-with-tmux/). The three main ones you will need are:
-
-```bash
-tmux ls
-```
-
-To output a list of all your open sessions.
-
-```bash
-tmux attach-session -t <session ID or name>
-```
-
-To navigate to a particular session, the first session you have created will have an id of `0`. Use the list command to view all your current sessions.
-
-```bash
-ctrl+b d
-```
-
-To exit your current session without closing it. To be clear, you press ctrl and b simultaneously, then press d after letting them go.
-
-Please make sure you are in a newly opened session and haven't exited it before continuing.
 
 ## Install HOPRd Node
 
@@ -280,3 +228,43 @@ This should output your logs, copy them and either:
 
 - Save them in a .txt file and send them to an ambassador on our [telegram](https://t.me/hoprnet) for assistance.
 - Or, create an issue using our bug template on [GitHub.](https://github.com/hoprnet/hoprnet/issues)
+
+## Install Tmux (For VPS Users Only)
+
+If you are using a VPS, it is highly recommended that you use Tmux to run your node in the background. Otherwise, your node will terminate as soon as you exit the terminal.
+
+You can use these basic commands to set up a separate session:
+
+(**1**) First, install Tmux.
+
+```bash
+sudo apt install tmux
+```
+
+(**2**) Enter `tmux` to open a new session.
+
+```bash
+tmux
+```
+
+That's it! A new session is running in the background even when you close your terminal. To navigate between sessions, you should familiarise yourself with other [Tmux commands](https://linuxize.com/post/getting-started-with-tmux/). The three main ones you will need are:
+
+```bash
+tmux ls
+```
+
+To output a list of all your open sessions.
+
+```bash
+tmux attach-session -t <session ID or name>
+```
+
+To navigate to a particular session, the first session you have created will have an id of `0`. Use the list command to view all your current sessions.
+
+```bash
+ctrl+b d
+```
+
+To exit your current session without closing it. To be clear, you press ctrl and b simultaneously, then press d after letting them go.
+
+Please make sure you are in a newly opened session and haven't exited it before continuing.
