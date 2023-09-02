@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 The instructions below are for Linux and macOS. If you have Windows, please use a VPS.
 :::
 
-## Step 1: Install Docker
+## 1. Install Docker
 
 Before doing anything else, you need to install **Docker Desktop** on your machine.
 
@@ -34,10 +34,7 @@ Depending on your distribution, please follow the official guidelines to install
 </TabItem>
 </Tabs>
 
-All our docker images can be found in [our Google Cloud Container Registry](https://console.cloud.google.com/gcr/images/hoprassociation/global/hoprd). Each image is prefixed with `gcr.io/hoprassociation/hoprd`.
-
-
-## Step 2: Configure Command
+## 2. Configure Command
 
 The default command provided below will look similar to the one provided during the onboarding process. Whether you are onboarding a new node or trying to re-run an old one, the default command needs to be configured before you can use it to run a node.
 
@@ -47,7 +44,7 @@ Default command:
 docker run --pull always --restart on-failure -m 2g --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9091
 ```
 
-### Adjust the API Token
+### 2.1 Adjust the API Token
 
 (**1**) Create a **Security Token** (password) which satisfies the following requirements:
 
@@ -69,7 +66,7 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 
 For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`. 
 
-### Adjust Safe & Module Addresses (Not For Onboarding)
+### 2.2 Adjust Safe & Module Addresses (Not For Onboarding)
 
 For node runners onboarding, these will be provided by default within the command given to you, so you can skip this step and go to [step 3](./using-docker.md#step-3-adjust-public-ip-address).
 
@@ -83,7 +80,7 @@ For people looking to restart an old node, you will need to find your Safe and M
 
 For example: replace `--safeAddress <SAFE_WALLET_ADDRESS>` with `--safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9` and replace `--moduleAddress <Module_ADDRESS>` with `--moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2`
 
-### Adjust Public IP Address
+### 2.3 Adjust Public IP Address
 
 You will need to edit your public IP address within the Docker command:
 
@@ -97,7 +94,7 @@ Make sure not to remove the port `:9091` at the end.
 
 **Note:** Dynamic IPs will not work for this, as once your IP address changes, your node will no longer be reachable.
 
-## Step 3: Start Your Node
+## 3 Start Your Node
 
 Once you have [configured your docker command](using-docker.md#configure-command) correctly, you can start your node by using the now adjusted docker command.
 
