@@ -1,6 +1,6 @@
 ---
 id: using-dappnode
-title: Using a DAppNade
+title: Using Dappnode
 ---
 
 ## 1. Install the HOPR Package
