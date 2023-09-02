@@ -66,7 +66,7 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 
 For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`. 
 
-### 2.2 Adjust Safe & Module Addresses (Not for Onboarding)
+### 2.2 Adjust Safe & Module Addresses
 
 For node runners onboarding, these will be provided by default within the command given to you, so you can skip this step and go to [step 3](./using-docker.md#23-adjust-public-ip-address).
 
