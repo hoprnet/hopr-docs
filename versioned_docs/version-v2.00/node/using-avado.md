@@ -12,9 +12,8 @@ Please transition your Avado to Dappnode software to run a HOPR node. Avado is n
 ## Transitioning To Dappnode
 
 :::caution Warning
-**Important:** Before following this guide to install DappnodeOS on your Avado device, make sure to first [backup your identity file.](./using-avado.md#backup-identity-file)
+**Important:** Before following this guide to install DappnodeOS on your Avado device, make sure to first backup any data if you are running a validator or any other dApp. The migration process will otherwise wipe all existing data.
 
-If you are running a validator or any other dApp, creating a backup of the data is crucial, as the migration process will wipe out all existing data.
 :::
 
 ### Prerequisites
