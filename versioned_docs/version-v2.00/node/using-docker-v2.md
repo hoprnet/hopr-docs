@@ -54,6 +54,8 @@ Security token should contain:
 - a number
 - a special symbol (don't use `%` or whitespace)
 
+:::
+
 ### Safe & Module Addresses
 
 During initial setup, safe & module addresses will be already provided. But in the future, after you will be eligible to join the HOPR network, you will need to find safe & module addresses again.
