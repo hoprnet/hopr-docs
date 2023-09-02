@@ -113,6 +113,8 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 (**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it.
 
+<!-- INSERT SCREENSHOT -->
+
 (**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
 
 <!-- INSERT SCREENSHOT -->
