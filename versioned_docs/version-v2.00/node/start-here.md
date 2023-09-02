@@ -21,7 +21,7 @@ You will need a HOPR Safe to securely store your funds while operating a `hoprd`
 
 ## Waitlist
 
-The Dufour release is currently permissioned. You will only be able to interact with other nodes once you have been added to the network by the HOPR association. This will likely take 1-2 weeks but may vary depending on your stake and whether or not you have a Network Registry NFT. You can find the full details for this process [here](./waitlist-FAQ.md).
+The Dufour release is currently permissioned. You will only be able to interact with other nodes once you have been added to the network by the HOPR association. This will likely take 1-2 weeks but may vary depending on your stake and whether or not you have a Network Registry NFT. You can find the additional details for this process [here](./waitlist-FAQ.md).
 
 ## Hardware requirements
 
