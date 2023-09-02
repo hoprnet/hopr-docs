@@ -12,7 +12,7 @@ title: Using Tmux
 (**2**) Copy, paste and execute the following command: 
 
 ```bash
---host 8.8.8.8:9091
+--curl ifconfig.me
 ```
 
 (**3**) Note your public IP address from the output
