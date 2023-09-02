@@ -129,7 +129,7 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 (**6**) Go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
 
-## 4. Link Your Node With Your Safe
+## 4. Link Your Node to Your Safe
 
 :::info
 

@@ -24,7 +24,7 @@ From the Dashboard, note your:
 - Safe address
 - Module address
 
-<!-- INSERT SCREENSHOT -->
+<!-- INSERT DASHBOARD SCREENSHOT -->
 
 Also find:
 
@@ -32,7 +32,7 @@ Also find:
 
 (**5**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly
 
-<!-- INSERT SCREENSHOT -->
+<!-- INSERT SSTUP WIZARD CREENSHOT -->
 
 **Note:** For version 2.00 (Dufour), you must install a new node, so you cannot restore an old one.
 
@@ -42,7 +42,7 @@ Also find:
 
 (**8**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
 
-## 2. Link Your Node With Your Safe
+## 2. Link Your Node to Your Safe
 
 :::info
 
