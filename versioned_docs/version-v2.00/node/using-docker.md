@@ -139,7 +139,7 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**3**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
-(**4**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:``, where you either will need to click on the link which will forward you to complete the onboarding process or copy node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
+(**4**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:`, where you either will need to click on the link which will forward you to complete the onboarding process or copy node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
 
 ### For Linux/macOS  
 
@@ -147,4 +147,4 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
-(**3**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:``, where you either will need to click on the link which will forward you to complete the onboarding process or copy node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
+(**3**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:`, where you either will need to click on the link which will forward you to complete the onboarding process or copy node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
