@@ -87,7 +87,7 @@ For example:
 
 You will need to edit your public IP address within the Docker command:
 
-(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./using-docker.md#find-your-ip-address).
+(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./find-your-ip-address.md).
 
 (**2**) Replace the `host` within your docker command with your own security token. 
 
@@ -137,11 +137,9 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**2**) Open your terminal
 
-(**3**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here].
+(**3**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
-(**4**) Make sure to note your Node address either from the output from the terminal or your application to the [waitlist](https://cryptpad.fr/sheet/#/2/sheet/view/NYbRDH+C993dfHwEL1RyyKNtxG5pRoOaxtI4hbRVUBw/).
-
-(**5**) Return to the [Staking Hub](https://hub.hoprnet.org) with your Node address noted to finish onboarding.
+(**4**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:``, where you either will need to click on the link which will forward you to complete the onboarding process or copy node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
 
 ### For Linux/macOS  
 
@@ -149,26 +147,4 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
-(**3**) Make sure to note your Node address either from the output from the terminal or your application to the [waitlist](https://cryptpad.fr/sheet/#/2/sheet/view/NYbRDH+C993dfHwEL1RyyKNtxG5pRoOaxtI4hbRVUBw/).
-
-(**4**) Return to the [Staking Hub](https://hub.hoprnet.org) with your Node address noted in order to finish 
-
-## Find Your IP Address
-
-### For Linux or macOS
-
-(**1**) Open the terminal
-
-(**2**) Copy, paste and execute the following command: 
-
-```bash
---host 8.8.8.8:9091
-```
-
-(**3**) Note your public IP address from the output
-
-<!-- INSERT SCREENSHOT -->
-
-### For VPS Users
-
-- VPS users should be able to find their IP address from their provider. It will also be your VPS IP, so it should be easy to find.
+(**3**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:``, where you either will need to click on the link which will forward you to complete the onboarding process or copy node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
