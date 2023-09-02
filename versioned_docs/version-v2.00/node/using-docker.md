@@ -87,7 +87,7 @@ For example:
 
 You will need to edit your public IP address within the Docker command:
 
-(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./find-your-ip-address.md).
+(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./hidden-page.md#find-your-ip-address).
 
 (**2**) Replace the `host` within your docker command with your own security token. 
 
@@ -139,7 +139,7 @@ Only do this if you have been approved to join the network. If you are still on 
 
 ### For VPS users 
 
-(**1**) Please make sure you have installed [Tmux](./using-tmux.md)
+(**1**) Please make sure you have installed [Tmux](./hidden-page.md#using-tmux)
 
 (**2**) Open your terminal
 
