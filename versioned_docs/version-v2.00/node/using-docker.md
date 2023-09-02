@@ -111,7 +111,9 @@ docker --help
 
 If you see an output of available docker commands, Docker is installed. If the docker command is not found, please make sure you have [correctly installed Docker](./using-docker.md#1-install-docker).
 
-(**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it. Your adjusted command should look similar to the following below. Please do not copy this command and use your own, as it will not work. It is provided just as an example:
+(**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it. Your adjusted command should look similar to the following below. 
+
+**Note:** Please do not copy this command and use your own, as it will not work. It is provided just as an example.
 
 ![command example](/img/node/command-screenshot.png)
 
