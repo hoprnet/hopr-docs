@@ -106,6 +106,8 @@ with
 --moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2
 ```
 
+**Note:** Make sure that the spacing between words is as above. Do not remove the spaces.
+
 ### 2.3 Adjust Public IP Address
 
 You will need to edit your public IP address within the Docker command:
