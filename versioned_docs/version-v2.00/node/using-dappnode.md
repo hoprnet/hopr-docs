@@ -3,6 +3,10 @@ id: using-dappnode
 title: Using Dappnode
 ---
 
+:::caution Warning
+Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
+:::
+
 ## 1. Install the HOPR Package
 
 While connected to your Dappnode's network or via a VPN:
