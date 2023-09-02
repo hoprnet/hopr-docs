@@ -13,7 +13,7 @@ To use the HOPR network, you will need to create a `HOPR Safe` and install a `ho
 It is not possible to run a node without a `HOPR Safe`.
 :::
 
-You will need a HOPR Safe to securely store your funds while operating a `hoprd` node. If you have not yet created a `HOPR Safe`, please do so [here](https://hub.hoprnet.org/). 
+You will need a HOPR Safe to securely store your funds while operating a `hoprd` node. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 
 **Note:** You will need a minimum of 30,000 wxHOPR (10,000 wxHOPR if you have a Network Registry NFT) to run a node on the HOPR network. You can find options to purchase the necessary tokens [here](../staking/how-to-get-hopr.md).
 
