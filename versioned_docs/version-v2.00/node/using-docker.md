@@ -68,7 +68,7 @@ For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3c
 
 ### 2.2 Adjust Safe & Module Addresses (Not for Onboarding)
 
-For node runners onboarding, these will be provided by default within the command given to you, so you can skip this step and go to [step 3](./using-docker.md#step-3-adjust-public-ip-address).
+For node runners onboarding, these will be provided by default within the command given to you, so you can skip this step and go to [step 3](./using-docker.md#23-adjust-public-ip-address).
 
 For people looking to restart an old node, you will need to find your Safe and Module address and manually add it to the docker command. 
 
@@ -78,7 +78,10 @@ For people looking to restart an old node, you will need to find your Safe and M
 
 (**2**) replace the `safeAddress` and `moduleAddress` within your docker command with your own security token. 
 
-For example: replace `--safeAddress <SAFE_WALLET_ADDRESS>` with `--safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9` and replace `--moduleAddress <Module_ADDRESS>` with `--moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2`
+For example: 
+
+- replace `--safeAddress <SAFE_WALLET_ADDRESS>` with `--safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9`
+- replace `--moduleAddress <Module_ADDRESS>` with `--moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2`
 
 ### 2.3 Adjust Public IP Address
 
@@ -96,7 +99,7 @@ Make sure not to remove the port `:9091` at the end.
 
 ## 3. Start Your Node
 
-Once you have [configured your docker command](using-docker.md#configure-command) correctly, you can start your node by using the now adjusted docker command.
+Once you have [configured your docker command](using-docker.md#2-configure-command) correctly, you can start your node by using the now adjusted docker command.
 
 (**1**) Open your terminal.
 
@@ -106,15 +109,11 @@ Once you have [configured your docker command](using-docker.md#configure-command
 docker --help
 ```
 
-If you see an output of available docker commands, Docker is installed. If the docker command is not found, please make sure you have [correctly installed Docker](./using-docker.md#install-docker).
+If you see an output of available docker commands, Docker is installed. If the docker command is not found, please make sure you have [correctly installed Docker](./using-docker.md#1-install-docker).
 
-(**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it. This command should look similar to the default command below but with the correct Safe Address, Module Address, Public IP and Security Token for you:
+(**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it.
 
-```bash
-docker run --pull always --restart on-failure -m 2g --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9091
-```
-
-(**4**) After running the command, wait for a little bit, and from the output, locate your `Node Information`.
+(**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
 
 <!-- INSERT SCREENSHOT -->
 
@@ -124,7 +123,7 @@ docker run --pull always --restart on-failure -m 2g --log-driver json-file --log
 
 (**6**) Go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
 
-## Restart Your Node
+## 4. Link Your Node With Your Safe
 
 :::info
 
@@ -134,7 +133,7 @@ Only do this if you have been approved to join the network. If you are still on 
 
 ### For VPS users 
 
-(**1**) Please make sure you have installed [Tmux](./using-docker.md#install-tmux-optional)
+(**1**) Please make sure you have installed [Tmux](./using-tmux.md)
 
 (**2**) Open your terminal
 
@@ -148,7 +147,7 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**1**) Open your terminal
 
-(**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here].
+(**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
 (**3**) Make sure to note your Node address either from the output from the terminal or your application to the [waitlist](https://cryptpad.fr/sheet/#/2/sheet/view/NYbRDH+C993dfHwEL1RyyKNtxG5pRoOaxtI4hbRVUBw/).
 
