@@ -9,10 +9,8 @@ To use the HOPR network, you will need to create a `HOPR Safe` and install a `ho
 
 ## HOPR Safe
 
-::: Warning
-
+:::caution Warning 
 It is not possible to run a node without a `HOPR Safe`.
-
 :::
 
 You will need a HOPR Safe to securely store your funds while operating a `hoprd` node. If you have not yet created a `HOPR Safe`, please do so [here](https://hub.hoprnet.org/). 

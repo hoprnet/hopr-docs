@@ -5,24 +5,22 @@ title: Waitlist FAQ
 
 ### What is the waitlist?
 
-To allow for incremental scaling, we have temporarily implemented a HOPR network registry. To be able to access the HOPR network registry gradually, we implemented a waiting list, where every participant who is willing to run a node has to fill in the registration form.
+To allow for the controlled scalling of the initial Dufour release, we have implemented a HOPR network waitlist. After having created a HOPR Safe and HOPR Node, you will need to register to the waitlist using the [waitlist form](https://cryptpad.fr/form/#/2/form/view/K3KSF-UAM-mLjUCs4w3Cruu4wZeOdwQFLNG1aYqrjbg/). 
 
-As the network registry expands and slots open, Network Registry NFTs will be sent to the next eligible addresses on the waitlist.
-
-Staking these NFTs in the HOPR staking program allows users to register their address in the network registry smart contract.
+After you have been approved to join the network, you can return to the [Staking Hub](https://hub.hoprnet.org/) to complete your onboarding and join the network.
 
 ### How do I join the waitlist?
 
-To join the waitlist, first you have to:
+To join the waitlist, first you have to create a HOPR Safe and HOPR Node. Then register your Node and Safe using the [waitlist form](https://cryptpad.fr/form/#/2/form/view/K3KSF-UAM-mLjUCs4w3Cruu4wZeOdwQFLNG1aYqrjbg/). 
 
-(**1**) Stake HOPR tokens at https://stake.hoprnet.org (see below for the minimum stake)
+You can create safe and node using the onboarding wizard in the [Staking Hub](https://hub.hoprnet.org/).
 
-(**2**) Fill out the registration form: http://forms.gle/rHLwbXVZyATRuRmK7
+### What is the minimum stake required to participate in the Dufour release?
 
-### What is the minimum stake required to participate in the Monte Rosa release?
+- **Without a Network Registry NFT:** You will need a minimum of 30,000 wxHOPR and atleast one xDAI.
+- **With a Network Registry NFT:** You will need a minimum of 10,000 wxHOPR and atleast one xDAI.
 
-- Avado and Dappnode users must stake a minimum of 1000 HOPR tokens.
-- Everyone else must stake at least 2000 HOPR tokens.
+You can find where to purchase the relevant tokens [here](../). 
 
 ### How often is the waitlist updated?
 
