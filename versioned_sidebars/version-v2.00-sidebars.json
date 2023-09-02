@@ -26,10 +26,7 @@
         "version-v2.00/node/using-avado",
         "version-v2.00/node/using-dappnode",
         "version-v2.00/node/using-docker",
-        "version-v2.00/node/using-hopr-admin",
         "version-v2.00/node/hoprd-commands",
-        "version-v2.00/node/grafana-dashboards",
-        "version-v2.00/node/network-registry-tutorial",
         "version-v2.00/node/waitlist-FAQ"
       ]
     },
