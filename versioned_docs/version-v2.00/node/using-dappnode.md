@@ -38,9 +38,15 @@ From the Dashboard, note your:
 
 (**5**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
 
-(**6**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly (the bottome three).
+(**6**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly (the bottom three).
 
-<!-- INSERT SSTUP WIZARD CREENSHOT -->
+- Add your Safe address under the field: `Staking safe address`
+- Add your Module address under the field: `Staking safe module address`
+- Add your Public IP **suffixed with the port** `:9091` under the field: `Host IP/Port mapping`
+
+**Note:** Make sure to add the port suffix `:9091` at the end of your IP address as shown in the image below. 
+
+![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
 
 **Note:** For version 2.00 (Dufour), you must install a new node, so you cannot restore an old one.
 
