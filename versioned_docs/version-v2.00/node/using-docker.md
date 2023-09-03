@@ -76,6 +76,8 @@ For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3c
 
 If you have copied the docker command from your Staking Hub onboarding process, you will already have your Safe & Module address by default and can skip this step and go directly to [step 2.3](./using-docker.md#23-adjust-public-ip-address).
 
+![docker command from onboarding](/static/img/node/docker-command-onboarding.png)
+
 If you have not copied the command from the onboarding process, you will likely need to replace the Safe and Module addresses and should follow the instructions below:
 
 (**1**) Head over to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard), and you should find your Safe and Module address at the top of the staking section.
@@ -143,8 +145,6 @@ If you see an output of available docker commands, Docker is installed. If the d
 **Note:** Please do not copy this command and use your own, as it will not work. It is provided just as an example.
 
 ![command example](/img/node/command-screenshot.png)
-
-<!-- INSERT SCREENSHOT -->
 
 (**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
 
