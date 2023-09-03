@@ -148,7 +148,7 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 (**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
 
-<!-- INSERT SCREENSHOT -->
+![Node terminal output](/static/img/node/Node-terminal-output.png)
 
 (**5**) Copy your `Node address`, and close your node using the command `CTRL + C` or `Command + C`.
 
