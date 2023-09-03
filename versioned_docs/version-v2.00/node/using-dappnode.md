@@ -7,17 +7,22 @@ title: Using Dappnode
 Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
+Node information in terminal output after running command
+Staking dashboard showing your Safe address and module address
+
+Dappstore
+
 ## 1. Install the HOPR Package
 
 While connected to your Dappnode's network or via a VPN:
 
 (**1**) Open the DAppStore using the sidebar to the left.
 
-<!-- ![DappStore](/img/node/DappStore-NR-1.png) -->
+![DappStore](/img/node/DappStore-NR-1.png)
 
 (**2**) Search for the "HOPR" in the DAppStore using the search bar. You should see the latest version of the HOPR client in the listed dApps. Click `Get`. This should take you to a new interface.
 
-<!-- ![Install Dappnode](/img/node/Dappnode-install.png) -->
+![Install Dappnode](/img/node/Dappnode-install.png)
 
 (**3**) Click `install`; this will open the setup wizard.
 
