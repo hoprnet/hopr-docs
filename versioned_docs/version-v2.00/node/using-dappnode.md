@@ -52,9 +52,27 @@ From the Dashboard, note your:
 
 (**7**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
 
-(**8**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
+(**8**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, navigate to the `logs` tab.
+
+![log tab](/img/node/dappnode-logs-tab.png)
+
+(**9**) In the logs, you should be able to find your Node address. It should be visible within a message similar to the one below:
+
+```bash
+2023-09-03T14:11:28.215Z hoprd Node is not started, please fund this node 0xf8c5af9607f12aa4a506458aac1a7c64a50fa0c4 with at least 10000000000000000 Native
+```
+
+Here, your `Node address` would be: `0xf8c5af9607f12aa4a506458aac1a7c64a50fa0c4`
+
+**Note:** Do not copy this node address. Use your own from your Dappnode's logs.
+
+(**10**) Copy your node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
+
+<!--
+click on `UI` to enter the HOPR Admin UI. 
 
 (**9**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
+-->
 
 ## 2. Link Your Node to Your Safe
 
