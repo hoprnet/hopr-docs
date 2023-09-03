@@ -82,7 +82,8 @@ If you have not copied the command from the onboarding process, you will likely 
 
 (**1**) Head over to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard), and you should find your Safe and Module address at the top of the staking section.
 
-<!-- INSERT SCREENSHOT -->
+
+![Module and Safe address](/img/node/module-and-safe-address.png)
 
 (**2**) replace the `safeAddress` and `moduleAddress` within your docker command with your own security token. 
 

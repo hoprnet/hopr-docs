@@ -33,7 +33,7 @@ From the Dashboard, note your:
 - Safe address
 - Module address
 
-<!-- INSERT DASHBOARD SCREENSHOT -->
+![Module and Safe address](/img/node/module-and-safe-address.png)
 
 Also find:
 
