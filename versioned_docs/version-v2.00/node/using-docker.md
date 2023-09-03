@@ -74,9 +74,9 @@ For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3c
 
 ### 2.2 Adjust Safe & Module Addresses
 
-For node runners onboarding, these will be provided by default within the command given to you, so you can skip this step and go to [step 3](./using-docker.md#23-adjust-public-ip-address).
+If you have copied the docker command from your Staking Hub onboarding process, you will already have your Safe & Module address by default and can skip this step and go directly to [step 2.3](./using-docker.md#23-adjust-public-ip-address).
 
-For people looking to restart an old node, you will need to find your Safe and Module address and manually add it to the docker command. 
+If you have not copied the command from the onboarding process, you will likely need to replace the Safe and Module addresses and should follow the instructions below:
 
 (**1**) Head over to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard), and you should find your Safe and Module address at the top of the staking section.
 

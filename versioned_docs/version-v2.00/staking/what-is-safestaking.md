@@ -28,20 +28,3 @@ This compartmentalization of funds, governed by a customizable hierarchy of keys
 
 
 
-
-
-
-
-
-
-
-
-one in which Node runners stake their tokens on the HOPR network and associate them wi
-
-
-
-Node runners need to be able to stake HOPR tokens on the HOPR network and associate them with their nodes. This has always been the long term design for the HOPR protocol. A completely decentralized and incentivized privacy mixnet, where the incentive mechanism functions directly through the HOPR protocol. 
-
-
-
-
