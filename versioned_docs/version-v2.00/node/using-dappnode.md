@@ -21,7 +21,7 @@ While connected to your Dappnode's network or via a VPN:
 
 (**3**) Click `install`; this will open the setup wizard.
 
-(**4**) Copy your Safe address and Module Address from your Staking Hub onboarding process.
+(**4**) Copy your Safe address and Module address from your Staking Hub onboarding process.
 
 ![dappnode env variable](/img/node/dappnode-env-variables-2.png)
 
