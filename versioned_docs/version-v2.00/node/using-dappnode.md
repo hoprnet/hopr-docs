@@ -40,7 +40,9 @@ From the Dashboard, note your:
 
 (**6**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly (the bottome three).
 
-<!-- INSERT SSTUP WIZARD CREENSHOT -->
+**Note:** Add the port suffix `:9091` at the end of your IP address. 
+
+![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
 
 **Note:** For version 2.00 (Dufour), you must install a new node, so you cannot restore an old one.
 
