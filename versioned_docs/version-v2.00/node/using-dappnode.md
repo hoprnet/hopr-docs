@@ -35,7 +35,7 @@ You should see the latest version of the HOPR client in the listed dApps. Click 
 
 With the setup wizard open, in parallel, go to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard).
 
-From the Dashboard, note your:
+From the dashboard, note your:
 
 - Safe address
 - Module address
