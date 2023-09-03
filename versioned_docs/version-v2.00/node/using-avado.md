@@ -5,9 +5,7 @@ title: Using an Avado Node
 
 :::caution Warning
 **Important:** Any HOPR package found on the Avado store is outdated and will not give you access to the Dufour release. Please migrate your software to DappnodeOS.
-:::
-
-Please transition your Avado to Dappnode software to run a HOPR node. Avado is no longer supported. 
+::: 
 
 ## Transitioning To Dappnode
 
