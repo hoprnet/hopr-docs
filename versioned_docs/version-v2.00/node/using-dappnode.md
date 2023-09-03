@@ -1,0 +1,68 @@
+---
+id: using-dappnode
+title: Using Dappnode
+---
+
+:::caution Warning
+Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
+:::
+
+Node information in terminal output after running command
+Staking dashboard showing your Safe address and module address
+
+Dappstore
+
+## 1. Install the HOPR Package
+
+While connected to your Dappnode's network or via a VPN:
+
+(**1**) Open the DAppStore using the sidebar to the left.
+
+![DappStore](/img/node/DappStore-NR-1.png)
+
+(**2**) Search for the "HOPR" in the DAppStore using the search bar. You should see the latest version of the HOPR client in the listed dApps. Click `Get`. This should take you to a new interface.
+
+![Install Dappnode](/img/node/Dappnode-install.png)
+
+(**3**) Click `install`; this will open the setup wizard.
+
+(**4**) With the setup wizard open, in parallel, go to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard).
+
+From the Dashboard, note your:
+
+- Safe address
+- Module address
+
+![Module and Safe address](/img/node/module-and-safe-address.png)
+
+Also find:
+
+- Your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
+
+(**5**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly
+
+<!-- INSERT SSTUP WIZARD CREENSHOT -->
+
+**Note:** For version 2.00 (Dufour), you must install a new node, so you cannot restore an old one.
+
+(**6**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
+
+(**7**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
+
+(**8**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
+
+## 2. Link Your Node to Your Safe
+
+:::info
+
+Only do this if you have been approved to join the network. If you are still on the waitlist, please wait until you have been approved to join the network. 
+
+:::info
+
+While connected to your Dappnode's network or via a VPN:
+
+(**1**) Login to your Dappnode and go to `Packages`.
+
+(**2**) Click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
+
+(**3**) Scroll down until you see the section `Addresses`. Copy the Node address and return to the [Staking Hub](https://hub.hoprnet.org) to complete the onboarding process.
