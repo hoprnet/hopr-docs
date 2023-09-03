@@ -23,7 +23,7 @@ While connected to your Dappnode's network or via a VPN:
 
 (**4**) Copy your Safe address and Module Address from your Staking Hub onboarding process.
 
-![dappnode env variable](/img/node/dappnode-env-variables.png)
+![dappnode env variable](/img/node/dappnode-env-variables-2.png)
 
 **Note:** If you are re-installing an existing node and not onboarding, you can find the addresses within the dashboard. 
 
