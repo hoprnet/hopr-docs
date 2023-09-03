@@ -15,13 +15,19 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DappStore](/img/node/DappStore-NR-1.png)
 
-(**2**) Search for the "HOPR" in the DAppStore using the search bar. You should see the latest version of the HOPR client in the listed dApps. Click `Get`. This should take you to a new interface.
+(**2**) Enter the following hash into the DAppStore search bar: 
 
-![Install Dappnode](/img/node/Dappnode-install.png)
+```bash
+/ipfs/QmRLJwmwkE3hh1Br7QsT6nZ2BSUyxbAAUUpzTNfzXgDmhC
+```
 
-(**3**) Click `install`; this will open the setup wizard.
+(**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
 
-(**4**) Copy your Safe address and Module address from your Staking Hub onboarding process.
+(**4**) Then, toggle the `Bypass only signed safe restriction` on the left, and click `install`; this will open the setup wizard.
+
+![bypass toggle](/img/node/dappnode-bypass-signed-safe.png)
+
+(**5**) Copy your Safe address and Module address from your Staking Hub onboarding process.
 
 ![dappnode env variable](/img/node/dappnode-env-variables-3.png)
 
@@ -29,16 +35,16 @@ While connected to your Dappnode's network or via a VPN:
 
 With the setup wizard open, in parallel, go to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard).
 
-From the Dashboard, note your:
+From the dashboard, note your:
 
 - Safe address
 - Module address
 
 ![Module and Safe address](/img/node/module-and-safe-address.png)
 
-(**5**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
+(**6**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
 
-(**6**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly (the bottom three).
+(**7**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly (the bottom three).
 
 - Add your Safe address under the field: `Staking safe address`
 - Add your Module address under the field: `Staking safe module address`
@@ -50,29 +56,13 @@ From the Dashboard, note your:
 
 **Note:** For version 2.00 (Dufour), you must install a new node, so you cannot restore an old one.
 
-(**7**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
+(**8**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
 
-(**8**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, navigate to the `logs` tab.
+(**9**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
 
-![log tab](/img/node/dappnode-logs-tab.png)
+![Dappnode package UI](/img/node/dappnode-package-UI.png)
 
-(**9**) In the logs, you should be able to find your Node address. It should be visible within a message similar to the one below:
-
-```bash
-2023-09-03T14:11:28.215Z hoprd Node is not started, please fund this node 0xf8c5af9607f12aa4a506458aac1a7c64a50fa0c4 with at least 10000000000000000 Native
-```
-
-Here, your `Node address` would be: `0xf8c5af9607f12aa4a506458aac1a7c64a50fa0c4`
-
-**Note:** Do not copy this node address. Use your own from your Dappnode's logs.
-
-(**10**) Copy your node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
-
-<!--
-click on `UI` to enter the HOPR Admin UI. 
-
-(**9**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
--->
+(**10**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
 
 ## 2. Link Your Node to Your Safe
 
