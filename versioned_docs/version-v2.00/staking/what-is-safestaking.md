@@ -19,6 +19,8 @@ The node also needs to make transactions on-chain to use the funds within its pa
 
 The bulk of a node runner's funds are now separated and secured within the `HOPR Safe` that can only be accessed via the `admin key`, and funds stored on the node can be accessed by the node using the `chain key`. But what makes this design special is the addition of a smart contract that allows the node runner to customize access to their node and `HOPR Safe` however they like. 
 
+![Node Management](/img/staking/Node-Management.png)
+
 You could choose for your node to have complete access to the `HOPR Safe` via just the `chain key`, so it could do as it likes with all the funds stored within the Safe. You could make it so every action the node takes has to be approved by the `admin key` or both the `admin key` and `chain key`, or anything in between. You could pick and choose which pair of keys is needed to send messages through your node, redeem tickets, open channels or utilize any of the functionality of the HOPR node. You can even give your node complete access to a set amount of funds within the `HOPR Safe` before it has to start asking for a signature from the `admin key`.
 
 This compartmentalization of funds, governed by a customizable hierarchy of keys, allows you to start with the default massively improved security of having your funds completely separated and isolated from your node and then to choose exactly what level of risk you are comfortable with as a node runner from there. 
