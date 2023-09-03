@@ -60,6 +60,8 @@
       "type": "category",
       "label": "Ecosystem",
       "items": [
+        "version-v2.00/staking/why-use-safe",
+        "version-v2.00/staking/what-is-safestaking",
         "version-v2.00/ecosystem/hopr-token",
         "version-v2.00/ecosystem/gnosis-hopr-tokens",
         "version-v2.00/staking/how-to-get-hopr",
