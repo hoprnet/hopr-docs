@@ -21,7 +21,7 @@ While connected to your Dappnode's network or via a VPN:
 /ipfs/QmRLJwmwkE3hh1Br7QsT6nZ2BSUyxbAAUUpzTNfzXgDmhC
 ```
 
-(**3**) You should see the latest version of the HOPR client in the listed dApps. Click `Get`, this should take you to a new interface.
+(**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
 
 (**4**) Then, toggle the `Bypass only signed safe restriction` on the left, and click `install`; this will open the setup wizard.
 
