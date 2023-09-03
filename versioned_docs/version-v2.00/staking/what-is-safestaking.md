@@ -11,9 +11,9 @@ HOPR provides decentralized incentives for node runners through [proof-of-relay]
 
 Node runners can store their funds within the `HOPR Safe`, a separate, extremely secure smart contract account developed using [Safe](https://safe.global/). They then create a node and associate it with their HOPR Safe. 
 
-The funds staked on the node are used to determine the distribution of traffic the node will receive (allowing it to earn more tickets/HOPR). They also need to be accessed by the node in limited amounts to allow it to open and fund payment channels.
+The funds staked on the node are used to determine the distribution of traffic the node will receive (allowing it to earn more tickets/HOPR). The funds stored in the HOPR Safe also need to be accessed by the node in limited amounts to allow it to open and fund payment channels.
 
-Funds within a node runner's HOPR Safe are guarded by their private key. The owner of the HOPR Safe has to sign and approve transactions for the node to use its funds, and this private key, which signs transactions for the `HOPR Safe`, is referred to as the `admin key`.
+The owner of the HOPR Safe has to sign and approve transactions for the node to use its funds, and the private key, which signs transactions for the `HOPR Safe`, is referred to as the `admin key`.
 
 The node also needs to make transactions on-chain to use the funds within its payment channels or redeem tickets. For this, it has a separate key that it can access locally, which is referred to as the `chain key`.
 
