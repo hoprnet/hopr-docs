@@ -1,6 +1,6 @@
 ---
 id: using-hopr-admin-v2
-title: How to Install HOPR Admin
+title: Using HOPR Admin
 ---
 
 The HOPR Admin provides a graphical interface you can use to interact with your node as well as diagnose any potential issues. HOPR Admin is provided with the Dappnode HOPR package by default, so no seperate action is needed, but for Docker users you will need to run an extra command to install HOPR Admin before you can access it.

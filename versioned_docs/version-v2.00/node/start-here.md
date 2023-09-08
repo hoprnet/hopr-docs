@@ -15,9 +15,7 @@ It is not possible to run a node without a `HOPR Safe`.
 
 You will need a HOPR Safe to securely store your funds while operating a `hoprd` node. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 
-**Note:** You will need a minimum of 30,000 wxHOPR (10,000 wxHOPR if you have a Network Registry NFT) to run a node on the HOPR network. You can find options to purchase the necessary tokens [here](../staking/how-to-get-hopr.md).
-
-<!-- Add a link to Waitlist FAQ what is NR NFT -->
+**Note:** You will need a minimum of 30,000 wxHOPR (10,000 wxHOPR if you have a [Network Registry NFT](./waitlist-FAQ.md#what-is-the-network-registry-nft)) to run a node on the HOPR network. You can find options to purchase the necessary tokens [here](../staking/how-to-get-hopr.md).
 
 ## Waitlist
 
@@ -44,6 +42,20 @@ If you intend to run your node locally, try and use a setup where your PC or mac
 ## Avado Support
 
 Avado is no longer supported with the release of Dufour. Any software found on the Avado store is outdated and will not allow you to interact with anyone within the Dufour network. If you have an Avado device, it is strongly recommended you migrate its operating system to DappnodeOS. You can do so using the guide [here](./using-avado.md#transitioning-to-dappnode).
+
+## Port Forwarding
+
+For the Dufour release, every node must have port forwarding set up in order to be visible to other nodes on the network. You can read all about it [here](./using-hopr-admin.md#types-of-nodes).
+
+## Installation Demo
+
+You can view a complete walkthrough of the onboarding process in the video below, but please note:
+
+- The video shows a VPS/Docker installation method and not Dappnode.
+- The video does not show the node being restarted after the waitlist step. You will need to make sure you do this, as is [recommended in the docs for Docker](./using-docker.md#4-link-your-node-to-your-safe).
+- The video does not mention port forwarding, but you will need to set this up in order for your node to be reachable by others on the network. You can read more about this [here](./using-hopr-admin.md#types-of-nodes).
+
+<iframe width="960" src="https://www.youtube.com/embed/tcs3VzEW7dM" frameborder="0" allowfullscreen></iframe>
 
 ## hoprd installation methods
 
