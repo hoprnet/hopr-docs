@@ -1,6 +1,6 @@
 ---
 id: using-avado
-title: Using an Avado Node
+title: Using Avado
 ---
 
 :::caution Warning

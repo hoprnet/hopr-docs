@@ -72,6 +72,8 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 
 For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`. 
 
+**Note:** Make sure to make a note of the API token you have created. You will need it to access HOPR Admin.
+
 ### 2.2 Adjust Safe & Module Addresses
 
 If you have copied the docker command from your Staking Hub onboarding process, you will already have your Safe & Module address by default and can skip this step and go directly to [step 2.3](./using-docker.md#23-adjust-public-ip-address).
