@@ -32,6 +32,8 @@ HOPR Admin already comes with the HOPR package on Dappnode so you can access it 
 
 (**2**) Once inside, click on `UI` to open the HOPR Admin.
 
+(**3**) Then connect your node as suggested [here](./using-hopr-admin-v2.md#connecting-your-node).
+
 ### For Docker Users
 
 Assuming you used the default port numbers, you should be able to access the HOPR Admin at [http://localhost:3000](http://localhost:3000) (replace `localhost` with your `server IP address` if you are using a VPS, for example `http://142.93.5.175:3000`).
