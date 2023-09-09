@@ -67,7 +67,9 @@ From the dashboard, note your:
 - API endpoint - http://node.hopr.public.dappnode:3001
 - API token - If you haven't changed the security token during the installation process, the security token will be the default one: `!5qxc9Lp1BE7IFQ-nrtttU`.
 
-(**11**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
+After filling API endpoint & API token fields click on "Connect to the node".
+
+(**11**) It will display an error message, indicating that you need to fund your node. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
 
 ## 2. Link Your Node to Your Safe
 
