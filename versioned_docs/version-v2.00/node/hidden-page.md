@@ -44,7 +44,7 @@ This should output your logs, copy them and either:
 - Save them in a .txt file and send them to an ambassador on our [telegram](https://t.me/hoprnet) for assistance.
 - Or, create an issue using our bug template on [GitHub.](https://github.com/hoprnet/hoprnet/issues)
 
-## Find Your IP Address
+## Find Your Public IP Address
 
 ### For Linux or macOS
 
