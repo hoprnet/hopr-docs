@@ -18,7 +18,7 @@ While connected to your Dappnode's network or via a VPN:
 (**2**) Enter the following hash into the DAppStore search bar: 
 
 ```bash
-/ipfs/QmRLJwmwkE3hh1Br7QsT6nZ2BSUyxbAAUUpzTNfzXgDmhC
+/ipfs/QmPr6UApkDxZZ4HrmQ6qNpVa4s4R3dFepLmneGEdVQrJy1
 ```
 
 (**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
