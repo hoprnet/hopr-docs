@@ -18,7 +18,7 @@ While connected to your Dappnode's network or via a VPN:
 (**2**) Enter the following hash into the DAppStore search bar: 
 
 ```bash
-/ipfs/QmRLJwmwkE3hh1Br7QsT6nZ2BSUyxbAAUUpzTNfzXgDmhC
+/ipfs/QmPr6UApkDxZZ4HrmQ6qNpVa4s4R3dFepLmneGEdVQrJy1
 ```
 
 (**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
@@ -62,7 +62,14 @@ From the dashboard, note your:
 
 ![Dappnode package UI](/img/node/dappnode-package-UI.png)
 
-(**10**) Scroll down until you see the section `Addresses`. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
+(**10**) Click on the top right corner "Connect to node" and enter these details:
+
+- API endpoint - http://node.hopr.public.dappnode:3001
+- API token - If you haven't changed the security token during the installation process, the security token will be the default one: `!5qxc9Lp1BE7IFQ-nrtttU`.
+
+After filling API endpoint & API token fields click on "Connect to the node".
+
+(**11**) It will display an error message, indicating that you need to fund your node. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
 
 ## 2. Link Your Node to Your Safe
 
