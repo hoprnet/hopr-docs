@@ -71,6 +71,10 @@ After filling API endpoint & API token fields click on "Connect to the node".
 
 (**11**) It will display an error message, indicating that you need to fund your node. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
 
+:::caution Warning
+**Do not fund your node by sending funds from your wallet.** Wait to complete the rest of the onboarding flow. You will be able to do this through the Staking Hub. Trying to fund the node directly may cause problems. 
+:::
+
 ## 2. Link Your Node to Your Safe
 
 :::info
