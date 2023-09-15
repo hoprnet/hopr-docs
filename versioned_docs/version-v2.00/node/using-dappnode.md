@@ -58,18 +58,11 @@ From the dashboard, note your:
 
 (**8**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
 
-(**9**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
+(**9**) Once installed, go to `Packages` and click on `HOPR`. Inside the HOPR package, click on `Logs` tab. Scroll down until you see logs screen. Wait for a moment, and within the logs output, locate your `Node Information`.
 
-![Dappnode package UI](/img/node/dappnode-package-UI.png)
+![Dappnode HOPR logs](/img/node/dappnode-hopr-logs.png)
 
-(**10**) Click on the top right corner "Connect to node" and enter these details:
-
-- API endpoint - http://node.hopr.public.dappnode:3001
-- API token - If you haven't changed the security token during the installation process, the security token will be the default one: `!5qxc9Lp1BE7IFQ-nrtttU`.
-
-After filling API endpoint & API token fields click on "Connect to the node".
-
-(**11**) It will display an error message, indicating that you need to fund your node. Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
+(**10**) Copy the Node address and return to [Staking Hub](https://hub.hoprnet.org) to register on the waitlist.
 
 :::caution Warning
 **Do not fund your node by sending funds from your wallet.** Wait to complete the rest of the onboarding flow. You will be able to do this through the Staking Hub. Trying to fund the node directly may cause problems. 
