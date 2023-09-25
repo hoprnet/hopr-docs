@@ -42,7 +42,7 @@ The Cover Traffic threshold was intentionally set to make the network more decen
 
 The Cover Traffic economic model projects the expected reward of a node runner can expect given the underlying parameters.
 
-#### Here are 3 different scenarios based on node runners stake and 5 nodes in the network:
+Here are 3 different scenarios based on node runners stake and 5 nodes in the network:
 
 :::tip Table terms
 
@@ -60,7 +60,7 @@ The Cover Traffic economic model projects the expected reward of a node runner c
 
 :::
 
-1st scenario: 
+**1st scenario:**
 
 Every node runner are in between the Cover traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
 
@@ -73,7 +73,7 @@ Every node runner are in between the Cover traffic thresholds, receiving maximum
 | Expected tickets | 465    | 1395    | 2326     | 2326    | 3488    |
 | APY (pct) | 55.81    | 55.81    | 55.81     | 55.81   | 55.81    |
 
-2nd scenario: 
+**2nd scenario:**
 
 The owner of Node E decided to stake 100,000 wxHOPR instead of 75,000 wxHOPR. We can see that their Transformed stake amount decreased from 100,000 to approximately 76,000 HOPR tokens. This is the amount from which Cover Traffic will calculate the rewards. Expected rewards are quite similar to the rewards if the node had staked 75,000 instead of 100,000 per node.
 
@@ -86,7 +86,7 @@ The owner of Node E decided to stake 100,000 wxHOPR instead of 75,000 wxHOPR. We
 | Expected tickets | 462    | 1386    | 2311     | 2311    | 3530    |
 | APY (pct) | 55.46    | 55.46    | 55.46     | 55.46   | 42.36    |
 
-3rd scenario:
+**3rd scenario:**
 
 The owner of Node E made a strategic decision to split his 100,000-wxHOPR stake into two nodes, one with 75,000 wxHOPR and the other with 25,000 wxHOPR. By aggregating the expected rewards from both nodes, he significantly increased his total rewards compared to running a single node, as shown in the second scenario. This approach maximizes his rewards while staying within the stake threshold.
 
