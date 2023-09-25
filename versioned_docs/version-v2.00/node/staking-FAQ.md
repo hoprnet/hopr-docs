@@ -46,12 +46,17 @@ The Cover Traffic economic model projects the expected reward of a node runner c
 
 :::tip Table terms
 
-Stake (wxHOPR) - The amount of HOPR tokens staked by the node runner.
-Transformed Stake (wxHOPR) - Whenever a node runner exceeds the 75,000 wxHOPR threshold, this parameter ensures a drastic decrease in rewards.
-CT probability (pct) - Cover traffic probability, the higher you stake, the higher probability to receiwe rewards from the cover traffic.
-Expected reward (wxHOPR) - Expected rewards based on the staking amount and node performance.
-Expected tickets - Expected ticket numbers to be rewarded by the Cover traffic. 1 ticket equals to 1 wxHOPR.
-APY (pct) - Your staking rewards APY (Annual Percentage Yield).
+**Stake (wxHOPR)** - The amount of HOPR tokens staked by the node runner.
+
+**Transformed Stake (wxHOPR)** - Whenever a node runner exceeds the 75,000 wxHOPR threshold, this parameter ensures a drastic decrease in rewards.
+
+**CT probability (pct)** - Cover traffic probability, the higher you stake, the higher probability to receiwe rewards from the cover traffic.
+
+**Expected reward (wxHOPR)** - Expected rewards based on the staking amount and node performance.
+
+**Expected tickets** - Expected ticket numbers to be rewarded by the Cover traffic. 1 ticket equals to 1 wxHOPR.
+
+**APY (pct)** - Your staking rewards APY (Annual Percentage Yield).
 
 :::
 
@@ -93,6 +98,8 @@ The owner of Node E made a strategic decision to split his 100,000-wxHOPR stake 
 | Expected reward (wxHOPR) | 416.67    | 1250.0    | 2083.33     | 2083.33    | 3125.0    | 1041.67 |
 | Expected tickets | 417    | 1250    | 2083    | 2083   | 3125   | 1042 |
 | APY (pct) | 50.0    | 50.0    | 50.0     | 50.0   | 50.0    | 50.0 |
+
+For a more detailed and in-depth explanation of the Cover Traffic economic model, please read: [here](https://github.com/hoprnet/ct-research/wiki/Economic-model)
 
 ### What is my expected APY?
 
