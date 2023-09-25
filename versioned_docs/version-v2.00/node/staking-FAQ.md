@@ -5,11 +5,25 @@ title: Staking FAQ
 
 ### How will the boost NFTs from previous releases be used in the future?
 
-The initial idea of the HOPR protocol was about staking and receiving rewards for relaying data. As a result, we are planning to discontinue all NFTs except the Network Registry NFT, which is necessary to meet the minimum staking threshold of 10,000 HOPR.
+The initial idea of the HOPR protocol was about staking and receiving rewards for relaying data. As a result, we are planning to discontinue all NFTs except the Network Registry NFT, which is necessary to meet the minimum staking threshold of 10,000 HOPR. The Network Registry NFT doesn't provide any APY boost.
 
 ### With CT launch, what tokens will be redistributed to nodes in channels?
 
 Only `wxHOPR` is used within channels. Cover traffic will also distribute rewards in the form of tickets, redeemable for wxHOPR.
+
+### Does CT have threshold rewards caps, and if so, why?
+
+CT has a minimum threshold cap of 10,000 wxHOPR. This means that if your total stake is equal to or greater than 10,000 wxHOPR, you will start receiving rewards, with the condition that your node remains reachable and performs normally.
+
+CT also has a maximum threshold cap of 75,000 wxHOPR. If you stake up to 75,000 wxHOPR per node, you will receive the maximum rewards. However, if you stake more than 75,000 wxHOPR, your rewards will be significantly reduced.
+
+Based on the CT economic model rewards threshold, we have prepared some recommendations:
+
+- When a participant has <= 75.000 HOPR tokens: you don't need to run several nodes because rewards are based on your stake alone. For example, if you decide to have 2 nodes with stakes of 40.000 & 35.000 HOPR token, you will get the same rewards as you would from running 1 node with a 75.000 stake.
+
+- When a participant has >75.000 HOPR tokens: the optimal reward strategy is to split your stake across multiple nodes with <= 75.000 HOPR in each. Additional HOPR staked in nodes above 75.000 will earn rewards, but at a significantly reduced rate.
+
+The Cover Traffic threshold was intentionally set to make the network more decentralized and to distribute rewards more fairly. This ensures that even node runners with a small stake have the opportunity to receive rewards. Currently, we are projecting a stable APY of 10-15%!
 
 ### What is my expected APY?
 
