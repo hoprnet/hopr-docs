@@ -17,11 +17,11 @@ While connected to your Dappnode's network or via a VPN:
 
 (**2**) Search for HOPR using the search bar at the top of the DappStore, then locate the HOPR package in the provided results.
 
-(**3**) Click the Get button under the HOPR package, this should take you to a new interface.
+(**3**) Click the `Get` button under the HOPR package, this should take you to a new interface.
 
-(**4**) Then, toggle the `Bypass only signed safe restriction` on the left, and click `install`; this will open the setup wizard.
+(**4**) Then, click `install`; this will open the setup wizard.
 
-![bypass toggle](/img/node/dappnode-bypass-signed-safe.png)
+![bypass toggle](/img/node/Dappnode-install.png)
 
 (**5**) Copy your Safe address and Module address from your Staking Hub onboarding process.
 
