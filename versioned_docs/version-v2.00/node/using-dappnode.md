@@ -15,13 +15,9 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DappStore](/img/node/DappStore-NR-1.png)
 
-(**2**) Enter the following hash into the DAppStore search bar: 
+(**2**) Search for HOPR using the search bar at the top of the DappStore, then locate the HOPR package in the provided results.
 
-```bash
-/ipfs/QmPr6UApkDxZZ4HrmQ6qNpVa4s4R3dFepLmneGEdVQrJy1
-```
-
-(**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
+(**3**) Click the Get button under the HOPR package, this should take you to a new interface.
 
 (**4**) Then, toggle the `Bypass only signed safe restriction` on the left, and click `install`; this will open the setup wizard.
 
