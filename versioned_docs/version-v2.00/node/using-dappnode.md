@@ -21,7 +21,7 @@ While connected to your Dappnode's network or via a VPN:
 
 (**4**) Then, click `install`; this will open the setup wizard.
 
-![bypass toggle](/img/node/dappnode-install-package.png)
+![bypass toggle](/img/node/Dappnode-install.png)
 
 (**5**) Copy your Safe address and Module address from your Staking Hub onboarding process.
 
