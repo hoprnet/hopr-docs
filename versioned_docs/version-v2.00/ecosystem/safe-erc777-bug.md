@@ -9,7 +9,7 @@ This is a quick guide on how to allow Safe to receive ERC777 tokens. This is a r
 
 (**1**) Log in to your account at [https://app.safe.global/](https://app.safe.global/)
 
-(**2**) Click the `Apps` menu item on the left sidebar and search for the `Transaction Builder` using the searchbar. 
+(**2**) Click the `Apps` menu item on the left sidebar and search for the `Transaction Builder` using the search bar. 
 
 ![Transaction Builder](/img/staking/Transaction-builder-search.png)
 
@@ -19,17 +19,17 @@ This is a quick guide on how to allow Safe to receive ERC777 tokens. This is a r
 
 (**4**)  Enter your Safe address into the field `Enter Address or ENS Name` within the transaction builder.
 
-**Note:** If a pop-up appears select `Use Implementation ABI`
+**Note:** If a pop-up appears, select `Use Implementation ABI`
 
-(**5**) Scroll to the bottom and in the `Contract Method Selector` dropdown select the method `setFallbackHandler` and in the final text field add the handler address: `0xeDCF620325E82e3B9836eaaeFdc4283E99Dd7562`
+(**5**) Scroll to the bottom, and in the `Contract Method Selector` dropdown, select the method `setFallbackHandler` and in the final text field, add the handler address: `0xeDCF620325E82e3B9836eaaeFdc4283E99Dd7562`
 
 ![sethandler](/img/staking/tx-information-sethandler.png)
 
-(**6**) Press the `Add transaction` button and scroll to the top and replace the address within the `Enter Address or ENS Name` field with `0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24`
+(**6**) Press the `Add transaction` button, scroll to the top, and replace the address within the `Enter Address or ENS Name` field with `0x1820a4B7618BdE71Dce8cdc73aAB6C95905faD24`
 
 ![New tx](/img/staking/new-tx-transaction-builder.png)
 
-(**7**) Scroll down to the bottom again and under `Transaction information` fill out the following details:
+(**7**) Scroll down to the bottom again, and under `Transaction information`, fill out the following details:
 
 - Set the `Contract Method Selector` dropdown to `setInterfaceImplementer`
 - `_addr (address)`: Your Safe Address
@@ -46,4 +46,4 @@ This is a quick guide on how to allow Safe to receive ERC777 tokens. This is a r
 
 (**10**) Finally, simulate, sign and execute the new transaction.
 
-You are all done! Your Safe will now be capable of receiving ERC777 tokens including HOPR.
+You are all done! Your Safe will now be capable of receiving ERC777 tokens, including HOPR.
