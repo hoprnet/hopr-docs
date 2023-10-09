@@ -78,7 +78,8 @@
         "version-v2.00/ecosystem/hopr-token",
         "version-v2.00/ecosystem/gnosis-hopr-tokens",
         "version-v2.00/staking/how-to-get-hopr",
-        "version-v2.00/staking/convert-hopr"
+        "version-v2.00/staking/convert-hopr",
+        "version-v2.00/ecosystem/safe-erc777-bug"
       ]
     }
   ]
