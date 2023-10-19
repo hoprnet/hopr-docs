@@ -184,3 +184,13 @@ Only do this if you have been approved to join the network. If you are still on 
 (**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
 (**3**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:`, where you either will need to click on the link which will forward you to complete the onboarding process or copy the node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
+
+## Configure Docker Command with YAML File (Optional)
+
+Instead of passing all of the individual arguments through the CLI, you can pass a single argument pointing to a `.yaml` file containing all of the individual arguments. 
+
+```bash
+--configurationFilePath=some_config.yaml
+```
+
+Here, the `some_config.yaml` file would be replaced by the path to the YAML file containing all the configuration parameters. You can view all the possible configurations as well as an example configuration file [here](https://hoprnet.github.io/hoprnet/hoprd_hoprd/config/constant.EXAMPLE_YAML.html).
