@@ -185,6 +185,32 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**3**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:`, where you either will need to click on the link which will forward you to complete the onboarding process or copy the node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
 
+## Update Your Node
+
+When a new more stable release is published it is important to update your node to beneifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.
+
+(**1**) Enter the following command into your terminal:
+
+```bash
+docker ps
+```
+
+This should provide you with a list of Docker containers you are currnetly running. Among them locate the one with the label `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest` and note the container ID.
+
+![Docker ps](/img/node/Docker-PS-update-node.png)
+
+In the image above the container ID is: `a5711c818f75`.
+
+(**2**) Kill the container using the following command:
+
+```bash
+docker kill {Your_Container_ID}
+```
+
+**Note:** Replace {Your_Container_ID} with the container ID you noted in step 1. You can also alternatively run the command `docker kill $(docker ps -q)` to kill all the containers you are currently running if you would like to remove them all.
+
+(**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
+
 ## Configure Docker Command with YAML File (Optional)
 
 Instead of passing all of the individual arguments through the CLI, you can pass a single argument pointing to a `.yaml` file containing all of the individual arguments. 
