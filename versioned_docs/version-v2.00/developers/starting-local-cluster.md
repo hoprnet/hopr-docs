@@ -139,7 +139,7 @@ Depending on your distribution, please follow the official guidelines to install
 With Docker installed, you can create a fully interconnected cluster of nodes with the single command:
 
 ```
-docker run -ti -p 13301-13305:13301-13305 gcr.io/hoprassociation/hopr-pluto:1.93.7
+docker run -ti -p 13301-13305:13301-13305 gcr.io/hoprassociation/hopr-pluto:2.0.2
 ```
 
 As the script runs, a set of accounts with their respective HTTP REST API, HOPR Admin, and WebSocket interfaces will be displayed

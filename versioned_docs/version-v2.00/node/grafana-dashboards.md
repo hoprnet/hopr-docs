@@ -54,13 +54,28 @@ The following are command line instructions for Linux:
 git clone https://github.com/hoprnet/hoprnet.git
 ```
 
-(**2**) Enter the downloaded file 
+(**2**) Navigate to the directory 
 
 ```bash
+cd ~/hoprnet/scripts/compose/
+```
+
+(**3**) Open the .env file
+
+```bash
+nano .env
+```
+
+(**4**) Edit in your Safe address, Module address and public IP address, then save the file.
+
+(**5**) Navigate back to the hoprnet directory
+
+```bash
+cd ~
 cd hoprnet
 ```
 
-(**3**) Run the following command to start up a HOPRd node with monitoring capabilities:
+(**6**) Exit the file and run the following command to start up a HOPRd node with monitoring capabilities:
 
 ```bash
 docker compose --file scripts/compose/docker-compose.yml up -d
