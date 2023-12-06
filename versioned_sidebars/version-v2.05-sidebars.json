@@ -1,0 +1,89 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "What is HOPR?",
+      "items": [
+        "version-v2.05/core/what-is-hopr",
+        "version-v2.05/core/what-is-metadata",
+        "version-v2.05/core/anonymous-routing",
+        "version-v2.05/core/mixnets",
+        "version-v2.05/core/incentives",
+        "version-v2.05/core/proof-of-relay",
+        "version-v2.05/core/tickets-and-payment-channels",
+        "version-v2.05/core/probabilistic-payments",
+        "version-v2.05/core/cover-traffic",
+        "version-v2.05/core/cover-traffic-nodes",
+        "version-v2.05/core/balancing-cover-traffic",
+        "faq"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Run a HOPR node",
+      "items": [
+        "version-v2.05/node/start-here",
+        "version-v2.05/node/using-docker",
+        "version-v2.05/node/using-dappnode",
+        "version-v2.05/node/using-avado",
+        "version-v2.05/node/using-hopr-admin-v2",
+        "version-v2.05/node/grafana-dashboards",
+        "version-v2.05/node/tickets-and-payment-channels",
+        "version-v2.05/node/waitlist-FAQ",
+        "version-v2.05/node/staking-FAQ"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Developers",
+      "link": {
+        "type": "doc",
+        "id": "version-v2.05/developers/intro"
+      },
+      "items": [
+        "version-v2.05/developers/starting-local-cluster",
+        "version-v2.05/developers/connecting-node",
+        "version-v2.05/developers/tutorial-hello-world",
+        "version-v2.05/developers/demo-boomerang-chat",
+        "version-v2.05/developers/demo-rps-game",
+        "version-v2.05/developers/rest-api",
+        "version-v2.05/developers/subgraph-documentation/introduction",
+        "version-v2.05/developers/subgraph-documentation/all-seasons", 
+        "version-v2.05/developers/subgraph-documentation/channels",
+        "version-v2.05/developers/subgraph-documentation/hopr-token-gnosis",
+        "version-v2.05/developers/subgraph-documentation/hopr-token-mainnet",
+        "version-v2.05/developers/subgraph-documentation/stake-season6",
+        "version-v2.05/developers/smart-contract",
+        "version-v2.05/developers/snippets",
+        "version-v2.05/developers/visualising-hopr-network-topology"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "HOPR dApps",
+      "items": [
+        "version-v2.05/dapps/visualizer",
+        "version-v2.05/dapps/hopr-admin",
+        "version-v2.05/dapps/cockpit",
+        "version-v2.05/dapps/chess",
+        "version-v2.05/dapps/myne-chat-playground",
+        "version-v2.05/dapps/playground",
+        "version-v2.05/dapps/boomerang"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Ecosystem",
+      "items": [
+        "version-v2.05/staking/why-use-safe",
+        "version-v2.05/staking/what-is-safestaking",
+        "version-v2.05/ecosystem/hopr-token",
+        "version-v2.05/ecosystem/gnosis-hopr-tokens",
+        "version-v2.05/staking/how-to-get-hopr",
+        "version-v2.05/staking/convert-hopr",
+        "version-v2.05/staking/unstaking-s8",
+        "version-v2.05/ecosystem/safe-erc777-bug"
+      ]
+    }
+  ]
+}
