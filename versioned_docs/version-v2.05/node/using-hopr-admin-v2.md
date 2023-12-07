@@ -11,7 +11,7 @@ If you have installed HOPR through the Dappnode setup, you do not need to instal
 
 (**1**) Ideally you would run the following Docker command within a tmux session, so it can run in the backround uninterupted. You can set up tmux using the instructions [here](./hidden-page.md#using-tmux).
 
-(**2**) Open your terminal and paste the follwoing Docker command to start HOPR Admin:
+(**2**) Open your terminal and paste the following Docker command to start HOPR Admin:
 
 ```bash
 docker run -d --restart always -p 3000:80 --pull=always europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:latest
