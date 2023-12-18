@@ -47,6 +47,10 @@ Avado is no longer supported with the release of Dufour. Any software found on t
 
 For the Dufour release, every node must have port forwarding set up in order to be visible to other nodes on the network. You can read all about it [here](./using-hopr-admin.md#types-of-nodes).
 
+## How To Test Port Forwarding Is Setup For My Node
+
+To verify if you have correctly port forwarded the ports, follow [these steps](./using-hopr-admin.md#how-to-test-port-forwarding-is-setup-for-my-node) to check if the port to your HOPRd node is open from outside your network.
+
 ## Installation Demo
 
 You can view a complete walkthrough of the onboarding process in the video below, but please note:
