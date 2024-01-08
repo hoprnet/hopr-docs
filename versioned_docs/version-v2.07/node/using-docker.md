@@ -147,7 +147,7 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 **Note:** Please do not copy this command and use your own, as it will not work. It is provided just as an example.
 
-![command example](/img/node/command-screenshot.png)
+![command example](/img/node/docker-command-example-image.png)
 
 (**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
 
@@ -246,13 +246,5 @@ docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log
 And the second node's command (on the right in the image above) is: 
 
 ```bash
-docker run --pull always -d --restart always -m 500m --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9092:9092 -p 3002:3002 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9092
-```
-
-
-
-## Example Commands
-
-```bash
-docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'My#S3cur1ty#Token' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9 --moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2 --host <YOUR_PUBLIC_IP>:9091
+docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9092:9092 -p 3002:3002 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9092
 ```
