@@ -74,3 +74,18 @@ A [Dappnode](https://dappnode.io/) plug-n-play device, another quick setup and i
 Using [Docker](https://www.docker.com/), you can run `hoprd` on your device or a VPS.
 
 You will interact with your node through the same Node Admin UI regardless of your installation method. All details for this can be found in the respective installation sections.
+
+## Next Steps After Completing the Onboarding Process
+ 
+Ensure the following steps to start receiving rewards:
+ 
+- Confirm that you have configured your node with your Public IP address and port 9091, for example: `123.123.123.123:9091`.
+
+  **Note:** If your ISP provides only a dynamic IP address, your node may not work properly and might lack peers to connect to.
+  
+- Log in to your node's HOPR Admin UI and verify that Eligibility is **true**, and Connectivity status changes from **orange** to **green** within a 30-minute timeframe.
+- Once your node's connectivity status changes to green, open at least one payment channel with a random node.
+  
+  To open a payment channel, go to the "PEERS" page, select a random node, and click on the "OPEN outgoing channel" icon. A popup will appear where you need to enter the amount you want to fund the outgoing channel. Currently, it is efficient to open a payment channel with at least 1 wxHOPR. 
+
+  **Note:** The count of opened payment channels doesn't impact your rewards.
