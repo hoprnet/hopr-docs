@@ -167,17 +167,7 @@ Only do this if you have been approved to join the network. If you are still on 
 
 :::info
 
-### For VPS users 
-
-(**1**) Please make sure you have installed [Tmux](./hidden-page.md#using-tmux)
-
-(**2**) Open your terminal
-
-(**3**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
-
-(**4**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:`, where you either will need to click on the link which will forward you to complete the onboarding process or copy the node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
-
-### For Linux/macOS  
+### For Linux/macOS
 
 (**1**) Open your terminal
 
@@ -199,7 +189,7 @@ This should provide you with a list of Docker containers you are currnetly runni
 
 ![Docker ps](/img/node/Docker-PS-update-node.png)
 
-In the image above the container ID is: `a5711c818f75`.
+In the image above the container ID is: `a5711c818f75`. In your system, the Docker container ID will be different.
 
 (**2**) Kill the container using the following command:
 
@@ -231,7 +221,6 @@ For example:
 - Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
 - Add `--apiPort 3002`
 - Make sure to suffix your IP address with the new port instead of `9001` in this example it would now be `9002`
-- **(Optional)** Reduce the memory limit for a restart to `500m` 
 
 All these changes implemented would be similar to the following:
 
