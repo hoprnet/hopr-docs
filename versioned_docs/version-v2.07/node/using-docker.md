@@ -149,20 +149,13 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 ![command example](/img/node/docker-command-sc.png)
 
-(**4**) After running the command, wait for a little bit. Perform the following actions to view the logs of your HOPRd node container:
+(**4**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
 
-  1. Execute the command to see all the running Docker containers on your machine: `docker ps`.
-  2. Among all the Docker containers, locate the one with the label `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` and note the container ID.
-  3. Execute the command to load the logs of your HOPRd container: `docker logs -f CONTAINER_ID` (replace `CONTAINER_ID` with the previously noted container ID).
-  4. Locate **Node information**.
+`docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'`
 
-![Node terminal output](/img/node/Node-terminal-output.png)
+![Node terminal output](/img/node/node-information-logs.png)
 
-(**5**) Copy your `Node address`, and close your node logs using the command `CTRL + C` or `Command + C`.
-
-**Note:** Do not close the node if it has already been approved. Only close it if you have not yet joined the waitlist and are onboarding this node for the first time.
-
-(**6**) Go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
+(**5**) Copy your `Node address` and go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
 
 ## 4. Link Your Node to Your Safe
 
@@ -178,12 +171,9 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
-(**3**) After your node has started, please wait for a few minutes. Afterwards, in your terminal window, perform the following actions to view the logs of your HOPRd node container:
+(**3**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
 
-  1. Execute the command to see all the running Docker containers on your machine: `docker ps`.
-  2. Among all the Docker containers, locate the one with the label `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` and note the container ID.
-  3. Execute the command to load the logs of your HOPRd container: `docker logs -f CONTAINER_ID` (replace `CONTAINER_ID` with the previously noted container ID).
-  4. Locate **Node information**: Here, you can either click on the link that will redirect you to complete the onboarding process or copy the node address and manually fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
+`docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'`
 
 ## Update Your Node
 
