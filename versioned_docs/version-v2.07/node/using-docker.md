@@ -147,7 +147,7 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 **Note:** Please do not copy this command and use your own, as it will not work. It is provided just as an example.
 
-![command example](/img/node/docker-command-example-image.png)
+![command example](/img/node/docker-command-sc.png)
 
 (**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
 
