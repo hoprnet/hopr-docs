@@ -149,11 +149,16 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 ![command example](/img/node/docker-command-sc.png)
 
-(**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
+(**4**) After running the command, wait for a little bit. Perform the following actions to view the logs of your HOPRd node container:
+
+  1. Execute the command to see all the running Docker containers on your machine: `docker ps`.
+  2. Among all the Docker containers, locate the one with the label `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` and note the container ID.
+  3. Execute the command to load the logs of your HOPRd container: `docker logs -f CONTAINER_ID` (replace `CONTAINER_ID` with the previously noted container ID).
+  4. Locate **Node information**.
 
 ![Node terminal output](/img/node/Node-terminal-output.png)
 
-(**5**) Copy your `Node address`, and close your node using the command `CTRL + C` or `Command + C`.
+(**5**) Copy your `Node address`, and close your node logs using the command `CTRL + C` or `Command + C`.
 
 **Note:** Do not close the node if it has already been approved. Only close it if you have not yet joined the waitlist and are onboarding this node for the first time.
 
