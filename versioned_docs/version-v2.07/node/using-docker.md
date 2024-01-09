@@ -149,15 +149,15 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 ![command example](/img/node/docker-command-sc.png)
 
-(**4**) After running the command, wait for a little bit, and from the terminal output, locate your `Node Information`.
+(**4**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
 
-![Node terminal output](/img/node/Node-terminal-output.png)
+```bash
+docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
+```
 
-(**5**) Copy your `Node address`, and close your node using the command `CTRL + C` or `Command + C`.
+![Node terminal output](/img/node/node-information-logs.png)
 
-**Note:** Do not close the node if it has already been approved. Only close it if you have not yet joined the waitlist and are onboarding this node for the first time.
-
-(**6**) Go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
+(**5**) Copy your `Node address` and go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
 
 ## 4. Link Your Node to Your Safe
 
@@ -173,7 +173,11 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**2**) Paste and execute your configured docker command. If you do not have it saved, you can configure the default command by following the instructions [here](./using-docker.md#2-configure-command).
 
-(**3**) After your node has started, please wait for a few minutes and in your terminal output, locate `Node information:`, where you either will need to click on the link which will forward you to complete the onboarding process or copy the node address and fill in the [Staking Hub](https://hub.hoprnet.org/) field manually.
+(**3**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
+
+```bash
+docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
+```
 
 ## Update Your Node
 
