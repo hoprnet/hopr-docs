@@ -6,13 +6,6 @@ This is a guide on how to use the RPCh-integrated version of the Frame Wallet. T
 
 (**1**) Download the correct distribution of the Frame wallet depending on your OS:
 
-<!-->
-* [MacOS](./Frame-0.6.8-rpch-sdk-1.10.0-macOS.zip)
-* [Windows](./Frame-0.6.8-rpch-sdk-1.10.0-Win64.exe)
-* [Linux](./Frame-0.6.8-rpch-sdk-1.10.0-Linux.AppImage)
-
--->
-
 * MacOS
 * Windows
 * Linux
