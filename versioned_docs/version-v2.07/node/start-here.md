@@ -87,3 +87,44 @@ Ensure the following steps to start receiving rewards:
   To open a payment channel, go to the "PEERS" page, select a random node, and click on the "OPEN outgoing channel" icon. A popup will appear where you need to enter the amount you want to fund the outgoing channel. Currently, it is efficient to open a payment channel with at least 1 wxHOPR. 
 
   **Note:** The count of opened payment channels doesn't impact your rewards.
+
+## Understanding RPC importance and Setting Up Your Own Custom RPC Provider
+
+RPC, or Remote Procedure Call, serves as a communication protocol enabling external applications like the HOPRd node to interact with the blockchain network. Ensuring the smooth operation of your node during syncing or other processes that require interaction with the blockchain is crucial. To achieve this, we strongly recommend setting up your own RPC provider on the Gnosis chain.
+
+Here are several methods for obtaining an RPC provider, categorized from the most stable to less stable options:
+
+**a)** Run your own Gnosis Chain execution layer (EL) node (The most secure and reliable method):
+
+Before setting up your own RPC provider, ensure that your hardware meets the necessary requirements, as outlined here: [System Requirements](https://docs.nethermind.io/get-started/system-requirements).
+
+To establish an RPC provider, you only need an execution layer client. Currently, there are two execution layer clients available:
+
+- [Nethermind](https://docs.nethermind.io/)
+- [Erigon](https://docs.gnosischain.com/node/manual/execution/erigon)
+
+We recommend installing the Nethermind execution layer using one of the following methods:
+
+- Via a package manager: [Package Managers](https://docs.nethermind.io/get-started/installing-nethermind#package-managers)
+- As a standalone download: [Standalone Downloads](https://docs.nethermind.io/get-started/installing-nethermind#standalone-downloads)
+- As a Docker container: [Docker Container](https://docs.nethermind.io/get-started/installing-nethermind#docker-container)
+- By building from source code: [Building from Source Code](https://docs.nethermind.io/developers/building-from-source)
+
+Depending on your installation method, you may need to install prerequisites: [Prerequisites](https://docs.nethermind.io/get-started/installing-nethermind#prerequisites). For Docker users, everything is included in the container setup.
+
+After successfully setting up Nethermind, you can access the RPC endpoint at http://localhost:8545. If you're using it externally, make sure to expose the port for usage.
+
+**b)** Use RPC Providers from 3rd Parties (Server stability depends on company maintenance):
+
+Several 3rd-party RPC providers are available, each with free and paid plans. We recommend trying the free plans as they are likely sufficient for running your node. Some options include:
+
+- [Alchemy](https://www.alchemy.com/)
+- [Infura](https://www.infura.io/)
+- [Quicknode](https://www.quicknode.com/)
+- [Ankr](https://www.ankr.com/rpc/)
+- [Chainstack](https://chainstack.com/)
+- [GetBlock](https://getblock.io/)
+
+**c)** Use public RPC endpoints from [chainlist.org](https://chainlist.org/?search=gnosis) (The most unreliable method):
+
+This method is the most unreliable, as anyone can add RPC endpoints, making it difficult to guarantee safety and stability. Exercise caution when using endpoints from this source.
