@@ -107,22 +107,24 @@ We recommend the more user-friendly and straightforward node setup with [Sedge](
 
 Let's start with a quick overview of what needs to be done:
 
-1. Install Sedge itself: [Sedge Install Guide](https://docs.sedge.nethermind.io/docs/quickstart/install-guide)
-2. Generate a setup for a full node (without a validator node): [Generating a Full Node](https://docs.sedge.nethermind.io/docs/networks/gnosis#generating-a-full-node)
+**1.** Install Sedge itself: [Sedge Install Guide](https://docs.sedge.nethermind.io/docs/quickstart/install-guide)
+**2.** Generate a setup for a full node (without a validator node): [Generating a Full Node](https://docs.sedge.nethermind.io/docs/networks/gnosis#generating-a-full-node)
 
 After successfully setting up a full node for the Gnosis chain, please wait until it is fully synced. Afterward, you can access the RPC endpoint at http://localhost:8545. If you're using it externally, make sure to expose the port for usage.
 
 **Dappnode users**
 
-FYI: Running a Gnosis EL+CL node will not work reliably on low spec devices such as the HORP Avado machine.
+:::note
+Running a Gnosis EL+CL node will not work reliably on low spec devices such as the HORP Avado machine.
+:::
 
-1. Visit the Stakers section: http://my.dappnode/stakers/gnosis and ensure you have selected the Gnosis chain.
+**1.** Visit the Stakers section: http://my.dappnode/stakers/gnosis and ensure you have selected the Gnosis chain.
 
-2. For the Execution Layer (EL), choose **Nethermind xDai**. For the Consensus Layer (CL), select **Lighthouse Gnosis** (ensure that "Use checksync" is enabled), click **Apply changes**. 
+**2.** For the Execution Layer (EL), choose **Nethermind xDai**. For the Consensus Layer (CL), select **Lighthouse Gnosis** (ensure that "Use checksync" is enabled), click **Apply changes**. 
 
-3. After these two packages have been installed, wait until they sync with the Gnosis network. This process may take up to several days.
+**3.** After these two packages have been installed, wait until they sync with the Gnosis network. This process may take up to several days.
 
-4. After the EL & CL are fully synced, use your RPC endpoint URL on your HOPR node: http://nethermind-xdai.dappnode:8545.
+**4.** After the EL & CL are fully synced, use your RPC endpoint URL on your HOPR node: http://nethermind-xdai.dappnode:8545.
 
 
 **b)** Use RPC Providers from 3rd Parties (Server stability depends on company maintenance):
