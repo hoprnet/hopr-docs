@@ -108,6 +108,7 @@ We recommend the more user-friendly and straightforward node setup with [Sedge](
 Let's start with a quick overview of what needs to be done:
 
 **1.** Install Sedge itself: [Sedge Install Guide](https://docs.sedge.nethermind.io/docs/quickstart/install-guide)
+
 **2.** Generate a setup for a full node (without a validator node): [Generating a Full Node](https://docs.sedge.nethermind.io/docs/networks/gnosis#generating-a-full-node)
 
 After successfully setting up a full node for the Gnosis chain, please wait until it is fully synced. Afterward, you can access the RPC endpoint at http://localhost:8545. If you're using it externally, make sure to expose the port for usage.
