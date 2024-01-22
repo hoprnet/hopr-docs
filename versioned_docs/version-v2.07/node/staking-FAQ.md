@@ -67,4 +67,4 @@ Our aim is to grow the HOPR network. If you only stake HOPR tokens, you will not
 
 ### Can I run multiple nodes?
 
-Yes, you can. We don't have any limitations, although the [Staking Hub](https://hub.hoprnet.org/) will only support multiple nodes in the next release and not at launch time.
+Yes, you can. We don't have any limitations, although the [Staking Hub](https://hub.hoprnet.org/) will only support multiple nodes in the next release.
