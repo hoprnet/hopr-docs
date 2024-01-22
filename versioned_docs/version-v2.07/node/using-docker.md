@@ -219,7 +219,7 @@ Instead of passing all of the individual arguments through the CLI, you can pass
 --configurationFilePath=some_config.yaml
 ```
 
-Here, the `some_config.yaml` file would be replaced by the path to the YAML file containing all the configuration parameters. You can view all the possible configurations as well as an example configuration file [here](https://hoprnet.github.io/hoprnet/hoprd_hoprd/config/constant.EXAMPLE_YAML.html).
+Here, the `some_config.yaml` file would be replaced by the path to the YAML file containing all the configuration parameters. You can view all the possible configurations as well as an example configuration file [here](https://hoprnet.github.io/hoprnet/hoprd/config/constant.EXAMPLE_YAML.html).
 
 ## Run Multiple Nodes With One Device
 
