@@ -131,9 +131,15 @@ Make sure not to remove the port `:9091` at the end.
 
 ### 2.4 Adjust custom RPC provider
 
-You will have to adjust with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain: running your own Gnosis node, using RPC providers from third parties, or utilizing public RPC endpoints from the chainlist.org website. You will find more information [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+You will have to adjust with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain: 
 
-For example: replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.ankr.com/gnosis`. 
+- running your own Gnosis node
+- using RPC providers from third parties
+- utilizing public RPC endpoints from the chainlist.org website
+
+To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+
+An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.ankr.com/gnosis`. 
 
 ## 3. Start Your Node
 
