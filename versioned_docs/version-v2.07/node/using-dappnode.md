@@ -47,7 +47,7 @@ From the dashboard, note your:
 - Add your Safe address under the field: `Staking safe address`
 - Add your Module address under the field: `Staking safe module address`
 - Add your Public IP **suffixed with the port** `:9091` under the field: `Host IP/Port mapping`
-- Add custom RPC provider under the field: `RPC Provider URL`. To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider)
+- Add custom RPC provider under the field: `RPC Provider URL` (to obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider))
 
 **Note:** Make sure to add the port suffix `:9091` at the end of your IP address as shown in the image below. 
 
