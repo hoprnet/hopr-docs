@@ -42,17 +42,18 @@ From the dashboard, note your:
 
 (**6**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
 
-(**7**) Return to the setup wizard and fill out the `Safe address`, `Module address` and `Public IP` fields accordingly (the bottom three).
+(**7**) Return to the setup wizard and fill out the `Safe address`, `Module address`, `Public IP` and `RPC provider` fields accordingly (the bottom three).
 
 - Add your Safe address under the field: `Staking safe address`
 - Add your Module address under the field: `Staking safe module address`
 - Add your Public IP **suffixed with the port** `:9091` under the field: `Host IP/Port mapping`
+- Add custom RPC provider under the field: `RPC Provider URL`. To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider)
 
 **Note:** Make sure to add the port suffix `:9091` at the end of your IP address as shown in the image below. 
 
 ![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
 
-**Note:** For version 2.00 (Dufour), you must install a new node, so you cannot restore an old one.
+**Note:** For version 2.00 and newer (Dufour), you must install a new node, so you cannot restore an old one.
 
 (**8**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
 
