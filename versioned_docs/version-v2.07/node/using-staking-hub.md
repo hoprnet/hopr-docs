@@ -1,6 +1,6 @@
 ---
 id: using-staking-hub
-title: How To Use The Staking Hub
+title: Using Staking Hub
 ---
 
 The [HOPR Staking Hub](https://hub.hoprnet.org/) is where you can complete the onboarding process for your HOPR Safe and HOPR Node. You can also access the Staking Hub Dashboard here to manage your nodes, Safe and incoming transactions.
