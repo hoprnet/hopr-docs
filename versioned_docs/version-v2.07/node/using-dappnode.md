@@ -15,7 +15,11 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DappStore](/img/node/DappStore-NR-1.png)
 
-(**2**) Search for `HOPR` in the DappStore search bar.
+(**2**) Use the hash below and search in the DAppStore search bar. Alternatively, you can follow this [link](http://my.dappnode/installer/public/%2Fipfs%2FQma7gtjFXACFQVHfGh34sRXavZ4i3HHRqhwewQy9zCzj9A) to go directly to the HOPR package.
+
+```
+/ipfs/Qma7gtjFXACFQVHfGh34sRXavZ4i3HHRqhwewQy9zCzj9A
+```
 
 (**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
 
