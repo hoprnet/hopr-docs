@@ -63,7 +63,7 @@ Under the `SAFE` tab, you can transfer an NR NFT and manage your owners / multis
 
 ### How To Setup Multisig
 
-To set up a multisig, you can add new owners to your HOPR Saf and change the number of required confirmations for a transaction to be considered valid. You can view how to do each of these things individually below.
+To set up a multisig, you can add new owners to your HOPR Safe and change the number of required confirmations for a transaction to be considered valid. You can view how to do each of these things individually below.
 
 ### How To Add Owners
 
