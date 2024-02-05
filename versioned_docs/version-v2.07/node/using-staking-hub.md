@@ -55,7 +55,7 @@ For assistance on this, you can view the docs [here](./using-docker.md#2-configu
 
 (**8**) Once your new node appears on the dashboard, press `onboarding` on the main menu. The main menu should be visible on the left side of the staking hub.
 
-(**9**) Complete the onboarding for your new node. You can use [this video](https://youtu.be/tcs3VzEW7dM?t=714) as guidance for the onboarding process.
+(**9**) Complete the onboarding for your new node. You can use [this video](https://youtu.be/tcs3VzEW7dM?t=714) or [the docs](./start-here.md) as guidance for the onboarding process.
 
 ## Safe Settings
 
@@ -76,6 +76,8 @@ To set up a multisig, you can add new owners to your HOPR Safe and change the nu
 ![Safe Owners Section](/img/node/Safe-owners-section.png)
 
 (**3**) Enter the Ethereum address of the new owner wallet you want to add in the field `Add Owner`.
+
+![Add Owner](/img/node/Add-owner.png)
 
 (**4**) Press the button `Add`, and sign the prompted transaction.
 
