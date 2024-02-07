@@ -37,9 +37,9 @@ wxHOPR (Gnosis chain): [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://bloc
 
 You can use the [Coinbase](https://www.coinbase.com/home) to convert tokens you already have to HOPR or buy HOPR directly with fiat currencies. 
 
-### Where To Get **xDai** Tokens? 
+### How To Get **xDai** Tokens? 
 
-You will find details on how to buy it from a CEX [here](https://www.coincarp.com/investing/how-to-buy-xdai/).
+You will find details on how to buy it from a CEX such as Coinbase [here](https://www.coincarp.com/investing/how-to-buy-xdai/).
 
 Altrnatively, you can swap tokens for xDAI using [CowSwap](https://swap.cow.fi/#/100/swap/_/xDAI) on Gnosis Chain.
 
@@ -47,9 +47,9 @@ Altrnatively, you can swap tokens for xDAI using [CowSwap](https://swap.cow.fi/#
 
 You can view our [documentation](./convert-hopr.md) for step-by-step guides on how to convert:
 
-* **HOPR** to **xHOPR**
-* **xHOPR** to **HOPR**
-* **xHOPR** to **wxHOPR** 
+* HOPR to xHOPR
+* xHOPR to HOPR
+* xHOPR to wxHOPR 
 
 ## Earn HOPR tokens
 
