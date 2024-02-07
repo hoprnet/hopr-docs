@@ -11,13 +11,17 @@ Before buying, always double check HOPR token smart contract:
 
 HOPR (ETH chain): [0xf5581dfefd8fb0e4aec526be659cfab1f8c781da](https://etherscan.io/token/0xf5581dfefd8fb0e4aec526be659cfab1f8c781da/)
 
+xHOPR (Gnosis chain): [0xD057604A14982FE8D88c5fC25Aac3267eA142a08](https://blockscout.com/xdai/mainnet/token/0xD057604A14982FE8D88c5fC25Aac3267eA142a08/token-transfers)
+
+wxHOPR (Gnosis chain): [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://blockscout.com/xdai/mainnet/token/0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1/token-transfers)
+
 :::
 
 **DAI / HOPR** pair - [get here](https://swap.cow.fi/#/1/swap/DAI/HOPR).
 
 If you have **HOPR** and want to convert to **xHOPR**, find more details [here](convert-hopr).
 
-## Buy on Honeyswap
+## Buy on Coinbase
 
 :::caution Warning
 
@@ -29,13 +33,23 @@ wxHOPR (Gnosis chain): [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://bloc
 
 :::
 
-**xHOPR / xDai** pair - [get here](https://app.honeyswap.org/#/swap?inputCurrency=0xd057604a14982fe8d88c5fc25aac3267ea142a08&outputCurrency=0xe91d153e0b41518a2ce8dd3d7944fa863463a97d&chainId=100).
+[Coinbase](https://www.coinbase.com/home) is a centralized exchange which supports both HOPR & xDAI.
 
-**wxHOPR / xDai** pair - [get here](https://app.honeyswap.org/#/swap?inputCurrency=0xd4fdec44db9d44b8f2b6d529620f9c0c7066a2c1&outputCurrency=0xe91d153e0b41518a2ce8dd3d7944fa863463a97d&chainId=100).
+You can use the [Coinbase](https://www.coinbase.com/home) to convert tokens you already have to HOPR or buy HOPR directly with fiat currencies. 
 
-Where to get **xDai** tokens? You will find details [here](https://www.xdaichain.com/for-users/get-xdai-tokens).
+### Where To Get **xDai** Tokens? 
 
-If you have **xHOPR** and want to wrapp to **wxHOPR**, find more details [here](convert-hopr).
+You will find details on how to buy it from a CEX [here](https://www.coincarp.com/investing/how-to-buy-xdai/).
+
+Altrnatively, you can swap tokens for xDAI using [CowSwap](https://swap.cow.fi/#/100/swap/_/xDAI) on Gnosis Chain.
+
+## Wrapping/Bridging HOPR Tokens 
+
+You can view our [documentation](./convert-hopr.md) for step-by-step guides on how to convert:
+
+* **HOPR** to **xHOPR**
+* **xHOPR** to **HOPR**
+* **xHOPR** to **wxHOPR** 
 
 ## Earn HOPR tokens
 
