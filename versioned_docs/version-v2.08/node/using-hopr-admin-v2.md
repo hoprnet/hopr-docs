@@ -229,14 +229,17 @@ Address: 0xa6512ad...657730b0313
 
 Your node is considered as working normally if:
 
-* On the network dashboard (https://network.hoprnet.org/dashboard), your node's 24-hour availability is higher than 90%. If you have recently started a new node, please wait 24 hours so the metrics can be calculated accurately.
-* Your number of unredeemed & redeemed tickets is increasing.
+(**1**) On the network dashboard (https://network.hoprnet.org/dashboard), your node's 24-hour availability is higher than 90%. If you have recently started a new node, please wait 24 hours so the metrics can be calculated accurately.
 
-Your unredeemed ticket count should increase daily as CT nodes relay data via available nodes on the network several times a day. When your unredeemed ticket count reaches 300 per channel, then it will auto-aggregate the 300 tickets into a single ticket and redeem it.
+(**2**) Your number of unredeemed & redeemed tickets is increasing.
 
-* There are zero rejected tickets. If your node has rejected tickets, especially if the number is increasing day by day, this could mean your node hasn't synced properly with the HOPR network. You can resolve this issue by following the instructions [here](./using-hopr-admin-v2.md#troubleshooting-rejected-tickets).
-* Your node's peer count is higher than 150. Login to your HOPR Admin UI and check if your node has a peer count of at least 150.
-* You are able to ping one of the following Cover Traffic nodes:
+**Note:** Your unredeemed ticket count should increase daily as CT nodes relay data via available nodes on the network several times a day. When your unredeemed ticket count reaches 300 per channel, then it will auto-aggregate the 300 tickets into a single ticket and redeem it.
+
+(**3**) There are zero rejected tickets. If your node has rejected tickets, especially if the number is increasing day by day, this could mean your node hasn't synced properly with the HOPR network. You can resolve this issue by following the instructions [here](./using-hopr-admin-v2.md#troubleshooting-rejected-tickets).
+
+(**4**) Your node's peer count is higher than 150. Login to your HOPR Admin UI and check if your node has a peer count of at least 150.
+
+(**5**) You are able to ping one of the following Cover Traffic nodes:
 
 - `12D3KooWL16nW1Z2dLvyZWzr9ZZwoLTeuSfaKSeX2BjucHwSoEwJ`
 - `12D3KooWH9rfYNKMkNncYJxS7BH41ThPZUYe3FNkbfmJAa4n5r3x`
