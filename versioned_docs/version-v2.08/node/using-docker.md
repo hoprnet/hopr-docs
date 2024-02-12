@@ -76,6 +76,10 @@ For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3c
 
 **(Optional)** It is also recomended to change the database password tag which is set to `--password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0'` by default. 
 
+:::caution Warning
+Do not change the database password after your node has been created. Using a new password will generate an entirely new identity file. Only change the default password on node creation.
+:::
+
 ### 2.2 Adjust Safe & Module Addresses
 
 If you have copied the docker command from your Staking Hub onboarding process, you will already have your Safe & Module address by default and can skip this step and go directly to [step 2.3](./using-docker.md#23-adjust-public-ip-address).
