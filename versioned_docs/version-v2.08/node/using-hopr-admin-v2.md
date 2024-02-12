@@ -264,12 +264,12 @@ Your unredeemed ticket count should increase daily as CT nodes relay data via av
 
 (**8**) Restore your node using your identity file:
 
-* (**A**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
-* (**B**) Find the section titled `Upload File` and enter the path `/app/hoprd-db` into the text field.
-* (**C**) Click the `Choose File` button and select the identity file you had previously unarchived `.hopr-identity`. Try selecting the file several times until you see the file name instead of the placeholder text `Choose file` in the field title.
-* (**D**) Paste the previously copied path into the second field and click Upload.
+* Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
+* Find the section titled `Upload File` and enter the path `/app/hoprd-db` into the text field.
+* Click the `Choose File` button and select the identity file you had previously unarchived `.hopr-identity`. Try selecting the file several times until you see the file name instead of the placeholder text `Choose file` in the field title.
+* Paste the previously copied path into the second field and click Upload.
 
-(**8**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/info](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and next to `All containers` click on the play icon to start your node.
+(**9**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/info](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and next to `All containers` click on the play icon to start your node.
 
 Wait for up to 1 - 1.5 hours until your node syncs with the network!
 
@@ -277,8 +277,8 @@ Wait for up to 1 - 1.5 hours until your node syncs with the network!
 
 (**1**) Stop the Docker container:
 
-* (**A**) Paste the command `docker ps` into your terminal. Next to the container image name `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` make note of the container ID.
-* (**B**) Paste the command `docker rm -f CONTAINER_ID` into your terminal. 
+* Paste the command `docker ps` into your terminal. Next to the container image name `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` make note of the container ID.
+* Paste the command `docker rm -f CONTAINER_ID` into your terminal. 
 
 **Note:** Replace `CONTAINER_ID` with the one you noted earlier.
 
