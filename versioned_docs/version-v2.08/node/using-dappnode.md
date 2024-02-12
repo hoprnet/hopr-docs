@@ -92,11 +92,15 @@ While connected to your Dappnode's network or via a VPN:
 
 Make sure to back up your identity file incase. This will help you restore your node in the future, if ever needed.
 
-(**1**) Find HOPR in your packages and navigate to the backup section.
+(**1**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
 
-(**2**) From there, all you have to do is click `Download backup`. This will download a `.zip` file containing your identity file. 
+(**2**) Under the `Download file` section, enter `/app/hoprd-db/.hopr-identity` and click `Download`.
 
-![dappnode backup](/img/node/dappnode-backup.png)
+(**3**) Unarchive the hopr-identity.tar file to see the .hopr-identity file.
+
+**Note:** Make sure you are able to see hidden files. Adjust the settings on your device, otherwise the identity file will not be visible.
+
+(**4**) Copy this file and save it somewhere safe.
 
 ## Next Steps
 

@@ -28,7 +28,7 @@ HOPR Admin already comes with the HOPR package on Dappnode so you can access it 
 
 (**1**) Go to `Packages` and click on `HOPR`.
 
-![Dappnode package UI](/img/node/dappnode-package-UI.png)
+![Dappnode package UI](/img/node/Dappnode-new-packag-UI.png)
 
 (**2**) Once inside, click on `UI` to open the HOPR Admin.
 
@@ -43,11 +43,11 @@ This is assuming you stuck to the default port numbers when setting up your node
 ## Connecting Your Node
 
 :::info INFO
-With no API token, you will need to entr a space in the API token field when connecting your node to the HOPR Admin UI. The "Connect to node" button will rmain disabled until something is entered, so please use a space when you have no API token set.
+With no API token, you will need to entr a space in the API token field when connecting your node to the HOPR Admin UI. The "Connect to node" button will remain disabled until something is entered, so please use a space when you have no API token set.
 :::
 
 :::caution Warning
-For Dappnode, please do not enable port forwarding for port 3001 or any port provided to access the API endpoint, as this could compromise access to your HOPR Admin UI.
+For Dappnode, if you are not using an API token, please do not enable port forwarding for port 3001 or any port provided to access the API endpoint, as this could compromise access to your HOPR Admin UI.
 :::
 
 To use HOPR Admin UI, you first need to connect to your HOPR node.
