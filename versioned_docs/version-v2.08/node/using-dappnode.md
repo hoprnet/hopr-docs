@@ -13,19 +13,15 @@ While connected to your Dappnode's network or via a VPN:
 
 (**1**) Open the DAppStore using the sidebar to the left.
 
-![DappStore](/img/node/DappStore-NR-1.png)
+(**2**) Search for `HOPR` using the DAppStore search bar.
 
-(**2**) Use the hash below and search in the DAppStore search bar. Alternatively, you can follow this [link](http://my.dappnode/installer/public/%2Fipfs%2FQma7gtjFXACFQVHfGh34sRXavZ4i3HHRqhwewQy9zCzj9A) to go directly to the HOPR package.
-
-```
-/ipfs/Qma7gtjFXACFQVHfGh34sRXavZ4i3HHRqhwewQy9zCzj9A
-```
+![DAppStore Search Bar](/img/node/Search-HOPR-Dappstore.png)
 
 (**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
 
-(**4**) Then, toggle the `Bypass only signed safe restriction` on the left, and click `install`; this will open the setup wizard.
+(**4**) Press `install`; this will open the setup wizard.
 
-![bypass toggle](/img/node/dappnode-bypass-signed-safe.png)
+![Install HOPR](/img/node/install-HOPR-dappnode-new-package.png)
 
 **Note:** Alternatively, click update if you have already installed the HOPR client.
 
@@ -42,7 +38,7 @@ From the dashboard, note your:
 - Safe address
 - Module address
 
-![Module and Safe address](/img/node/module-and-safe-address.png)
+![Module and Safe address](/img/node/updated-module-and-safe-address.png)
 
 (**6**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
 
@@ -57,13 +53,11 @@ From the dashboard, note your:
 
 ![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
 
-**Note:** For version 2.00 and newer (Dufour), you must install a new node, so you cannot restore an old one.
-
 (**8**) Now accept the disclaimer, and your HOPR package should start installing immediately. We recommend you enable auto-updates when prompted. 
 
 (**9**) Once installed, go to `Packages` and click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
 
-![Dappnode package UI](/img/node/dappnode-package-UI.png)
+![Dappnode package UI](/img/node/Dappnode-new-packag-UI.png)
 
 (**10**) Click on the top right corner "Connect to node" and enter these details:
 
