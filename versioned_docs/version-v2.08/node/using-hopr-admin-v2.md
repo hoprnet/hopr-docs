@@ -42,6 +42,14 @@ This is assuming you stuck to the default port numbers when setting up your node
 
 ## Connecting Your Node
 
+:::info INFO
+With no API token, you will need to entr a space in the API token field when connecting your node to the HOPR Admin UI. The "Connect to node" button will rmain disabled until something is entered, so please use a space when you have no API token set.
+:::
+
+:::caution Warning
+For Dappnode, please do not enable port forwarding for port 3001 or any port provided to access the API endpoint, as this could compromise access to your HOPR Admin UI.
+:::
+
 To use HOPR Admin UI, you first need to connect to your HOPR node.
 
 ![Node Admin Initial Screen](/img/node/node-admin-initial-screen.png)
@@ -181,7 +189,7 @@ This will display a list of open payment channels from your node to other nodes 
 - **fund outgoing channel** - By specifying the node address (0x...) and HOPR amount, you can fund an outgoing payment channel with additional wxHOPR.
 - **export outgoing channels as a CSV** - You can export the entire list of outgoing payment channels as a CSV file.
 
-## Troubleshooting Issues
+## Troubleshooting HOPR Admin Issues
 
 Here is a list of the most common known issues and how to resolve them.
 
@@ -216,3 +224,65 @@ Your xDai balance seems to low to operate the node.
 Please top up your node.
 Address: 0xa6512ad...657730b0313
 ```
+
+## Is My Node Working Correctly?
+
+Your node is considered as working normally if:
+
+* On the network dashboard (https://network.hoprnet.org/dashboard), your node's 24-hour availability is higher than 90%. If you have recently started a new node, please wait 24 hours so the metrics can be calculated accurately.
+* Your number of unredeemed & redeemed tickets is increasing.
+
+Your unredeemed ticket count should increase daily as CT nodes relay data via available nodes on the network several times a day. When your unredeemed ticket count reaches 300 per channel, then it will auto-aggregate the 300 tickets into a single ticket and redeem it.
+
+* There are zero rejected tickets. If your node has rejected tickets, especially if the number is increasing day by day, this could mean your node hasn't synced properly with the HOPR network. You can resolve this issue by following the instructions [here](./using-hopr-admin-v2.md#troubleshooting-rejected-tickets).
+* Your node's peer count is higher than 150. Login to your HOPR Admin UI and check if your node has a peer count of at least 150.
+* You are able to ping one of the following Cover Traffic nodes:
+`12D3KooWL16nW1Z2dLvyZWzr9ZZwoLTeuSfaKSeX2BjucHwSoEwJ`
+`12D3KooWH9rfYNKMkNncYJxS7BH41ThPZUYe3FNkbfmJAa4n5r3x`
+`12D3KooWNYi2kG5cdeEUBvjemZRUkPVmAeXsSGVrX9QHnEiMfh8w`
+`12D3KooWGyY39vD8J2VGEDjTCD3eEyvV4YrnKM9NCQa6SYJKczrR`
+`12D3KooWB1bPdu9Q5w2nzKkaCoE9gq9j8bgd3c8iVu81ypSu5WqB`
+
+## Troubleshooting Rejected Tickets
+
+### For Dappnode users
+
+(**1**) Go to the [Dappnode file manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
+
+(**2**) Under the `Download file` section, enter: /app/hoprd-db/.hopr-identity and then click Download.
+
+(**3**) Unarchive the `hopr-identity.tar` file, ensuring your view of hidden files is turned on to see the hopr-identity file.
+
+(**4**) Go to the [Config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). 
+
+(**5**) Under RPC Provider URL, replace `https://provider-proxy.hoprnet.workers.dev/xdai_mainnet` with `https://rpc.ankr.com/gnosis` and click Update.
+
+(**6**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/info](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info). Next to All containers, click on the Pause icon to stop the HOPRd node.
+
+(**7**) Next to All volumes, click on the trash can icon to remove all volumes.
+
+(**8**) Restore your node using your identity file:
+
+* (**A**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
+* (**B**) Find the section titled `Upload File` and enter the path `/app/hoprd-db` into the text field.
+* (**C**) Click the `Choose File` button and select the identity file you had previously unarchived `.hopr-identity`. Try selecting the file several times until you see the file name instead of the placeholder text `Choose file` in the field title.
+* (**D**) Paste the previously copied path into the second field and click Upload.
+
+(**8**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/info](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and next to `All containers` click on the play icon to start your node.
+
+Wait for up to 1 - 1.5 hours until your node syncs with the network!
+
+### For VPS / Mac / PC users:
+
+(**1**) Stop the Docker container:
+
+* (**A**) Paste the command `docker ps` into your terminal. Next to the container image name `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` make note of the container ID.
+* (**B**) Paste the command `docker rm -f CONTAINER_ID` into your terminal. 
+
+**Note:** Replace `CONTAINER_ID` with the one you noted earlier.
+
+(**2**) Find the `.hoprd-db-dufour` folder and delete only the DB folder and the `tbf` file inside it.
+
+(**3**) Start a node using the [latest docker command](./using-docker.md#2-configure-command) with a custom RPC provider added to the command. Read more on adding a custom RPC provider [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider)
+
+Wait for up to 1 - 1.5 hours until it syncs with the network!

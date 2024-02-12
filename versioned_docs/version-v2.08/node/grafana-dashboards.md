@@ -12,7 +12,25 @@ The Grafana dashboards will give you an advanced look into your node, with a das
 
 ## Setting up Grafana Dashboard
 
-### Dappnode
+### Configuring Dappnode
+
+Dappnode only accepts metrics via APIs without authorization. This means if you add an API token, Dappnode will not be able to collect metrics from your node. These metrics are necessary to use Grafana. To ensure you can use Grafana on Dappnode, you need to:
+
+(**1**) Go to the [HOPR config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config) and remove the access token password under the field `Api token`.
+
+(**2**) Click on `SHOW ADVANCED EDITOR` and ensure that `HOPRD_DISABLE_API_AUTHENTICATION` is set to `true`.
+
+(**3**) Click the `Update` button to save the changes.
+
+:::info INFO
+With no API token, you will need to entr a space in the API token field when connecting your node to the HOPR Admin UI. The "Connect to node" button will rmain disabled until something is entered, so please use a space when you have no API token set.
+:::
+
+:::caution Warning
+Please do not enable port forwarding for port 3001 or any port provided to access the API endpoint, as this could compromise access to your HOPR Admin UI.
+:::
+
+### Using Dappnode With Grafana
 
 To access your node's Grafana Dashboard, you just need to install the DMS package.
 
@@ -29,7 +47,7 @@ You should get a login screen, where you'll need to use the following credential
 - Username: `admin`
 - Password: `hopr`
 
-### Docker
+### Using Docker With Grafana
 
 To set up Grafana with docker you will need to have installed:
 
