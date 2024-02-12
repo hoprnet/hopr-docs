@@ -233,16 +233,6 @@ docker kill {Your_Container_ID}
 
 (**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
 
-## Configure Docker Command with YAML File (Optional)
-
-Instead of passing all of the individual arguments through the CLI, you can pass a single argument pointing to a `.yaml` file containing all of the individual arguments. 
-
-```bash
---configurationFilePath=some_config.yaml
-```
-
-Here, the `some_config.yaml` file would be replaced by the path to the YAML file containing all the configuration parameters. You can view all the possible configurations as well as an example configuration file [here](https://hoprnet.github.io/hoprnet/hoprd/config/constant.EXAMPLE_YAML.html).
-
 ## Run Multiple Nodes With One Device
 
 To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database.
