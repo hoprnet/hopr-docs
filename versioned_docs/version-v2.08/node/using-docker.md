@@ -1,6 +1,6 @@
 ---
 id: using-docker
-title: Using Docker
+title: Set Up & Use Docker
 ---
 
 import Tabs from '@theme/Tabs';
@@ -73,6 +73,8 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`. 
 
 **Note:** Make sure to make a note of the API token you have created. You will need it to access HOPR Admin.
+
+**(Optional)** It is also recomended to change the database password tag which is set to `--password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0'` by default. 
 
 ### 2.2 Adjust Safe & Module Addresses
 
@@ -190,6 +192,10 @@ Only do this if you have been approved to join the network. If you are still on 
 ```bash
 docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
 ```
+
+## Next Steps
+
+Once you've completed the above steps, you should have a working HOPR node. You will then want to access the HOPR admin panel to interact with your node. You can read how to access and set up HOPR admin [here](./using-hopr-admin-v2.md). 
 
 ## Update Your Node
 

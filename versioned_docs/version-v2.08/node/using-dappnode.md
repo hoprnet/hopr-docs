@@ -1,6 +1,6 @@
 ---
 id: using-dappnode
-title: Using Dappnode
+title: Set Up & Use Dappnode
 ---
 
 :::caution Warning
@@ -93,3 +93,11 @@ While connected to your Dappnode's network or via a VPN:
 (**2**) Click on `HOPR`. Once inside the HOPR package, click on `UI` to enter the HOPR Admin UI. 
 
 (**3**) Scroll down until you see the section `Addresses`. Copy the Node address and return to the [Staking Hub](https://hub.hoprnet.org) to complete the onboarding process.
+
+## Next Steps
+
+Once you've completed the above steps, you should have a working HOPR node. You will then want to access the HOPR admin panel to interact with your node. You can read how to access and set up HOPR admin [here](./using-hopr-admin-v2.md). 
+
+## Set Up Portforwarding
+
+In order to run a HOPR node on the HOPR network you will need to have set up portforwarding, You can read up on why you need this and how to set it up [here](./using-hopr-admin.md#types-of-nodes).

@@ -1,6 +1,6 @@
 ---
 id: using-avado
-title: Using Avado
+title: Migrate Avado
 ---
 
 :::caution Warning
@@ -229,5 +229,7 @@ To solve this issue with the instructions below, you will need access to the fol
 
 (**8**) Your device should now restart and begin booting from your attached USB. You can now resume the [initial installation method](./using-avado.md#how-to-migrate-your-avado-node-to-a-dappnode) but now starting directly from the 10th step.
 
+## Next Steps
 
+Once you've migrated your Avado device to run Dappnode software, you should follow the instructions under our Dappnode section to set up and configure your node. You can view these instructions [here](./using-dappnode.md).
 
