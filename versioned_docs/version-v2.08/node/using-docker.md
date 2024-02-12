@@ -173,6 +173,16 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 (**5**) Copy your `Node address` and go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
 
+### 3.1 Backup Your Identity file 
+
+For Docker the identity file is automatically created and stored on your OS at the path specified: `/<computer username>/.hopr-id-dufour`.
+
+(**1**) Access this file at the path `/<computer username>/.hopr-id-dufour` and copy it.
+
+(**2**) Store this file somewhere safe along with your DB password, in case you ever need to restore your node. 
+
+**Note:** Your DB password is set to `open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0` by default, unless you changed it, when configuring your command.
+
 ## 4. Link Your Node to Your Safe
 
 :::info

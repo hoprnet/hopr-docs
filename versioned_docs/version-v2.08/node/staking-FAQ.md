@@ -68,3 +68,7 @@ Our aim is to grow the HOPR network. If you only stake HOPR tokens, you will not
 ### Can I run multiple nodes?
 
 Yes, you can. We don't have any limitations, although the [Staking Hub](https://hub.hoprnet.org/) will only support multiple nodes in the next release.
+
+### What is the maximum amount I can stake on a single node without penalty?
+
+The upper threshold for staking on a single node is 75,000 wxHOPR. Above this amount, the staked wxHOPR will be less valuable for receiving rewards through cover traffic. Read [here](../staking/ct-economic-model.md) for a simple overview of the cover traffic economic model. For a more detailed overview, check out the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).

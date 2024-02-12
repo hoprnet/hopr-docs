@@ -94,6 +94,16 @@ While connected to your Dappnode's network or via a VPN:
 
 (**3**) Scroll down until you see the section `Addresses`. Copy the Node address and return to the [Staking Hub](https://hub.hoprnet.org) to complete the onboarding process.
 
+## 3. Backup Your Identity File
+
+Make sure to back up your identity file incase. This will help you restore your node in the future, if ever needed.
+
+(**1**) Find HOPR in your packages and navigate to the backup section.
+
+(**2**) From there, all you have to do is click `Download backup`. This will download a `.zip` file containing your identity file. 
+
+![dappnode backup](/img/node/dappnode-backup.png)
+
 ## Next Steps
 
 Once you've completed the above steps, you should have a working HOPR node. You will then want to access the HOPR admin panel to interact with your node. You can read how to access and set up HOPR admin [here](./using-hopr-admin-v2.md). 
