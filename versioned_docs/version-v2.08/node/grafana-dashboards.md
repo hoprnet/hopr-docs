@@ -8,8 +8,6 @@ The Grafana dashboards will give you an advanced look into your node, with a das
 - [Dappnode](./grafana-dashboards.md#dappnode)
 - [Docker](./grafana-dashboards.md#docker)
 
-![Grafana Dashboard](/img/node/Grafana-Dashboard.png)
-
 ## Setting up Grafana Dashboard
 
 ### Configuring Dappnode
