@@ -14,6 +14,8 @@ The instructions below are for Linux and macOS. If you have Windows, please use 
 Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
+![image stabalizer](/img/node/DappStore-NR-1.png)
+
 ## 1. Install Docker
 
 Before doing anything else, you need to install **Docker Desktop** on your machine.
