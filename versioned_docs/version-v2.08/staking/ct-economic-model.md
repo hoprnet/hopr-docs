@@ -23,7 +23,7 @@ A node's stake on the network has a transformation function applied to it. This 
 
 ![Transformation Function](/img/node/CT-probability.png)
 
-The [parameters] are subject to change, but the model splits into three parts:
+The [parameters](./ct-economic-model.md#parameters) are subject to change, but the model splits into three parts:
 
 * All nodes staking less than the lower threshold `l` are treated as if they have zero stake.
 * All nodes staking between the lower and upper thresholds `l` and `c` have a transformed stake equal to `their stake * a'. Here, `a' is a parameter that the HOPR association can change.
@@ -55,7 +55,7 @@ These examples show how the current cover traffic economic model would work in a
 
 ### Staking Between The Lower & Upper Threshold
 
-With the current slope coefficient `a' set equal to `1`, any node staking between the lower threshold (`l` = 10,000 wxHOPR) and the upper threshold (`c` = 75,000 wxHOPR) will have a transformed stake equal to their actual stake. As `a * node_stake = 1 * node_stake = node_stake`.
+With the current slope coefficient `a` set equal to `1`, any node staking between the lower threshold (`l` = 10,000 wxHOPR) and the upper threshold (`c` = 75,000 wxHOPR) will have a transformed stake equal to their actual stake. As `a * node_stake = 1 * node_stake = node_stake`.
 
 Here, all five nodes have staked between 10,000 & 75,000 wxHOPR, and all have transformed stakes equal to their actual stake. You can then calculate each node's CT probability by dividing their transformed stake by the totally transformed stake of all five nodes in the network (215,000 who).
 
@@ -63,7 +63,7 @@ Here, all five nodes have staked between 10,000 & 75,000 wxHOPR, and all have tr
 
 ### Staking Above The Upper Threshold
 
-With the parameter `b` set to `1.4`, any node staking above the upper threshold (75,000 wxHOPR) will have a transformed stake equal to `75,000 + (node_stake - 75,000)^1/1.4`. Here, the stake below the upper threshold is treated as usual and is multiplied by the parameter `a' (currently `a' = 1, so all 75,000 staked below the upper threshold is treated as exactly 75,000 staked), and everything staked above the upper threshold has the power function `1/1.4` applied to it, discounting its value. 
+With the parameter `b` set to `1.4`, any node staking above the upper threshold (75,000 wxHOPR) will have a transformed stake equal to `75,000 + (node_stake - 75,000)^1/1.4`. Here, the stake below the upper threshold is treated as usual and is multiplied by the parameter `a` (currently `a` = 1, so all 75,000 staked below the upper threshold is treated as exactly 75,000 staked), and everything staked above the upper threshold has the power function `1/1.4` applied to it, discounting its value. 
 
 In the below example, Node E has 100,000 wxHOPR staked. So their transformed stake becomes: `75,000 + (100,000 = 75,000)^1/1.4 = 76384.8`. Here, the first 75,000 is worth a transformed stake of 75,000 wxHOPR, but the remaining 25,000 is only worth 1,384.8 wxHOPR. This gives the node a lower APR than the other nodes as it is staking more to earn relatively less, as the wxHOPR staked above 75,000 isn't worth as much. Ideally, this would be staked on another node. 
 
