@@ -76,12 +76,6 @@ For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3c
 
 **Note:** Make sure to make a note of the API token you have created. You will need it to access HOPR Admin.
 
-**(Optional)** It is also recomended to change the database password tag which is set to `--password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0'` by default. 
-
-:::caution Warning
-Do not change the database password after your node has been created. Using a new password will generate an entirely new identity file. Only change the default password on node creation.
-:::
-
 ### 2.2 Adjust Safe & Module Addresses
 
 If you have copied the docker command from your Staking Hub onboarding process, you will already have your Safe & Module address by default and can skip this step and go directly to [step 2.3](./using-docker.md#23-adjust-public-ip-address).
@@ -147,6 +141,32 @@ You will have to adjust with a custom RPC provider. There are several methods to
 To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 
 An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.ankr.com/gnosis`. 
+
+### 2.5 Change Database Password (Recommended)
+
+:::caution Warning
+Do not change the database password after your node has been created. Using a new password will generate an entirely new identity file. Only change the default password on node creation.
+:::
+
+(**1**) Create a **Password** which satisfies the following requirements:
+
+:::danger Requirements
+
+Security token should contain:
+
+- at least eight symbols
+- a lowercase letter
+- uppercase letter
+- a number
+- a special symbol (don't use `%` or whitespace)
+
+This ensures the node cannot be accessed by a malicious user residing in the same network.
+
+:::
+
+(**2**) Replace the default `password` within your docker command with your new one. 
+
+For example: replace `--password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0'` with `--apiToken 'My#Un1que#Password'`. 
 
 ## 3. Start Your Node
 
