@@ -52,7 +52,7 @@ docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log
 
 **Note:** Only use the default command as a starting point if you are restarting an old node and not registering you're node through the onboarding process. If you are setting up this node for the first time, please use the command provided to you within the onboarding process in the Staking Hub. This can also be found in your [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard#node).
 
-### 2.1 Adjust the API Token
+### 2.1 Adjust API Token
 
 (**1**) Create a **Security Token** (password) which satisfies the following requirements:
 
@@ -130,7 +130,7 @@ Make sure not to remove the port `:9091` at the end.
 
 **Note:** Dynamic IPs will not work for this, as once your IP address changes, your node will no longer be reachable.
 
-### 2.4 Adjust custom RPC provider
+### 2.4 Adjust Custom RPC provider
 
 You will have to adjust with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain: 
 
