@@ -57,6 +57,16 @@ For assistance on this, you can view the docs [here](./using-docker.md#2-configu
 
 (**9**) Complete the onboarding for your new node. You can use [this video](https://youtu.be/tcs3VzEW7dM?t=714) or [the docs](./using-docker.md) as guidance for the onboarding process.
 
+### How To Remove Nodes
+
+(**1**) Go to the **Write Contract Tab** of the HOPRNodeManagement Module Smart Contract. Here is a direct [link](https://gnosisscan.io/address/0xB7397C218766eBe6A1A634df523A1a7e412e67eA#writeContract).
+
+(**2**) Press the `Connect to Web3` link above the functions and connect to the **owner wallet of your Safe**.
+
+(**3**) Navigate to teh [removeNode function](https://gnosisscan.io/address/0xB7397C218766eBe6A1A634df523A1a7e412e67eA#writeContract#F7) It shouold be the seventh from the top. 
+
+(**4**) Enter the node address of the node you wish to remove and press `Write`.
+
 ## Safe Settings
 
 Under the `SAFE` tab, you can transfer an NR NFT and manage your owners / multisig settings.
