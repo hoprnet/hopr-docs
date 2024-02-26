@@ -109,3 +109,32 @@ Once you've completed the above steps, you should have a working HOPR node. You 
 ## Set Up Portforwarding
 
 In order to run a HOPR node on the HOPR network you will need to have set up portforwarding, You can read up on why you need this and how to set it up [here](./using-hopr-admin.md#types-of-nodes).
+
+## Restore an Old Node
+
+You will need to use the file manager to restore an old node. 
+
+(**1**) Make sure you can view hidden files.
+
+**For Windows:** Go to your File Manager app, and under `View -> Show`, make sure `hidden files` is ticked on. 
+
+![Hiden Files](/img/node/Hidden_files_windows.png)
+
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during Step 2 on Mac. 
+ 
+(**2**) Find HOPR in your packages and navigate to the `File Manager` tab. 
+
+![File Manager](/img/node/Dappnode-file-manager.png)
+
+(**3**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
+
+![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
+
+(**4**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
+
+(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
+
+All done, you should now have restored your old node!
+
+## Restart Your Node
+
