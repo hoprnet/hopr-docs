@@ -258,6 +258,31 @@ docker kill {Your_Container_ID}
 
 (**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
 
+## Restart Your Node
+
+If your node has the `-- restart always` tag (added by default), your node will restart automatically when it fails or crashes.
+
+If you want to restart your node manually, you can follow the exact same instructions as you would when [updating your node](./using-docker.md#update-your-node).
+
+## Restore an Old Node
+
+If you start using a new VPS or have to restore an old node for whatever reason, you will need:
+
+* The identity file of your old node, which you should have [backed up](./using-docker.md#31-backup-your-identity-file)
+* The [database password you set](./using-docker.md#25-change-database-password-recommended) when you originally made your old node
+
+(**1**) Paste your old node's identity file to the new VPS or OS.
+
+(**2**) In the latest docker command, change the `-- identity` to point to the new location of your identity file.
+
+(**3**) Change the `--password` tag to exactly the same database password you set for your previous node.
+
+(**4**) Change the `-- data` tag to point to the directory you want to store your node's data
+
+(**5**) [Configure the remainder of the command](./using-docker.md#2-configure-command) as you normally would and then run it. 
+
+You should now be running your old node.
+ 
 ## Run Multiple Nodes With One Device
 
 To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database.
