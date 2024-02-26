@@ -132,7 +132,7 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 (**4**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
 
-**Note:** Select the file multiple times until it appears in the text field, instad of the `Choose File` placeholder text.
+**Note:** Select the file multiple times until it appears in the text field instead of the `Choose File` placeholder text.
 
 ![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
 
@@ -144,8 +144,8 @@ All done, you should now have restored your old node!
 
 (**1**) Go to your HOPR package. You can access your packages using the sidebar on the left.
 
-(**2**) Under th `info` tab, locate the section `Status`. It should show all containers running.
+(**2**) Under the `info` tab, locate the section `Status`. It should show all containers running.
 
 ![Dappnode package UI](/img/node/Dappnode-new-packag-UI.png)
 
-(**3**) On the right press the `Restart` icon and wait for the package to restart.
+(**3**) On the right, press the `Restart` icon and wait for the package to restart.
