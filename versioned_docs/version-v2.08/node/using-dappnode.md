@@ -49,7 +49,9 @@ From the dashboard, note your:
 - Add your Public IP **suffixed with the port** `:9091` under the field: `Host IP/Port mapping`
 - Add custom RPC provider under the field: `RPC Provider URL` (to obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider))
 
-**Note:** Make sure to add the port suffix `:9091` at the end of your IP address as shown in the image below. **Dynamic IP addresses will not work** as once your IP address changes, your node will become unreachable. If you have a dynamic IP address, use a [DDNS](https://aws.amazon.com/what-is/dynamic-dns/) in place of your public IP address and enter it under the field `Host IP/Port mapping`, with the suffix `:9091`. 
+**Note:** Make sure to add the port suffix `:9091` at the end of your IP address as shown in the image below. 
+
+**Dynamic IP addresses will not work** as once your IP address changes, your node will become unreachable. If you have a dynamic IP address, use a DDNS in place of your public IP address and enter it under the field `Host IP/Port mapping`, with the suffix `:9091`. You can view how to do this [here](./using-hopr-admin.md#using-dynamic-dns-ddns). 
 
 ![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
 

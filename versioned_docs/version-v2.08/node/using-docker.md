@@ -80,8 +80,6 @@ For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3c
 
 If you have copied the docker command from your Staking Hub onboarding process, you will already have your Safe & Module address by default and can skip this step and go directly to [step 2.3](./using-docker.md#23-adjust-public-ip-address).
 
-![docker command from onboarding](/img/node/docker-command-onboarding.png)
-
 If you have not copied the command from the onboarding process, you will likely need to replace the Safe and Module addresses and should follow the instructions below:
 
 (**1**) Head over to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard), and you should find your Safe and Module address at the top of the staking section.
@@ -128,7 +126,7 @@ For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 8.8.8.8:9091`.
 
 Make sure not to remove the port `:9091` at the end. 
 
-**Note:** Dynamic IPs will not work for this, as once your IP address changes, your node will no longer be reachable. If you have a dynamic IP, please use a [DDNS](https://aws.amazon.com/what-is/dynamic-dns/) and enter that as your public IP within the docker command.
+**Important:** Dynamic IPs will not work for this, as once your IP address changes, your node will no longer be reachable. If you have a dynamic IP, please use a DDNS and enter that as your public IP within the docker command. You can see instructions on how to do this [here](./using-hopr-admin.md#using-dynamic-dns-ddns).
 
 ### 2.4 Adjust Custom RPC provider
 
