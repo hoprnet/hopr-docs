@@ -51,7 +51,7 @@ From the dashboard, note your:
 
 **Note:** Make sure to add the port suffix `:9091` at the end of your IP address as shown in the image below. 
 
-**Dynamic IP addresses will not work** as once your IP address changes, your node will become unreachable. If you have a dynamic IP address, use a DDNS in place of your public IP address and enter it under the field `Host IP/Port mapping`, with the suffix `:9091`. You can view how to do this [here](./using-hopr-admin.md#using-dynamic-dns-ddns). 
+**Dynamic IP addresses will not work** as once your IP address changes, your node will become unreachable. **If you have a dynamic IP address, use a DDNS** in place of your public IP address and enter it under the field `Host IP/Port mapping`, with the suffix `:9091`. You can view how to do this [here](./using-hopr-admin.md#using-dynamic-dns-ddns). 
 
 ![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
 
