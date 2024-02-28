@@ -56,6 +56,7 @@ You can view a complete walkthrough of the onboarding process in the video below
 - The video shows a VPS/Docker installation method and not Dappnode.
 - The video does not show the node being restarted after the waitlist step. You will need to make sure you do this, as is [recommended in the docs for Docker](./using-docker.md#4-link-your-node-to-your-safe).
 - The video does not mention port forwarding, but you will need to set this up in order for your node to be reachable by others on the network. You can read more about this [here](./using-hopr-admin.md#types-of-nodes).
+- The `configure node` step has been replaced by `configure module`, so you will have to sign a couple more transactions during that step than what is shown in the video.
 
 <iframe width="960" height="500"src="https://www.youtube.com/embed/tcs3VzEW7dM" frameborder="0" allowfullscreen></iframe>
 

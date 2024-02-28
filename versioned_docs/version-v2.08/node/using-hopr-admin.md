@@ -899,3 +899,41 @@ Depending on the OS, please do one the following:
 (**2**) Scroll to the bottom until you will see `Telnet Client`, mark check box and click `ok`. It will try to install telnet client.
 
 (**3**) Restart your computer
+
+## Using Dynamic DNS (DDNS)
+
+To run the HOPRd node, you need a static or public IP so other peers can reach you on the network. However, many ISPs only provide dynamic IPs. In this case, you can use Dynamic DNS (DDNS), which continually checks for IP changes and automatically updates the hostname with the latest IP. This means using a hostname instead of an IP address. Here's how to set it up:
+
+### Via Your Router
+
+Most router brands support dynamic DNS. You can use the router brand's credentials or third-party services like [No-IP](https://www.noip.com).
+
+Brands supporting Dynamic DNS:
+
+* [TP-Link](https://www.tp-link.com/us/support/faq/1367/)
+* [ASUS](https://www.asus.com/support/faq/1011725/)
+* [NETGEAR](https://kb.netgear.com/23930/How-do-I-set-up-Dynamic-DNS-DDNS-on-my-NETGEAR-router)
+* [Linksys](https://www.linksys.com/gb/support-article/?articleNum=140708)
+
+After setting up DDNS, you'll have a hostname (e.g., `hostname.hopto.org`) to use with a port on the HOPR package instead of an IP address, like `hostname.hopto.org:9091`.
+
+For more information, view the documentation [here](https://docs.hoprnet.org/node/using-docker#23-adjust-public-ip-address).
+
+### Via Client Installation 
+   
+Use a Dynamic DNS service provider client to monitor IP changes and update your domain. We recommend [No-IP](http://www.noip.com). Install their client on your machine to monitor external IP changes and update the hostname.
+
+(**1**) Download & install the client based on your OS: [No-IP Download](https://noip.com/download)
+
+(**2**) After setting up DDNS, create a hostname (e.g., `hostname.hopto.org`) to use with a port on the HOPR package, like `hostname.hopto.org:9091`.
+
+### For Dappnode
+
+If you're running the HOPRd node on Dappnode, it supports DynDNS. Here's what to do:
+
+(**1**) Connect to the Dappnode dashboard.
+
+(**2**) Click the colorful icon in the top right corner and find â€œDAppNode Identityâ€. Look for a DynDNS URL like `hiuhu234hiu.dyndns.dappnode.io`.
+
+(**3**) Go to HOPR Package Configuration(http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under "Host IP/Port mapping", replace the IP address with the DynDNS URL, e.g., `hiuhu234hiu.dyndns.dappnode.io:9091`.
+
