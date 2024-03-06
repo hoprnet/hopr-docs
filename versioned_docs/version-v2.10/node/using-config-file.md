@@ -7,6 +7,22 @@ This page explains how to set up the configuration file for use for both Docker/
 
 ## Variables
 
+### Identity
+
+The main node's identity, defining it's on-chain and off-chain keys
+
+```bash
+identity:
+  file: path/to/identity.file
+  password: 'change_me'
+  private_key: ''
+```
+
+* **file:** Path to the identity file, a new one is created if none exists at the path location.
+* **Password:** The password to access the identity file.
+* **private_key:** A private key can be provided which the node uses instead of an identity file. Providing this will override the identity file.  
+
+
 ```bash
 # Main node's identity that defined the on-chain and off-chain keys
 identity:
