@@ -5,7 +5,7 @@ title: Using Configuration File
 
 This page explains how to set up the configuration file for use for both Docker/Dappnode setups and explains what each variable does. 
 
-# Set Up Configuration File
+## Set Up Configuration File
 
 To set up your node's configuration file, you can use the example file.
 
@@ -26,9 +26,9 @@ To set up your node's configuration file, you can use the example file.
 * **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process.
 * **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `/app/hoprd-db`.
  
-# Variables
+## Variables
 
-## Identity
+### Identity
 
 The main node's identity, defining it's on-chain and off-chain keys.
 
@@ -43,7 +43,7 @@ identity:
 * **password:** The password to access the identity file.
 * **private_key:** A private key can be provided which the node uses instead of an identity file. Providing this will override the identity file.  
 
-## API
+### API
 
 The configuration of the REST API.
 
@@ -62,11 +62,11 @@ api:
 * **address:** The address of the local interface to listen on.
 * **port:** The REST API TCP lsiten port 
 
-## HOPR
+### HOPR
 
 Configuration of the HOPR protocol.
 
-### Host
+#### Host
 
 Specifies host to listen on for the HOPR P2P protocol.
 
@@ -79,7 +79,7 @@ host:
   port: 9091
 ```
 
-### DB
+#### DB
 
 Specifies details for the database used by the HOPR node.
 
@@ -94,7 +94,7 @@ db:
   force_initialize: false
 ```
 
-### Safe Module
+#### Safe Module
 
 Configuration of node's Safe.
 
@@ -109,7 +109,7 @@ safe_module:
   module_address: '0x0000000000000000000000000000000000000000'
 ```
 
-### Startegy
+#### Startegy
 
 Configuration of HOPR channel strategies.
 
@@ -180,7 +180,7 @@ strategy:
       max_closure_overdue: 3600
 ```
 
-### Heartbeat
+#### Heartbeat
 
 Configuration of the heartbeat mechanism for probing other nodes in the HOPR network.
 
@@ -195,7 +195,7 @@ heartbeat:
   variance: 2
 ```
 
-### Network Options
+#### Network Options
 
 Defines how the quality of nodes in the HOPR network is evaluated.
 
@@ -224,7 +224,7 @@ network_options:
   backoff_max: 300.0
 ```
 
-### Transport
+#### Transport
 
 Transport related configuration.
 
@@ -237,7 +237,7 @@ transport:
   prefer_local_addresses: false
 ```
 
-### Protocol
+#### Protocol
 
 Configuration of various HOPR sub-protocols.
 
@@ -259,7 +259,7 @@ Configuration of various HOPR sub-protocols.
       timeout: 15
 ```
 
-### Chain
+#### Chain
 
 Blockchain specific configuration.
 
@@ -312,7 +312,7 @@ chain:
   check_unrealized_balance: true
 ```
 
-### Inbox:
+#### Inbox:
 
 HOPRd Message Inbox configuration
 
