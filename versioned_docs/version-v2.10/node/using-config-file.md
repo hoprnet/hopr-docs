@@ -11,13 +11,17 @@ To set up your node's configuration file, you can use the example file.
 
 (**1**) Download the example file [here](/files/cfg.new.yaml).
 
-(**2**) Edit the main variables as you would on a normal installation:
+(**2**) **If you are using Docker**, edit the main variables as you would on a normal installation:
 
 * **Databse Password:** The varibale is `password`, found under `Identity`.
 * **API Token:** The variable is `auth`, found under `API`.
 * **Safe Address:** The variable is `safe_address`, found under `safe_module`.
 * **Module Address** The variable is `module_address`, found under `safe_module`.
 * **Public IP Address:** The variable is `address`, found under `host`.
+
+**If you are using Dappnode**, edit only the API tokem:
+
+* **API Token:** The variable is `auth`, found under `API`.
 
 (**3**) Then feel free to edit as many of the customizable variabless as you would like. You can see a list of each variable its description/usage [here](./using-config-file.md#variables).
 

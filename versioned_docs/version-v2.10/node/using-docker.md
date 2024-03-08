@@ -232,6 +232,40 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 Once you've completed the above steps, you should have a working HOPR node. You will then want to access the HOPR admin panel to interact with your node. You can read how to access and set up HOPR admin [here](./using-hopr-admin-v2.md). 
 
+## Set Up Node Using Configuration File 
+
+Using the configuration file will allow you to customize your node's settings at a much more detailed level, which is otherwise impossible. 
+
+(**1**) First, set up your own custom configuration file. You can find instructions on how to do that [here](./using-config-file.md#set-up-configuration-file).
+
+**Note:** Make sure you save the configuration file within your database directory as suggested within the instructions.
+
+(**2**) With your configuration file saved, copy the following command and make sure the path to the configuration file is correct.
+
+```bash
+`docker run --pull always -d --restart on-failure -m 2g --platform linux/x86_64 \
+  --log-driver json-file --log-opt max-size=1000M --log-opt max-file=5 \
+  -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
+  -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 \
+  -e DEBUG="hopr*" -e RUST_LOG=debug \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:2.1.0-rc.2 \
+ --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"`
+```
+
+**Note:** If your database is located in the default directory, `/app/hoprd-db/` and you have saved your configuration file there. Then you have nothing to adjust.
+
+(**3**) With Docker installed, paste your docker command into the terminal and execute it.
+
+(**4**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
+
+```bash
+docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
+```
+
+![Node terminal output](/img/node/node-information-logs.png)
+
+(**5**) Copy your `Node address` and go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
+ 
 ## Update Your Node
 
 When a new more stable release is published it is important to update your node to beneifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.

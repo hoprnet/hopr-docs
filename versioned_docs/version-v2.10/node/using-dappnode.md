@@ -151,3 +151,26 @@ All done, you should now have restored your old node!
 ![Dappnode package UI](/img/node/Dappnode-new-packag-UI.png)
 
 (**3**) On the right, press the `Restart` icon and wait for the package to restart.
+
+## Set Up Node Using Configuration File 
+
+Using the configuration file will allow you to customize your node's settings at a much more detailed level, which is otherwise impossible. 
+
+(**1**) First, set up your own custom configuration file. You can find instructions on how to do that [here](./using-config-file.md#set-up-configuration-file).
+
+(**2**) During the Dappnode installation process, fill out the `Safe address`, `Module address`, `Public IP`, and `RPC provider` fields as you normally would.
+
+- Add your Safe address under the field: `Staking safe address`
+- Add your Module address under the field: `Staking safe module address`
+- Add your Public IP **suffixed with the port** `:9091` under the field: `Host IP/Port mapping`
+- Add custom RPC provider under the field: `RPC Provider URL` (to obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider))
+
+**Note:** Make sure to add the port suffix `:9091` at the end of your IP address, as shown in the image below. 
+
+**Dynamic IP addresses will not work** as once your IP address changes, your node will become unreachable. **If you have a dynamic IP address, use a DDNS** in place of your public IP address and enter it under the field `Host IP/Port mapping`, with the suffix `:9091`. You can view how to do this [here](./using-hopr-admin.md#using-dynamic-dns-ddns). 
+
+![dappnode setup wizard](/img/node/dappnode-setup-wizard.png)
+
+(**3**) Now, under the field `Configuration File`, click `Browse` and upload your configuration file.
+
+(**4**) Complete the remainder of the installation as you [normally would](./using-dappnode.md#1-install-the-hopr-package).
