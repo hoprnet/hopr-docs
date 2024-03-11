@@ -72,3 +72,9 @@ In the below example, Node E has 100,000 wxHOPR staked. So their transformed sta
 ### Detailed Breakdown
 
 For a detailed breakdown of the cover traffic economic model, view the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).
+
+## Multiple Nodes With One HOPR Safe
+
+You can have multiple HOPR nodes associated with a single HOPR Safe. In this case, the total staked wxHOPR is split between your nodes equally. For example, if you have 210,000 wxHOPR staked in your HOPR Safe and three HOPR nodes associated with it, the cover traffic app will treat it as if each node has 70,000 wxHOPR staked. 
+
+So, it is essential not to run too many nodes. If you fall below 30,000 wxHOPR staked per node(or 10,000 with an NFT), you will stop receiving cover traffic rewards.
