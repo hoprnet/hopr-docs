@@ -42,7 +42,7 @@ hopr:
       timeout: 15
   chain:
     announce: false
-    network: doufur       # CHANGE: Contains the target network now, moved form the 'network' key
+    network: dufour       # CHANGE: Contains the target network now, moved form the 'network' key
     provider: null
     check_unrealized_balance: true
   safe_module:

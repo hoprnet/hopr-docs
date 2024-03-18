@@ -45,6 +45,10 @@ Avado is no longer supported with the release of Dufour. Any software found on t
 
 For the Dufour release, every node must have port forwarding set up in order to be visible to other nodes on the network. You can read all about it [here](./using-hopr-admin.md#types-of-nodes).
 
+## Using Dynamic DNS (DDNS)
+
+To run the HOPRd node, you need a static or public IP so other peers can reach you on the network. However, many ISPs only provide dynamic IPs. In this case, you can use Dynamic DNS (DDNS), which continually checks for IP changes and automatically updates the hostname with the latest IP. This means using a hostname instead of an IP address. You can view how to set this up [here](./using-hopr-admin.md#using-dynamic-dns-ddns).
+
 ## How To Test Port Forwarding Is Setup For My Node
 
 To verify if you have correctly port forwarded the ports, follow [these steps](./using-hopr-admin.md#how-to-test-port-forwarding-is-setup-for-my-node) to check if the port to your HOPRd node is open from outside your network.

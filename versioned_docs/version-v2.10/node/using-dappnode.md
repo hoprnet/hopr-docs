@@ -7,6 +7,13 @@ title: Set Up & Use Dappnode
 Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
+There are two installation methods for Dappnode users:
+
+- The [default setup](./using-dappnode.md#1-install-the-hopr-package)
+- The [configuration file setup](./using-dappnode.md#set-up-node-using-configuration-file)
+
+Most users should use the default simple installation method. The configuration file allows you to make much more detailed and granular changes to your node and how it interacts with the protocol, which is mainly a feature for advanced users.
+
 ## 1. Install the HOPR Package
 
 While connected to your Dappnode's network or via a VPN:
@@ -158,6 +165,8 @@ Using the configuration file will allow you to customize your node's settings at
 
 (**1**) First, set up your own custom configuration file. You can find instructions on how to do that [here](./using-config-file.md#set-up-configuration-file).
 
+**Note:** For Dappnode, the configuration file does not need to include your `Safe address`, `Module address`, `Public IP`, and `RPC provider`.
+
 (**2**) During the Dappnode installation process, fill out the `Safe address`, `Module address`, `Public IP`, and `RPC provider` fields as you normally would.
 
 - Add your Safe address under the field: `Staking safe address`
@@ -174,3 +183,12 @@ Using the configuration file will allow you to customize your node's settings at
 (**3**) Now, under the field `Configuration File`, click `Browse` and upload your configuration file.
 
 (**4**) Complete the remainder of the installation as you [normally would](./using-dappnode.md#1-install-the-hopr-package).
+
+### Adding Configuration File After Installation
+
+If you have already installed your HOPR package, then you can still edit your node's configuration by uploading a configuration file through.
+
+<!--
+TODO:
+    Finish this section
+ -->

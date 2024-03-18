@@ -14,7 +14,12 @@ The instructions below are for Linux and macOS. If you have Windows, please use 
 Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
-![image stabalizer](/img/node/DappStore-NR-1.png)
+There are two installation methods for Docker users:
+
+- [Simple Installation](./using-docker.md#1-install-docker) via a configured Docker command
+- Installation via a [configuration file](./using-docker.md#set-up-node-using-configuration-file)
+
+Most users should use the default simple installation method. The configuration file allows you to make much more detailed and granular changes to your node and how it interacts with the protocol, which is mainly a feature for advanced users.
 
 ## 1. Install Docker
 
@@ -243,16 +248,16 @@ Using the configuration file will allow you to customize your node's settings at
 (**2**) With your configuration file saved, copy the following command and make sure the path to the configuration file is correct.
 
 ```bash
-`docker run --pull always -d --restart on-failure -m 2g --platform linux/x86_64 \
+docker run --pull always -d --restart on-failure -m 2g --platform linux/x86_64 \
   --log-driver json-file --log-opt max-size=1000M --log-opt max-file=5 \
   -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
   -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 \
   -e DEBUG="hopr*" -e RUST_LOG=debug \
   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:2.1.0-rc.2 \
- --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"`
+ --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"
 ```
 
-**Note:** If your database is located in the default directory, `/app/hoprd-db/` and you have saved your configuration file there. Then you have nothing to adjust.
+**Note:** If your database is located in the default directory, `.hoprd-db-dufour` and you have saved your configuration file there. Then you have nothing to adjust.
 
 (**3**) With Docker installed, paste your docker command into the terminal and execute it.
 
