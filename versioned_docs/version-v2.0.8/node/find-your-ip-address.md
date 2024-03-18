@@ -1,6 +1,6 @@
 ---
-id: using-tmux
-title: Using Tmux
+id: find-your-ip-address
+title: Find Your IP Address
 ---
 
 # Find Your IP Address
@@ -9,7 +9,7 @@ title: Using Tmux
 
 (**1**) Open the terminal
 
-(**2**) Copy, paste and execute the following command: 
+(**2**) Copy, paste and execute the following command:
 
 ```bash
 --curl ifconfig.me
