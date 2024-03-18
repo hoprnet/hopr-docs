@@ -21,12 +21,14 @@ The time until the next ping (tbo) is sent to a node increases with the number o
 
 The backoff time (tbo) is calculated using the following formula:
 
+```
 $$
 tbo = tbase * fbo^{nfail}
 $$
+```
 
 where:
-- tbase = 2s (initial backoff time) 
-- fbo = 1.5 (backoff factor). 
+- tbase = 2s (initial backoff time)
+- fbo = 1.5 (backoff factor).
 
 The maximum backoff time is 512 seconds, corresponding to nfail = 5. This mechanism ensures a dynamic trade-off between probing online nodes and minimizing resource consumption for offline nodes.
