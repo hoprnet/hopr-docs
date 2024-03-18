@@ -25,9 +25,14 @@ const redocusaurus = [
     debug: Boolean(process.env.DEBUG || process.env.CI),
     specs: [
       {
-        id: 'placerholder-rest-api',
+        id: 'placerholder-rest-api-2_0_0',
         route: '/developers/placeholder-rest-api/',
-        spec: 'rest-api-v2-full-spec.json'
+        spec: 'versioned_docs/version-v2.0.0/rest-api-v2-full-spec.json',
+      },
+      {
+        id: 'placerholder-rest-api-2_1_0',
+        route: '/developers/placeholder-rest-api/v2.1.0/',
+        spec: 'versioned_docs/version-v2.1.0/rest-api-v2.1.0-full-spec.json'
       }
     ],
     theme: {
@@ -73,7 +78,6 @@ const config = {
     redocusaurus,
     [
       '@docusaurus/preset-classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           remarkPlugins: [math],
