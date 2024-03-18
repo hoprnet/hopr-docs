@@ -11,7 +11,7 @@ The instructions below are for Linux and macOS. If you have Windows, please use 
 :::
 
 :::caution Warning
-Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
+Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/).
 :::
 
 ## 1. Install Docker
@@ -68,9 +68,9 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 
 :::
 
-(**2**) Replace the `apiToken` within your docker command with your own security token. 
+(**2**) Replace the `apiToken` within your docker command with your own security token.
 
-For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`. 
+For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`.
 
 **Note:** Make sure to make a note of the API token you have created. You will need it to access HOPR Admin.
 
@@ -87,9 +87,9 @@ If you have not copied the command from the onboarding process, you will likely 
 
 ![Module and Safe address](/img/node/module-and-safe-address.png)
 
-(**2**) replace the `safeAddress` and `moduleAddress` within your docker command with your own security token. 
+(**2**) replace the `safeAddress` and `moduleAddress` within your docker command with your own security token.
 
-For example replace: 
+For example replace:
 
 ```bash
 --safeAddress <SAFE_WALLET_ADDRESS>
@@ -121,17 +121,17 @@ You will need to edit your public IP address within the Docker command:
 
 (**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./hidden-page.md#find-your-ip-address).
 
-(**2**) Replace the `host` within your docker command with your own public IP. 
+(**2**) Replace the `host` within your docker command with your own public IP.
 
-For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 8.8.8.8:9091`. 
+For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 8.8.8.8:9091`.
 
-Make sure not to remove the port `:9091` at the end. 
+Make sure not to remove the port `:9091` at the end.
 
 **Note:** Dynamic IPs will not work for this, as once your IP address changes, your node will no longer be reachable.
 
 ### 2.4 Adjust custom RPC provider
 
-You will have to adjust with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain: 
+You will have to adjust with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain:
 
 - running your own Gnosis node
 - using RPC providers from third parties
@@ -139,7 +139,7 @@ You will have to adjust with a custom RPC provider. There are several methods to
 
 To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 
-An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.ankr.com/gnosis`. 
+An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.ankr.com/gnosis`.
 
 ## 3. Start Your Node
 
@@ -155,7 +155,7 @@ docker --help
 
 If you see an output of available docker commands, Docker is installed. If the docker command is not found, please make sure you have [correctly installed Docker](./using-docker.md#1-install-docker).
 
-(**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it. Your adjusted command should look similar to the following below. 
+(**3**) With Docker installed, paste your adjusted docker command into the terminal and execute it. Your adjusted command should look similar to the following below.
 
 **Note:** Please do not copy this command and use your own, as it will not work. It is provided just as an example.
 
@@ -175,7 +175,7 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 :::info
 
-Only do this if you have been approved to join the network. If you are still on the waitlist, please wait until you have been approved to join the network. 
+Only do this if you have been approved to join the network. If you are still on the waitlist, please wait until you have been approved to join the network.
 
 :::info
 
@@ -210,16 +210,16 @@ In the image above the container ID is: `a5711c818f75`. In your system, the Dock
 (**2**) Kill the container using the following command:
 
 ```bash
-docker kill {Your_Container_ID}
+docker kill <Your_Container_ID>
 ```
 
-**Note:** Replace {Your_Container_ID} with the container ID you noted in step 1. You can also alternatively run the command `docker kill $(docker ps -q)` to kill all the containers you are currently running if you would like to remove them all.
+**Note:** Replace `<Your_Container_ID>` with the container ID you noted in step 1. You can also alternatively run the command `docker kill $(docker ps -q)` to kill all the containers you are currently running if you would like to remove them all.
 
 (**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
 
 ## Configure Docker Command with YAML File (Optional)
 
-Instead of passing all of the individual arguments through the CLI, you can pass a single argument pointing to a `.yaml` file containing all of the individual arguments. 
+Instead of passing all of the individual arguments through the CLI, you can pass a single argument pointing to a `.yaml` file containing all of the individual arguments.
 
 ```bash
 --configurationFilePath=some_config.yaml
@@ -248,7 +248,7 @@ Here, the first node's command (on the left in the image above) is:
 docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider CUSTOM_RPC_PROVIDER
 ```
 
-And the second node's command (on the right in the image above) is: 
+And the second node's command (on the right in the image above) is:
 
 ```bash
 docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9092:9092/tcp -p 9092:9092/udp -p 8081:8081 -p 3002:3002 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiPort 3002 --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9092 --provider CUSTOM_RPC_PROVIDER
