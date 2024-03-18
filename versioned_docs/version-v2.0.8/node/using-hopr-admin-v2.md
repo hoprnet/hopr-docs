@@ -84,7 +84,7 @@ Under `Network`, it shows your node's eligibility to participate in the HOPR net
 
 - `unknown`: Initial value when the node is started. It means the connectivity could not be assessed.
 - `Red`: No connection to any nodes at all.
-- `Orange`: Low-quality (<= 0.5) connection to at least one public node.
+- `Orange`: Low-quality ({'<='} 0.5) connection to at least one public node.
 - `Yellow`: High-quality connection to at least one public node.
 - `Green`: High-quality connection to at least one public node and at least one non-public node.
 
@@ -92,12 +92,12 @@ The `connection`, in this case, means a node's ability to complete a ping/pong r
 
 And connection quality is measured from 0 to 1 based on the ratio of successful pings to the total number of pings. E.g. a node that responds to half of all pings it receives from node A will have a connection quality of 0.5 to node A.
 
-Low-quality connection: <= 0.5
+Low-quality connection: {'<='} 0.5
 High-quality connection: > 0.5
 
 #### Balances
 
-There are 2 token types: 
+There are 2 token types:
 
 - `native` tokens: This will show the native tokens used to pay gas fees, currently xDAI. For example, opening and closing payment channels would require on-chain transactions paid for in xDAI.
 - `hopr` tokens: These HOPR tokens fund payment channels/pay nodes to relay data.
@@ -127,7 +127,7 @@ Shows the number of opened incoming & outgoing channels to and from this node.
 #### Aliases
 
 The number of aliases you have assigned.
- 
+
 ### TICKETS
 
 Ticket statistics displays information about your redeemed and unredeemed tickets. Tickets are earned by relaying data and can be redeemed for HOPR tokens.
@@ -157,7 +157,7 @@ This will show a list of nodes that are visible to your node. Next to each peerI
 If you haven't found a node on the list and you want to ping it, you'll find the **Ping Node** button at the top. This button allows you to ping any node, even if it's not on your node list.
 
 You also have the ability to export the entire list of peers to a CSV file.
- 
+
 ### ALIASES
 
 You can use the alias command to give an address a more memorable name. Also you can import / export a list of all current aliases.
@@ -181,7 +181,7 @@ This will display a list of open payment channels from other nodes to your node.
 
 ### CHANNELS: OUT
 
-This will display a list of open payment channels from your node to other nodes on the HOPR network. Next to the peerID, you can either ping the selected node or close your payment channel to them. 
+This will display a list of open payment channels from your node to other nodes on the HOPR network. Next to the peerID, you can either ping the selected node or close your payment channel to them.
 
 - **closing channel** - To close a payment channel, you'll need to perform two actions. First, when you click `Close the channel`, it will initiate the closure. After 5 minutes, you'll need to click a second time to finalize the payment channel closure.
 - **open outgoing channel** - By specifying the node address (0x...) and HOPR amount, you can open a payment channel to the specified node.
@@ -193,7 +193,7 @@ This will display a list of open payment channels from your node to other nodes 
 
 Here is a list of the most common known issues and how to resolve them.
 
-### UNAUTHORIZED/Authenticaltion Failed 
+### UNAUTHORIZED/Authenticaltion Failed
 
 If you provided incorrect security token, you will receive an error similar to the following:
 
@@ -215,7 +215,7 @@ Unknown error: "Network request failed"
 
 ### Balance Too Low
 
-When your node has just been created, it will not be funded. You can't connect and unfunded node and should return after having completed the entire onboarding process. 
+When your node has just been created, it will not be funded. You can't connect and unfunded node and should return after having completed the entire onboarding process.
 
 ```bash
 ERROR
@@ -257,7 +257,7 @@ Your node is considered as working normally if:
 
 (**3**) Unarchive the `hopr-identity.tar` file, ensuring your view of hidden files is turned on to see the hopr-identity file.
 
-(**4**) Go to the [Config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). 
+(**4**) Go to the [Config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
 
 (**5**) Under RPC Provider URL, replace `https://provider-proxy.hoprnet.workers.dev/xdai_mainnet` with `https://rpc.ankr.com/gnosis` and click Update.
 
@@ -281,7 +281,7 @@ Wait for up to 1 - 1.5 hours until your node syncs with the network!
 (**1**) Stop the Docker container:
 
 * Paste the command `docker ps` into your terminal. Next to the container image name `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` make note of the container ID.
-* Paste the command `docker rm -f CONTAINER_ID` into your terminal. 
+* Paste the command `docker rm -f CONTAINER_ID` into your terminal.
 
 **Note:** Replace `CONTAINER_ID` with the one you noted earlier.
 

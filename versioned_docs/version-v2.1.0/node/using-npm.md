@@ -70,7 +70,7 @@ DEBUG="hopr*" npx hoprd --init --admin --identity ./hoprd-id-01 --data ./hoprd-d
 
 If you want to secure your hoprd admin UI, in the command line you must use **--apiToken** tag.
 
-**<YOUR_SECRET_TOKEN\>** - Replace it with your own password (don't use "<\>").
+**```<YOUR_SECRET_TOKEN>```**  Replace it with your own password (don't use  "`<>`").
 
 Password should contain:
 

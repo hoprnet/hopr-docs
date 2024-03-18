@@ -41,7 +41,6 @@ As an alternative, you an also run a single HOPR node following our [monorepo](h
 <details>
   <summary>Export REST and WebSocket endpoints (from local HOPR cluster)</summary>
   <div>
-    <div>
     <h3>Node 1</h3>
     <br/>
     <pre>
@@ -52,7 +51,6 @@ As an alternative, you an also run a single HOPR node following our [monorepo](h
     <pre>
     export apiToken=^^LOCAL-testing-123^^ HOPR_NODE_1_HTTP_URL=http://127.0.0.1:13301 HOPR_NODE_1_WS_URL=ws://127.0.0.1:19501
     </pre>
-    </div>
     <br/>
   </div>
 </details>
@@ -60,7 +58,6 @@ As an alternative, you an also run a single HOPR node following our [monorepo](h
 <details>
   <summary>Export REST and WebSocket endpoints (from a single localhost HOPR node)</summary>
   <div>
-    <div>
     <h3>Node 1</h3>
     <br/>
     <pre>
@@ -71,7 +68,6 @@ As an alternative, you an also run a single HOPR node following our [monorepo](h
     <pre>
     export apiToken=^^LOCAL-testing-123^^ HOPR_NODE_1_HTTP_URL=http://127.0.0.1:3001 HOPR_NODE_1_WS_URL=ws://127.0.0.1:3000
     </pre>
-    </div>
     <br/>
   </div>
 </details>
@@ -90,7 +86,7 @@ For the purposes of this guide, `curl` and `websocat` will be assumed.
 <details>
   <summary>Installing curl</summary>
   <div>
-    <div>Most <code>Unix</code>-based systems already have <code>curl</code> installed, but if you don't have it you can always use the default package manager to do so. For instance, here’s how you install `curl` in Ubuntu:
+    Most <code>Unix</code>-based systems already have <code>curl</code> installed, but if you don't have it you can always use the default package manager to do so. For instance, here’s how you install `curl` in Ubuntu:
 
 <pre>
 sudo apt-get install curl
@@ -101,14 +97,13 @@ You can see if <code>curl</code> is installed in your system by running <code>wh
 <pre>
 curl: try 'curl --help' or 'curl --manual' for more information
 </pre>
-  </div>
+
   </div>
 </details>
 
 <details>
   <summary>Installing websocat</summary>
   <div>
-    <div>
     <p>Our suggested client is <a href="https://github.com/vi/websocat" target="_blank" noreferral>websocat</a>, which you can install by running our
 <code>./install-websocat.sh</code> <a href="https://raw.githubusercontent.com/hoprnet/hoprnet/master/scripts/install-websocat.sh" taget="_blank" noreferral>script</a> from our monorepo. To install, make sure to run it from the <code>scripts</code> folder, as by default it will install it in the parent folder under a <code>.bin</code> folder, and will not export it to your <code>$PATH</code>.</p>
 <br/>
@@ -126,8 +121,6 @@ cd scripts
 <p>
 You can see if <code>websocat</code> has been installed by running <code>.bin/websocat</code>.
 </p>
-
-  </div>
   </div>
 </details>
 

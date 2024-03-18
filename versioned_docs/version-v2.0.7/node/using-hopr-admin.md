@@ -715,9 +715,9 @@ You should now have your funds accessible in your new MetaMask account.
 
 ### NAT Nodes
 
-If you create a node by default without setting up port forwarding, this is likely the node you are running. A NAT (Network Address Translation) node is a node that relies on the translation of IP addresses for it to receive traffic sent to the public IP addresses it and many other devices are connected to. 
+If you create a node by default without setting up port forwarding, this is likely the node you are running. A NAT (Network Address Translation) node is a node that relies on the translation of IP addresses for it to receive traffic sent to the public IP addresses it and many other devices are connected to.
 
-In this example, think of your router having a single public IP address, and many devices are connected to it. Your laptop, a separate PC, your node etc... All of which have their own internal IP address. 
+In this example, think of your router having a single public IP address, and many devices are connected to it. Your laptop, a separate PC, your node etc... All of which have their own internal IP address.
 
 Traffic that is meant to be received by your node is sent to the public IP address and then has to be routed correctly to your node. The problem is your router can be pretty picky about how it routes the traffic it receives, creating problems when two NAT nodes try to communicate with each other. This is why the HOPR network runs several PRNs (Public Relay Nodes).
 
@@ -731,13 +731,13 @@ PRNS take the traffic NAT nodes send and help create a connection through which 
 
 If you set up port forwarding on your NAT node, you can make it a public node. The problem NAT nodes have is that routing incoming traffic sent to your public IP address to the internal IP address of your node can have many complications. But if you map a certain port of your public IP address to by default, send the traffic it receives to the same port of your node's internal IP address, the node essentially becomes "public". The public IP address and port number now become synonymous with the internal IP address and port number of your node.
 
-This solves the problem two NAT nodes have when communicating with each other and allows nodes to communicate with each other without the need for a PRN. 
+This solves the problem two NAT nodes have when communicating with each other and allows nodes to communicate with each other without the need for a PRN.
 
 ![public nodes communicating](/img/node/public-public-node.png)
 
 ## How To Setup Port Forwarding For My Node
 
-You will need to set up port forwarding on your node to participate in our next major release, as the initial release will only support public nodes. This tutorial will give the basic outline of how to set up port forwarding for your node, but it is important to note this will vary depending on your internet provider and router. 
+You will need to set up port forwarding on your node to participate in our next major release, as the initial release will only support public nodes. This tutorial will give the basic outline of how to set up port forwarding for your node, but it is important to note this will vary depending on your internet provider and router.
 
 **You will need the following to complete this tutorial:**
 
@@ -836,7 +836,7 @@ To access your router admin, you will need to find your router's default gateway
 
 - Protocol: You will need to setup port forwarding for both **TCP** & **UDP**
 
-- Set the local and end ports to `9091`. 
+- Set the local and end ports to `9091`.
 
 ![Portforwarding rule](/img/node/portforwarding-add-rule.png)
 
@@ -854,12 +854,12 @@ First you need to make sure that device on which HOPRd is installed is exposing 
 
 depending on the OS, please do one of the following:
 
-* Unix based system: nc -vz <internal_IP_of_device> 9091
-* For Windows OS: telnet <internal_IP_of_device> 9091
+* Unix based system: nc -vz `<internal_IP_of_device>` 9091
+* For Windows OS: telnet `<internal_IP_of_device>` 9091
 
 **Note:** Successful port opening should yield a response similar to the following:
 
-* For Unix users: "Connection to <your_external_IP_address> port 9091 [tcp/xmltec-xmlmail] succeeded!"
+* For Unix users: "Connection to ```<your_external_IP_address>``` port 9091 [tcp/xmltec-xmlmail] succeeded!"
 * For Windows users: Executing the command should result in an open empty window, indicating a successful port opening.
 
 After a successful response from your internal IP address, now you will need to check your home network Public IP address in the same way:
@@ -870,12 +870,12 @@ Open Command prompt or terminal window and execute command: curl ifconfig.me. Un
 
 Depending on the OS, please do one of the following:
 
-* Unix based system: nc -vz <home_network_public_ip> 9091
-* For Windows OS: telnet <home_network_public_ip> 9091
+* Unix based system: nc -vz ```<home_network_public_ip>``` 9091
+* For Windows OS: telnet ```<home_network_public_ip>``` 9091
 
 **Note:** Successful port opening should yield a response similar to the following:
 
-* For Unix users: "Connection to <your_external_IP_address> port 9091 [tcp/xmltec-xmlmail] succeeded!"
+* For Unix users: "Connection to ```<your_external_IP_address>``` port 9091 [tcp/xmltec-xmlmail] succeeded!"
 * For Windows users: Executing the command should result in an open empty window, indicating a successful port opening.
 
 ### For Nodes On VPS
@@ -884,12 +884,12 @@ From your home computer you will need to check if port 9091 is opened on a VPS w
 
 Depending on the OS, please do one the following:
 
-* Unix based system: nc -vz <VPS_IP_address> 9091
-* For Windows OS: telnet <VPS_IP_address> 9091
+* Unix based system: nc -vz ```<VPS_IP_address>``` 9091
+* For Windows OS: telnet ```<VPS_IP_address>``` 9091
 
 **Note:** Successful port opening should yield a response similar to the following:
 
-* For Unix users: "Connection to <your_external_IP_address> port 9091 [tcp/xmltec-xmlmail] succeeded!"
+* For Unix users: "Connection to ```<your_external_IP_address>``` port 9091 [tcp/xmltec-xmlmail] succeeded!"
 * For Windows users: Executing the command should result in an open empty window, indicating a successful port opening.
 
 **Note:**  For some windows users, telnet maybe not be available, you will need to enable it manually:

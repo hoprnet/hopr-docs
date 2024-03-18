@@ -66,7 +66,7 @@ Also all ports are mapped to your local host, assuming you stick to the default 
 
 If you want to secure your hoprd admin UI, in the command line you must use **--apiToken** tag.
 
-**<YOUR_SECRET_TOKEN\>** - Replace it with your own password (don't use "<\>").
+**```<YOUR_SECRET_TOKEN>```**  Replace it with your own password (don't use  "`<>`").
 
 Password should contain:
 
