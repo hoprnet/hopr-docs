@@ -274,7 +274,9 @@ Blockchain specific configuration.
 
 ```bash
 chain:
+    provider: https://primary.gnosis-chain.rpc.hoprtech.net/
     announce: true
+    network: dufour
     check_unrealized_balance: true
 ```
 
