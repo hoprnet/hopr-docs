@@ -2,7 +2,7 @@
 
 hopr:
   db:
-    data: /app/hoprd-db/db
+    data: /app/hoprd-db
     initialize: true
     force_initialize: false
   strategy:
