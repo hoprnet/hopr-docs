@@ -165,7 +165,7 @@ Using the configuration file will allow you to customize your node's settings at
 
 (**1**) First, set up your own custom configuration file. You can find instructions on how to do that [here](./using-config-file.md#set-up-configuration-file).
 
-**Note:** For Dappnode, the configuration file does not need to include your `Safe address`, `Module address`, `Public IP`, and `RPC provider`.
+**Note:** For Dappnode, the configuration file does not need to include your `Safe address`, `Module address`, `Public IP`, `RPC provider` and `API Token`.
 
 (**2**) During the Dappnode installation process, fill out the `Safe address`, `Module address`, `Public IP`, and `RPC provider` fields as you normally would.
 
@@ -186,9 +186,22 @@ Using the configuration file will allow you to customize your node's settings at
 
 ### Adding Configuration File After Installation
 
-If you have already installed your HOPR package, then you can still edit your node's configuration by uploading a configuration file through.
+If you have already installed your HOPR package, then you can still edit your node's configuration by uploading a configuration file through the [file manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
-<!--
-TODO:
-    Finish this section
- -->
+(**1**) Find HOPR in your packages and navigate to the `File Manager` tab. 
+
+![File Manager](/img/node/Dappnode-file-manager.png)
+
+(**2**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
+
+![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
+
+(**4**) Then click the `Browse` button next to the `Choose file` field. And select your configuration file.
+
+**Note:** If you are updating an existing configuration file, use the same name as the old one.
+
+(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
+
+(**6**) Under the tab `Config` in your HOPR package, check that the field `HOPRD_CONFIGURATION_FILE_PATH` points to your new configuration file. 
+
+If it is empty or shows your old configuration file, update the variable to show your configuration file.

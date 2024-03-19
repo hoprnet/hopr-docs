@@ -9,26 +9,27 @@ This page explains how to set up the configuration file for use for both Docker/
 
 To set up your node's configuration file, you can use the example file.
 
-(**1**) Download the example file [here](/files/cfg.new.yaml).
+(**1**) Download the example file here:
+
+- For [Docker users](/files/hoprd-docker.cfg.yaml).
+- For [Dappnode users](/files/hoprd-dappnode.cfg.yaml)
 
 (**2**) **If you are using Docker**, edit the main variables as you would on a normal installation:
 
-* **Databse Password:** The varibale is `password`, found under `Identity`.
-* **API Token:** The variable is `auth`, found under `API`.
-* **Safe Address:** The variable is `safe_address`, found under `safe_module`.
-* **Module Address** The variable is `module_address`, found under `safe_module`.
-* **Public IP Address:** The variable is `address`, found under `host`.
+* **Databse Password:** The varibale is `password`, found under [Identity](./using-config-file.md#identity).
+* **API Token:** The variable is `auth`, found under [API](./using-config-file.md#api). It is recommended to add a token, e.g. `auth: !Token ARand0mT0k3n?` rather than using `None`.
+* **Safe Address:** The variable is `safe_address`, found under [safe_module](./using-config-file.md#safe-module).
+* **Module Address** The variable is `module_address`, found under [safe_module](./using-config-file.md#safe-module).
+* **Public IP Address:** The variable is `address`, found under [host](./using-config-file.md#host).
 
-**If you are using Dappnode**, edit only the API token:
-
-* **API Token:** The variable is `auth`, found under `API`.
+**If you are using Dappnode**, you do not need to edit the main variables.
 
 (**3**) Then feel free to edit as many of the customizable variabless as you would like. You can see a list of each variable its description/usage [here](./using-config-file.md#variables).
 
 (**4**) Save the completed configuration file. Where you save it will depend on whether you are using Dappnode or Docker.
 
 * **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process.
-* **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-dufour`.
+* **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-saint-louis`.
  
 # Variables
 
@@ -38,7 +39,7 @@ The main node's identity, defining it's on-chain and off-chain keys.
 
 ```bash
 identity:
-  file: path/to/identity.file
+  file: /app/hoprd-db/.hopr-id-saint-louis
   password: 'change_me'
   private_key: ''
 ```
@@ -53,8 +54,8 @@ The configuration of the REST API.
 
 ```bash
 api:
-  enable: false
-  auth: None
+  enable: true
+  auth: !Token ARand0mT0k3n?
   host:
     address: !IPv4 127.0.0.1
     port: 3001
@@ -76,7 +77,7 @@ Specifies host to listen on for the HOPR P2P protocol.
 
 ```bash
 host:
-  address: !IPv4 1.2.3.4
+  address: !IPv4 1.2.3.4 # Add your publc IP address here
   port: 9091
 ```
 
@@ -89,7 +90,7 @@ Specifies details for the database used by the HOPR node.
 
 ```bash
 db:
-  data: /app/hoprd-db #/app for Dappnode
+  data: /app/hoprd-db # /app for Dappnode
   initialize: true
   force_initialize: false
 ```
@@ -113,9 +114,11 @@ safe_module:
 - **safe_address:** Node's safe address, this must be provided by the user.
 - **module_address:** Node's safe module address, this must be provided by the user.
 
-### Startegy
+### Strategy
 
 Configuration of HOPR channel strategies.
+
+**Note:** HOPR is counted with **18 decimals**. So make sure to **add 18 zeroes per integer value** for all of the variables below. E.g. `1 HOPR Token` would be written as `1000000000000000000 HOPR`.
 
 ```bash
 strategy:
@@ -129,7 +132,7 @@ strategy:
       minimum_node_balance: "10000000 HOPR"
       min_network_size_samples: 20
       enforce_max_channels: true
-      minimum_peer_version: ">=2.0.0"
+      minimum_peer_version: ">=2.0.7"
 
     - !AutoFunding
       funding_amount: "10000000000000000000 HOPR"
@@ -181,7 +184,7 @@ strategy:
 
   - **- !Passive** A strategy that does nothing. This is equivalent to leaving the strategies array empty.
 
-  - **!ClosureFinalizer:** A strategy that monitors channels in the PendingToClose state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
+  - **- !ClosureFinalizer:** A strategy that monitors channels in the PendingToClose state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
     - **max_closure_overdue:** Do not attempt to finalize the closure of channels that have been overdue for more than this amount of seconds (3600 seconds).
 
 ### Heartbeat

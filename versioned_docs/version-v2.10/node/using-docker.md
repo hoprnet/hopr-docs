@@ -257,7 +257,7 @@ docker run --pull always -d --restart on-failure -m 2g --platform linux/x86_64 \
  --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"
 ```
 
-**Note:** If your database is located in the default directory, `.hoprd-db-dufour` and you have saved your configuration file there. Then you have nothing to adjust.
+**Note:** If your database is located in the default directory, `.hoprd-db-saint-louis` and you have saved your configuration file there. Then you have nothing to adjust.
 
 (**3**) With Docker installed, paste your docker command into the terminal and execute it.
 
