@@ -16,8 +16,8 @@ Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe a
 
 There are two installation methods for Docker users:
 
-- [Simple Installation](./using-docker.md#1-install-docker) via a configured Docker command
-- Installation via a [configuration file](./using-docker.md#set-up-node-using-configuration-file)
+- [Simple Installation](./using-docker.md#1-install-docker)
+- Installation with a [configuration file](./using-docker.md#set-up-node-using-configuration-file)
 
 Most users should use the default simple installation method. The configuration file allows you to make much more detailed and granular changes to your node and how it interacts with the protocol, which is mainly a feature for advanced users.
 
