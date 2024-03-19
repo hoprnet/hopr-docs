@@ -28,7 +28,7 @@ To set up your node's configuration file, you can use the example file.
 
 (**4**) Save the completed configuration file. Where you save it will depend on whether you are using Dappnode or Docker.
 
-* **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process.
+* **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process. If you are adding the configuration file to your node after installation, follow the instructions [here](./using-dappnode.md#adding-configuration-file-after-installation). 
 * **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-saint-louis`.
  
 # Variables
@@ -269,6 +269,16 @@ Configuration of various HOPR sub-protocols.
 ### Chain
 
 Blockchain specific configuration.
+
+**Default Settings:** If you want to use the default chain, there is no need to edit most of these variables. You can just adjust the additional settings as below.
+
+```bash
+chain:
+    announce: true
+    check_unrealized_balance: true
+```
+
+**Alternative Chain Settings:** If you want to use a seperate chain, for example `anvil-localhost` for testing, you can add all the specific chain information for your node to use as below.
 
 ```bash
 chain:
