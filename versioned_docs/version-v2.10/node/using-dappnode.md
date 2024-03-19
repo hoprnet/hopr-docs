@@ -192,7 +192,7 @@ If you have already installed your HOPR package, then you can still edit your no
 
 ![File Manager](/img/node/Dappnode-file-manager.png)
 
-(**2**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
+(**2**) In the text field under `Upload file` enter the path `/app`.
 
 ![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
 
