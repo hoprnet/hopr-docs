@@ -19,35 +19,6 @@ if (DOCS_ALGOLIA_APP_ID && DOCS_ALGOLIA_API_KEY) {
   }
 }
 
-const redocusaurus = [
-  'redocusaurus',
-  {
-    debug: Boolean(process.env.DEBUG || process.env.CI),
-    specs: [
-      {
-        id: 'placerholder-rest-api-2_0_0',
-        route: '/developers/placeholder-rest-api/',
-        spec: 'versioned_docs/version-v2.0.0/rest-api-v2-full-spec.json',
-      },
-      {
-        id: 'placerholder-rest-api-2_1_0',
-        route: '/developers/placeholder-rest-api/v2.1.0/',
-        spec: 'versioned_docs/version-v2.1.0/rest-api-v2.1.0-full-spec.json'
-      }
-    ],
-    theme: {
-      /**
-       * Highlight color for docs
-       */
-      primaryColor: '#0000b4',
-      /**
-       * Options to pass to redoc
-       * @see https://github.com/redocly/redoc#redoc-options-object
-       */
-      redocOptions: {}
-    }
-  }
-]
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -75,7 +46,6 @@ const config = {
   ],
   scripts: [{ src: 'https://cdn-eu.usefathom.com/script.js', 'data-site': 'WMCAULEA', 'data-included-domains': 'docs.hoprnet.org', defer: true }],
   presets: [
-    redocusaurus,
     [
       '@docusaurus/preset-classic',
       ({
