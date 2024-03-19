@@ -8,7 +8,6 @@ hopr:
   strategy:
     on_fail_continue: true
     allow_recursive: true
-    finalize_channel_closure: true
     strategies:
       - !Aggregating
         aggregation_threshold: 300

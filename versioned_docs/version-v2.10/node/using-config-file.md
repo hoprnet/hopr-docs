@@ -86,7 +86,10 @@ host:
 
 ### DB
 
-Specifies details for the database used by the HOPR node.
+Specifies details for the database used by the HOPR node. **These variables should not be changes** from the default original variables otherwise it may causee problems for your node.
+
+- For Docker users: `data: /app/hoprd-db`
+- For Dappnode users: `data: /app/hoprd-db/db`
 
 ```bash
 db:
@@ -274,7 +277,7 @@ Blockchain specific configuration.
 
 ```bash
 chain:
-    provider: https://primary.gnosis-chain.rpc.hoprtech.net/
+    provider:
     announce: true
     network: dufour
     check_unrealized_balance: true
@@ -328,7 +331,7 @@ chain:
 
 - **announce:** Indicates whether the node should announce itself on-chain.
 - **network:** Which blockchain network should be used by the node.
-- **provider:** RPC provider URL to use. If not given, it will use the network's chain default one.
+- **provider:** RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 - **check_unrealized_balance:** Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. Strongly recommended to leave this enabled.
 
 ### Inbox:
