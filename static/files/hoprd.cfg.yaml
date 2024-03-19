@@ -1,12 +1,9 @@
 hopr:
-  host:
-    address: !IPv4 0.0.0.0 #TODO: replace with your external IP
-    port: 9091
   db:
-    data: /app/hoprd-db
+    data: /app/hoprd-db/db
     initialize: true
     force_initialize: false
-  strategy:
+  strategy: #TODO make adjusments to your needs
     on_fail_continue: true
     allow_recursive: true
     strategies:
@@ -43,23 +40,17 @@ hopr:
     ticket_aggregation:
       timeout: 15
   chain:
-    provider: #TODO: fill in with your custom RPC provider
     announce: true
-    network: dufour
     check_unrealized_balance: true
   safe_module:
     safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net/
-    safe_address: '0x0000000000000000000000000000000000000000'  #TODO: replace with safe address
-    module_address: '0x0000000000000000000000000000000000000000' #TODO: replace with module address
   transport:
     announce_local_addresses: false
     prefer_local_addresses: false
 identity:
-  file: /app/hoprd-db/.hopr-id-saint-louis
-  password: 'change_me' #TODO: replace with your db password
+  file: /app/hoprd-db/.hopr-identity
 api:
   enable: true
-  auth: !Token ARand0mT0k3n? #TODO: replace with your own API token
   host:
     address: !IPv4 0.0.0.0
     port: 3001

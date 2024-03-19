@@ -12,7 +12,7 @@ To set up your node's configuration file, you can use the example file.
 (**1**) Download the example file here:
 
 - For [Docker users](/files/hoprd-docker.cfg.yaml).
-- For [Dappnode users](/files/hoprd-dappnode.cfg.yaml)
+- For [Dappnode users](/files/hoprd.cfg.yaml)
 
 (**2**) **If you are using Docker**, edit the main variables as you would on a normal installation:
 
