@@ -17,7 +17,7 @@ To set up your node's configuration file, you can use the example file.
 (**2**) **If you are using Docker**, edit the main variables as you would on a normal installation:
 
 * **Databse Password:** The varibale is `password`, found under [Identity](./using-config-file.md#identity).
-* **API Token:** The variable is `auth`, found under [API](./using-config-file.md#api). It is recommended to add a token, e.g. `auth: !Token ARand0mT0k3n?` rather than using `None`.
+* **API Token:** The variable is `auth`, found under [API](./using-config-file.md#api). It is recommended to add a token, e.g. `auth: !Token YOUR_SECURITY_TOKEN` rather than using `None`.
 * **Safe Address:** The variable is `safe_address`, found under [safe_module](./using-config-file.md#safe-module).
 * **Module Address** The variable is `module_address`, found under [safe_module](./using-config-file.md#safe-module).
 * **Public IP Address:** The variable is `address`, found under [host](./using-config-file.md#host).
@@ -55,7 +55,7 @@ The configuration of the REST API.
 ```bash
 api:
   enable: true
-  auth: !Token ARand0mT0k3n?
+  auth: !Token YOUR_SECURITY_TOKEN # Change to your own token
   host:
     address: !IPv4 127.0.0.1
     port: 3001
