@@ -296,6 +296,11 @@ chain:
 
 - **Note:** You should add your own RPC provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 
+- **announce:** Indicates whether the node should announce itself on-chain.
+- **network:** Which blockchain network should be used by the node.
+- **provider:** RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+- **check_unrealized_balance:** Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. Strongly recommended to leave this enabled.
+
 **Alternative Chain Settings:** If you want to use a seperate chain, for example `anvil-localhost` for testing, you can add all the specific chain information for your node to use as below.
 
 ```bash
@@ -341,11 +346,6 @@ chain:
 
   check_unrealized_balance: true
 ```
-
-- **announce:** Indicates whether the node should announce itself on-chain.
-- **network:** Which blockchain network should be used by the node.
-- **provider:** RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
-- **check_unrealized_balance:** Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. Strongly recommended to leave this enabled.
 
 ### Inbox:
 
