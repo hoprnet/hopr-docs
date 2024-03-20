@@ -46,7 +46,7 @@ The main node's identity, defining it's on-chain and off-chain keys.
 
 For **Dappnode users** the filename should strictly be `.hopr-identity` 
 
-For **Docker users** the identity file should match the name of the existing file under `-v $HOME/.hoprd-db-saint-louis-4:/app/hoprd-db` if you are using an existing node. Otherwise you can use a different filename.
+For **Docker users** the identity file should match the name of the existing file under `--identity /app/hoprd-db/.hopr-id-dufour` if you are using an existing node. Otherwise you can use a different filename.
 
 ```bash
 identity:
