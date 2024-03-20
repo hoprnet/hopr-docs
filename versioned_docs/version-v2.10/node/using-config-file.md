@@ -30,12 +30,23 @@ To set up your node's configuration file, you can use the example file.
 
 * **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process. If you are adding the configuration file to your node after installation, follow the instructions [here](./using-dappnode.md#adding-configuration-file-after-installation). 
 * **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-saint-louis`.
+
+(**5**) Rename the saved file. Sometimes the filename changes on download. 
+
+- **For Dappnode:** the file name should strictly be `hoprd.cfg.yaml`
+- **For Docker:** You can choose your own filename, but you will need to ensure this exact file name is used within the configuration file path provided when you run your Docker command.
  
 # Variables
 
 ## Identity
 
 The main node's identity, defining it's on-chain and off-chain keys.
+
+**Note:** Make sur to choose the correct identity file name.
+
+For **Dappnode users** the filename should strictly be `.hopr-identity` 
+
+For **Docker users** the identity file should match the name of the existing file under `-v $HOME/.hoprd-db-saint-louis-4:/app/hoprd-db` if you are using an existing node. Otherwise you can use a different filename.
 
 ```bash
 identity:
@@ -282,6 +293,8 @@ chain:
     network: dufour
     check_unrealized_balance: true
 ```
+
+- **Note:** You should add your own RPC provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 
 **Alternative Chain Settings:** If you want to use a seperate chain, for example `anvil-localhost` for testing, you can add all the specific chain information for your node to use as below.
 
