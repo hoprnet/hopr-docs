@@ -14,7 +14,7 @@ If you have installed HOPR through the Dappnode setup, you do not need to instal
 (**2**) Open your terminal and paste the following Docker command to start HOPR Admin:
 
 ```bash
-docker run -d --restart always -p 8080:80 --pull=always europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:latest
+docker run -d -p 8080:80 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:1.0.3-beta
 ```
 
 That's all! You should have HOPR Admin started by now and can [access it through your browser](./using-hopr-admin-v2.md#accessing-hopr-admin).
