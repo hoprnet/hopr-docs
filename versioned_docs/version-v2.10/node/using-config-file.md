@@ -42,7 +42,7 @@ To set up your node's configuration file, you can use the example file.
 
 The main node's identity, defining it's on-chain and off-chain keys.
 
-**Note:** Make sur to choose the correct identity file name.
+**Note:** Make sure to choose the correct identity file name.
 
 For **Dappnode users** the filename should strictly be `.hopr-identity` 
 
