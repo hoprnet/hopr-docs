@@ -83,11 +83,11 @@ After filling API endpoint & API token fields click on "Connect to the node".
 
 ## 2. Link Your Node to Your Safe
 
-:::info
+:::info INFO
 
 Only do this if you have been approved to join the network. If you are still on the waitlist, please wait until you have been approved to join the network. 
 
-:::info
+:::
 
 While connected to your Dappnode's network or via a VPN:
 
