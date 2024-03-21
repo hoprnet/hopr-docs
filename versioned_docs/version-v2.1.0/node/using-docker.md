@@ -273,7 +273,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
  --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"
 ```
 
-**Note:** If your database is located in the default directory, `.hoprd-db-dufour` and you have saved your configuration file there. Then you have nothing to adjust.
+**Note:** If your database is located in the default directory, `.hoprd-db-saint-louis` and you have saved your configuration file there. Then you have nothing to adjust.
 
 (**3**) With Docker installed, paste your docker command into the terminal and execute it.
 
@@ -289,7 +289,7 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 ## Update Your Node
 
-When a new more stable release is published it is important to update your node to beneifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.
+When a new more stable release is published it is important to update your node to benifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.
 
 (**1**) Enter the following command into your terminal:
 
