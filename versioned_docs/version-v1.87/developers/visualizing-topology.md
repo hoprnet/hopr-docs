@@ -24,6 +24,7 @@ A full specification of all the events from _HoprChannels_ smart contract is det
 With the latest channel balances, **importance score** can be calculated per channel. This score is used as an indicator for cover traffic nodes to prioritize the distribution of cover traffic.
 The importance score is calculated as a product of the **stake** of a node and the sum of **weights** of all the outgoing channels.
 
+```
 $$
 \Omega(N_i) = st(N_i) \cdot \sum_{j} w(C_{N_iN_j})
 $$
@@ -41,6 +42,7 @@ The **stake** of a node can be denoted as below, which is the sum of the unrelea
 $$
 St(N_i) = uT(N_i) + \sum_{j} B(C_{N_iN_j})
 $$
+```
 
 In the protocol, the **importance score** is implemented as the function `importance` in the [packages/cover-traffic-daemon/src/utils.ts](https://github.com/hoprnet/hoprnet/blob/master/packages/cover-traffic-daemon/src/utils.ts)
 
