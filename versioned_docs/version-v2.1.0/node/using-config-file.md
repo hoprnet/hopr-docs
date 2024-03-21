@@ -9,26 +9,32 @@ This page explains how to set up the configuration file for use for both Docker/
 
 To set up your node's configuration file, you can use the example file.
 
-(**1**) Download the example file [here](/files/cfg.new.yaml).
+(**1**) Download the example file here:
+
+- For [Docker users](/files/hoprd-docker.cfg.yaml).
+- For [Dappnode users](/files/hoprd.cfg.yaml)
 
 (**2**) **If you are using Docker**, edit the main variables as you would on a normal installation:
 
-* **Databse Password:** The varibale is `password`, found under `Identity`.
-* **API Token:** The variable is `auth`, found under `API`.
-* **Safe Address:** The variable is `safe_address`, found under `safe_module`.
-* **Module Address** The variable is `module_address`, found under `safe_module`.
-* **Public IP Address:** The variable is `address`, found under `host`.
+* **Databse Password:** The varibale is `password`, found under [Identity](./using-config-file.md#identity).
+* **API Token:** The variable is `auth`, found under [API](./using-config-file.md#api). It is recommended to add a token, e.g. `auth: !Token YOUR_SECURITY_TOKEN` rather than using `None`.
+* **Safe Address:** The variable is `safe_address`, found under [safe_module](./using-config-file.md#safe-module).
+* **Module Address** The variable is `module_address`, found under [safe_module](./using-config-file.md#safe-module).
+* **Public IP Address:** The variable is `address`, found under [host](./using-config-file.md#host).
 
-**If you are using Dappnode**, edit only the API token:
-
-* **API Token:** The variable is `auth`, found under `API`.
+**If you are using Dappnode**, you do not need to edit the main variables.
 
 (**3**) Then feel free to edit as many of the customizable variabless as you would like. You can see a list of each variable its description/usage [here](./using-config-file.md#variables).
 
 (**4**) Save the completed configuration file. Where you save it will depend on whether you are using Dappnode or Docker.
 
-* **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process.
-* **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-dufour`.
+* **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process. If you are adding the configuration file to your node after installation, follow the instructions [here](./using-dappnode.md#adding-configuration-file-after-installation). 
+* **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-saint-louis`.
+
+(**5**) Rename the saved file. Sometimes the filename changes on download. 
+
+- **For Dappnode:** the file name should strictly be `hoprd.cfg.yaml`
+- **For Docker:** You can choose your own filename, but you will need to ensure this exact file name is used within the configuration file path provided when you run your Docker command.
  
 # Variables
 
@@ -36,9 +42,15 @@ To set up your node's configuration file, you can use the example file.
 
 The main node's identity, defining it's on-chain and off-chain keys.
 
+**Note:** Make sure to choose the correct identity file name.
+
+For **Dappnode users** the filename should strictly be `.hopr-identity` 
+
+For **Docker users** the identity file should match the name of the existing file under `identity /app/hoprd-db/.hopr-id-saint-louis` if you are using an existing node. Otherwise you can use a different filename.
+
 ```bash
 identity:
-  file: path/to/identity.file
+  file: /app/hoprd-db/.hopr-id-saint-louis
   password: 'change_me'
   private_key: ''
 ```
@@ -53,8 +65,8 @@ The configuration of the REST API.
 
 ```bash
 api:
-  enable: false
-  auth: None
+  enable: true
+  auth: !Token YOUR_SECURITY_TOKEN # Change to your own token
   host:
     address: !IPv4 127.0.0.1
     port: 3001
@@ -76,7 +88,7 @@ Specifies host to listen on for the HOPR P2P protocol.
 
 ```bash
 host:
-  address: !IPv4 1.2.3.4
+  address: !IPv4 1.2.3.4 # Add your publc IP address here
   port: 9091
 ```
 
@@ -85,11 +97,14 @@ host:
 
 ### DB
 
-Specifies details for the database used by the HOPR node.
+Specifies details for the database used by the HOPR node. **These variables should not be changes** from the default original variables otherwise it may causee problems for your node.
+
+- For Docker users: `data: /app/hoprd-db`
+- For Dappnode users: `data: /app/hoprd-db/db`
 
 ```bash
 db:
-  data: /app/hoprd-db #/app for Dappnode
+  data: /app/hoprd-db # /app for Dappnode
   initialize: true
   force_initialize: false
 ```
@@ -113,9 +128,11 @@ safe_module:
 - **safe_address:** Node's safe address, this must be provided by the user.
 - **module_address:** Node's safe module address, this must be provided by the user.
 
-### Startegy
+### Strategy
 
 Configuration of HOPR channel strategies.
+
+**Note:** HOPR is counted with **18 decimals**. So make sure to **add 18 zeroes per integer value** for all of the variables below. E.g. `1 HOPR Token` would be written as `1000000000000000000 HOPR`.
 
 ```bash
 strategy:
@@ -129,7 +146,7 @@ strategy:
       minimum_node_balance: "10000000 HOPR"
       min_network_size_samples: 20
       enforce_max_channels: true
-      minimum_peer_version: ">=2.0.0"
+      minimum_peer_version: ">=2.0.7"
 
     - !AutoFunding
       funding_amount: "10000000000000000000 HOPR"
@@ -181,7 +198,7 @@ strategy:
 
   - **- !Passive** A strategy that does nothing. This is equivalent to leaving the strategies array empty.
 
-  - **!ClosureFinalizer:** A strategy that monitors channels in the PendingToClose state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
+  - **- !ClosureFinalizer:** A strategy that monitors channels in the PendingToClose state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
     - **max_closure_overdue:** Do not attempt to finalize the closure of channels that have been overdue for more than this amount of seconds (3600 seconds).
 
 ### Heartbeat
@@ -267,6 +284,25 @@ Configuration of various HOPR sub-protocols.
 
 Blockchain specific configuration.
 
+**Default Settings:** If you want to use the default chain, there is no need to edit most of these variables. You can just adjust the additional settings as below.
+
+```bash
+chain:
+    provider:
+    announce: true
+    network: dufour
+    check_unrealized_balance: true
+```
+
+- **Note:** You should add your own RPC provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+
+- **announce:** Indicates whether the node should announce itself on-chain.
+- **network:** Which blockchain network should be used by the node.
+- **provider:** RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+- **check_unrealized_balance:** Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. Strongly recommended to leave this enabled.
+
+**Alternative Chain Settings:** If you want to use a seperate chain, for example `anvil-localhost` for testing, you can add all the specific chain information for your node to use as below.
+
 ```bash
 chain:
   announce: true
@@ -310,11 +346,6 @@ chain:
 
   check_unrealized_balance: true
 ```
-
-- **announce:** Indicates whether the node should announce itself on-chain.
-- **network:** Which blockchain network should be used by the node.
-- **provider:** RPC provider URL to use. If not given, it will use the network's chain default one.
-- **check_unrealized_balance:** Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. Strongly recommended to leave this enabled.
 
 ### Inbox:
 
