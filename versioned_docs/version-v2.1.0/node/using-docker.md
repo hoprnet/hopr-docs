@@ -215,11 +215,11 @@ For Docker the identity file is automatically created and stored on your OS at t
 
 ## 4. Link Your Node to Your Safe
 
-:::info
+:::info INFO
 
 Only do this if you have been approved to join the network. If you are still on the waitlist, please wait until you have been approved to join the network.
 
-:::info
+:::
 
 ### For Linux/macOS
 
