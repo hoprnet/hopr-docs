@@ -16,7 +16,9 @@ To set up your node's configuration file, you can use the example file.
 
 (**2**) **If you are using Docker**, edit the main variables as you would on a normal installation:
 
-* **Databse Password:** The varibale is `password`, found under [Identity](./using-config-file.md#identity).
+**Note:** If you intend to create a new node make sure to use a new Database password, if there is already an existing identity file in your default DB location.
+
+* **Database Password:** The varibale is `password`, found under [Identity](./using-config-file.md#identity).
 * **API Token:** The variable is `auth`, found under [API](./using-config-file.md#api). It is recommended to add a token, e.g. `auth: !Token YOUR_SECURITY_TOKEN` rather than using `None`.
 * **Safe Address:** The variable is `safe_address`, found under [safe_module](./using-config-file.md#safe-module).
 * **Module Address** The variable is `module_address`, found under [safe_module](./using-config-file.md#safe-module).
