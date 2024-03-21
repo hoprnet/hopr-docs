@@ -285,13 +285,13 @@ You should now be running your old node.
  
 ## Run Multiple Nodes With One Device
 
-To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database.
+To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Every node has to have different ports and they should not match between each nodes you are running on the same device or VPS.
 
-For example:
+For example, the second node should make these changes:
 
 - Change `-p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 8081:8081 -p 3002:3002`
 - Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
-- Add `--apiPort 3002`
+- Add `--apiPort 3002` (where first defaults to 3001)
 - Make sure to suffix your IP address with the new port instead of `9091` in this example it would now be `9092`
 
 All these changes implemented would be similar to the following:
