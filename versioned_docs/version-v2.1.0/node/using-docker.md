@@ -55,9 +55,9 @@ Default command (do not copy, use the command provided within the onboarding pro
 docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 \
   --log-driver json-file --log-opt max-size=1000M --log-opt max-file=5 \
   -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
-  -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 \
+  -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 \
   -e DEBUG="hopr*" -e RUST_LOG=debug \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:2.1.0-rc.3-pr.6121 \
   --network dufour \
   --init --api \
   --announce \
@@ -267,9 +267,9 @@ Using the configuration file will allow you to customize your node's settings at
 docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 \
   --log-driver json-file --log-opt max-size=1000M --log-opt max-file=5 \
   -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
-  -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 \
+  -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 \
   -e DEBUG="hopr*" -e RUST_LOG=debug \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:2.1.0-rc.2 \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/2.1.0-rc.3-pr.6121 \
  --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"
 ```
 
