@@ -17,6 +17,8 @@ While connected to your Dappnode's network or via a VPN:
 
 ![DAppStore Search Bar](/img/node/Search-HOPR-Dappstore.png)
 
+![Anything](/img/node/admin-UI-second.png)
+
 (**3**) You should see the latest version of the HOPR client in the listed dApps. Click the `Get` button under the HOPR package, this should take you to a new interface.
 
 (**4**) Press `install`; this will open the setup wizard.
