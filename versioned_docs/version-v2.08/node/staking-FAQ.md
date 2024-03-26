@@ -72,3 +72,5 @@ Yes, you can. We don't have any limitations, you can see how to associate additi
 ### What is the maximum amount I can stake on a single node without penalty?
 
 The upper threshold for staking on a single node is 75,000 wxHOPR. Above this amount, the staked wxHOPR will be less valuable for receiving rewards through cover traffic. Read [here](../staking/ct-economic-model.md) for a simple overview of the cover traffic economic model. For a more detailed overview, check out the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).
+
+Test2
