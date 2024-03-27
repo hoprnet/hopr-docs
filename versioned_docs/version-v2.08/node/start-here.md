@@ -133,10 +133,8 @@ Running a Gnosis EL+CL node will not work reliably on low spec devices such as t
 
 Several 3rd-party RPC providers are available, each with free and paid plans. We recommend trying the free plans as they are likely sufficient for running your node. Some options include:
 
-- [Alchemy](https://www.alchemy.com/)
-- [Infura](https://www.infura.io/)
-- [Quicknode](https://www.quicknode.com/)
 - [Ankr](https://www.ankr.com/rpc/)
+- [Quicknode](https://www.quicknode.com/)
 - [Chainstack](https://chainstack.com/)
 - [GetBlock](https://getblock.io/)
 
