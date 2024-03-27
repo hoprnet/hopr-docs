@@ -57,7 +57,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
   -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
   -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 \
   -e DEBUG="hopr*" -e RUST_LOG=debug \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:2.1.0-rc.3-pr.6121 \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest \
   --network dufour \
   --init --api \
   --announce \
@@ -269,7 +269,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
   -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
   -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 \
   -e DEBUG="hopr*" -e RUST_LOG=debug \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/2.1.0-rc.3-pr.6121 \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest \
  --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"
 ```
 
