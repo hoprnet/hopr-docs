@@ -5,13 +5,13 @@ title: Waitlist FAQ
 
 ### What is the waitlist?
 
-To allow for the controlled scaling of the initial Dufour release, we have implemented a HOPR network waitlist. After having created a HOPR Safe and HOPR Node, you will need to register to the waitlist using the [waitlist form](https://cryptpad.fr/form/#/2/form/view/K3KSF-UAM-mLjUCs4w3Cruu4wZeOdwQFLNG1aYqrjbg/). 
+To allow for the controlled scaling of the initial Dufour release, we have implemented a HOPR network waitlist. After having created a HOPR Safe and HOPR Node, you will need to register to the waitlist using the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ/). 
 
 After you have been approved to join the network, you can return to the [Staking Hub](https://hub.hoprnet.org/) to complete your onboarding and join the network.
 
 ### How do I join the waitlist?
 
-To join the waitlist, first, you have to create a HOPR Safe and HOPR Node. Then register your Node and Safe using the [waitlist form](https://cryptpad.fr/form/#/2/form/view/K3KSF-UAM-mLjUCs4w3Cruu4wZeOdwQFLNG1aYqrjbg/). 
+To join the waitlist, first, you have to create a HOPR Safe and HOPR Node. Then register your Node and Safe using the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ/). 
 
 You can create a Safe and node using the onboarding wizard in the [Staking Hub](https://hub.hoprnet.org/).
 
@@ -28,7 +28,7 @@ Node runners from our previous release (Monte Rosa) were given an NFT to registe
 
 ### I have registered on the waitlist, but I can't find my address
 
-The waitlist is currently updated manually, so if you have completed the [waitlist form](https://cryptpad.fr/form/#/2/form/view/K3KSF-UAM-mLjUCs4w3Cruu4wZeOdwQFLNG1aYqrjbg/) with accurate information, you should see your address soon. 
+The waitlist is currently updated manually, so if you have completed the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ/) with accurate information, you should see your address soon. 
 
 **Note:** Applications that have removed their staked wxHOPR will also be periodically removed from the waitlist. Please make sure you have not dropped below the minimum required stake if you have withdrawn funds from the safe recently.
 
