@@ -14,7 +14,7 @@ If you have installed HOPR through the Dappnode setup, you do not need to instal
 (**2**) Open your terminal and paste the following Docker command to start HOPR Admin:
 
 ```bash
-docker run -d -p 8080:80 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:1.0.3-beta
+docker run -d -p 4677:80 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
 That's all! You should have HOPR Admin started by now and can [access it through your browser](./using-hopr-admin-v2.md#accessing-hopr-admin).
@@ -84,7 +84,7 @@ Under `Network`, it shows your node's eligibility to participate in the HOPR net
 
 - `unknown`: Initial value when the node is started. It means the connectivity could not be assessed.
 - `Red`: No connection to any nodes at all.
-- `Orange`: Low-quality ({'<='} 0.5) connection to at least one public node.
+- `Orange`: Low-quality (`<= 0.5`) connection to at least one public node.
 - `Yellow`: High-quality connection to at least one public node.
 - `Green`: High-quality connection to at least one public node and at least one non-public node.
 
@@ -92,8 +92,8 @@ The `connection`, in this case, means a node's ability to complete a ping/pong r
 
 And connection quality is measured from 0 to 1 based on the ratio of successful pings to the total number of pings. E.g. a node that responds to half of all pings it receives from node A will have a connection quality of 0.5 to node A.
 
-Low-quality connection: {'<='} 0.5
-High-quality connection: > 0.5
+Low-quality connection: `<= 0.5`
+High-quality connection: `> 0.5`
 
 #### Balances
 

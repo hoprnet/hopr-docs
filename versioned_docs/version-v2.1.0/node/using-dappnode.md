@@ -7,12 +7,19 @@ title: Set Up & Use Dappnode
 Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
+:::info
+When using multiple DAppNode devices on the same network, please ensure that each HOPR package has a different internal container port and external port for libp2p (9091, 9092, etc.).
+:::
+
 There are two installation methods for Dappnode users:
 
-- The [default setup](./using-dappnode.md#1-install-the-hopr-package)
-- The [configuration file setup](./using-dappnode.md#set-up-node-using-configuration-file)
+- The [default node setup](./using-dappnode.md#1-install-the-hopr-package).
+- The [node setup with configuration file implementation](./using-dappnode.md#set-up-node-using-configuration-file).
 
-Most users should use the default simple installation method. The configuration file allows you to make much more detailed and granular changes to your node and how it interacts with the protocol, which is mainly a feature for advanced users.
+For most users we recommend the default node setup method. For advanced users we recommend to run node with configuration file, which provides the flexibility to customize your node's behavior and fine-tune settings such as:
+- Configuring strategies to define node behavior
+- Managing tickets aggregation and redemption processes
+- Handling payment channels
 
 ## 1. Install the HOPR Package
 
@@ -38,7 +45,7 @@ While connected to your Dappnode's network or via a VPN:
 
 **Note:** If you are re-installing an existing node and not onboarding, you can find the addresses within the dashboard. 
 
-With the setup wizard open, in parallel, go to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard).
+With the setup wizard open, in parallel, go to the [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard).
 
 From the dashboard, note your:
 
@@ -111,9 +118,26 @@ Make sure to back up your identity file incase. This will help you restore your 
 
 (**4**) Copy this file and save it somewhere safe.
 
-## Next Steps
+## 4. Next Steps
 
 Once you've completed the above steps, you should have a working HOPR node. You will then want to access the HOPR admin panel to interact with your node. You can read how to access and set up HOPR admin [here](./using-hopr-admin-v2.md). 
+
+## Update the HOPR node
+
+Please note that significant changes have been introduced between versions **2.0.8** and **2.1.0**. During the upgrading process, there are additional steps you'll need to take:
+
+(**1**) Navigate to the Dappstore and locate the HOPR package. Click on the "**Upgrade**" button to proceed.
+
+(**2**) Complete all required fields during the upgrade process. Don't forget to set up your own RPC endpoint for your node. You can find more information [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+
+(**3**) After the upgrading process is complete, navigate to the "**Config**" tab within the HOPR package and select "**SHOW ADVANCED EDITOR**".
+
+(**4**) Check the values for "**HOPRD_HEARTBEAT_INTERVAL**" and ensure it is set to the default value of "**20**". Similarly, confirm that "**HOPRD_HEARTBEAT_THRESHOLD**" is also set to its default value of "**60**". If any changes were made, don't forget to click on "**Update**".
+
+(**5**) Restart HOPR package to apply the changes effectively.
+
+
+These additional steps will help ensure a smooth transition and optimal performance after the upgrade. If you have any questions or encounter any issues, feel free to reach out for assistance.
 
 ## Set Up Portforwarding
 
@@ -121,7 +145,7 @@ In order to run a HOPR node on the HOPR network you will need to have set up por
 
 ## Restore an Old Node
 
-You will need to use the [file manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager) to restore an old node. 
+To restore your old node, you'll need an identity backup file: [backup your identity file](./using-dappnode.md#3-backup-your-identity-file).
 
 (**1**) Make sure you can view hidden files.
 
@@ -129,23 +153,19 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![Hiden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during Step 2 on Mac. 
- 
-(**2**) Find HOPR in your packages and navigate to the `File Manager` tab. 
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . (Dot)`. You will need to do this during Step 2 on Mac. 
 
-![File Manager](/img/node/Dappnode-file-manager.png)
+(**2**) Access your Dappnode dashboard, navigate to Packages, and uninstall the HOPR package. Remember to delete all associated data by selecting "Remove and delete data".
 
-(**3**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
+![Remove hopr package](/img/node/remove-hopr-package.png)
 
-![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
+(**3**) Reinstall the HOPR package from the Dappstore.
 
-(**4**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
+(**4**) During the setup wizard, under "Custom identity file" section, click on the "Browse" button to locate and select your downloaded identity file. Ensure that hidden files are enabled on your machine.
 
-**Note:** Select the file multiple times until it appears in the text field instead of the `Choose File` placeholder text.
+![Selected identity file](/img/node/selected-identity-file.png)
 
-![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
-
-(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
+(**5**) Fill in all necessary fields and proceed with installing your node.
 
 All done, you should now have restored your old node!
 
@@ -160,8 +180,6 @@ All done, you should now have restored your old node!
 (**3**) On the right, press the `Restart` icon and wait for the package to restart.
 
 ## Set Up Node Using Configuration File 
-
-Using the configuration file will allow you to customize your node's settings at a much more detailed level, which is otherwise impossible. 
 
 (**1**) First, set up your own custom configuration file. You can find instructions on how to do that [here](./using-config-file.md#set-up-configuration-file).
 

@@ -59,6 +59,9 @@ a:hover {
   color: #414141;
   text-decoration: none;
 }
+.markdown a, .markdown ul li a{
+  text-decoration: underline;
+}
 .tabs-container p {
   margin-bottom: 1em;
 }
@@ -203,4 +206,9 @@ summary {
 
 span.theme-code-block-highlighted-line {
   background: unset;
+}
+
+.youtube-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }

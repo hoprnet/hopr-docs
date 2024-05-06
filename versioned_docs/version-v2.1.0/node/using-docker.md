@@ -16,8 +16,8 @@ Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe a
 
 There are two installation methods for Docker users:
 
-- [Simple Installation](./using-docker.md#1-install-docker)
-- Installation with a [configuration file](./using-docker.md#set-up-node-using-configuration-file)
+- The [default node setup](./using-docker.md#1-install-docker).
+- The [node setup with configuration file implementation](./using-docker.md#set-up-node-using-configuration-file).
 
 Most users should use the default simple installation method. The configuration file allows you to make much more detailed and granular changes to your node and how it interacts with the protocol, which is mainly a feature for advanced users.
 
@@ -51,27 +51,11 @@ The default command provided below will look similar to the one provided during 
 
 Default command (do not copy, use the command provided within the onboarding process):
 
-```bash
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 \
-  --log-driver json-file --log-opt max-size=1000M --log-opt max-file=5 \
-  -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
-  -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 \
-  -e DEBUG="hopr*" -e RUST_LOG=debug \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest \
-  --network dufour \
-  --init --api \
-  --announce \
-  --identity /app/hoprd-db/.hopr-id-saint-louis \
-  --data /app/hoprd-db \
-  --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' \
-  --healthCheck --healthCheckHost "0.0.0.0" \
-  --heartbeatInterval 20 --heartbeatThreshold 60 \
-  --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' \
-  --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> \
-  --host <YOUR_PUBLIC_IP>:9091 --provider CUSTOM_RPC_PROVIDER
+```md
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-saint-louis --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
 ```
 
-**Note:** Only use the default command as a starting point if you are restarting an old node and not registering you're node through the onboarding process. If you are setting up this node for the first time, please use the command provided to you within the onboarding process in the Staking Hub. This can also be found in your [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard#node).
+**Note:** Only use the default command as a starting point if you are restarting an old node and not registering you're node through the onboarding process. If you are setting up this node for the first time, please use the command provided to you within the onboarding process in the Staking Hub. This can also be found in your [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard#node).
 
 ### 2.1 Adjust API Token
 
@@ -93,7 +77,7 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 
 (**2**) Replace the `apiToken` within your docker command with your own security token.
 
-For example: replace `--apiToken 'YOUR_SECURITY_TOKEN'` with `--apiToken 'My#S3cur1ty#Token'`.
+For example: replace `--apiToken '<YOUR_SECURITY_TOKEN>'` with `--apiToken 'My#S3cur1ty#Token'`.
 
 **Note:** Make sure to make a note of the API token you have created. You will need it to access HOPR Admin.
 
@@ -105,7 +89,7 @@ If you have copied the docker command from your Staking Hub onboarding process, 
 
 If you have not copied the command from the onboarding process, you will likely need to replace the Safe and Module addresses and should follow the instructions below:
 
-(**1**) Head over to the [Staking Hub Dashboard](https://hub.hoprnet.org/staking/dashboard), and you should find your Safe and Module address at the top of the staking section.
+(**1**) Head over to the [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard), and you should find your Safe and Module address at the top of the staking section.
 
 ![Module and Safe address](/img/node/updated-module-and-safe-address.png)
 
@@ -113,25 +97,25 @@ If you have not copied the command from the onboarding process, you will likely 
 
 For example replace:
 
-```bash
+```md
 --safeAddress <SAFE_WALLET_ADDRESS>
 ```
 
 with
 
-```bash
+```md
 --safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9
 ```
 
 And replace:
 
-```bash
+```md
 --moduleAddress <Module_ADDRESS>
 ```
 
 with
 
-```bash
+```md
 --moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2
 ```
 
@@ -145,7 +129,7 @@ You will need to edit your public IP address within the Docker command:
 
 (**2**) Replace the `host` within your docker command with your own public IP.
 
-For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 8.8.8.8:9091`.
+For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 123.123.123.123:9091`.
 
 Make sure not to remove the port `:9091` at the end.
 
@@ -161,7 +145,7 @@ You will have to adjust with a custom RPC provider. There are several methods to
 
 To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 
-An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.ankr.com/gnosis`.
+An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.gnosischain.com/`. 
 
 ### 2.5 Change Database Password (Recommended)
 
@@ -187,7 +171,7 @@ This ensures the node cannot be accessed by a malicious user residing in the sam
 
 (**2**) Replace the default `password` within your docker command with your new one.
 
-For example: replace `--password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0'` with `--apiToken 'My#Un1que#Password'`.
+For example: replace `--password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0'` with `--password 'My#Un1que#Password'`.
 
 ## 3. Start Your Node
 
@@ -197,7 +181,7 @@ Once you have [configured your docker command](using-docker.md#2-configure-comma
 
 (**2**) Check that Docker is installed by running the following command:
 
-```bash
+```md
 docker --help
 ```
 
@@ -211,7 +195,7 @@ If you see an output of available docker commands, Docker is installed. If the d
 
 (**4**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
 
-```bash
+```md
 docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
 ```
 
@@ -245,11 +229,11 @@ Only do this if you have been approved to join the network. If you are still on 
 
 (**3**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
 
-```bash
+```md
 docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
 ```
 
-## Next Steps
+## 5. Next Steps
 
 Once you've completed the above steps, you should have a working HOPR node. You will then want to access the HOPR admin panel to interact with your node. You can read how to access and set up HOPR admin [here](./using-hopr-admin-v2.md).
 
@@ -263,14 +247,8 @@ Using the configuration file will allow you to customize your node's settings at
 
 (**2**) With your configuration file saved, copy the following command and make sure the path to the configuration file is correct.
 
-```bash
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 \
-  --log-driver json-file --log-opt max-size=1000M --log-opt max-file=5 \
-  -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd \
-  -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 \
-  -e DEBUG="hopr*" -e RUST_LOG=debug \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:latest \
- --configurationFilePath "/app/hoprd-db/hoprd.cfg.yaml"
+```md
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
 ```
 
 **Note:** If your database is located in the default directory, `.hoprd-db-saint-louis` and you have saved your configuration file there. Then you have nothing to adjust.
@@ -279,7 +257,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 
 (**4**) After running the command, wait for 2-3 minutes. Open a second terminal window on your machine where HOPRd is running and execute the command to gather node details:
 
-```bash
+```md
 docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable") | grep -E 'Node information|Node peerID|Node address'
 ```
 
@@ -287,13 +265,15 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 (**5**) Copy your `Node address` and go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
 
-## Update Your Node
+## Update the HOPR node
+
+Please note that significant changes have been introduced between versions 2.0.x and 2.1.x. During the upgrading process, there are additional steps you'll need to take:
 
 When a new more stable release is published it is important to update your node to benifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.
 
 (**1**) Enter the following command into your terminal:
 
-```bash
+```md
 docker ps
 ```
 
@@ -305,13 +285,21 @@ In the image above the container ID is: `a5711c818f75`. In your system, the Dock
 
 (**2**) Kill the container using the following command:
 
-```bash
+```md
 docker kill <Your_Container_ID>
 ```
 
 **Note:** Replace `<Your_Container_ID>` with the container ID you noted in step 1. You can also alternatively run the command `docker kill $(docker ps -q)` to kill all the containers you are currently running if you would like to remove them all.
 
-(**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
+(**3**) On your machine locate HOPR database folder which is called `.hoprd-db-dufour` and execute this command to rename identity & hopr database folder to the latest release name:
+
+```md
+mv .hoprd-db-dufour/.hopr-id-dufour .hoprd-db-dufour/.hopr-id-saint-louis && mv .hoprd-db-dufour .hoprd-db-saint-louis
+```
+
+**Note:** When running multiple HOPR nodes on the same machine, it's necessary to rename both the HOPR database folders and their corresponding identities. For further details, please check [here](./using-docker.md#run-multiple-nodes-with-one-device).
+
+(**4**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
 
 ## Restart Your Node
 
@@ -323,8 +311,8 @@ If you want to restart your node manually, you can follow the exact same instruc
 
 If you start using a new VPS or have to restore an old node for whatever reason, you will need:
 
-* The identity file of your old node, which you should have [backed up](./using-docker.md#31-backup-your-identity-file)
-* The [database password you set](./using-docker.md#25-change-database-password-recommended) when you originally made your old node
+* The identity file of your old node, which you should have [backed up](./using-docker.md#31-backup-your-identity-file).
+* The [database password you set](./using-docker.md#25-change-database-password-recommended) when you originally made your old node.
 
 (**1**) Paste your old node's identity file to the new VPS or OS.
 
@@ -344,8 +332,8 @@ To run multiple nodes on the same device or VPS, change the ports associated wit
 
 For example:
 
-- Change `-p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 8081:8081 -p 3002:3002`
-- Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
+- Change `-p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002`
+- Change `-v $HOME/.hoprd-db-saint-louis:/app/hoprd-db` to `-v $HOME/.hoprd-db-saint-louis-2:/app/hoprd-db`
 - Add `--apiPort 3002`
 - Make sure to suffix your IP address with the new port instead of `9091` in this example it would now be `9092`
 
@@ -355,12 +343,11 @@ All these changes implemented would be similar to the following:
 
 Here, the first node's command (on the left in the image above) is:
 
-```bash
-docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9091:9091/tcp -p 9091:9091/udp -p 8080:8080 -p 3001:3001 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider CUSTOM_RPC_PROVIDER --security-opt seccomp=unconfined
+```md
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-saint-louis --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
 ```
-
 And the second node's command (on the right in the image above) is:
 
-```bash
-docker run --pull always -d --restart always -m 3g --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db -p 9092:9092/tcp -p 9092:9092/udp -p 8081:8081 -p 3002:3002 -e DEBUG="hopr*" europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --apiHost "0.0.0.0" --apiPort 3002 --apiToken 'YOUR_SECURITY_TOKEN' --healthCheck --healthCheckHost "0.0.0.0" --announce --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <Module_ADDRESS> --host <YOUR_PUBLIC_IP>:9092 --provider CUSTOM_RPC_PROVIDER --security-opt seccomp=unconfined
+```md
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis-2:/app/hoprd-db --name hoprd -p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-saint-louis --data /app/hoprd-db --apiHost '0.0.0.0' --apiPort 3002 --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
 ```
