@@ -145,7 +145,7 @@ You will have to adjust with a custom RPC provider. There are several methods to
 
 To obtain the RPC provider URL, you can find guidelines [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
 
-An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.gnosischain.com/`. 
+An example with an RPC provider from a third party, replace `--provider CUSTOM_RPC_PROVIDER` with `--provider https://rpc.gnosischain.com/`.
 
 ### 2.5 Change Database Password (Recommended)
 
@@ -328,13 +328,13 @@ You should now be running your old node.
 
 ## Run Multiple Nodes With One Device
 
-To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database.
+To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Every node has to have different ports and they should not match between each nodes you are running on the same device or VPS.
 
-For example:
+For example, the second node should make these changes:
 
 - Change `-p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002`
 - Change `-v $HOME/.hoprd-db-saint-louis:/app/hoprd-db` to `-v $HOME/.hoprd-db-saint-louis-2:/app/hoprd-db`
-- Add `--apiPort 3002`
+- Add `--apiPort 3002` (where first defaults to 3001)
 - Make sure to suffix your IP address with the new port instead of `9091` in this example it would now be `9092`
 
 All these changes implemented would be similar to the following:
