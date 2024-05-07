@@ -167,7 +167,7 @@ You can see a list of received messages and interact with them. Also you can sen
     - **number of hops** - You need to specify the number of hops through which it will relay the message, and it will try to find a route automatically.
     - **path** - you can also specify a specific path of nodes through which you want to relay the message.
 
-### CAHNNELS: IN
+### CHANNELS: IN
 
 This will display a list of open payment channels from other nodes to your node. Next to the peerID, you can either ping it or open a channel from your end.
 
