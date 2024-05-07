@@ -16,7 +16,7 @@ That’s the reality of using the internet today. While the data we send is usua
 And the problem is getting worse. We generate millions of gigabytes of data every minute, almost all of it with exposed metadata, and this figure is only going to grow.
 It shouldn’t be this way. Users deserve privacy. Companies deserve tools to protect the privacy of their employees and customers. HOPR provides this privacy for everyone
 
-<iframe width="100%" height="415" src="https://www.youtube.com/embed/2ftZdR09KbU" title="HOPR Token and the HOPR Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/2ftZdR09KbU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
 
 ## What is HOPR?
 

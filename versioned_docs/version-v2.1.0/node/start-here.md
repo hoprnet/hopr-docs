@@ -62,7 +62,7 @@ You can view a complete walkthrough of the onboarding process in the video below
 - The video does not mention port forwarding, but you will need to set this up in order for your node to be reachable by others on the network. You can read more about this [here](./using-hopr-admin.md#types-of-nodes).
 - The `configure node` step has been replaced by `configure module`, so you will have to sign a couple more transactions during that step than what is shown in the video.
 
-<iframe class="youtube-video" width="960" height="500"src="https://www.youtube.com/embed/tcs3VzEW7dM" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/JUU0azggJL8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
 
 ## HOPRd installation methods
 
@@ -95,7 +95,7 @@ RPC, or Remote Procedure Call, serves as a communication protocol enabling exter
 
 Here are several methods for obtaining running your own node or alternatively connecting to a third party RPC provider, categorized from the most stable to less stable options:
 
-### Run your own Gnosis Chain node (the most secure and reliable method)
+### a) Run your own Gnosis Chain node (the most secure and reliable method)
 
 **VPS/PC/Mac users**
 
@@ -114,7 +114,7 @@ Let's start with a quick overview of what needs to be done:
 
 Here's a video tutorial for setting up a Gnosis node without a validator using Sedge:
 
-<iframe class="youtube-video" width="960" height="500"src="https://www.youtube.com/embed/JUU0azggJL8" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/JUU0azggJL8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
 
 After successfully setting up a full node for the Gnosis chain, please wait until it is fully synced. Afterward, you can access the RPC endpoint at http://localhost:8545. If you're using it externally, make sure to expose the port for usage.
 
@@ -134,16 +134,16 @@ Running a Gnosis EL+CL node will not work reliably on low spec devices such as t
 
 A Video tutorial for setting up a Gnosis node without a validator on DAppNode:
 
-<iframe class="youtube-video" width="960" height="500"src="https://www.youtube.com/embed/69Yg_XSqxcA" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/69Yg_XSqxcA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
 
 
-### Use RPC Providers from 3rd Parties (Server stability depends on company maintenance)
+### b) Use RPC Providers from 3rd Parties (Server stability depends on company maintenance)
 
 We highly recommend utilizing a third-party RPC provider that operates on the Nethermind execution client. Obtaining a free plan should be sufficient for running your node:
 
-- [Nodies DLB](https://www.nodies.app/)
+- [Gateway FM](https://gateway.fm)
 
-### Use public RPC endpoints from [chainlist.org](https://chainlist.org/?search=gnosis)
+### c) Use public RPC endpoints from [chainlist.org](https://chainlist.org/?search=gnosis)
 
 This method is the least reliable, as anyone can add RPC endpoints and they are heavily utilized by other users as well, making it difficult to guarantee stability and performance. Exercise caution when using endpoints from this source, they might go offline or rate limit your `hoprd` node.
 

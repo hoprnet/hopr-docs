@@ -58,7 +58,7 @@ You can view a complete walkthrough of the onboarding process in the video below
 - The video does not mention port forwarding, but you will need to set this up in order for your node to be reachable by others on the network. You can read more about this [here](./using-hopr-admin.md#types-of-nodes).
 - The `configure node` step has been replaced by `configure module`, so you will have to sign a couple more transactions during that step than what is shown in the video.
 
-<iframe width="960" height="500"src="https://www.youtube.com/embed/tcs3VzEW7dM" frameborder="0" allowfullscreen></iframe>
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/tcs3VzEW7dM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
 
 ## hoprd installation methods
 
