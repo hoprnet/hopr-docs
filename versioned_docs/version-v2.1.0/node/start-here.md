@@ -141,7 +141,9 @@ A Video tutorial for setting up a Gnosis node without a validator on DAppNode:
 
 We highly recommend utilizing a third-party RPC provider that operates on the Nethermind execution client. Obtaining a free plan should be sufficient for running your node:
 
-- [Gateway FM](https://gateway.fm)
+- [Public node](https://gnosis.publicnode.com)
+- [Gateway FM](https://gateway.fm) (**Note:** The RPC provider URL should contain an API key)
+- [Gnosis chain](https://docs.gnosischain.com/tools/RPC%20Providers/#gnosis)
 
 ### c) Use public RPC endpoints from [chainlist.org](https://chainlist.org/?search=gnosis)
 

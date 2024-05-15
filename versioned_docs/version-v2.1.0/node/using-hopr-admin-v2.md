@@ -78,7 +78,11 @@ After you have [connected your node](./using-hopr-admin-v2.md#connecting-your-no
 
 Under `Network`, it shows your node's eligibility to participate in the HOPR network along with your node's connectivity status.
 
-**Eligibility** - True or false, tells you whether or not you are registered on the Network.
+**Eligible** - True or false, tells you whether or not you are registered on the Network.
+
+**Sync process** - During the initial syncing process, it displays the syncing progress with the network.
+
+**Blockchain Network** - The HOPR node operates on a blockchain network for its on-chain actions.
 
 **Connectivity Status** - Unknown, Red, Orange, Yellow or Green. Depending on the health of your connection to the network.
 
@@ -95,12 +99,28 @@ And connection quality is measured from 0 to 1 based on the ratio of successful 
 Low-quality connection: `<= 0.5`
 High-quality connection: `> 0.5`
 
+**Announced address** - This is the IP address and port of the HOPRd node, which it announces on the network, allowing other nodes to establish connections with it.
+
+**Listening address address** - This is the IP address and port to which the HOPRd node is listening.
+
 #### Balances
 
 There are 2 token types:
 
-- `native` tokens: This will show the native tokens used to pay gas fees, currently xDAI. For example, opening and closing payment channels would require on-chain transactions paid for in xDAI.
-- `hopr` tokens: These HOPR tokens fund payment channels/pay nodes to relay data.
+- `xDAI (native)` tokens: This will show the native tokens used to pay gas fees, currently xDAI.
+- `wxHOPR (hopr)` tokens: These HOPR tokens fund payment channels/pay nodes to relay data.
+
+**xDAI: Node** - the native token in the HOPRd wallet is used to pay gas fees for any on-chain actions on the node. For example, opening and closing payment channels, and redeeming tickets would require on-chain transactions paid for in xDAI.
+
+**xDAI: Safe** - the native token in the HOPR Safe wallet.
+
+**wxHOPR Safe** - HOPR token in the HOPR Safe wallet.
+
+**wxHOPR Channels OUT** - The amount of HOPR tokens in the channels opened by your node.
+
+**wxHOPR Allowance** - The amount of HOPR tokens allowed to be spent from the HOPR Safe by the HOPRd node.
+
+**wxHOPR: Total Staked** - The total amount of HOPR tokens is the sum of the tokens in the HOPR Safe and those in the payment channels opened by your node.
 
 #### Addresses
 
@@ -108,20 +128,25 @@ All the relevant addresses for operating your node.
 
 - **Node PeerID** - what other nodes on the network will use to interact with your node—an address for them to ping or send data.
 - **Node Address** - Your node's Ethereum address used to store native tokens.
-- **hoprToken** - The wxHOPR token smart contract.
-- **hoprChannels** - The HOPR channels smart contract, used for payment channel related on-chain activity, such as the openning an closing of payment channels, redeeming tickets etc.
+- **Safe Address** - Safe address which is linked to your node.
+- **Hopr Token Address** - The wxHOPR token smart contract.
+- **Hopr management module address** - The HOPR management module smart contract address which is linked to your node.
+- **Hopr Channels Address** - The HOPR channels smart contract, used for payment channel related on-chain activity, such as the openning an closing of payment channels, redeeming tickets etc.
 
-#### Software
+#### Node
 
-Your node's current HOPRd version and the environment it is running on.
+- **Version** - Your node's current HOPRd version.
+- **Environment** - The environment in which HOPRd is running.
+- **Start date** - The date of the last start of the HOPRd node.
+- **Uptime** - The duration since the last start of the HOPRd node.
 
 #### Channels
 
-Shows the number of opened incoming & outgoing channels to and from this node.
+Shows the number of opened incoming & outgoing payment channels to and from this node.
 
 #### Nodes on the network
 
-- **Announced** - The number of total announced nodes on the HOPR network which are visible to the your node.
+- **Announced** - The number of total announced nodes on the HOPR network which are visible to your node.
 - **Connected** - The number of visible nodes which have a connection to your node.
 
 #### Aliases
@@ -130,7 +155,7 @@ The number of aliases you have assigned.
 
 ### TICKETS
 
-Ticket statistics displays information about your redeemed and unredeemed tickets. Tickets are earned by relaying data and can be redeemed for HOPR tokens.
+Ticket statistics displays information about your redeemed and unredeemed tickets value. Tickets are earned by relaying data and can be redeemed for HOPR tokens.
 
 ### METRICS
 
@@ -177,13 +202,15 @@ You can see a list of received messages and interact with them. Also you can sen
 
 ### CHANNELS: IN
 
-This will display a list of open payment channels from other nodes to your node. Next to the peerID, you can either ping it or open a channel from your end.
+This will display a list of open payment channels from other nodes to your node. Next to the peerID, you can ping, add an alias, open/close a payment channel, or send a message from your end.
+
+**Unredeemed** - This indicates the number of unredeemed tickets on the specific payment channel. Please note that if the node is restarted, this count will be reset. This is because the HOPRd node does not store this information for every payment channel in order to improve node performance.
 
 ### CHANNELS: OUT
 
 This will display a list of open payment channels from your node to other nodes on the HOPR network. Next to the peerID, you can either ping the selected node or close your payment channel to them.
 
-- **closing channel** - To close a payment channel, you'll need to perform two actions. First, when you click `Close the channel`, it will initiate the closure. After 5 minutes, you'll need to click a second time to finalize the payment channel closure.
+- **closing channel** - To close a payment channel, you'll need to perform two actions. First, when you click `Close the channel`, it will initiate the closure. After 5 minutes, if you haven't configured your node to automatically finalize the payment channel closure, you'll need to click a second time manually.
 - **open outgoing channel** - By specifying the node address (0x...) and HOPR amount, you can open a payment channel to the specified node.
 - **open multiple outgoing channels** - You can prepate a csv file to open multiple payment channels in bulk.
 - **fund outgoing channel** - By specifying the node address (0x...) and HOPR amount, you can fund an outgoing payment channel with additional wxHOPR.

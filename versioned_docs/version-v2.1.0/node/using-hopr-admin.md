@@ -933,7 +933,7 @@ If you're running the HOPRd node on Dappnode, it supports DynDNS. Here's what to
 
 (**1**) Connect to the Dappnode dashboard.
 
-(**2**) Click the colorful icon in the top right corner and find â€œDAppNode Identityâ€. Look for a DynDNS URL like `hiuhu234hiu.dyndns.dappnode.io`.
+(**2**) Click the colorful icon in the top right corner and find "DAppNode Identity". Look for a DynDNS URL like `hiuhu234hiu.dyndns.dappnode.io`.
 
 (**3**) Go to HOPR Package Configuration(http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under "Host IP/Port mapping", replace the IP address with the DynDNS URL, e.g., `hiuhu234hiu.dyndns.dappnode.io:9091`.
 
