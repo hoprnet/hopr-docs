@@ -124,6 +124,12 @@ Once you've completed the above steps, you should have a working HOPR node. You 
 
 ## Update the HOPR node
 
+:::info
+
+Before updating your HOPR node, please make sure to write down the following information, which you will need during the update process: **Database password**, **safe & module address**, **host**.
+
+:::
+
 Please note that significant changes have been introduced between versions **2.0.8** and **2.1.0**. During the upgrading process, there are additional steps you'll need to take:
 
 (**1**) Navigate to the Dappstore and locate the HOPR package. Click on the "**Upgrade**" button to proceed.

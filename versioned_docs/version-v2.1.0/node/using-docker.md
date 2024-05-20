@@ -267,7 +267,13 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 ## Update the HOPR node
 
-Please note that significant changes have been introduced between versions 2.0.x and 2.1.x. During the upgrading process, there are additional steps you'll need to take:
+:::info
+
+Before updating your HOPR node, please make sure to write down the following information, which you will need during the update process: **Database password**, **safe & module address**, **host**.
+
+:::
+
+Please note that significant changes have been introduced between versions **2.0.x** and **2.1.x**. During the upgrading process, there are additional steps you'll need to take:
 
 When a new more stable release is published it is important to update your node to benifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.
 
