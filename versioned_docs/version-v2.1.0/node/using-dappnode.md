@@ -132,16 +132,31 @@ Before updating your HOPR node, please make sure to write down the following inf
 
 Please note that significant changes have been introduced between versions **2.0.8** and **2.1.0**. During the upgrading process, there are additional steps you'll need to take:
 
-(**1**) Navigate to the Dappstore and locate the HOPR package. Click on the "**Upgrade**" button to proceed.
+(**1**) Backup your identity file. Please follow the instructions [here](./using-dappnode#3-backup-your-identity-file).
 
-(**2**) Complete all required fields during the upgrade process. Don't forget to set up your own RPC endpoint for your node. You can find more information [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+(**2**) Navigate to the Dappstore and locate the HOPR package. Click on the "**Update**" button to proceed.
 
-(**3**) After the upgrading process is complete, navigate to the "**Config**" tab within the HOPR package and select "**SHOW ADVANCED EDITOR**".
+(**3**) Complete all required fields:
 
-(**4**) Check the values for "**HOPRD_HEARTBEAT_INTERVAL**" and ensure it is set to the default value of "**20**". Similarly, confirm that "**HOPRD_HEARTBEAT_THRESHOLD**" is also set to its default value of "**60**". If any changes were made, don't forget to click on "**Update**".
+- **Identity file password**: Please use the previously used database password. If you haven't changed it, the default database password is: `"open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0"`.
 
-(**5**) Restart HOPR package to apply the changes effectively.
+- **REST API token**: This is your API token to connect with your node via the HOPR admin UI. You can write down the one you like.
 
+- **RPC Provider URL**: Fill in your custom RPC provider. Don't forget to set up your own RPC endpoint for your node. You can find more information [here](./start-here.md#understanding-rpc-importance-and-setting-up-your-own-custom-rpc-provider).
+
+- **HOPR network name**: "dufour" is the current environment on which the HOPRd node is running. Leave it as is.
+
+- **Custom HOPR node configuration file**: We recommend skipping this section to ensure the upgrading process is successful. After your node is synced, you can implement the configuration file at any time. More details [here](./using-dappnode#set-up-node-using-configuration-file).
+
+- **Staking safe address**: Enter your staking safe address.
+
+- **Staking safe module address**: Enter your staking module address.
+
+- **Public host IP and port**: Enter your node's public IP with the provided libp2p port. For example: `123.123.123.123:9091`.
+
+(**3**) At the right bottom click on "**SHOW ADVANCED EDITOR**". Check the values for "**HOPRD_HEARTBEAT_INTERVAL**" and ensure it is set to the default value of "**20**". Similarly, confirm that "**HOPRD_HEARTBEAT_THRESHOLD**" is also set to its default value of "**60**".
+
+(**4**) Click on "**Submit**" to complete the HOPRd node updating process.
 
 These additional steps will help ensure a smooth transition and optimal performance after the upgrade. If you have any questions or encounter any issues, feel free to reach out for assistance.
 
