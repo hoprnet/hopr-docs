@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const math = require('remark-math')
 const katex = require('rehype-katex')
 const { DOCS_URL } = require('./consts')
@@ -19,30 +19,6 @@ if (DOCS_ALGOLIA_APP_ID && DOCS_ALGOLIA_API_KEY) {
   }
 }
 
-const redocusaurus = [
-  'redocusaurus',
-  {
-    debug: Boolean(process.env.DEBUG || process.env.CI),
-    specs: [
-      {
-        id: 'placerholder-rest-api',
-        route: '/developers/placeholder-rest-api/',
-        spec: 'rest-api-v2-full-spec.json'
-      }
-    ],
-    theme: {
-      /**
-       * Highlight color for docs
-       */
-      primaryColor: '#0000b4',
-      /**
-       * Options to pass to redoc
-       * @see https://github.com/redocly/redoc#redoc-options-object
-       */
-      redocOptions: {}
-    }
-  }
-]
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -70,10 +46,8 @@ const config = {
   ],
   scripts: [{ src: 'https://cdn-eu.usefathom.com/script.js', 'data-site': 'WMCAULEA', 'data-included-domains': 'docs.hoprnet.org', defer: true }],
   presets: [
-    redocusaurus,
     [
       '@docusaurus/preset-classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           remarkPlugins: [math],
@@ -81,7 +55,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
-          lastVersion: 'v2.08'
+          lastVersion: 'v2.1.0'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
