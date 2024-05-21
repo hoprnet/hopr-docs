@@ -61,19 +61,6 @@
     },
     {
       "type": "category",
-      "label": "HOPR dApps",
-      "items": [
-        "dapps/visualizer",
-        "dapps/hopr-admin",
-        "dapps/cockpit",
-        "dapps/chess",
-        "dapps/myne-chat-playground",
-        "dapps/playground",
-        "dapps/boomerang"
-      ]
-    },
-    {
-      "type": "category",
       "label": "Ecosystem",
       "items": [
         "staking/why-use-safe",
