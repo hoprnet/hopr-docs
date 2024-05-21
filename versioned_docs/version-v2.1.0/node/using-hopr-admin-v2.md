@@ -36,7 +36,7 @@ HOPR Admin already comes with the HOPR package on Dappnode so you can access it 
 
 ### For Docker Users
 
-Assuming you used the default port numbers, you should be able to access the HOPR Admin at [http://localhost:8080](http://localhost:8080) (replace `localhost` with your `server IP address` if you are using a VPS, for example `http://142.93.5.175:8080`).
+Assuming you used the default port numbers, you should be able to access the HOPR Admin at [http://localhost:4677](http://localhost:4677) (replace `localhost` with your `server IP address` if you are using a VPS, for example `http://142.93.5.175:4677`).
 
 This is assuming you stuck to the default port numbers when setting up your node.
 
