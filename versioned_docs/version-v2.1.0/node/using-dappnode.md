@@ -166,7 +166,7 @@ To run a HOPR node on the HOPR network, you need to set up port forwarding. You 
 
 ## Restore an Old Node
 
-To restore your old node, you'll need an identity backup file: [backup your identity file](./using-dappnode.md#3-backup-your-identity-file).
+You will need to use the [file manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager) to restore an old node. 
 
 (**1**) Make sure you can view hidden files.
 
@@ -174,19 +174,23 @@ To restore your old node, you'll need an identity backup file: [backup your iden
 
 ![Hiden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . (Dot)`. You will need to do this during Step 2 on Mac. 
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during Step 2 on Mac. 
+ 
+(**2**) Find HOPR in your packages and navigate to the `File Manager` tab. 
 
-(**2**) Access your Dappnode dashboard, navigate to Packages, and uninstall the HOPR package. Remember to delete all associated data by selecting "Remove and delete data".
+![File Manager](/img/node/Dappnode-file-manager.png)
 
-![Remove hopr package](/img/node/remove-hopr-package.png)
+(**3**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
 
-(**3**) Reinstall the HOPR package from the Dappstore.
+![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
 
-(**4**) During the setup wizard, under "Custom identity file" section, click on the "Browse" button to locate and select your downloaded identity file. Ensure that hidden files are enabled on your machine.
+(**4**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
 
-![Selected identity file](/img/node/selected-identity-file.png)
+**Note:** Select the file multiple times until it appears in the text field instead of the `Choose File` placeholder text.
 
-(**5**) Fill in all necessary fields and proceed with installing your node.
+![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
+
+(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
 
 All done, you should now have restored your old node!
 
