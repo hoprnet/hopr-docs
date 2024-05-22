@@ -4,7 +4,7 @@ title: Set Up & Use Dappnode
 ---
 
 :::caution Warning
-Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
+Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node, please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
 :::info
@@ -75,7 +75,7 @@ From the dashboard, note your:
 
 ![Dappnode package UI](/img/node/Dappnode-new-packag-UI.png)
 
-(**10**) Click on the top right corner "Connect to node" and enter these details:
+(**10**) Click in the top right corner "Connect to node" and enter these details:
 
 - API endpoint - http://node.hopr.public.dappnode:3001
 - API token - If you haven't changed the security token during the installation process, the security token will be the default one: `!5qxc9Lp1BE7IFQ-nrtttU`.
@@ -104,9 +104,9 @@ While connected to your Dappnode's network or via a VPN:
 
 (**3**) Scroll down until you see the section `Addresses`. Copy the Node address and return to the [Staking Hub](https://hub.hoprnet.org) to complete the onboarding process.
 
-## 3. Backup Your Identity File
+## 3. Back up Your Identity File
 
-Make sure to back up your identity file incase. This will help you restore your node in the future, if ever needed.
+Make sure to back up your identity file incase. This will help you restore your node in the future if ever needed.
 
 (**1**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
 
@@ -114,7 +114,7 @@ Make sure to back up your identity file incase. This will help you restore your 
 
 (**3**) Unarchive the hopr-identity.tar file to see the .hopr-identity file.
 
-**Note:** Make sure you are able to see hidden files. Adjust the settings on your device, otherwise the identity file will not be visible.
+**Note:** Make sure you can see hidden files. Adjust the settings on your device; otherwise, the identity file will not be visible.
 
 (**4**) Copy this file and save it somewhere safe.
 
@@ -162,11 +162,11 @@ These additional steps will help ensure a smooth transition and optimal performa
 
 ## Set Up Portforwarding
 
-In order to run a HOPR node on the HOPR network you will need to have set up portforwarding, You can read up on why you need this and how to set it up [here](./using-hopr-admin.md#types-of-nodes).
+To run a HOPR node on the HOPR network, you need to set up port forwarding. You can read up on why this is necessary and how to do it [here](./using-hopr-admin.md#types-of-nodes).
 
 ## Restore an Old Node
 
-To restore your old node, you'll need an identity backup file: [backup your identity file](./using-dappnode.md#3-backup-your-identity-file).
+You will need to use the [file manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager) to restore an old node. 
 
 (**1**) Make sure you can view hidden files.
 
@@ -174,19 +174,23 @@ To restore your old node, you'll need an identity backup file: [backup your iden
 
 ![Hiden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . (Dot)`. You will need to do this during Step 2 on Mac. 
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during Step 2 on Mac. 
+ 
+(**2**) Find HOPR in your packages and navigate to the `File Manager` tab. 
 
-(**2**) Access your Dappnode dashboard, navigate to Packages, and uninstall the HOPR package. Remember to delete all associated data by selecting "Remove and delete data".
+![File Manager](/img/node/Dappnode-file-manager.png)
 
-![Remove hopr package](/img/node/remove-hopr-package.png)
+(**3**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
 
-(**3**) Reinstall the HOPR package from the Dappstore.
+![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
 
-(**4**) During the setup wizard, under "Custom identity file" section, click on the "Browse" button to locate and select your downloaded identity file. Ensure that hidden files are enabled on your machine.
+(**4**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
 
-![Selected identity file](/img/node/selected-identity-file.png)
+**Note:** Select the file multiple times until it appears in the text field instead of the `Choose File` placeholder text.
 
-(**5**) Fill in all necessary fields and proceed with installing your node.
+![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
+
+(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
 
 All done, you should now have restored your old node!
 

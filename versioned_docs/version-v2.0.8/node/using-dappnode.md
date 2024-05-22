@@ -80,7 +80,7 @@ After filling API endpoint & API token fields click on "Connect to the node".
 
 Only do this if you have been approved to join the network. If you are still on the waitlist, please wait until you have been approved to join the network. 
 
-:::info
+:::
 
 While connected to your Dappnode's network or via a VPN:
 
