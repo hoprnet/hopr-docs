@@ -56,7 +56,7 @@ hopr:
     announce_local_addresses: false
     prefer_local_addresses: false
 identity:
-  file: /app/hoprd-db/.hopr-id-saint-louis
+  file: /app/hoprd-db/.hopr-id-dufour
   password: 'change_me' #TODO: replace with your db password
 api:
   enable: true

@@ -52,7 +52,7 @@ The default command provided below will look similar to the one provided during 
 Default command (do not copy, use the command provided within the onboarding process):
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-saint-louis --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
 ```
 
 **Note:** Only use the default command as a starting point if you are restarting an old node and not registering you're node through the onboarding process. If you are setting up this node for the first time, please use the command provided to you within the onboarding process in the Staking Hub. This can also be found in your [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard#node).
@@ -205,9 +205,9 @@ docker logs $(docker ps -qf "ancestor=europe-west3-docker.pkg.dev/hoprassociatio
 
 ### 3.1 Backup Your Identity file
 
-For Docker the identity file is automatically created and stored on your OS at the path specified: `/<computer username>/.hopr-id-dufour`.
+For Docker the identity file is automatically created and stored on your OS at the path specified: `/<computer username>/.hoprd-db-dufour/.hopr-id-dufour`.
 
-(**1**) Access this file at the path `/<computer username>/.hopr-id-dufour` and copy it.
+(**1**) Access this file at the path `/<computer username>/.hoprd-db-dufour/.hopr-id-dufour` and copy it.
 
 (**2**) Store this file somewhere safe along with your DB password, in case you ever need to restore your node.
 
@@ -248,10 +248,10 @@ Using the configuration file will allow you to customize your node's settings at
 (**2**) With your configuration file saved, copy the following command and make sure the path to the configuration file is correct.
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
 ```
 
-**Note:** If your database is located in the default directory, `.hoprd-db-saint-louis` and you have saved your configuration file there. Then you have nothing to adjust.
+**Note:** If your database is located in the default directory, `.hoprd-db-dufour` and you have saved your configuration file there. Then you have nothing to adjust.
 
 (**3**) With Docker installed, paste your docker command into the terminal and execute it.
 
@@ -297,19 +297,11 @@ docker kill <Your_Container_ID>
 
 **Note:** Replace `<Your_Container_ID>` with the container ID you noted in step 1. You can also alternatively run the command `docker kill $(docker ps -q)` to kill all the containers you are currently running if you would like to remove them all.
 
-(**3**) On your machine locate HOPR database folder which is called `.hoprd-db-dufour` and execute this command to rename identity & hopr database folder to the latest release name:
-
-```md
-mv .hoprd-db-dufour/.hopr-id-dufour .hoprd-db-dufour/.hopr-id-saint-louis && mv .hoprd-db-dufour .hoprd-db-saint-louis
-```
-
-**Note:** When running multiple HOPR nodes on the same machine, it's necessary to rename both the HOPR database folders and their corresponding identities. For further details, please check [here](./using-docker.md#run-multiple-nodes-with-one-device).
-
-(**4**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
+(**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
 
 ## Restart Your Node
 
-If your node has the `-- restart always` tag (added by default), your node will restart automatically when it fails or crashes.
+If your node has the `--restart always` tag (added by default), your node will restart automatically when it fails or crashes.
 
 If you want to restart your node manually, you can follow the exact same instructions as you would when [updating your node](./using-docker.md#update-your-node).
 
@@ -322,11 +314,11 @@ If you start using a new VPS or have to restore an old node for whatever reason,
 
 (**1**) Paste your old node's identity file to the new VPS or OS.
 
-(**2**) In the latest docker command, change the `-- identity` to point to the new location of your identity file.
+(**2**) In the latest docker command, change the `--identity` to point to the new location of your identity file.
 
 (**3**) Change the `--password` tag to exactly the same database password you set for your previous node.
 
-(**4**) Change the `-- data` tag to point to the directory you want to store your node's data
+(**4**) Change the `--data` tag to point to the directory you want to store your node's data
 
 (**5**) [Configure the remainder of the command](./using-docker.md#2-configure-command) as you normally would and then run it.
 
@@ -339,7 +331,7 @@ To run multiple nodes on the same device or VPS, change the ports associated wit
 For example, the second node should make these changes:
 
 - Change `-p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002`
-- Change `-v $HOME/.hoprd-db-saint-louis:/app/hoprd-db` to `-v $HOME/.hoprd-db-saint-louis-2:/app/hoprd-db`
+- Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
 - Add `--apiPort 3002` (where first defaults to 3001)
 - Make sure to suffix your IP address with the new port instead of `9091` in this example it would now be `9092`
 
@@ -350,10 +342,10 @@ All these changes implemented would be similar to the following:
 Here, the first node's command (on the left in the image above) is:
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-saint-louis --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
 ```
 And the second node's command (on the right in the image above) is:
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-saint-louis-2:/app/hoprd-db --name hoprd -p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-saint-louis --data /app/hoprd-db --apiHost '0.0.0.0' --apiPort 3002 --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour-2:/app/hoprd-db --name hoprd -p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiPort 3002 --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
 ```
