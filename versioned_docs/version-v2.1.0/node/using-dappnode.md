@@ -4,7 +4,7 @@ title: Set Up & Use Dappnode
 ---
 
 :::caution Warning
-Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node please follow the onboarding process [here](https://hub.hoprnet.org/). 
+Do not start installing a HOPR node without a HOPR Safe. To create a HOPR Safe and run a node, please follow the onboarding process [here](https://hub.hoprnet.org/). 
 :::
 
 :::info
@@ -75,7 +75,7 @@ From the dashboard, note your:
 
 ![Dappnode package UI](/img/node/Dappnode-new-packag-UI.png)
 
-(**10**) Click on the top right corner "Connect to node" and enter these details:
+(**10**) Click in the top right corner "Connect to node" and enter these details:
 
 - API endpoint - http://node.hopr.public.dappnode:3001
 - API token - If you haven't changed the security token during the installation process, the security token will be the default one: `!5qxc9Lp1BE7IFQ-nrtttU`.
@@ -104,9 +104,9 @@ While connected to your Dappnode's network or via a VPN:
 
 (**3**) Scroll down until you see the section `Addresses`. Copy the Node address and return to the [Staking Hub](https://hub.hoprnet.org) to complete the onboarding process.
 
-## 3. Backup Your Identity File
+## 3. Back up Your Identity File
 
-Make sure to back up your identity file incase. This will help you restore your node in the future, if ever needed.
+Make sure to back up your identity file incase. This will help you restore your node in the future if ever needed.
 
 (**1**) Go to [http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager)
 
@@ -114,7 +114,7 @@ Make sure to back up your identity file incase. This will help you restore your 
 
 (**3**) Unarchive the hopr-identity.tar file to see the .hopr-identity file.
 
-**Note:** Make sure you are able to see hidden files. Adjust the settings on your device, otherwise the identity file will not be visible.
+**Note:** Make sure you can see hidden files. Adjust the settings on your device; otherwise, the identity file will not be visible.
 
 (**4**) Copy this file and save it somewhere safe.
 
@@ -162,7 +162,7 @@ These additional steps will help ensure a smooth transition and optimal performa
 
 ## Set Up Portforwarding
 
-In order to run a HOPR node on the HOPR network you will need to have set up portforwarding, You can read up on why you need this and how to set it up [here](./using-hopr-admin.md#types-of-nodes).
+To run a HOPR node on the HOPR network, you need to set up port forwarding. You can read up on why this is necessary and how to do it [here](./using-hopr-admin.md#types-of-nodes).
 
 ## Restore an Old Node
 
