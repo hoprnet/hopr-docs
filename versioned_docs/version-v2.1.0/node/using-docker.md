@@ -277,7 +277,9 @@ Please note that significant changes have been introduced between versions **2.0
 
 When a new more stable release is published it is important to update your node to benifit from the latest software and maximum stability. To update your node, you simply need to kill your old container and run the latest command again.
 
-(**1**) Enter the following command into your terminal:
+(**1**) Backup your identity file. Please follow the instructions [here](./using-docker.md#31-backup-your-identity-file).
+
+(**2**) Enter the following command into your terminal:
 
 ```md
 docker ps
@@ -289,7 +291,7 @@ This should provide you with a list of Docker containers you are currnetly runni
 
 In the image above the container ID is: `a5711c818f75`. In your system, the Docker container ID will be different.
 
-(**2**) Kill the container using the following command:
+(**3**) Kill the container using the following command:
 
 ```md
 docker kill <Your_Container_ID>
@@ -297,7 +299,7 @@ docker kill <Your_Container_ID>
 
 **Note:** Replace `<Your_Container_ID>` with the container ID you noted in step 1. You can also alternatively run the command `docker kill $(docker ps -q)` to kill all the containers you are currently running if you would like to remove them all.
 
-(**3**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
+(**4**) Run the [latest configured command](./using-docker.md#2-configure-command) to update your node.
 
 ## Restart Your Node
 
