@@ -26,7 +26,7 @@ Currently, Cover Traffic (CT) distribution happens every hour. If your node is n
 
 ### Does Cover Traffic have threshold rewards caps, and if so, why?
 
-Cover Traffic has a minimum threshold cap of 10,000 wxHOPR. This means that if your total stake is equal to or greater than 10,000 wxHOPR, you will start receiving rewards, with the condition that your node remains reachable and performs normally.
+Cover Traffic has a minimum threshold of 10,000 wxHOPR (with a Network Registry NFT). This means that if your total stake is equal to or greater than 10,000 wxHOPR and you hold a Network Registry NFT, you will start receiving rewards, provided that your node remains reachable and performs normally.
 
 Cover Traffic also has a maximum threshold cap of 75,000 wxHOPR. If you stake up to 75,000 wxHOPR per node, you will receive the maximum rewards. However, if you stake more than 75,000 wxHOPR, your rewards will be significantly reduced.
 
