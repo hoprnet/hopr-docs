@@ -46,4 +46,4 @@ New slots are distributed on a tri-weekly basis, every Wednesday.
 
 ### Why did my position change after the waitlist was updated?
 
-Your position may change if you don't have Network Registry NFT and new applicants joined with a higher stake and others may have withdrawn funds or been off-boarded due to a lack of funds.
+Your position may change if you don't have Network Registry NFT, and new applicants joined with a higher stake, and others may have withdrawn funds or been off-boarded due to a lack of funds.
