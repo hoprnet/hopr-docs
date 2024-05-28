@@ -9,9 +9,7 @@ The HOPR Admin provides a graphical interface you can use to interact with your 
 
 If you have installed HOPR through the Dappnode setup, you do not need to install HOPR Admin seperately and can skip to [accessing HOPR Admin](./using-hopr-admin-v2.md#accessing-hopr-admin).
 
-(**1**) Ideally you would run the following Docker command within a tmux session, so it can run in the backround uninterupted. You can set up tmux using the instructions [here](./hidden-page.md#using-tmux).
-
-(**2**) Open your terminal and paste the following Docker command to start HOPR Admin:
+Open your terminal and paste the following Docker command to start HOPR Admin:
 
 ```bash
 docker run -d -p 4677:80 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable

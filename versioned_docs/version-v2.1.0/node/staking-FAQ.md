@@ -5,11 +5,101 @@ title: Staking FAQ
 
 ### How will the boost NFTs from previous releases be used in the future?
 
-The initial idea of the HOPR protocol was about staking and receiving rewards for relaying data. As a result, we are planning to discontinue all NFTs except the Network Registry NFT, which is necessary to meet the minimum staking threshold of 10,000 HOPR.
+All NFTs are discontinued except the Network Registry NFT, which is necessary to meet the minimum staking threshold of 10,000 HOPR. The Network Registry NFT doesn't provide any APY boost.
 
 ### With CT launch, what tokens will be redistributed to nodes in channels?
 
 Only `wxHOPR` is used within channels. Cover traffic will also distribute rewards in the form of tickets, redeemable for wxHOPR.
+
+### What is Cover Traffic, and what is its purpose?
+
+Cover Traffic ("CT") is the new way to earn rewards. The cover traffic app has four components, which operate in the following sequence:
+
+- Netwatcher's task is to locate nodes on the network and create a list.
+- The Aggregator collects all node information from the Netwatchers and sends it to the database.
+- EconomicHandler applies the economic model and pushes the data to the queue.
+- Postman takes the queue and distributes a series of 1-hop messages to every node.
+
+### How often Cover Traffic is distributing the rewards?
+
+Currently, Cover Traffic (CT) distribution happens every hour. If your node is not reachable by our CT netwatchers during the rewards distribution, you will lose the rewards for the current distribution cycle and will need to wait for the next one. In the future, CT rewards distribution will be continuous.
+
+### Does Cover Traffic have threshold rewards caps, and if so, why?
+
+Cover Traffic has a minimum threshold of 10,000 wxHOPR (with a Network Registry NFT). This means that if your total stake is equal to or greater than 10,000 wxHOPR and you hold a Network Registry NFT, you will start receiving rewards, provided that your node remains reachable and performs normally.
+
+Cover Traffic also has a maximum threshold cap of 75,000 wxHOPR. If you stake up to 75,000 wxHOPR per node, you will receive the maximum rewards. However, if you stake more than 75,000 wxHOPR, your rewards will be significantly reduced.
+
+Based on the Cover Traffic economic model rewards threshold, we have prepared some recommendations:
+
+- When a participant has `<= 75.000` HOPR tokens: you don't need to run several nodes because rewards are based on your stake alone. For example, if you decide to have 2 nodes with stakes of 40.000 & 35.000 HOPR token, you will get the same rewards as you would from running 1 node with a `75.000` stake.
+
+- When a participant has `>75.000` HOPR tokens: the optimal reward strategy is to split your stake across multiple nodes with `<= 75.000` HOPR in each. Additional HOPR staked in nodes above `75.000` will earn rewards, but at a significantly reduced rate.
+
+The Cover Traffic threshold was intentionally set to make the network more decentralized and to distribute rewards more fairly. This ensures that even node runners with a small stake have the opportunity to receive rewards. Currently, we are projecting a stable APY of 10-15%!
+
+### What is the Cover Traffic economic model, and how is it calculated?
+
+The Cover Traffic economic model projects the expected reward of a node runner can expect given the underlying parameters.
+
+Here are 3 different scenarios based on node runners stake and 5 nodes in the network:
+
+:::tip Table terms
+
+**Stake (wxHOPR)** - The amount of HOPR tokens staked by the node runner.
+
+**Transformed Stake (wxHOPR)** - Whenever a node runner exceeds the 75,000 wxHOPR threshold, this parameter ensures a drastic decrease in rewards.
+
+**CT probability (pct)** - Cover traffic probability, the higher you stake, the higher probability to receiwe rewards from the cover traffic.
+
+**Expected reward (wxHOPR)** - Expected rewards based on the staking amount and node performance.
+
+**Expected tickets** - Expected ticket numbers to be rewarded by the Cover traffic. 1 ticket equals to 1 wxHOPR.
+
+**APY (pct)** - Your staking rewards APY (Annual Percentage Yield).
+
+:::
+
+**1st scenario:**
+
+Every node runner is in between the Cover traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
+
+|    | Node A | Node B | Node C | Node D | Node E | 
+| -- | ------ | ------ | ------ | ------ | ------ |
+| Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000    | 75000    |
+| Transformed Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000    | 75000    |
+| CT probability (pct) | 4.65    | 13.95    | 23.26     | 23.26    | 34.88    |
+| Expected reward (wxHOPR) | 465.12    | 1395.35    | 2325.58     | 2325.58   | 3488.37    |
+| Expected tickets | 465    | 1395    | 2326     | 2326    | 3488    |
+| APY (pct) | 55.81    | 55.81    | 55.81     | 55.81   | 55.81    |
+
+**2nd scenario:**
+
+The owner of Node E decided to stake 100,000 wxHOPR instead of 75,000 wxHOPR. We can see that their Transformed stake amount decreased from 100,000 to approximately 76,000 HOPR tokens. This is the amount from which Cover Traffic will calculate the rewards. Expected rewards are quite similar to the rewards if the node had staked 75,000 instead of 100,000 per node.
+
+|    | Node A | Node B | Node C | Node D | Node E | 
+| -- | ------ | ------ | ------ | ------ | ------ |
+| Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000    | 100000    |
+| Transformed Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000    | 76384.8    |
+| CT probability (pct) | 4.62    | 13.86    | 23.11 | 23.11    |35.3    |
+| Expected reward (wxHOPR) | 462.14    | 1386.42    | 2310.7     | 2310.7   | 3530.04    |
+| Expected tickets | 462    | 1386    | 2311     | 2311    | 3530    |
+| APY (pct) | 55.46    | 55.46    | 55.46     | 55.46   | 42.36    |
+
+**3rd scenario:**
+
+The owner of Node E made a strategic decision to split his 100,000-wxHOPR stake into two nodes, one with 75,000 wxHOPR and the other with 25,000 wxHOPR. By aggregating the expected rewards from both nodes, he significantly increased his total rewards compared to running a single node, as shown in the second scenario. This approach maximizes his rewards while staying within the stake threshold.
+
+|    | Node A | Node B | Node C | Node D | Node E (1st node) | Node E (2nd node)
+| -- | ------ | ------ | ------ | ------ | ------ | ------ |
+| Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000    | 75000    | 25000 |
+| Transformed Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000   |75000    | 25000    |
+| CT probability (pct) | 4.17    | 12.5    | 20.83    | 20.83    | 31.25    | 10.42   |
+| Expected reward (wxHOPR) | 416.67    | 1250.0    | 2083.33     | 2083.33    | 3125.0    | 1041.67 |
+| Expected tickets | 417    | 1250    | 2083    | 2083   | 3125   | 1042 |
+| APY (pct) | 50.0    | 50.0    | 50.0     | 50.0   | 50.0    | 50.0 |
+
+For a more detailed and in-depth explanation of the Cover Traffic economic model, please read: [here](https://github.com/hoprnet/ct-research/wiki/Economic-model)
 
 ### What is my expected APY?
 
