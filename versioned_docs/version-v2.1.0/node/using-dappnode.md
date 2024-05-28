@@ -174,9 +174,13 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![Hiden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during Step 2 on Mac. 
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during **Step 4** on Mac. 
  
-(**2**) Find HOPR in your packages and navigate to the `File Manager` tab. 
+(**1**) Find HOPR in your packages and go to the `Info` tab. Click on the "**Pause**" icon to stop the HOPR package.
+
+(**2**) On the same `Info` tab, locate the "**Volumes**" section and click on the trash can icon to remove the volumes.
+
+(**3**) Navigate to the `File Manager` tab.
 
 ![File Manager](/img/node/Dappnode-file-manager.png)
 
@@ -190,7 +194,9 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
 
-(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
+(**5**) Press the `Upload` button and wait for the upload to complete. 
+
+(**6**) Finally, go back to the `Info` tab and restart the HOPR package.
 
 All done, you should now have restored your old node!
 
