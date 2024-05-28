@@ -192,7 +192,7 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 (**7**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
 
-**Note:** Select the file multiple times until it appears in the text field instead of the `Choose File` placeholder text.
+**Note:** If the file does not appear after the first selection, try selecting it again. Ensure the file name replaces the `Choose File` placeholder text in the field.
 
 ![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
 
