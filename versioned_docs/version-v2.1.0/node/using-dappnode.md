@@ -174,29 +174,31 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![Hiden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during **Step 4** on Mac. 
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during **Step 2** and **Step 5** on Mac. 
+
+(**2**) Ensure you have the correct identity file for recovery. The identity file backup process is explained [here](./using-dappnode#3-back-up-your-identity-file). After backing up the identity file, you should have downloaded an archived file named **hopr-identity.tar**. Please unarchive it to access the identity file: `.hopr-identity`.
  
-(**1**) Find HOPR in your packages and go to the `Info` tab. Click on the "**Pause**" icon to stop the HOPR package.
+(**3**) On the Dappnode dashboard, locate HOPR in your packages and go to the `Info` tab. Click on the "**Pause**" icon to stop the HOPR package.
 
-(**2**) On the same `Info` tab, locate the "**Volumes**" section and click on the trash can icon to remove the volumes.
+(**4**) On the same `Info` tab, locate the "**Volumes**" section and click on the trash can icon to remove the volumes.
 
-(**3**) Navigate to the `File Manager` tab.
+(**5**) Navigate to the `File Manager` tab.
 
 ![File Manager](/img/node/Dappnode-file-manager.png)
 
-(**3**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
+(**6**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
 
 ![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
 
-(**4**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
+(**7**) Then click the `Browse` button next to the `Choose file` field. And select your downloaded identity file.
 
 **Note:** Select the file multiple times until it appears in the text field instead of the `Choose File` placeholder text.
 
 ![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
 
-(**5**) Press the `Upload` button and wait for the upload to complete. 
+(**8**) Press the `Upload` button and wait for the upload to complete. 
 
-(**6**) Finally, go back to the `Info` tab and restart the HOPR package.
+(**9**) Finally, go back to the `Info` tab and restart the HOPR package.
 
 All done, you should now have restored your old node!
 
