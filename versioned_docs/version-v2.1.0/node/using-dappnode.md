@@ -174,7 +174,7 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![Hiden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . ( Dot)`. You will need to do this during **Step 2** and **Step 5** on Mac. 
+**For Mac:** With the Finder app open, simultaneously press the key combination: `Command + Shift + . (Dot)`. You will need to do this during **Step 2** and **Step 7** on Mac. 
 
 (**2**) Ensure you have the correct identity file for recovery. The identity file backup process is explained [here](./using-dappnode#3-back-up-your-identity-file). After backing up the identity file, you should have downloaded an archived file named **hopr-identity.tar**. Please unarchive it to access the identity file: `.hopr-identity`.
  
@@ -196,7 +196,7 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![Upload identity file](/img/node/upload-identity-file-dappnode-updated.png)
 
-(**8**) Press the `Upload` button and wait for the upload to complete. 
+(**8**) Press the `Upload` button and wait for the upload to complete.
 
 (**9**) Finally, go back to the `Info` tab and restart the HOPR package.
 
