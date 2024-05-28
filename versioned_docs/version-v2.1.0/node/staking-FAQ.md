@@ -62,7 +62,7 @@ Here are 3 different scenarios based on node runners stake and 5 nodes in the ne
 
 **1st scenario:**
 
-Every node runner are in between the Cover traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
+Every node runner is in between the Cover traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
 
 |    | Node A | Node B | Node C | Node D | Node E | 
 | -- | ------ | ------ | ------ | ------ | ------ |
