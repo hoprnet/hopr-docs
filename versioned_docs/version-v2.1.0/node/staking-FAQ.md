@@ -5,7 +5,7 @@ title: Staking FAQ
 
 ### How will the boost NFTs from previous releases be used in the future?
 
-The initial idea of the HOPR protocol was to stake and receive rewards for relaying data. All NFTs are discontinued except the Network Registry NFT, which is necessary to meet the minimum staking threshold of 10,000 HOPR. The Network Registry NFT doesn't provide any APY boost.
+All NFTs are discontinued except the Network Registry NFT, which is necessary to meet the minimum staking threshold of 10,000 HOPR. The Network Registry NFT doesn't provide any APY boost.
 
 ### With CT launch, what tokens will be redistributed to nodes in channels?
 
