@@ -247,12 +247,14 @@ If you have already installed your HOPR package, then you can still edit your no
 
 ![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
 
-(**4**) Then click the `Browse` button next to the `Choose file` field. And select your configuration file.
+(**3**) Then click the `Browse` button next to the `Choose file` field. And select your configuration file.
 
-**Note:** If you are updating an existing configuration file, use the same name as the old one.
+**Note:** Make sure the configuration file name is `hoprd.cfg.yaml`. You might need to re-select the file until the correct name appears in the "Choose file" field.
 
-(**5**) Finally, press the `Upload` button and wait for the upload to complete. 
+(**4**) Finally, press the `Upload` button and wait for the upload to complete. 
 
-(**6**) Under the tab `Config` in your HOPR package, check that the field `HOPRD_CONFIGURATION_FILE_PATH` points to your new configuration file. 
+(**5**) Under the tab `Config` in your HOPR package, check that the field `HOPRD_CONFIGURATION_FILE_PATH` points to your new configuration file. 
+
+(**6**) Restart HOPR package.
 
 If it is empty or shows your old configuration file, update the variable to show your configuration file.
