@@ -34,6 +34,17 @@ body {
 .footer {
   background: linear-gradient(#000050, #0000b4) !important;
 }
+code {
+  background-color: var(--ifm-code-background);
+  border: .1rem solid #0000001a;
+  border-radius: var(--ifm-code-border-radius);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+  padding: var(--ifm-code-padding-vertical) var(--ifm-code-padding-horizontal);
+  word-wrap: break-word;
+  color: var(--ifm-color-primary);
+  border-radius: 0px;
+}
 .theme-doc-version-banner {
   /* Temp FIX to hide docs version notification */
   display: none !important;
