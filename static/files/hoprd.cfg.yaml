@@ -3,7 +3,7 @@ hopr:
     data: /app/hoprd-db/db
     initialize: true
     force_initialize: false
-  strategy: #TODO make adjusments to your needs
+  strategy: # NOTE: make adjusments to your needs
     on_fail_continue: true
     allow_recursive: true
     strategies:
