@@ -121,6 +121,9 @@ h2 {
   -webkit-text-decoration-color: var(--ifm-color-primary); /* Safari */
   text-decoration-color: var(--ifm-color-primary);
 }
+.markdown > h2 {
+  margin-top: revert;
+}
 .markdown > h3 {
   font-size: 1.2rem !important;
 }
