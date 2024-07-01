@@ -31,7 +31,7 @@ To set up your node's configuration file, you can use the example file.
 (**4**) Save the completed configuration file. Where you save it will depend on whether you are using Dappnode or Docker.
 
 * **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process. If you are adding the configuration file to your node after installation, follow the instructions [here](./using-dappnode.md#adding-configuration-file-after-installation). 
-* **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-saint-louis`.
+* **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-dufour`.
 
 (**5**) Rename the saved file. Sometimes the filename changes on download. 
 
@@ -48,11 +48,11 @@ The main node's identity, defining it's on-chain and off-chain keys.
 
 For **Dappnode users** the filename should strictly be `.hopr-identity` 
 
-For **Docker users** the identity file should match the name of the existing file under `identity /app/hoprd-db/.hopr-id-saint-louis` if you are using an existing node. Otherwise you can use a different filename.
+For **Docker users** the identity file should match the name of the existing file under `identity /app/hoprd-db/.hopr-id-dufour` if you are using an existing node. Otherwise you can use a different filename.
 
 ```bash
 identity:
-  file: /app/hoprd-db/.hopr-id-saint-louis
+  file: /app/hoprd-db/.hopr-id-dufour
   password: 'change_me'
   private_key: ''
 ```
