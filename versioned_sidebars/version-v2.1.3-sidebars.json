@@ -1,0 +1,78 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "What is HOPR?",
+      "items": [
+        "core/what-is-hopr",
+        "core/what-is-metadata",
+        "core/anonymous-routing",
+        "core/mixnets",
+        "core/incentives",
+        "core/proof-of-relay",
+        "core/tickets-and-payment-channels",
+        "core/probabilistic-payments",
+        "core/cover-traffic",
+        "core/cover-traffic-nodes",
+        "core/balancing-cover-traffic",
+        "faq"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Run a HOPR node",
+      "items": [
+        "node/start-here",
+        "node/using-docker",
+        "node/using-dappnode",
+        "node/using-avado",
+        "node/using-hopr-admin-v2",
+        "node/using-staking-hub",
+        "node/grafana-dashboards",
+        "node/tickets-and-payment-channels",
+        "node/waitlist-FAQ",
+        "node/staking-FAQ"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Developers",
+      "link": {
+        "type": "doc",
+        "id": "developers/intro"
+      },
+      "items": [
+        "developers/starting-local-cluster",
+        "developers/connecting-node",
+        "developers/tutorial-hello-world",
+        "developers/demo-boomerang-chat",
+        "developers/demo-rps-game",
+        "developers/rest-api",
+        "developers/subgraph-documentation/introduction",
+        "developers/subgraph-documentation/all-seasons",
+        "developers/subgraph-documentation/channels",
+        "developers/subgraph-documentation/hopr-token-gnosis",
+        "developers/subgraph-documentation/hopr-token-mainnet",
+        "developers/subgraph-documentation/stake-season6",
+        "developers/smart-contract",
+        "developers/snippets",
+        "developers/visualising-hopr-network-topology"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Ecosystem",
+      "items": [
+        "staking/why-use-safe",
+        "staking/what-is-safestaking",
+        "staking/ct-economic-model",
+        "ecosystem/hopr-token",
+        "ecosystem/gnosis-hopr-tokens",
+        "staking/how-to-get-hopr",
+        "staking/convert-hopr",
+        "staking/unstaking-s8",
+        "ecosystem/safe-erc777-bug"
+      ]
+    }
+  ]
+}
