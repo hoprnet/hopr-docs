@@ -260,7 +260,7 @@ Using the configuration file will allow you to customize your node's settings at
 (**2**) With your configuration file saved, copy the following command and make sure the path to the configuration file is correct.
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 
 **Note:** If your database is located in the default directory, `.hoprd-db-dufour` and you have saved your configuration file there. Then you have nothing to adjust.
