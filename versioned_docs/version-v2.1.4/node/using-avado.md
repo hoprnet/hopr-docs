@@ -76,6 +76,7 @@ These are additional steps to be followed in case you cannot find the Dappnode w
 To login to your new Dappnode, you will need either:
 
 - An external monitor, external keyboard & HDMI cable.
+
 - Or, the [internal IP of your connected Avado/Dappnode](./using-avado.md#how-to-find-your-devices-internal-ip-address). 
 
 If you have the internal IP address of your device you can [login using SSH](./using-avado.md#login-using-ssh), otherwise you can [use an external monitor and keyboard](./using-avado.md#login-using-an-external-monitor-and-keyboard) to interact with your Avado/Dappnode directly.  

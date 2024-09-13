@@ -77,7 +77,7 @@ You will interact with your node through the same Node Admin UI regardless of yo
 ## Next Steps After Completing the Onboarding Process
  
 Ensure the following steps to start receiving rewards:
- 
+
 - Confirm that you have configured your node with your Public IP address and port 9091, for example: `1.2.3.4:9091`.
 
   **Note:** If your ISP provides only a dynamic IP address, your node may not work properly and might lack peers to connect to.

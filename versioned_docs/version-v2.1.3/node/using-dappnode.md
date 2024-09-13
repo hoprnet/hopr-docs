@@ -186,7 +186,7 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 ![File Manager](/img/node/dappnode-file-manager.png)
 
-(**6**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
+(**6**) In the text field under `Upload file` enter the path `/app/hoprd-db/`.
 
 ![Dappnode file upload path](/img/node/Dappnode-entered-path.png)
 
