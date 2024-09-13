@@ -21,16 +21,16 @@ const FeatureList = [
     docName: 'v1.86/node/start-here'
   },*/
   {
-    title: 'Run a hoprd node',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-node.svg'} />,
-    description: <>Start here to install and run a hoprd node.</>,
-    docName: 'node/start-here'
+    title: 'What is HOPR?',
+    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-core-concepts.svg'} />,
+    description: <>Core concepts & broader educational material for understanding HOPR.</>,
+    docName: 'core/what-is-hopr'
   },
   {
-    title: 'HOPR core concepts',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-core-concepts.svg'} />,
-    description: <>Broader educational material for understanding HOPR</>,
-    docName: 'core/what-is-hopr'
+    title: 'Run a node',
+    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-node.svg'} />,
+    description: <>Learn to set up and run a node for the decentralized HOPR network.</>,
+    docName: 'node/run-a-node-overview'
   },
   /*{
     title: 'Staking',
@@ -39,16 +39,22 @@ const FeatureList = [
     docName: 'v1.86/staking/how-to-stake'
   },*/
   {
-    title: 'Developers',
+    title: 'For Developers',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-development.svg'} />,
     description: <>Learn how to build apps on top of the HOPR network.</>,
     docName: 'developers/intro'
   },
   {
+    title: 'Token Economics',
+    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-staking.svg'} />,
+    description: <>Learn the principles of token value, utility and operations.</>,
+    docName: 'token/safestaking'
+  },
+  {
     title: 'dApps',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-dapps.svg'} />,
     description: <>Documentations and guides of dApps built on HOPR.</>,
-    docName: 'dapps/playground'
+    docName: 'dapps/dapps-rpch'
   }
   /*{
     title: 'Ecosystem',

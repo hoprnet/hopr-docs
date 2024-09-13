@@ -1,0 +1,163 @@
+{
+  "coreSidebar": [
+    {
+      "type": "category",
+      "label": "Core concepts",
+      "items": [
+        "core/what-is-hopr",
+        "core/what-is-metadata",
+        "core/anonymous-routing",
+        "core/mixnets",
+        "core/incentives",
+        "core/proof-of-relay",
+        "core/tickets-and-payment-channels",
+        "core/probabilistic-payments",
+        "core/cover-traffic",
+        "core/cover-traffic-nodes",
+        "core/balancing-cover-traffic"
+      ]
+    }
+  ],
+  "tokenSidebar": [
+    {
+      "type": "category",
+      "label": "Token economics",
+      "collapsed": false,
+      "items": [
+        "token/safestaking",
+        "token/cover-traffic-economics",
+        "token/acquiring-hopr-tokens",
+        "token/token-bridging",
+        "token/token-wrapping"
+      ]
+    }
+  ],
+  "dappsSidebar": [
+    {
+      "type": "category",
+      "label": "dApps",
+      "collapsed": false,
+      "items": [
+        "dapps/dapps-rpch",
+        "dapps/dapps-mytokentracker"
+      ]
+    }
+  ],
+  "nodeSidebar": [
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        "node/run-a-node-overview",
+        {
+          "type": "category",
+          "label": "Installation guide",
+          "items": ["node/node-docker", "node/node-dappnode"]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Node Management",
+      "collapsed": false,
+      "items": [
+        "node/node-management-admin-ui",
+        "node/node-operations",
+        "node/backup-restore-node",
+        "node/multiple-nodes",
+        "node/port-forwarding"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Advanced configuration",
+      "collapsed": false,
+      "items": [
+        "node/manage-node-strategies",
+        "node/custom-rpc-provider",
+        "node/monitoring-tools",
+        "node/ac-migration-from-legacy"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Releases",
+      "collapsed": false,
+      "items": [
+        "node/releases"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Troubleshooting and FAQs",
+      "collapsed": false,
+      "items": [
+        "node/frequently-asked-questions"
+      ]
+    }
+  ],
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "Developers",
+      "link": {
+        "type": "doc",
+        "id": "developers/intro"
+      },
+      "items": [
+        "developers/starting-local-cluster",
+        "developers/connecting-node",
+        "developers/tutorial-hello-world",
+        "developers/demo-boomerang-chat",
+        "developers/demo-rps-game",
+        "developers/rest-api",
+        "developers/subgraph-documentation/introduction",
+        "developers/subgraph-documentation/all-seasons",
+        "developers/subgraph-documentation/channels",
+        "developers/subgraph-documentation/hopr-token-gnosis",
+        "developers/subgraph-documentation/hopr-token-mainnet",
+        "developers/subgraph-documentation/stake-season6",
+        "developers/smart-contract",
+        "developers/snippets",
+        "developers/visualising-hopr-network-topology"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Ecosystem",
+      "items": [
+        "staking/why-use-safe",
+        "staking/what-is-safestaking",
+        "staking/ct-economic-model",
+        "ecosystem/hopr-token",
+        "ecosystem/gnosis-hopr-tokens",
+        "staking/how-to-get-hopr",
+        "staking/convert-hopr",
+        "staking/unstaking-s8",
+        "ecosystem/safe-erc777-bug"
+      ]
+    }
+  ]
+}
