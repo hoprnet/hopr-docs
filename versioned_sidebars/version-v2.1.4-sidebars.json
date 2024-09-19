@@ -72,7 +72,8 @@
         "node/node-operations",
         "node/backup-restore-node",
         "node/multiple-nodes",
-        "node/port-forwarding"
+        "node/port-forwarding",
+        "node/interaction-with-node"
       ]
     },
     {

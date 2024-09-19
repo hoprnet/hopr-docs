@@ -13,7 +13,7 @@ Here are the different methods for running your own node or connecting to a thir
 
 ---
 
-### 1. Run your own gnosis chain node (Most secure & reliable)
+### 1. Run your own gnosis chain node (Most secure and reliable)
 
 #### **For VPS/PC/Mac users**
 

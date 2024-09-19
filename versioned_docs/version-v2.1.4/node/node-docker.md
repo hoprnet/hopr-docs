@@ -158,3 +158,18 @@ http://1.2.3.4:4677
 - Under the **API token** field, enter the [custom security token you created](./node-docker.md#21-adjust-apitoken-setting).
 
 (**3**) Click on the button "**Connect to the node**" where popup should appear with node address which starts with "**0x**". Copy your node address and go back to the [Staking Hub](https://hub.hoprnet.org) to register to the waitlist or if you have been approved to join the network, to complete your onboarding.
+
+## 6. Whats next?
+
+Once you’ve completed the onboarding process, ensure your node is fully synced (100%) and that you've opened at least one outgoing payment channel with a random peer. These are the requirements for Cover traffic, which allows your node to begin earning rewards. Follow these steps:
+
+(**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+
+(**2**) On the "**INFO**" page, under the "**Network**" section, confirm that the "**Sync Process**" is at "**100%**." If it’s not fully synced yet, you will need to wait until the process is complete.
+
+(**3**) Once your node is fully synced, go to the "**PEERS**" page and select a random peer with a connection quality above 90%. Click the "**OPEN Outgoing Channel**" icon, enter **1** as the amount (or any other amount of your choice), and then click "**Open Channel**". In less than a minute, you will receive a notification confirming that the payment channel has been opened.
+
+(**4**) Navigate to the "**CHANNELS: OUT**" page to verify that the outgoing payment channel has been successfully opened.
+
+Congratulations! Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./frequently-asked-questions.md#how-to-check-if-my-node-is-performing-normally).
+

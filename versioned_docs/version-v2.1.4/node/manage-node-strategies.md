@@ -23,7 +23,7 @@ Please select the platform:
 
 - "**port**": If you changed the default "**9091**", please make changes, more details under [host](./manage-node-strategies.md#host).
 
-- "**provider**": Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#a-run-your-own-gnosis-chain-node-the-most-secure-and-reliable-method).
+- "**provider**": Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
 
 - "**safe_address**": Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
 

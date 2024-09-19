@@ -88,7 +88,7 @@ Example: `hiuhu234hiu.dyndns.dappnode.io:9091`
 
 (**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
-(**2**) In the "**INFO**" page, navigate to the "**Network**" section and ensure the "**Eligible**" status shows "**Yes**."
+(**2**) On the "**INFO**" page, navigate to the "**Network**" section and ensure the "**Eligible**" status displays "**Yes**." If your node was recently created, it must be fully synced (**100%**) before it becomes eligible.
 
 (**3**) In the "**INFO**" page, under the "**Network**" section, verify that the "**Sync process**" is at "**100%**."
 
@@ -171,7 +171,7 @@ Please select platform to re-sync node:
 - **Without a Network Registry NFT:** You will need a minimum of 30,000 wxHOPR and at least one xDAI.
 - **With a Network Registry NFT:** You will need a minimum of 10,000 wxHOPR and at least one xDAI.
 
-You can find where to purchase the relevant tokens [here](../staking/how-to-get-hopr.md)????????
+You can find where to purchase the relevant tokens [here](../token/acquiring-hopr-tokens.md).
 </details>
 
 <details>
