@@ -3,6 +3,9 @@ id: frequently-asked-questions
 title: Frequently Asked Questions
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <details>
 
 <summary>
@@ -120,6 +123,42 @@ The redemption process works as follows: once the unredeemed value reaches **30 
 There are no specific requirements for creating a database password or secret token, but both should be treated like passwords. We recommend using the [Bitwarden Password Generator](https://bitwarden.com/password-generator/) to create a strong token.
 
 **Note**: To evaluate the strength of your password, you can use the [Bitwarden Password Strength Testing Tool](https://bitwarden.com/password-strength/#Password-Strength-Testing-Tool).
+</details>
+
+<details>
+<summary> 
+  
+### How to re-sync my HOPRd node?
+</summary>
+Please select platform to re-sync node:
+
+<Tabs>
+<TabItem value="docker_resync" label="Docker">
+
+(**1**) **Stop your node**: follow this [guide](./node-operations.md#stop-your-hopr-node) to stop your HOPR node.
+
+(**2**) **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions.follow this [guide](./backup-restore-node.md#backup-your-node-identity).
+
+(**3**) **Delete the "hopr_index.db" file:** on your machine, navigate to the **.hoprd-db-dufour** folder. Inside, locate the **db** folder and delete the **hopr_index.db** file.
+
+(**4**) **Start your node**: once the cleanup is done, start your node again by following this [guide](./node-operations.md#start-your-hopr-node).
+
+</TabItem>
+<TabItem value="dappnode_resync" label="Dappnode">
+
+(**1**) **Stop your node**: follow this [guide](./node-operations.md#stop-your-hopr-node) to stop your HOPR node.
+
+(**2**) **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions.follow this [guide](./backup-restore-node.md#backup-your-node-identity).
+
+(**3**) **Remove volume**: navigate to the [info tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info). In the "**All volumes**" row, locate the volume size and click the "**trash can**" icon to remove the package volume. This will delete the entire package storage, including all databases.
+
+(**4**) **Restore indentity file**: restore identity file by following this [guide](./backup-restore-node.md#restore-your-node-identity).
+
+(**4**) **Start your node**: once the identity file restore is done, start your node again by following this [guide](./node-operations.md#start-your-hopr-node).
+
+</TabItem>
+</Tabs>
+
 </details>
 
 ## Staking related FAQ

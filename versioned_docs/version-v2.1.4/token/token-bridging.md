@@ -73,6 +73,14 @@ The HOPR token can be bridged between the **Ethereum** and **Gnosis** chains. Pl
   </TabItem>
   <TabItem value="xhtoh" label="Bridge xHOPR (Gnosis) to HOPR (Ethereum)">
 
+:::info
+
+Before initiating the bridging process from Gnosis to the Ethereum chain, please be aware that you will incur two fees: the first on the Gnosis chain to initiate the bridge, and the second on the Ethereum chain for claiming your tokens on the mainnet.
+
+**Important**: Once the bridging process is initiated, it cannot be undone. You must complete the entire bridging process to retrieve your tokens on the Ethereum chain.
+
+:::
+
 #### 1. Navigate to the bridge
 
    Go to the [Gnosis Bridge page](https://bridge.gnosischain.com).
