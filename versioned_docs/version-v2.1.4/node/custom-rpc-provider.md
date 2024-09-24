@@ -28,7 +28,7 @@ We recommend using [Sedge](https://docs.sedge.nethermind.io/) for an easy node s
 
 (**2**) Generate a full node setup (without a validator): [Generating a full node](https://docs.sedge.nethermind.io/docs/networks/gnosis#generating-a-full-node)
 
-(**3**) Fix log limitations (**Nethermind client v1.27.x**):
+(**3**) Configure log size limitations (**Nethermind client v1.27.x**):
    - Navigate to the "**sedge-data**" folder and open the "**.env**" file.
    - Add this line: `NETHERMIND_JSONRPCCONFIG_MAXLOGSPERRESPONSE=300000`
    - Save the file and restart the client.
@@ -43,7 +43,7 @@ Once the setup is complete and fully synced, you can access your RPC endpoint at
 
 1. Go to the Stakers section: [http://my.dappnode/stakers/gnosis](http://my.dappnode/stakers/gnosis)
 2. Select **Nethermind xDai** for the Execution Layer and **Lighthouse Gnosis** for the Consensus Layer. Ensure **Use checksync** is enabled, then click **Apply Changes**.
-3. Fix log size limitations (**Nethermind client v1.27.x**):
+3. Configure log size limitations (**Nethermind client v1.27.x**):
    - Go to: [http://my.dappnode/packages/my/nethermind-xdai.dnp.dappnode.eth/config](http://my.dappnode/packages/my/nethermind-xdai.dnp.dappnode.eth/config)
    - Add: `--JsonRpc.MaxLogsPerResponse 300000` to the "**ENV VALUE**" field next to "**EXTRA_OPTS**".
    - Click "**Update**" to apply the changes.

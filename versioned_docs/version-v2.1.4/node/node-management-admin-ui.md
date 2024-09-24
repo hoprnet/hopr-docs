@@ -193,15 +193,25 @@ Node shows different metrics which are useful for troubleshooting.
 
 ### PEERS
 
-Displays a list of nodes that are visible to your node. Next to each peerID, buttons allow you to interact directly with the nodes through the interface.
+Displays a list of nodes visible to your node, with specific information for each node:
 
-- **Ping node**: Ping a node and measure the latency between your node and the target node.
+- **Peer ID**: The node’s Peer ID, used for off-chain activities such as sending messages, pinging nodes, or applying aliases.
 
-- **Add new alias**: Assign a nickname/alias to the node.
+- **Node Address**: The node's address used for on-chain activities like opening payment channels, redeeming tickets, or withdrawing funds.
 
-- **Open outgoing channel**: Create a payment channel from your node to the target node.
+- **Last Seen**: The date and time when the peer was last pinged by your node.
 
-- **Send message**: To send a message to the target node either directly or via a randomized route. You can choose the number of intermediaries or **hops** (maximum 3-hops).
+- **Quality**: This indicates the connection quality between your node and the peer.
+
+- **Actions**: Next to each Peer ID, there are buttons that allow you to interact directly with the nodes through the interface:
+
+    - **Ping Node**: Ping a node and measure the latency between your node and the target node.
+
+    - **Add New Alias**: Assign a nickname or alias to the node.
+
+    - **Open Outgoing Channel**: Create a payment channel from your node to the target node.
+
+    - **Send Message**: Send a message to the target node, either directly or via a randomized route. You can choose the number of intermediaries, or **hops**, with a maximum of 3 hops.
 
 If you haven't found a node on the list and you want to ping it, you'll find the **Ping Node** button at the top. This button allows you to ping any node, even if it's not on your node list.
 

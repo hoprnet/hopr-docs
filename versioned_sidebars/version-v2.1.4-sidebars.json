@@ -88,7 +88,6 @@
       "items": [
         "node/manage-node-strategies",
         "node/custom-rpc-provider",
-        "node/monitoring-tools",
         "node/ac-migration-from-legacy"
       ]
     },
@@ -115,7 +114,8 @@
       "label": "Troubleshooting and FAQs",
       "collapsed": false,
       "items": [
-        "node/frequently-asked-questions"
+        "node/frequently-asked-questions",
+        "node/troubleshooting"
       ]
     }
   ],

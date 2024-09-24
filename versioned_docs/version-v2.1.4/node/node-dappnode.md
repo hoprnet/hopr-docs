@@ -84,4 +84,4 @@ Once you’ve completed the onboarding process, ensure your node is fully synced
 
 (**4**) Navigate to the "**CHANNELS: OUT**" page to verify that the outgoing payment channel has been successfully opened.
 
-Congratulations! Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./frequently-asked-questions.md#how-to-check-if-my-node-is-performing-normally).
+**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
