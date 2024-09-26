@@ -67,9 +67,6 @@ Please select platform to re-sync node:
 hopr_index.db
 hopr_index.db-shm
 hopr_index.db-wal
-hopr_peers.db
-hopr_peers.db-shm
-hopr_peers.db-wal
 ```
 
 **P.S.** If some files are missing, that's okay. Just ensure that the specified files mentioned above are removed.
@@ -95,9 +92,6 @@ hopr_peers.db-wal
     hopr_index.db
     hopr_index.db-shm
     hopr_index.db-wal
-    hopr_peers.db
-    hopr_peers.db-shm
-    hopr_peers.db-wal
     ```
 
     **P.S.** If some files are missing, that's okay. Just ensure that the files listed above are deleted.
