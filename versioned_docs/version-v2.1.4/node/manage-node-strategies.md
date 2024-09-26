@@ -52,6 +52,18 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 (**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the Admin UI page.
  
 </TabItem>
+<TabItem value="config_docker_compose" label="Docker compose">
+
+Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
+
+- **port**: Default port is **9091**, change this port if you did changed under "**HOPRD_P2P_PORT**" environment variable.
+- **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
+- **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
+- **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#safe_module).
+
+**Note**: To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings) section.
+
+</TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
 (**1**) Download the example file: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)

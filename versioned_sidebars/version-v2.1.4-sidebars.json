@@ -70,7 +70,7 @@
       "items": [
         "node/node-management-admin-ui",
         "node/node-operations",
-        "node/backup-restore-node",
+        "node/backup-restore-update",
         "node/multiple-nodes",
         "node/port-forwarding",
         "node/interaction-with-node"
