@@ -105,7 +105,7 @@ host:
 ```
 
 - "**address**": The public IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the public IP address.
-- "**port**": Listening on TCP & UDP ports, default one is "**9091**".
+- "**port**": Listening on TCP & UDP ports. Default port is **"9091"**.
 
 ### db
 
@@ -135,14 +135,14 @@ strategy:
     - !Promiscuous
       max_channels: 10
       network_quality_threshold: 0.5
-      new_channel_stake: "1000000 HOPR"
-      minimum_node_balance: "10000000 HOPR"
+      new_channel_stake: "1000000000000000000 HOPR"
+      minimum_node_balance: "1000000000000000000 HOPR"
       min_network_size_samples: 20
       enforce_max_channels: true
-      minimum_peer_version: ">=2.0.7"
+      minimum_peer_version: ">=2.1.0"
     
     - !AutoFunding
-      funding_amount: "10000000000000000000 HOPR"
+      funding_amount: "1000000000000000000 HOPR"
       min_stake_threshold: "1000000000000000000 HOPR"
     
     - !Aggregating
@@ -190,21 +190,21 @@ HOPR token amounts are measured with **18 decimal places**. When setting a custo
 
     - "**!Aggregating**": A strategy that automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
 
-        - "**aggregation_threshold**": Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded.
-        - "**unrealized_balance_ratio**": The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel.
+        - "**aggregation_threshold**": Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded. Default value is **"100"**.
+        - "**unrealized_balance_ratio**": The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel. Default value is **"0.9"**.
         - "**aggregation_timeout**": Maximum time to wait for the ticket aggregation to complete.
-        - "**aggregate_on_channel_close**": When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state.
+        - "**aggregate_on_channel_close**": When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. Default value is **"true"**.
 
     - "**!AutoRedeeming**": A strategy that automatically redeems tickets when the following conditions are met.
 
-        - "**redeem_only_aggregated**": When set to "**true**", the strategy will redeem only aggregated tickets.
-        - "**minimum_redeem_ticket_value**": The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
-        - "**on_close_redeem_single_tickets_value_min**": The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR.
+        - "**redeem_only_aggregated**": When set to "**true**", the strategy will redeem only aggregated tickets. Default value is **"true"**.
+        - "**minimum_redeem_ticket_value**": The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value. Default value is **"30000000000000000000 HOPR"** which is equal to "**30 wxHOPR**".
+        - "**on_close_redeem_single_tickets_value_min**": The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. Default value is **"90000000000000000 HOPR"** which is equal to "**0.09 wxHOPR**".
 
     - "**!Passive**": A strategy that does nothing. This is equivalent to leaving the strategies array empty.
 
     - "**!ClosureFinalizer**": A strategy that monitors channels in the "**PendingToClose**" state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
-        - "**max_closure_overdue**": It won't attempt to finalize the closure of channels that have been overdue for more than this amount of seconds (3600 seconds).
+        - "**max_closure_overdue**": It won't attempt to finalize the closure of channels that have been overdue for more than this amount of seconds (3600 seconds). Default value is **"3600"**.
 
 ### heartbeat
 

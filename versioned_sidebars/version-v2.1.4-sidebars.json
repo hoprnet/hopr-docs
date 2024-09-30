@@ -68,12 +68,13 @@
       "label": "Node Management",
       "collapsed": false,
       "items": [
+        "node/staking-hub",
         "node/node-management-admin-ui",
+        "node/interaction-with-node",
         "node/node-operations",
         "node/backup-restore-update",
         "node/multiple-nodes",
-        "node/port-forwarding",
-        "node/interaction-with-node"
+        "node/port-forwarding"
       ]
     },
     {
