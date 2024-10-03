@@ -52,6 +52,55 @@ The redemption process works as follows: once the unredeemed value reaches **30 
 <details>
 <summary> 
   
+### What should I do if my node is receiving rejected tickets? 
+</summary>
+If your node is receiving rejected tickets, several issues could be causing this, such as:
+
+- Your node is not properly synced, which may indicate limitations with your RPC provider.
+- There may be off-chain issues where the node deems tickets invalid and marks them as rejected.
+
+Follow these steps to troubleshoot the issue:
+
+(**1**) Connect to your node [via the Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+
+(**2**) Navigate to the "**CHANNELS: IN**" page. Under the "**Unredeemed**" column, perform one of the following:
+
+:::info  
+We assume you haven't customized your node strategies, so the hardcoded minimum redeem ticket value is **30 wxHOPR**. If you’ve changed this, please refer to your customized **minimum_redeem_ticket_value**.  
+:::
+
+- (**a**) Check if there is a payment channel with **more than 34 - 35 wxHOPR** in unredeemed tokens. If so, close this specific payment channel to prevent receiving further rejected tickets.
+
+- (**b**) If no payment channels have **more than 34 - 35 wxHOPR** in unredeemed tokens, close all incoming payment channels. Follow the guideline on how to do this [here](./interaction-with-node.md#close-incoming-channel). Please note that closing an incoming payment channel will result in the loss of unredeemed ticket value, which will be marked as neglected tickets because they were not redeemed.
+
+(**3**) After completing either step **(a)** or **(b)** from **step 2**, go to the "**TICKETS**" page and monitor the "**Rejected value**." If the value continues to increase, take one of the following actions:
+
+- (**a**) If you performed action **(a)** in **step 2**, close all incoming payment channels. Follow the guideline on how to do this [here](./interaction-with-node.md#close-incoming-channel). Please note that closing an incoming payment channel will result in the loss of unredeemed ticket value, which will be marked as neglected tickets because they were not redeemed. 
+
+    If the "**Rejected value**" continues to increase after closing all channels, you will need to [re-sync your node](#how-to-re-sync-my-hoprd-node).
+
+- (**b**) If you performed action **(b)** in **step 2**, proceed directly to [re-syncing your node](#how-to-re-sync-my-hoprd-node).
+
+(**4**) If you continue receiving rejected tickets after re-syncing your node, please contact the HOPR Ambassadors via Telegram or Discord for further assistance.
+
+</details>
+
+<details>
+<summary> 
+  
+### What should I do if my node is receiving neglected tickets? 
+</summary>
+There might be several causes on why your node received neglected tickets:
+
+- Tickets are marked as neglected when you close an incoming payment channel with unredeemed value. Since the tickets were not redeemed during the closure, they will be labeled as neglected tickets. This typically occurs when your node experiences issues, such as rejected tickets. To prevent continuous loss of rewards, it’s important to address the underlying issue.
+
+- When a payment channel is closed and the node's strategy value for "**on_close_redeem_single_tickets_value_min**" is set higher than the value of the channel’s individual tickets, those tickets will be marked as neglected. This happens because the ticket value does not meet the minimum threshold specified by the strategy. In this case, you need to customize your node strategies by following this [guide](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+</details>
+
+
+<details>
+<summary> 
+  
 ### How to re-sync my HOPRd node?
 </summary>
 Please select platform to re-sync node:
