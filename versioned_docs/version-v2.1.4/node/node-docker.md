@@ -149,7 +149,7 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-2.1 --platform li
 Example: 
 
 ```md
-http://1.2.3.4:4677
+http://127.0.0.1:4677
 ```
 
 (**2**) Click on the top right corner "**CONNECT TO NODE**". On a popup under "**Node credentials:**" do the following:
