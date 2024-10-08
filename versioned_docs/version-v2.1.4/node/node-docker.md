@@ -139,7 +139,7 @@ If you see an output of available docker commands, Docker is installed. If the d
 HOPR Admin UI is an application which helps you to connect and manage your hoprd node. Please copy bellow command and execute in your terminal window:
 
 ```md
-docker run -d -p 4677:80 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+docker run -d -p 4677:4677 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
 ## 5. Link your node to your Safe wallet
