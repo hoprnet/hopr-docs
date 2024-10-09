@@ -375,8 +375,6 @@ Defines a promiscuous strategy that automatically manages HOPR channels based on
 | `enforce_max_channels` | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
 | `minimum_peer_version` | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
 
----
-
 ##### Strategy: !AutoFunding
 
 Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold.
@@ -385,8 +383,6 @@ Automatically funds channels with a specified amount if the stake on any channel
 | --- | --- |
 | `funding_amount` | The amount to automatically fund a channel when its stake drops below the threshold. |
 | `min_stake_threshold` | The minimum stake value at which the channel will be automatically funded. |
-
----
 
 ##### Strategy: !Aggregating
 
@@ -399,8 +395,6 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 | `aggregation_timeout` |  | Maximum time to wait for the ticket aggregation to complete. |
 | `aggregate_on_channel_close` | `true` | When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. |
 
----
-
 ##### Strategy: !AutoRedeeming
 
 Automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
@@ -411,13 +405,9 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 | `minimum_redeem_ticket_value` | `30000000000000000000 HOPR` | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
 | `on_close_redeem_single_tickets_value_min` | `90000000000000000 HOPR` | The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. |
 
----
-
 ##### Strategy: !Passive
 
 A strategy that does nothing. This is equivalent to leaving the strategies array empty.
-
----
 
 ##### Strategy: !ClosureFinalizer
 
