@@ -25,11 +25,12 @@ Please select the platform:
 
 (**4**) After uploading the configuration file, please [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-(**5**) Once your node is stopped, you will need to add additional parameter to link your configuration file to your current docker command.
+(**5**) Once your node is stopped, you will need to add additional parameter "**--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'**" to link your configuration file to your current docker command.
 
 Docker command: 
+
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 
 **Note:** If you're running multiple nodes or have changed the default ports, please make the necessary port adjustments accordingly.
@@ -94,6 +95,11 @@ host:
 - "**address**": The public IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the public IP address.
 - "**port**": Listening on TCP & UDP ports. Default port is **"9091"**.
 
+| Settings | Default value | Description |
+| --- | --- | --- |
+| `address` | | The public IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the public IP address. |
+| `port` | `9091` | Listening on TCP & UDP ports. |
+
 ### db
 
 Specifies details for the database used by the HOPR node.
@@ -105,9 +111,11 @@ db:
   force_initialize: false
 ```
 
-- "**data**": Specifies the path to the database directory. For Docker users, the path is "**/app/hoprd-db**". For Dappnode users, the path is "**/app/hoprd-db/db**".
-- "**initialize**": Defaults to "**true**", meaning the database will be created if it doesn't already exist. If set to "**false**" and the database is missing, the node will not start.
-- "**force_initialize**": Defaults to "**false**". If set to "**true**", any existing database in the specified directory will be overwritten and re-initialized.
+| Settings | Description |
+| --- | --- |
+| `data` | Specifies the path to the database directory. For Docker users, the path is "**/app/hoprd-db**". For Dappnode users, the path is "**/app/hoprd-db/db**". |
+| `initialize` | Defaults to "**true**", meaning the database will be created if it doesn't already exist. If set to "**false**" and the database is missing, the node will not start. |
+| `force_initialize` | Defaults to "**false**". If set to "**true**", any existing database in the specified directory will be overwritten and re-initialized. |
 
 ### heartbeat
 
@@ -120,9 +128,11 @@ heartbeat:
   variance: 2
 ```
 
-- "**interval**": Interval in which the heartbeat is triggered in seconds.
-- "**threshold**": The time interval for which to consider peer heartbeat renewal in seconds.
-- "**variance**": Round-to-round variance to complicate network sync in seconds.
+| Settings | Description |
+| --- | --- |
+| `interval` | Interval in which the heartbeat is triggered in seconds. |
+| `threshold` | The time interval for which to consider peer heartbeat renewal in seconds. |
+| `variance` | Round-to-round variance to complicate network sync in seconds. |
 
 ### network_options
 
@@ -142,16 +152,18 @@ network_options:
   backoff_max: 300.0
 ```
 
-- "**min_delay**": Minimum delay (seconds) will be multiplied by backoff, it will be half the actual minimum value.
-- "**max_delay**": Maximum delay in seconds.
-- "**quality_bad_threshold**": Quality threshold since a node is considered having "**bad**" connectivity.
-- "**quality_offline_threshold**": Quality threshold from which a node is considered available enough to be used.
-- "**quality_step**": Quality step on failed/successful ping probe.
-- "**quality_avg_window_size**": Size of the quality moving average window.
-- "**ignore_timeframe**": Indicates how long (in seconds) a node is considered "**ignored**".
-- "**backoff_exponent**": Backoff exponent when probing nodes.
-- "**backoff_min**": Minimum backoff (in seconds) when probing nodes.
-- "**backoff_max**": Maximum backoff (in seconds) when probing nodes.
+| Settings | Description |
+| --- | --- |
+| `min_delay` | Minimum delay (seconds) will be multiplied by backoff, it will be half the actual minimum value. |
+| `max_delay` | Maximum delay in seconds. |
+| `quality_bad_threshold` | Quality threshold since a node is considered having "**bad**" connectivity. |
+| `quality_offline_threshold` | Quality threshold from which a node is considered available enough to be used. |
+| `quality_step` | Quality step on failed/successful ping probe. |
+| `quality_avg_window_size` | Size of the quality moving average window. |
+| `ignore_timeframe` | Indicates how long (in seconds) a node is considered "**ignored**". |
+| `backoff_exponent` | Backoff exponent when probing nodes. |
+| `backoff_min` | Minimum backoff (in seconds) when probing nodes. |
+| `backoff_max` | Maximum backoff (in seconds) when probing nodes. |
 
 ### protocol
 
@@ -169,11 +181,13 @@ Configuration of various HOPR sub-protocols.
       timeout: 15
 ```
 
-- "**ack**": Message acknowledgement sub-protocol configuration.
-- "**timeout**": Timeout in seconds.
-- "**heartbeat**": Heartbeat sub-protocol configuration.
-- "**msg**": Message sub-protocol configuration.
-- "**ticket_aggregation**": Ticket aggregation sub-protocol configuration.
+| Settings | Description |
+| --- | --- |
+| `ack` | Message acknowledgement sub-protocol configuration. |
+| `timeout` | Timeout in seconds. |
+| `heartbeat` | Heartbeat sub-protocol configuration. |
+| `msg` | Message sub-protocol configuration. |
+| `ticket_aggregation` | Ticket aggregation sub-protocol configuration. |
 
 ### chain
 
@@ -187,10 +201,12 @@ chain:
     check_unrealized_balance: true
 ```
 
-- "**provider**": RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md).
-- "**announce**": Indicates whether the node should announce itself on-chain.
-- "**network**": Which blockchain network should be used by the node.
-- "**check_unrealized_balance**": Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled.
+| Settings | Description |
+| --- | --- |
+| `provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). |
+| `announce` | Indicates whether the node should announce itself on-chain. |
+| `network` | Which blockchain network should be used by the node. |
+| `check_unrealized_balance` | Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled. |
 
 ### safe_module
 
@@ -203,9 +219,11 @@ safe_module:
   module_address: '0x0000000000000000000000000000000000000000'
 ```
 
-- "**safe_transaction_service_provider**": The node's safe transaction provider, such as https://safe-transaction.prod.hoprtech.net/
-- "**safe_address**": Node's safe address, this must be provided by the user.
-- "**module_address**": Node's module address, this must be provided by the user.
+| Settings | Description |
+| --- | --- |
+| `safe_transaction_service_provider` | The node's safe transaction provider, such as https://safe-transaction.prod.hoprtech.net/ |
+| `safe_address` | Node's safe address, this must be provided by the user. |
+| `module_address` | Node's module address, this must be provided by the user. |
 
 ### transport
 
@@ -217,9 +235,10 @@ transport:
   prefer_local_addresses: false
 ```
 
-- "**announce_local_addresses**": Determines whether local addresses should be announced on-chain. Set to true for testing purposes only.
-- "**prefer_local_addresses**": Determines whether local addresses should be preferred when connecting to a peer. Set to true for testing purposes only.
-
+| Settings | Description |
+| --- | --- |
+| `announce_local_addresses` | Determines whether local addresses should be announced on-chain. Set to true for testing purposes only. |
+| `prefer_local_addresses` | Determines whether local addresses should be preferred when connecting to a peer. Set to true for testing purposes only. |
 
 ### identity
 
@@ -232,9 +251,11 @@ identity:
   private_key: ''
 ```
 
-- **"file"**: The path to the identity file. If no file exists at the specified location, a new one will be created.
-- **"password"**: The database password used to access the identity file. For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
-- **"private_key"**: A private key that the node can use instead of an identity file. If provided, this will override the identity file.  
+| Settings | Description |
+| --- | --- |
+| `file` | The path to the identity file. If no file exists at the specified location, a new one will be created. |
+| `password` | The database password used to access the identity file. For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+| `private_key` | A private key that the node can use instead of an identity file. If provided, this will override the identity file. | 
 
 ### api
 
@@ -249,11 +270,13 @@ api:
     port: 3001
 ```
 
-- "**enable**": Indicates whether the REST API should be enabled. Possible values: "**true**" or "**false**".
-- "**auth**": Authentication of the REST API. When using custom secret token, it is necessary to use "**!Token**" before secret token. Example: "**!Token My#S3cur1ty#Token**". For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
-- "**host**": Defines the local interface host where the API should listen.
-- "**address**": The address of the local interface to listen on.
-- "**port**": The REST API TCP lsiten port.
+| Settings | Description |
+| --- | --- |
+| `enable` | Indicates whether the REST API should be enabled. Possible values: "**true**" or "**false**". |
+| `auth` | Authentication of the REST API. When using custom secret token, it is necessary to use "**!Token**" before secret token. Example: "**!Token My#S3cur1ty#Token**". For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+| `host` | Defines the local interface host where the API should listen. |
+| `address` | The address of the local interface to listen on. |
+| `port` | The REST API TCP lsiten port. |
 
 ### inbox
 
@@ -266,9 +289,11 @@ inbox:
   excluded_tags: [ 0 ]
 ```
 
-- "**capacity**": Capacity of messages in the Inbox, per message tag.
-- "**max_age**": The maximumm age of a message in the inbox in seconds.
-- "**excluded_tags**": Tags which are not allowed into the inbox.
+| Settings | Description |
+| --- | --- |
+| `capacity` | Capacity of messages in the Inbox, per message tag. |
+| `max_age` | The maximumm age of a message in the inbox in seconds. |
+| `excluded_tags` | Tags which are not allowed into the inbox. |
 
 ---
 
@@ -340,15 +365,15 @@ Contains a sequence of strategies to execute in the specified order. If left emp
 
 Defines a promiscuous strategy that automatically manages HOPR channels based on certain measured qualities of other HOPR nodes in the network.
 
-| Settings | Default value | Description |
-| --- | --- | --- |
-| `max_channels` |  | The maximum number of opened channels the strategy should maintain. |
-| `network_quality_threshold` |  | A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels. |
-| `new_channel_stake` |  | The stake of tokens that should be allocated to a channel opened by the strategy. |
-| `minimum_node_balance` |  | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
-| `min_network_size_samples` |  | The minimum number of network quality samples before the strategy can start making decisions. |
-| `enforce_max_channels` |  | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
-| `minimum_peer_version` |  | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
+| Settings | Description |
+| --- | --- |
+| `max_channels` | The maximum number of opened channels the strategy should maintain. |
+| `network_quality_threshold` | A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels. |
+| `new_channel_stake` | The stake of tokens that should be allocated to a channel opened by the strategy. |
+| `minimum_node_balance` | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
+| `min_network_size_samples` | The minimum number of network quality samples before the strategy can start making decisions. |
+| `enforce_max_channels` | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
+| `minimum_peer_version` | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
 
 ---
 
@@ -356,10 +381,10 @@ Defines a promiscuous strategy that automatically manages HOPR channels based on
 
 Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold.
 
-| Settings | Default value | Description |
-| --- | --- | --- |
-| `funding_amount` |  | The amount to automatically fund a channel when its stake drops below the threshold. |
-| `min_stake_threshold` |  | The minimum stake value at which the channel will be automatically funded. |
+| Settings | Description |
+| --- | --- |
+| `funding_amount` | The amount to automatically fund a channel when its stake drops below the threshold. |
+| `min_stake_threshold` | The minimum stake value at which the channel will be automatically funded. |
 
 ---
 
@@ -391,7 +416,6 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 ##### Strategy: !Passive
 
 A strategy that does nothing. This is equivalent to leaving the strategies array empty.
-
 ---
 
 ##### Strategy: !ClosureFinalizer
