@@ -343,3 +343,10 @@ span.theme-code-block-highlighted-line {
 [class*="strategies"] h4, [class*="strategies"] h5{
   font-size: 1.2rem !important
 }
+
+[class*="strategies"] code{
+  background: none;
+  color: #414141;
+  border: 0px;
+  font-weight: bold;
+}

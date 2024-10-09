@@ -342,13 +342,13 @@ Defines a promiscuous strategy that automatically manages HOPR channels based on
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| max_channels |  | The maximum number of opened channels the strategy should maintain. |
-| network_quality_threshold |  | A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels. |
-| new_channel_stake |  | The stake of tokens that should be allocated to a channel opened by the strategy. |
-| minimum_node_balance |  | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
-| min_network_size_samples |  | The minimum number of network quality samples before the strategy can start making decisions. |
-| enforce_max_channels |  | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
-| minimum_peer_version |  | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
+| `max_channels` |  | The maximum number of opened channels the strategy should maintain. |
+| `network_quality_threshold` |  | A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels. |
+| `new_channel_stake` |  | The stake of tokens that should be allocated to a channel opened by the strategy. |
+| `minimum_node_balance` |  | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
+| `min_network_size_samples` |  | The minimum number of network quality samples before the strategy can start making decisions. |
+| `enforce_max_channels` |  | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
+| `minimum_peer_version` |  | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
 
 ---
 
@@ -358,8 +358,8 @@ Automatically funds channels with a specified amount if the stake on any channel
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| funding_amount |  | The amount to automatically fund a channel when its stake drops below the threshold. |
-| min_stake_threshold |  | The minimum stake value at which the channel will be automatically funded. |
+| `funding_amount` |  | The amount to automatically fund a channel when its stake drops below the threshold. |
+| `min_stake_threshold` |  | The minimum stake value at which the channel will be automatically funded. |
 
 ---
 
@@ -369,10 +369,10 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| aggregation_threshold | 100 | Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded. |
-| unrealized_balance_ratio | 0.9 | The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel. |
-| aggregation_timeout |  | Maximum time to wait for the ticket aggregation to complete. |
-| aggregate_on_channel_close | true | When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. |
+| `aggregation_threshold` | `100` | Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded. |
+| `unrealized_balance_ratio` | `0.9` | The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel. |
+| `aggregation_timeout` |  | Maximum time to wait for the ticket aggregation to complete. |
+| `aggregate_on_channel_close` | `true` | When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. |
 
 ---
 
@@ -382,9 +382,9 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| redeem_only_aggregated | true | When set to "**true**", the strategy will redeem only aggregated tickets. |
-| minimum_redeem_ticket_value | 30000000000000000000 HOPR | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
-| on_close_redeem_single_tickets_value_min | 90000000000000000 HOPR | The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. |
+| `redeem_only_aggregated` | `true` | When set to "**true**", the strategy will redeem only aggregated tickets. |
+| `minimum_redeem_ticket_value` | `30000000000000000000 HOPR` | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
+| `on_close_redeem_single_tickets_value_min` | `90000000000000000 HOPR` | The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. |
 
 ---
 
@@ -400,4 +400,4 @@ Monitors channels in the "**PendingToClose**" state whose channel closure grace 
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| max_closure_overdue | 3600 | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |
+| `max_closure_overdue` | `3600` | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |
