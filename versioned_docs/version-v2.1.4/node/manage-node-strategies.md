@@ -19,7 +19,7 @@ Please select the platform:
 
 (**1**) Download the example file: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-(**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings).
+(**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 (**3**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
 
@@ -48,14 +48,14 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#safe_module).
 
-**Note**: To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings) section.
+**Note**: To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
 </TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
 (**1**) Download the example file: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
 
-(**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings) section.
+(**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
 **Note**: Adjust the [strategies section](./manage-node-strategies.md#strategy) according to your needs; no other configuration is required.
 
