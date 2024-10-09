@@ -278,7 +278,7 @@ Node strategies should be in the configuration file!
 
 ### strategy
 
-Under this section, you have the flexibility to customize a variety of strategies for your node, allowing you to optimize its performance and behavior to suit your specific needs.
+In this section, you can configure various strategies for your node, enabling you to optimize its performance and behavior to meet your specific requirements. Explore the available strategies below:
 
 ```md
 strategy:
