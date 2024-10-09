@@ -13,7 +13,7 @@ The HOPR Admin provides a graphical interface you can use to interact with your 
 Open your terminal and paste the following Docker command to start HOPR Admin UI:
 
 ```bash
-docker run -d -p 4677:80 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+docker run -d -p 4677:4677 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
 That's all! You should have HOPR Admin started by now and can [access it through your browser](./using-hopr-admin-v2.md#accessing-hopr-admin).
@@ -32,7 +32,7 @@ Assuming you used the default port number, you should be able to access the HOPR
 Example:
 
 ```md
-http://1.2.3.4:4677
+http://127.0.0.1:4677
 ``` 
 
 </TabItem>

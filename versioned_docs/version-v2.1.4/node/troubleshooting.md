@@ -46,7 +46,7 @@ For DAppNode users, if the peer quality is below 100%, follow these steps:
 
 The redemption process works as follows: once the unredeemed value reaches **30 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
  
-**Note**: If one of above mentioned steps doesn't meet requirements, please reach out to Ambassadors via Telegram or Discord channels.
+**Note**: If one of above mentioned steps doesn't meet requirements, please refer to the topics on this troubleshooting page. If you are still unable to find a solution, feel free to reach out to the Ambassadors via Telegram or Discord channels for further assistance.
 </details>
 
 <details>
@@ -82,7 +82,6 @@ We assume you haven't customized your node strategies, so the hardcoded minimum 
 - (**b**) If you performed action **(b)** in **step 2**, proceed directly to [re-syncing your node](#how-to-re-sync-my-hoprd-node).
 
 (**4**) If you continue receiving rejected tickets after re-syncing your node, please contact the HOPR Ambassadors via Telegram or Discord for further assistance.
-
 </details>
 
 <details>
@@ -475,4 +474,22 @@ Make sure you have:
 (**4**) Now, using your arrow keys, navigate to the "**Save & Exit**" tab and save your settings.
 
 (**5**) Your device should now restart and begin booting from your attached bootable USB stick with Dappnode software. You can now resume the [initial installation method](./ac-migration-from-legacy.md#3-finalise-migration-process) but now starting directly from the **3rd step**.
+</details>
+
+---
+
+## Troubleshooting the RPC provider
+
+<details>
+<summary> 
+
+### How to check public RPC provider's execution client?
+</summary>
+To ensure your RPC provider uses the Nethermind execution client:
+
+(**1**) Visit [Etherflow](https://etherflow.quiknode.io) and enter your RPC endpoint.
+
+(**2**) Select **web3_clientVersion** and send the request.
+
+(**3**) Verify that the response indicates the use of the Nethermind execution client.
 </details>

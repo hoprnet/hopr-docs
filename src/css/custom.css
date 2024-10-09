@@ -334,3 +334,12 @@ span.theme-code-block-highlighted-line {
   aspect-ratio: 16 / 9;
   width: 100%;
 }
+
+.TOC_Layout h4{
+  padding-left: 15px;
+  border-left: 1px solid #f2f2f2;
+}
+
+[class*="strategies"] h4, [class*="strategies"] h5{
+  font-size: 1.2rem !important
+}

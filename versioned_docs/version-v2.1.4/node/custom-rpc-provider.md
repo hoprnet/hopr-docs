@@ -67,21 +67,3 @@ We recommend using a third-party RPC provider that runs on the Nethermind execut
 ### 3. Use public RPC endpoints from Chainlist (Least reliable)
 
 You can find public RPC endpoints from [Chainlist.org](https://chainlist.org/?search=gnosis), but note that these are often unstable due to heavy usage. We recommend caution when using these endpoints as they might go offline or rate-limit your HOPRd node.
-
----
-
-## RPC provider troubleshooting
-
-<details>
-<summary> 
-
-### How to check public RPC provider's execution client?
-</summary>
-To ensure your RPC provider uses the Nethermind execution client:
-
-(**1**) Visit [Etherflow](https://etherflow.quiknode.io) and enter your RPC endpoint.
-
-(**2**) Select **web3_clientVersion** and send the request.
-
-(**3**) Verify that the response indicates the use of the Nethermind execution client.
-</details>

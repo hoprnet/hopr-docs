@@ -1,6 +1,8 @@
 ---
 id: manage-node-strategies
-title: Manage node strategies
+title: Node configuration and strategies
+toc_min_heading_level: 2
+toc_max_heading_level: 5
 ---
 
 import Tabs from '@theme/Tabs';
@@ -17,30 +19,15 @@ Please select the platform:
 
 (**1**) Download the example file: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-(**2**) Make the necessary edits to the recently downloaded configuration file:
+(**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings).
 
-- "**address**": Your public IP address, more details under [host](./manage-node-strategies.md#host).
+(**3**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
 
-- "**port**": If you changed the default "**9091**", please make changes, more details under [host](./manage-node-strategies.md#host).
+(**4**) After uploading the configuration file, please [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-- "**provider**": Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
+(**5**) Once your node is stopped, you will need to add additional parameter to link your configuration file to your current docker command.
 
-- "**safe_address**": Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
-
-- "**module_address**": Add your Module address, more details under [safe_module](./manage-node-strategies.md#safe_module).
-
-- "**password**": Add your database password you used on your docker command, more details under [identity](./manage-node-strategies#identity).
-
-- "**auth**": Add your own security token, more details under [api](./manage-node-strategies#api).
-
-(**3**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings).
-
-(**4**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
-
-**(5)** After uploading the configuration file, please [stop your current node](./node-operations.md#stop-your-hopr-node).
-
-**(6)** Once your node is stopped, use the following Docker command to start your node with the new configuration:
-
+Docker command: 
 ```md
 docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
@@ -70,7 +57,7 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 
 (**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [understanding configuration file settings](./manage-node-strategies.md#understanding-configuration-file-settings) section.
 
-**Note**: For Dappnode users, you only need to adjust the [strategies section](./manage-node-strategies.md#strategy) according to your needs; no other configuration is required.
+**Note**: Adjust the [strategies section](./manage-node-strategies.md#strategy) according to your needs; no other configuration is required.
 
 (**3**) After adjusting the configuration file, connect to your Dappnode dashboard, locate the "**HOPR**" package, and navigate to the "**File Manager**" tab.
 
@@ -121,90 +108,6 @@ db:
 - "**data**": Specifies the path to the database directory. For Docker users, the path is "**/app/hoprd-db**". For Dappnode users, the path is "**/app/hoprd-db/db**".
 - "**initialize**": Defaults to "**true**", meaning the database will be created if it doesn't already exist. If set to "**false**" and the database is missing, the node will not start.
 - "**force_initialize**": Defaults to "**false**". If set to "**true**", any existing database in the specified directory will be overwritten and re-initialized.
-
-### strategy
-
-In this section, you have the flexibility to customize a variety of strategies for your node, allowing you to optimize its performance and behavior to suit your specific needs.
-
-```md
-strategy:
-  on_fail_continue: true
-  allow_recursive: false
-  strategies:
-    
-    - !Promiscuous
-      max_channels: 10
-      network_quality_threshold: 0.5
-      new_channel_stake: "1000000000000000000 HOPR"
-      minimum_node_balance: "1000000000000000000 HOPR"
-      min_network_size_samples: 20
-      enforce_max_channels: true
-      minimum_peer_version: ">=2.1.0"
-    
-    - !AutoFunding
-      funding_amount: "1000000000000000000 HOPR"
-      min_stake_threshold: "1000000000000000000 HOPR"
-    
-    - !Aggregating
-      aggregation_threshold: 100
-      unrealized_balance_ratio: 0.9
-      aggregation_timeout: 60
-      aggregate_on_channel_close: true
-    
-    - !AutoRedeeming
-      redeem_only_aggregated: true
-      minimum_redeem_ticket_value: "30000000000000000000 HOPR"
-      on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
-
-    - !Passive
-    
-    - !ClosureFinalizer
-      max_closure_overdue: 3600
-```
-
-:::info
-
-HOPR token amounts are measured with **18 decimal places**. When setting a custom value, be sure to **add 18 zeros to the integer value**. For example, **1 HOPR Token** should be entered as **1000000000000000000 HOPR**.
-
-:::
-
-- "**on_fail_continue**": When set to "**true**," the system will stop executing the subsequent strategies if any of the previous ones fail.
-
-- "**allow_recursive**": Allows nesting strategies through **!MultiStrategy**.
-
-- "**strategies**": Contains a sequence of strategies to execute in the specified order. If left empty, the node will default to using only the "**!Passive**" strategy.
-
-    - "**!Promiscuous**": Defines a promiscuous strategy that automatically manages HOPR channels based on certain measured qualities of other HOPR nodes in the network.
-
-        - "**max_channels**": The maximum number of opened channels the strategy should maintain.
-        - "**network_quality_threshold**": A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels.
-        - "**new_channel_stake**": The stake of tokens that should be allocated to a channel opened by the strategy.
-        - "**minimum_node_balance**": The minimum token balance of the node. When reached, the strategy will not open any new channels.
-        - "**min_network_size_samples**": The minimum number of network quality samples before the strategy can start making decisions.
-        - "**enforce_max_channels**": When set to "**true**," the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**," if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit.
-        - "**minimum_peer_version**": Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax.
-
-    - "**!AutoFunding**": Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold.
-        - "**funding_amount**": The amount to automatically fund a channel when its stake drops below the threshold.
-        - "**min_stake_threshold**": The minimum stake value at which the channel will be automatically funded.
-
-    - "**!Aggregating**": A strategy that automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
-
-        - "**aggregation_threshold**": Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded. Default value is **"100"**.
-        - "**unrealized_balance_ratio**": The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel. Default value is **"0.9"**.
-        - "**aggregation_timeout**": Maximum time to wait for the ticket aggregation to complete.
-        - "**aggregate_on_channel_close**": When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. Default value is **"true"**.
-
-    - "**!AutoRedeeming**": A strategy that automatically redeems tickets when the following conditions are met.
-
-        - "**redeem_only_aggregated**": When set to "**true**", the strategy will redeem only aggregated tickets. Default value is **"true"**.
-        - "**minimum_redeem_ticket_value**": The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value. Default value is **"30000000000000000000 HOPR"** which is equal to "**30 wxHOPR**".
-        - "**on_close_redeem_single_tickets_value_min**": The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. Default value is **"90000000000000000 HOPR"** which is equal to "**0.09 wxHOPR**".
-
-    - "**!Passive**": A strategy that does nothing. This is equivalent to leaving the strategies array empty.
-
-    - "**!ClosureFinalizer**": A strategy that monitors channels in the "**PendingToClose**" state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
-        - "**max_closure_overdue**": It won't attempt to finalize the closure of channels that have been overdue for more than this amount of seconds (3600 seconds). Default value is **"3600"**.
 
 ### heartbeat
 
@@ -366,3 +269,135 @@ inbox:
 - "**capacity**": Capacity of messages in the Inbox, per message tag.
 - "**max_age**": The maximumm age of a message in the inbox in seconds.
 - "**excluded_tags**": Tags which are not allowed into the inbox.
+
+---
+
+## Understanding node strategies
+
+Node strategies should be in the configuration file!
+
+### strategy
+
+Under this section, you have the flexibility to customize a variety of strategies for your node, allowing you to optimize its performance and behavior to suit your specific needs.
+
+```md
+strategy:
+  on_fail_continue: true
+  allow_recursive: false
+  strategies:
+    
+    - !Promiscuous
+      max_channels: 10
+      network_quality_threshold: 0.5
+      new_channel_stake: "1000000000000000000 HOPR"
+      minimum_node_balance: "1000000000000000000 HOPR"
+      min_network_size_samples: 20
+      enforce_max_channels: true
+      minimum_peer_version: ">=2.1.0"
+    
+    - !AutoFunding
+      funding_amount: "1000000000000000000 HOPR"
+      min_stake_threshold: "1000000000000000000 HOPR"
+    
+    - !Aggregating
+      aggregation_threshold: 100
+      unrealized_balance_ratio: 0.9
+      aggregation_timeout: 60
+      aggregate_on_channel_close: true
+    
+    - !AutoRedeeming
+      redeem_only_aggregated: true
+      minimum_redeem_ticket_value: "30000000000000000000 HOPR"
+      on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
+
+    - !Passive
+    
+    - !ClosureFinalizer
+      max_closure_overdue: 3600
+```
+
+:::info
+
+HOPR token amounts are measured with **18 decimal places**. When setting a custom value, be sure to **add 18 zeros to the integer value**. For example, **1 HOPR Token** should be entered as **1000000000000000000 HOPR**.
+
+:::
+
+#### on_fail_continue
+
+When set to "**true**," the system will stop executing the subsequent strategies if any of the previous ones fail.
+
+#### allow_recursive
+
+Allows nesting strategies through **!MultiStrategy**.
+
+---
+
+#### strategies
+
+Contains a sequence of strategies to execute in the specified order. If left empty, the node will default to using only the "**!Passive**" strategy.
+
+##### Strategy: !Promiscuous
+
+Defines a promiscuous strategy that automatically manages HOPR channels based on certain measured qualities of other HOPR nodes in the network.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| max_channels |  | The maximum number of opened channels the strategy should maintain. |
+| network_quality_threshold |  | A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels. |
+| new_channel_stake |  | The stake of tokens that should be allocated to a channel opened by the strategy. |
+| minimum_node_balance |  | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
+| min_network_size_samples |  | The minimum number of network quality samples before the strategy can start making decisions. |
+| enforce_max_channels |  | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
+| minimum_peer_version |  | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
+
+---
+
+##### Strategy: !AutoFunding
+
+Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| funding_amount |  | The amount to automatically fund a channel when its stake drops below the threshold. |
+| min_stake_threshold |  | The minimum stake value at which the channel will be automatically funded. |
+
+---
+
+##### Strategy: !Aggregating
+
+Automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| aggregation_threshold | 100 | Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded. |
+| unrealized_balance_ratio | 0.9 | The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel. |
+| aggregation_timeout |  | Maximum time to wait for the ticket aggregation to complete. |
+| aggregate_on_channel_close | true | When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. |
+
+---
+
+##### Strategy: !AutoRedeeming
+
+Automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| redeem_only_aggregated | true | When set to "**true**", the strategy will redeem only aggregated tickets. |
+| minimum_redeem_ticket_value | 30000000000000000000 HOPR | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
+| on_close_redeem_single_tickets_value_min | 90000000000000000 HOPR | The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. |
+
+---
+
+##### Strategy: !Passive
+
+A strategy that does nothing. This is equivalent to leaving the strategies array empty.
+
+---
+
+##### Strategy: !ClosureFinalizer
+
+Monitors channels in the "**PendingToClose**" state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| max_closure_overdue | 3600 | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |

@@ -180,13 +180,23 @@ Please select platform to update your Admin UI:
 <Tabs>
 <TabItem value="docker_admin_UI" label="Docker">
 
-(**1**) Open your terminal and remove the current Admin UI container by running the following command:
+(**1**) Enter the following command `docker ps` into your terminal.
+
+This should provide you with a list of Docker containers you are currnetly running. Among them locate the one with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable**" and note the "**container ID**".
+
+![Docker ps](/img/node/docker-ps-admin-ui-update.png)
+
+In the image above the container ID is: "**0a74437b27f8**". In your system, the Docker container ID will be different.
+
+(**2**) Kill the container using the following command: `docker kill <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
+
+Example: 
 
 ```md
-docker rm -f $(docker ps -a --filter "name=hopr-admin" --format "{{.ID}}")
+docker kill 0a74437b27f8
 ```
 
-(**2**) Retrieve the [latest installation command for the HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui) and execute it in your terminal.
+(**3**) Retrieve the [latest installation command for the HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui) and execute it in your terminal.
 
 </TabItem>
 <TabItem value="docker_compose_admin_UI" label="Docker compose">

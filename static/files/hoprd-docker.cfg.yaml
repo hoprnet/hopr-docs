@@ -1,11 +1,4 @@
 hopr:
-  host:
-    address: !IPv4 0.0.0.0 # MAKE EDITS: replace with your public IP.
-    port: 9091 # NOTE: adapt port to reflect your public port.
-  db:
-    data: /app/hoprd-db
-    initialize: true
-    force_initialize: false
   strategy:
     on_fail_continue: true
     allow_recursive: true
@@ -20,53 +13,3 @@ hopr:
         on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
       - !ClosureFinalizer
         max_closure_overdue: 3600
-  heartbeat:
-    variance: 1
-    interval: 20
-    threshold: 60
-  network_options:
-    min_delay: 1
-    max_delay: 300
-    quality_bad_threshold: 0.2
-    quality_offline_threshold: 0.5
-    quality_step: 0.1
-    quality_avg_window_size: 25
-    ignore_timeframe: 600
-    backoff_exponent: 1.5
-    backoff_min: 2.0
-    backoff_max: 300.0
-  protocol:
-    ack:
-      timeout: 15
-    heartbeat:
-      timeout: 15
-    msg:
-      timeout: 15
-    ticket_aggregation:
-      timeout: 15
-  chain:
-    provider: # MAKE EDITS: add your own RPC provider.
-    announce: true
-    network: dufour
-    check_unrealized_balance: true
-  safe_module:
-    safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net/
-    safe_address: # MAKE EDITS: add your HOPR Safe address.
-    module_address: # MAKE EDITS: add your HOPR Safe module address.
-  transport:
-    announce_local_addresses: false
-    prefer_local_addresses: false
-identity:
-  file: /app/hoprd-db/.hopr-id-dufour
-  password: 'change_me' # MAKE EDITS: replace with your own database password.
-api:
-  enable: true
-  auth: !Token ^Pr1vacyasafirstCLASSpr0ductfe4turemadeEASY^ # MAKE EDITS: replace with your own Access token.
-  host:
-    address: !IPv4 0.0.0.0
-    port: 3001
-inbox:
-  capacity: 512
-  max_age: 900
-  excluded_tags:
-    - 0
