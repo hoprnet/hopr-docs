@@ -416,6 +416,7 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 ##### Strategy: !Passive
 
 A strategy that does nothing. This is equivalent to leaving the strategies array empty.
+
 ---
 
 ##### Strategy: !ClosureFinalizer
