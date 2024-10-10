@@ -5,8 +5,8 @@ title: Using Grafana
 
 The Grafana dashboards will give you an advanced look into your node, with a dashboard breaking down several key metrics. You can access Grafana Dashboards on all setups:
 
-- [Dappnode](./grafana-dashboards.md#dappnode)
-- [Docker](./grafana-dashboards.md#docker)
+- [Dappnode](./grafana-dashboards.md#using-dappnode-with-grafana)
+- [Docker](./grafana-dashboards.md#using-docker-with-grafana)
 
 ## Setting up Grafana Dashboard
 

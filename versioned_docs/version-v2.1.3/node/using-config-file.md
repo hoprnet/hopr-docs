@@ -38,7 +38,7 @@ To set up your node's configuration file, you can use the example file.
 - **For Dappnode:** the file name should strictly be `hoprd.cfg.yaml`
 - **For Docker:** You can choose your own filename, but you will need to ensure this exact file name is used within the configuration file path provided when you run your Docker command.
  
-# Variables
+## Variables
 
 ## Identity
 

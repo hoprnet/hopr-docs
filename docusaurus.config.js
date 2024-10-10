@@ -118,7 +118,7 @@ const config = {
       },
       prism: {
         additionalLanguages: ['solidity'],
-        theme: darkCodeTheme
+        theme: lightCodeTheme
       }
     })
 }

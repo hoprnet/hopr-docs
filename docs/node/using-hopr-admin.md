@@ -110,7 +110,7 @@ If you are using Dappnode or Avado, you can download your identity file on their
 
 **_Note:_** You should download your identity file as soon as possible. As downloading the backup or DB folder will also download the database, which can get quite large in size if you’ve been running your node for a while.
 
-**_DAppNode –_** Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](using-dappnode#restoring-an-old-node) if needed.
+**_DAppNode –_** Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](./using-dappnode.md#restoring-an-old-node) if needed.
 
 ![dappnode backup](/img/node/dappnode-backup.png)
 
@@ -146,7 +146,7 @@ From here, scroll down to the file manager and enter `/app/hoprd-db` in the fiel
 
 ![Avado identity file](/img/node/Avado-identity-file.png)
 
-(**4**) If hidden files are visible on your OS, you should see a file named `.hopr-identity`. Use this to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
+(**4**) If hidden files are visible on your OS, you should see a file named `.hopr-identity`. Use this to [restore your node](./using-avado.md#alternative-method-using-your-identity-file) if needed.
 
 **_Note:_** Make sure you enter `/app/hoprd-db` and not `/app/hoprd-db/`.
 
