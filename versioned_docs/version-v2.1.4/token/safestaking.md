@@ -1,15 +1,15 @@
 ---
 id: safestaking
-title: SafeSTAKING
+title: SafeStaking
 ---
 
 SafeStaking refers to HOPR's design for on-protocol staking. The long-term design for the protocol has always been a fully incentivized and decentralized privacy mixnet, where the incentive mechanism functions directly through the HOPR protocol. Similar to a PoS setup, but one where an additional layer of security is needed to secure node runner funds from compromised nodes. 
 
 HOPR provides decentralized incentives for node runners through [proof-of-relay](../core/proof-of-relay.md). Still, it needed to implement a staking setup to secure staked funds in a way where node runners could accommodate access to their funds in line with their own individual risk tolerances. This is exactly what SafeStaking is designed to do.
 
-## How SafeSTAKING works?
+## How SafeStaking works?
 
-Node runners can store their funds within the [HOPR Safe](./safestaking.md#why-hopr-is-using-safe), a separate, extremely secure smart contract account developed using [Safe](https://safe.global/). They then create a node and associate it with their HOPR Safe. 
+Node runners can store their funds within the [HOPR Safe](./safestaking.md#why-does-hopr-use-safe), a separate, extremely secure smart contract account developed using [Safe](https://safe.global/). They then create a node and associate it with their HOPR Safe. 
 
 The funds staked on the node are used to determine the distribution of traffic the node will receive (allowing it to earn more tickets/HOPR). The funds stored in the HOPR Safe also need to be accessed by the node in limited amounts to allow it to open and fund payment channels.
 
@@ -25,7 +25,7 @@ You could choose for your node to have complete access to the "**HOPR Safe**" vi
 
 This compartmentalization of funds, governed by a customizable hierarchy of keys, allows you to start with the default massively improved security of having your funds completely separated and isolated from your node and then to choose exactly what level of risk you are comfortable with as a node runner from there. 
 
-## Why HOPR is using Safe?
+## Why Does HOPR Use Safe?
 
 [Safe](https://safe.global/) (previously known as Gnosis Safe) is a smart account wallet that gives a secure and customizable wallet solution for storing funds.
 
@@ -55,8 +55,6 @@ In order to move staking directly onto the protocol, HOPR needed a secure soluti
 HOPR nodes are designed to be accessed remotely, sometimes by multiple people, as developers might require. Node runners often expose certain APIs to allow services to use their node, such as entry/exit nodes for RPCh relays. 
 
 A setup like this will never be as secure as a cold wallet only touched by you, whose private key you take every precaution to secure. So, to offer the highest level of security while providing all the features and customizability HOPR wants to offer its node runners, we needed to compartmentalize node runner funds from their nodes. To achieve this, we needed a top-quality smart contract wallet.
-
-### Why Does HOPR Use Safe?
 
 [Safe](https://safe.global/) (previously known as Gnosis Safe) is the most secure smart contract wallet setup on the market. It already secures billions of assets with complete security and offers all the tooling developers need to create customizable solutions for their project. 
 

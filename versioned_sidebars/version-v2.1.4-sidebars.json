@@ -145,21 +145,6 @@
         "developers/snippets",
         "developers/visualising-hopr-network-topology"
       ]
-    },
-    {
-      "type": "category",
-      "label": "Ecosystem",
-      "items": [
-        "staking/why-use-safe",
-        "staking/what-is-safestaking",
-        "staking/ct-economic-model",
-        "ecosystem/hopr-token",
-        "ecosystem/gnosis-hopr-tokens",
-        "staking/how-to-get-hopr",
-        "staking/convert-hopr",
-        "staking/unstaking-s8",
-        "ecosystem/safe-erc777-bug"
-      ]
     }
   ]
 }

@@ -55,6 +55,12 @@ const FeatureList = [
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-dapps.svg'} />,
     description: <>Documentations and guides of dApps built on HOPR.</>,
     docName: 'dapps/dapps-rpch'
+  },
+  {
+    title: 'Glossary',
+    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-faqs.svg'} />,
+    description: <>A glossary of key terms and definitions related to HOPR.</>,
+    docName: 'glossary'
   }
   /*{
     title: 'Ecosystem',
