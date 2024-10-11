@@ -171,11 +171,11 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 ---
 
-## Update your Admin UI
+## Update your HOPR Admin UI
 
-**Note**: For Dappnode users, the Admin UI cannot be updated separately, as it is bundled with the HOPR package.
+**Note**: For Dappnode users, the HOPR Admin UI cannot be updated separately, as it is bundled with the HOPR package.
 
-Please select platform to update your Admin UI:
+Please select platform to update your HOPR Admin UI:
 
 <Tabs>
 <TabItem value="docker_admin_UI" label="Docker">

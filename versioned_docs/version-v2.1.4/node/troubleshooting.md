@@ -6,7 +6,7 @@ title: Troubleshooting
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Troubleshooting node issues
+## Troubleshooting HOPR node issues
 
 <details>
 <summary> 
@@ -16,11 +16,11 @@ import TabItem from '@theme/TabItem';
 
 (**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
-(**2**) Ensure you are using the latest versions of both **HOPRd** and the **Admin UI**. 
+(**2**) Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
 
 - You can check your current HOPRd node version on the "**INFO**" page under the "**Node**" section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
 
-- For the Admin UI version, check the bottom right corner of the interface. The most recent Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
+- For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
 
 (**3**) On the "**INFO**" page, navigate to the "**Network**" section and ensure the "**Eligible**" status displays "**Yes**." If your node was recently created, it must be fully synced (**100%**) before it becomes eligible.
 
@@ -61,7 +61,7 @@ If your node is receiving rejected tickets, several issues could be causing this
 
 Follow these steps to troubleshoot the issue:
 
-(**1**) Connect to your node [via the Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+(**1**) Connect to your node [via the HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
 (**2**) Navigate to the "**CHANNELS: IN**" page. Under the "**Unredeemed**" column, perform one of the following:
 
@@ -170,7 +170,7 @@ Example log:
 
 ---
 
-## Troubleshooting Admin UI issues
+## Troubleshooting HOPR Admin UI issues
 
 <details>
 <summary>

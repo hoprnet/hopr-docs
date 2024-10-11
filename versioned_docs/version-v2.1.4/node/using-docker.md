@@ -292,7 +292,7 @@ wget -O saint-louis.zip https://github.com/hoprnet/hoprnet/archive/refs/heads/re
 
 ### 2. Set Up Environment Variables
 Inside "compose" folder, rename `.env.example` to `.env` and adjust the following environment variables as needed:
-- `HOPRD_API_PORT`: The REST API port, default is **3001**. (Connects your node with the Admin UI)
+- `HOPRD_API_PORT`: The REST API port, default is **3001**. (Connects your node with the HOPR Admin UI)
 - `HOPRD_P2P_PORT`: The peer-to-peer communication port, default is **9091**. (This port should be exposed to enable external connections to your node)
 
 ```md

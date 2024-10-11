@@ -68,7 +68,7 @@ mv .env.sample .env
 
 Adjust the following environment variables as needed:
 
-- "**HOPRD_API_PORT**": The REST API port, default is **3001**. (Connects your node with the Admin UI)
+- "**HOPRD_API_PORT**": The REST API port, default is **3001**. (Connects your node with the HOPR Admin UI)
 - "**HOPRD_P2P_PORT**": The peer-to-peer communication port, default is **9091**. (This port should be exposed to enable external connections to your node)
 
 (**3**) Set up secrets environment variables, inside "**compose**" folder, rename `.env-secrets.sample` to `.env-secrets`:

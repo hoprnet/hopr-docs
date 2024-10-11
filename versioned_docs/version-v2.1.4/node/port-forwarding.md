@@ -150,4 +150,5 @@ It will print out your router's gateway IP address. Commonly, the gateway IP add
 - **Internal & external port**: Use **9091** for both the internal and external ports. If you are running multiple nodes on the same machine, you will need to assign different ports for each node.
 
 Example of how port forwarding settings looks like:
+
 ![Portforwarding rule](/img/node/asus-port-forwarding.png)

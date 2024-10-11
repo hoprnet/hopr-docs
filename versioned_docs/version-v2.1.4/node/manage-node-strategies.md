@@ -39,7 +39,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 
 (**7**) Paste your docker command into the terminal window and execute it.
 
-(**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the Admin UI page.
+(**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
  
 </TabItem>
 <TabItem value="config_docker_compose" label="Docker compose">
@@ -80,7 +80,7 @@ The latest version of the default configuration file for all supported platforms
 
 (**7**) Go to the "**Info**" page within your HOPR package, and click the "**Restart**" button to restart your node.
 
-(**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the Admin UI page.
+(**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
 </TabItem>
 </Tabs>
 

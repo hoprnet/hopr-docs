@@ -344,7 +344,7 @@ span.theme-code-block-highlighted-line {
   font-size: 1.2rem !important
 }
 
-[class*="strategies"] code{
+[class*="strategies"] code, [class*="node-management-admin-ui"] code{
   background: none;
   color: #414141;
   border: 0px;
