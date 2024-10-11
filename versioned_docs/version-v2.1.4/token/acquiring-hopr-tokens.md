@@ -14,8 +14,8 @@ When the HOPR token was initially launched, it was deployed on the Ethereum bloc
 | Token Symbol | Blockchain | Smart Contract Address | Description |
 |--------------|------------|------------------------|-------------|
 | **HOPR**     | Ethereum Mainnet | [0xf5581dfefd8fb0e4aec526be659cfab1f8c781da](https://etherscan.io/token/0xf5581dfefd8fb0e4aec526be659cfab1f8c781da) | The initial token, traded on the Ethereum Mainnet. |
-| **xHOPR**    | Gnosis Chain | [0xD057604A14982FE8D88c5fC25Aac3267eA142a08](https://gnosisscan.io/token/0xD057604A14982FE8D88c5fC25Aac3267eA142a08) | Traded on Gnosis Chain; facilitates lower transaction costs. It can be [wrapped to wxHOPR](https://docs.hoprnet.org).|
-| **wxHOPR**   | Gnosis Chain | [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://gnosisscan.io/token/0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1) | Used to operate HOPR nodes. It can be [unwrapped to xHOPR](https://docs.hoprnet.org). |
+| **xHOPR**    | Gnosis Chain | [0xD057604A14982FE8D88c5fC25Aac3267eA142a08](https://gnosisscan.io/token/0xD057604A14982FE8D88c5fC25Aac3267eA142a08) | Traded on Gnosis Chain; facilitates lower transaction costs. It can be [wrapped to wxHOPR](token-wrapping.md).|
+| **wxHOPR**   | Gnosis Chain | [0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1](https://gnosisscan.io/token/0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1) | Used to operate HOPR nodes. It can be [unwrapped to xHOPR](token-wrapping.md). |
 
 ## Acquiring HOPR tokens
 

@@ -7,7 +7,7 @@ title: Glossary
 
 ### Anonymous Routing
 
-A method used in HOPR to ensure that the path taken by data through the network cannot be traced back to its origin or destination. Read more about [anonymous routing](./core/anonymous-routing.md).
+A method used in HOPR to ensure that the path taken by data through the network cannot be traced back to its origin or destination. Read more about [Anonymous Routing](./core/anonymous-routing.md).
 
 ---
 
@@ -15,7 +15,7 @@ A method used in HOPR to ensure that the path taken by data through the network 
 
 ### Cover Traffic
 
-Cover traffic involves sending data packets that resemble normal packets but contain no meaningful content. On the HOPR network, this helps obscure real communications, enhancing privacy. Read more about the [cover traffic](./core/cover-traffic.md).
+Cover Traffic involves sending data packets that resemble normal packets but contain no meaningful content. On the HOPR network, this helps obscure real communications, enhancing privacy. Read more about the [Cover Traffic](./core/cover-traffic.md).
 
 ---
 
@@ -45,6 +45,10 @@ A **HOPR node** is a software instance that relays data across the HOPR network,
 
 HOPR Safe one of the key components of the HOPR SafeStaking setup, it is smart contract wallet where you securily deposit your HOPR tokens for the staking. Read more about the [HOPR Safe](./token/safestaking.md#why-does-hopr-use-safe).
 
+### HOPR Staking Hub
+
+The HOPR Staking Hub is a platform for onboarding HOPR node operators. It enables you to create a HOPR Safe for securely depositing and managing your stake. Read more about the [Staking Hub](./node/staking-hub.md).
+
 ### HOPR Token
 
 The native cryptocurrency token of the HOPR network is used to incentivize nodes for relaying data and maintaining the network. Read more about the [HOPR token](./token/acquiring-hopr-tokens#overview) and where to acquire it.
@@ -57,7 +61,7 @@ The HOPR token wrapper operates on the Gnosis chain and is primarily used to wra
 
 ## M
 
-### Metadata Privacy
+### Metadata privacy
 
 The practice of hiding data about communication itself (such as sender, receiver, and time) to enhance privacy, which is a key goal of the HOPR network. Read more about [metadata privacy](./core/what-is-metadata.md).
 
@@ -69,13 +73,17 @@ The mixing of data packets in a network to prevent linking sender and receiver, 
 
 ## P
 
+### Payment channels
+
+Payment channels are a common crypto technique to reduce on-chain transactions. Two users fund a channel, exchange transactions off-chain, and only the net balance is recorded when the channel closes. HOPR uses this method to relay messages between nodes. Read more about [payment channels](./core/tickets-and-payment-channels.md#payment-channels).
+
 ### Proof of Relay
 
 A mechanism in the HOPR protocol that ensures nodes relay data privately and securely while maintaining accountability within the network. Read more about [proof of relay](./core/proof-of-relay.md).
 
 ### Probabilistic Payments
 
-A payment system used in HOPR that allows microtransactions with a high degree of privacy, reducing the need for frequent, traceable on-chain transactions. Read more about [probabilistic payments](./core/probabilistic-payments.md).
+A payment system used in HOPR that allows microtransactions with a high degree of privacy, reducing the need for frequent, traceable on-chain transactions. Read more about [Probabilistic Payments](./core/probabilistic-payments.md).
 
 ---
 
@@ -84,10 +92,6 @@ A payment system used in HOPR that allows microtransactions with a high degree o
 ### SafeStaking
 
 The process of delegating HOPR tokens in the network to support operations such as relaying traffic and securing the network, for which nodes are rewarded. Read more about [staking](./token/safestaking.md).
-
-### Staking Hub
-
-The HOPR Staking Hub is a platform for onboarding HOPR node operators. It enables you to create a HOPR Safe for securely depositing and managing your stake. Read more about the [Staking Hub](./node/staking-hub.md).
 
 ---
 

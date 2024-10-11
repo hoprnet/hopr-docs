@@ -10,7 +10,7 @@ This tutorial will walk you through running a local cluster with five instances 
 Note that although this version of myne.chat uses the HOPR protocol, it is not fully private, because:
 
 - the small network provides minimal mixing
-- there is no cover traffic
+- there is no Cover Traffic
 - the person who sets up the cluster and distributes the links can use them to enter any instance and read the conversations.
 
 Please inform your friends or colleagues of this before sharing the links.

@@ -19,7 +19,7 @@ The [HOPR Staking Hub](https://hub.hoprnet.org/) is where you can complete the o
 
 Under the `NODES` tab, you can view, add and fund nodes. You can associate multiple nodes with a single HOPR Safe, but be careful not to allow your stake per node to drop below 10,000 wxHOPR if you have an NR NFT or 30,000 wxHOPR per node if you don't have one. 
 
-For example, run no more than six nodes if you have 60,000 wxHOPR staked with an NR NFT in your HOPR Safe. Otherwise, you will become ineligible for cover traffic.
+For example, run no more than six nodes if you have 60,000 wxHOPR staked with an NR NFT in your HOPR Safe. Otherwise, you will become ineligible for Cover Traffic.
 
 ### How To Add Multiple Nodes
 

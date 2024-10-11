@@ -1,6 +1,6 @@
 ---
 id: interaction-with-node
-title: Interaction with node
+title: Interact with node
 ---
 
 This guide will walk you through all the key functionalities of the HOPR node using the HOPR Admin UI. You’ll learn how to monitor your node's performance, send direct or hop messages, open and close outgoing payment channels, and much more.
@@ -11,7 +11,7 @@ Before proceeding, ensure your HOPR node is set up. If you haven’t done so yet
 
 ## 1. Connect to your node and check health
 
-(**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+(**1**) Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
 (**2**) Check if your node is performing normally, follow this [guideline](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
 
@@ -210,7 +210,7 @@ To close a payment channel, two actions are required. The first step is to initi
 
 ### Close incoming channel
 
-If your node is eligible for rewards from the [Cover Traffic Nodes](../core/cover-traffic-nodes.md), you should have 5 incoming channels, most likely from cover traffic. In this guide we will familirise you with closing incoming payment channel. Once closed, a new channel will automatically open during the next rewards distribution, as the Cover Traffic Node will re-establish a payment channel with your node.
+If your node is eligible for rewards from the [Cover Traffic Nodes](../core/cover-traffic-nodes.md), you should have 5 incoming channels, most likely from Cover Traffic. In this guide we will familirise you with closing incoming payment channel. Once closed, a new channel will automatically open during the next rewards distribution, as the Cover Traffic Node will re-establish a payment channel with your node.
 
 :::info
 Before proceeding, note that if you close an incoming payment channel with unredeemed wxHOPR tokens, any unredeemed tickets will become neglected and cannot be redeemed.
@@ -224,7 +224,7 @@ Before proceeding, note that if you close an incoming payment channel with unred
 
 ## 6. Tickets
 
-Although you spend **wxHOPR** tokens to relay data, you are actually paid in tickets. For example from the Cover traffic rewards are being received in tickets which is redeemed into **wxHOPR** based on your node strattegies settings. If a channel exists in both directions between consecutive nodes on the relay, the ticket is redeemed into the following nodes channel instead of its balance.
+Although you spend **wxHOPR** tokens to relay data, you are actually paid in tickets. For example from the Cover Traffic rewards are being received in tickets which is redeemed into **wxHOPR** based on your node strattegies settings. If a channel exists in both directions between consecutive nodes on the relay, the ticket is redeemed into the following nodes channel instead of its balance.
 
 ![tickets-channels](/img/node/tickets-channels-hopr-white.png)
 

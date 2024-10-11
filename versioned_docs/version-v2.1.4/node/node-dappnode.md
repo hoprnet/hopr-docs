@@ -61,7 +61,7 @@ For guidance on creating a secret token, please refer to this [guide](./frequent
 
 ![dappnode setup wizard](/img/node/dappnode-hopr-package-install-phase.jpg)
 
-## 3. Link your node to your Safe wallet
+## 3. Link your node to your HOPR Safe wallet
 
 (**1**) Once installed, go to "**Packages**" and click on "**HOPR**". Once inside the HOPR package, click on "**Ui**" to enter the HOPR Admin UI.
 
@@ -74,7 +74,7 @@ For guidance on creating a secret token, please refer to this [guide](./frequent
 
 ## 4. Whats next?
 
-Once you’ve completed the onboarding process, ensure your node is fully synced (100%) and that you've opened at least one outgoing payment channel with a random peer. These are the requirements for Cover traffic, which allows your node to begin earning rewards. Follow these steps:
+Once you’ve completed the onboarding process, ensure your node is fully synced (100%) and that you've opened at least one outgoing payment channel with a random peer. These are the requirements for Cover Traffic, which allows your node to begin earning rewards. Follow these steps:
 
 (**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 

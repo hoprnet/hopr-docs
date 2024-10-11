@@ -118,7 +118,7 @@ Node runners from the previous Monte Rosa release were issued a special **Networ
 ### What is Cover Traffic, and what is its purpose?
 </summary>
 
-Cover Traffic ("CT") is the new way to earn rewards. The cover traffic app has four components, which operate in the following sequence:
+Cover Traffic ("CT") is the new way to earn rewards. The Cover Traffic app has four components, which operate in the following sequence:
 
 - Netwatcher's task is to locate nodes on the network and create a list.
 - The Aggregator collects all node information from the Netwatchers and sends it to the database.
@@ -131,7 +131,7 @@ Cover Traffic ("CT") is the new way to earn rewards. The cover traffic app has f
 
 ### How often Cover Traffic is distributing the rewards?
 </summary>
-Cover traffic rewards are distributed continuously across the network. The system calculates the distribution delay for each node based on the amount staked by that node.
+Cover Traffic rewards are distributed continuously across the network. The system calculates the distribution delay for each node based on the amount staked by that node.
 </details>
 
 <details>
@@ -153,7 +153,7 @@ The Cover Traffic threshold was intentionally set to make the network more decen
 
 :::info important
 
-The Cover Traffic threshold rewards cap limitations mentioned above do not apply to rewards received from Cover traffic. If you stake up to **75,000 wxHOPR** per node and the rewards you receive increase your stake, you will still **receive the full APR**!
+The Cover Traffic threshold rewards cap limitations mentioned above do not apply to rewards received from Cover Traffic. If you stake up to **75,000 wxHOPR** per node and the rewards you receive increase your stake, you will still **receive the full APR**!
 
 :::
 </details>

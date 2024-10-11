@@ -73,7 +73,6 @@
         "node/interaction-with-node",
         "node/node-operations",
         "node/backup-restore-update",
-        "node/multiple-nodes",
         "node/port-forwarding"
       ]
     },
@@ -87,6 +86,7 @@
       "label": "Advanced configuration",
       "collapsed": false,
       "items": [
+        "node/multiple-nodes",
         "node/manage-node-strategies",
         "node/custom-rpc-provider",
         "node/ac-migration-from-legacy"

@@ -1,11 +1,11 @@
 ---
 id: cover-traffic-economics
-title: Cover traffic economics
+title: Cover Traffic economics
 ---
 
 The Cover Traffic economic model projects the expected reward of a node runner can expect given the underlying parameters.
 
-Here are 3 different scenarios to show how the current cover traffic economic model would work in a hypothetical network with 5 nodes:
+Here are 3 different scenarios to show how the current Cover Traffic economic model would work in a hypothetical network with 5 nodes:
 
 ## Table of terms
 
@@ -13,14 +13,14 @@ Here are 3 different scenarios to show how the current cover traffic economic mo
 |----|----|
 |  **Stake (wxHOPR)** | The amount of HOPR tokens staked by the node runner. |
 |  **Transformed Stake (wxHOPR)** | Whenever a node runner exceeds the 75,000 wxHOPR threshold, this parameter ensures a drastic decrease in rewards. |
-|  **CT probability (pct)** | Cover traffic probability, the higher you stake, the higher probability to receiwe rewards from the cover traffic. |
+|  **CT probability (pct)** | Cover Traffic probability, the higher you stake, the higher probability to receiwe rewards from the Cover Traffic. |
 |  **Expected reward (wxHOPR)** | Expected rewards based on the staking amount and node performance. |
-|  **Expected tickets** | Expected ticket numbers to be rewarded by the Cover traffic. 1 ticket equals to 1 wxHOPR. |
+|  **Expected tickets** | Expected ticket numbers to be rewarded by the Cover Traffic. 1 ticket equals to 1 wxHOPR. |
 |  **APY (pct)** | Your staking rewards APY (Annual Percentage Yield). |
 
 ## 1st economic model scenario:
 
-Every node runner is in between the Cover traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
+Every node runner is in between the Cover Traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
 
 |    | Node A | Node B | Node C | Node D | Node E | 
 | -- | ------ | ------ | ------ | ------ | ------ |

@@ -142,7 +142,7 @@ HOPR Admin UI is an application which helps you to connect and manage your hoprd
 docker run -d -p 4677:4677 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
-## 5. Link your node to your Safe wallet
+## 5. Link your node to your HOPR Safe wallet
 
 (**1**) Access to recently launched HOPR Admin UI. Assuming you used the default port numbers, you should be able to access the HOPR Admin UI at [http://localhost:4677](http://localhost:4677) (replace **localhost** with your **server IP address** if you are using a VPS).
 
@@ -161,7 +161,7 @@ http://127.0.0.1:4677
 
 ## 6. Whats next?
 
-Once you’ve completed the onboarding process, ensure your node is fully synced (100%) and that you've opened at least one outgoing payment channel with a random peer. These are the requirements for Cover traffic, which allows your node to begin earning rewards. Follow these steps:
+Once you’ve completed the onboarding process, ensure your node is fully synced (100%) and that you've opened at least one outgoing payment channel with a random peer. These are the requirements for Cover Traffic, which allows your node to begin earning rewards. Follow these steps:
 
 (**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 

@@ -49,7 +49,7 @@ For more indepth information on HOPR and it’s core concepts, as well as its go
 
 ## Node Running
 
-Node runners can stake HOPR tokens in their nodes to be rewarded for this relaying of data. They will receive fees in HOPR for the data they help to pass on, including a large number of tokens to be distributed in the form of [cover traffic](core/cover-traffic).
+Node runners can stake HOPR tokens in their nodes to be rewarded for this relaying of data. They will receive fees in HOPR for the data they help to pass on, including a large number of tokens to be distributed in the form of [Cover Traffic](core/cover-traffic).
 
 :::info
 
