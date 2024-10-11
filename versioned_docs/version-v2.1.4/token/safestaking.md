@@ -25,6 +25,12 @@ You could choose for your node to have complete access to the "**HOPR Safe**" vi
 
 This compartmentalization of funds, governed by a customizable hierarchy of keys, allows you to start with the default massively improved security of having your funds completely separated and isolated from your node and then to choose exactly what level of risk you are comfortable with as a node runner from there. 
 
+### How to setup SafeStaking?
+
+SafeStaking is the process for onboarding users to stake and operate a node. For a detailed walkthrough, please watch this instructional video:
+
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/onjXFQVzFjc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
+
 ## Why HOPR is using Safe?
 
 [Safe](https://safe.global/) (previously known as Gnosis Safe) is a smart account wallet that gives a secure and customizable wallet solution for storing funds.
