@@ -1,6 +1,6 @@
 ---
 id: token-bridging
-title: Bridging HOPR tokens
+title: Bridging HOPR Tokens
 hide_table_of_contents: true
 ---
 
@@ -18,18 +18,18 @@ The HOPR token can be bridged between the **Ethereum** and **Gnosis** chains. Pl
 
 ## 2. Connect your wallet
    
-   In the top-right corner, click "**Connect Wallet**" to link your wallet with the Gnosis Bridge.
+   In the top-right corner, click "**Connect Wallet**" to link your wallet to the Gnosis Bridge.
 
 ## 3. Select Ethereum chain & token
    
-   In the "**Transfer from**" section, ensure that "**Ethereum**" is selected as the chain. Then, click on "**Select token**" and search for "**HOPR token**". In the input field, enter the amount of HOPR tokens you want to bridge to Gnosis.
+   In the "**Transfer from**" section, ensure that "**Ethereum**" is selected as the chain. Then, click "**Select token**" and search for "**HOPR token**". In the input field, enter the amount of HOPR tokens you want to bridge to Gnosis.
    
    :::warning important
 
-    If you are using a [Safe wallet](https://safe.global), you must use a different recipient address. Safe wallets are smart contracts built on specific blockchains, and they cannot be used across multiple chains. To avoid losing your funds, ensure the recipient address **supports the Gnosis chain**.
+   If you are using a [Safe wallet](https://safe.global), you must use a different recipient address. Safe wallets are smart contracts built on specific blockchains and cannot be used across multiple chains. To avoid losing your funds, ensure the recipient address supports the **Gnosis Chain**.
 
-    To use a different recipient address, click "**Send to a different wallet**" and enter an address that is compatible with the Gnosis chain.
-
+   To use a different recipient address, click "**Send to a different wallet**" and enter an address that is compatible with the Gnosis Chain.
+   
    :::
 
    ![Bridging HOPR tokens](/img/token/token-bridging-1.jpg)
@@ -75,9 +75,9 @@ The HOPR token can be bridged between the **Ethereum** and **Gnosis** chains. Pl
 
 :::info
 
-Before initiating the bridging process from Gnosis to the Ethereum chain, please be aware that you will incur two fees: the first on the Gnosis chain to initiate the bridge, and the second on the Ethereum chain for claiming your tokens on the mainnet.
+Before initiating the bridging process from Gnosis to the Ethereum chain, please note that you will incur two fees: the first on the Gnosis Chain to initiate the bridge, and the second on the Ethereum chain for claiming your tokens on the mainnet.
 
-**Important**: Once the bridging process is initiated, it cannot be undone. You must complete the entire bridging process to retrieve your tokens on the Ethereum chain.
+**Important**: Once the bridging process is initiated, it cannot be undone. You must complete the entire process to retrieve your tokens on the Ethereum chain.
 
 :::
 
@@ -91,13 +91,13 @@ Before initiating the bridging process from Gnosis to the Ethereum chain, please
 
 ## 3. Switch the bridge direction to transfer from Gnosis to Ethereum
 
-   Between the "**Transfer from**" and "**Transfer to**" sections, click on the "**bidirectional arrows**" icon to switch the bridging direction from "**Ethereum to Gnosis**" to "**Gnosis to Ethereum**". Ensure that "**Gnosis**" is selected under "**Transfer from**". Then, click "**Select token**" and search for "**HOPR token**". Enter the amount of xHOPR tokens you want to bridge to Ethereum.
+   Between the "**Transfer from**" and "**Transfer to**" sections, click the "**bidirectional arrows**" icon to switch the bridging direction from "**Ethereum to Gnosis**" to "**Gnosis to Ethereum**". Ensure that "**Gnosis**" is selected under "**Transfer from**". Then, click "**Select token**" and search for "**HOPR token**". Enter the amount of xHOPR tokens you want to bridge to Ethereum.
 
-    :::warning important
+   :::warning important
 
-    If you are using a [Safe wallet](https://safe.global), you must use a different recipient address. Safe wallets are smart contracts built on specific blockchains, and they cannot be used across multiple chains. To avoid losing your funds, ensure the recipient address **supports the Ethereum chain**.
+   If you are using a [Safe wallet](https://safe.global), you must use a different recipient address. Safe wallets are smart contracts built on specific blockchains and cannot be used across multiple chains. To avoid losing your funds, ensure the recipient address **supports the Ethereum Chain**.
 
-    To use a different recipient address, click "**Send to a different wallet**" and enter an address that is **compatible with the Ethereum chain**.
+   To use a different recipient address, click "**Send to a different wallet**" and enter an address that is **compatible with the Ethereum chain**.
 
    :::
 

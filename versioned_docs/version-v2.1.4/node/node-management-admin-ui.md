@@ -6,7 +6,7 @@ title: HOPR Admin UI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The HOPR Admin provides a graphical interface you can use to interact with your node as well as diagnose any potential issues. HOPR Admin is provided with the Dappnode HOPR package by default, so no seperate action is needed, but for Docker users you will need to run an extra command to install HOPR Admin before you can access it.
+The HOPR Admin UI provides a graphical interface that you can use to interact with your node and diagnose any potential issues. HOPR Admin UI is provided with the Dappnode HOPR package by default, so no seperate action is needed, but for Docker users you will need to run an extra command to install HOPR Admin UI before you can access it.
 
 ## Installing HOPR Admin UI
 
@@ -16,7 +16,7 @@ Open your terminal and paste the following Docker command to start HOPR Admin UI
 docker run -d -p 4677:4677 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
-That's all! You should have HOPR Admin started by now and can [access it through your browser](./using-hopr-admin-v2.md#accessing-hopr-admin).
+That's it! HOPR Admin UI should be running, and you can now [access it through your browser](./using-hopr-admin-v2.md#accessing-hopr-admin).
 
 ---
 
@@ -38,13 +38,13 @@ http://127.0.0.1:4677
 </TabItem>
 <TabItem value="dappnode_admin_ui" label="Dappnode">
 
-HOPR Admin already comes with the HOPR package on Dappnode:
+The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
 (**1**) Go to "**Packages**" and click on "**HOPR**".
 
 ![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
 
-(**2**) Once inside, click on "**Ui**" to open the HOPR Admin UI.
+(**2**) Once inside, click "**Ui**" to open the HOPR Admin UI.
 
 (**3**) Connect your node as suggested [here](./node-management-admin-ui.md#connecting-your-node).
 
@@ -55,9 +55,9 @@ HOPR Admin already comes with the HOPR package on Dappnode:
 
 ## Connecting Your Node
 
-To use HOPR Admin UI, you first need to connect to your HOPR node.
+To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
-(**1**) On the top right corner of the initial HOPR Admin screen, click on "**CONNECT TO NODE**".
+(**1**) In the top right corner of the initial HOPR Admin UI screen, click "**CONNECT TO NODE**".
 
 ![Node Admin Initial Screen](/img/node/admin-UI-home.png)
 
@@ -65,13 +65,13 @@ To use HOPR Admin UI, you first need to connect to your HOPR node.
 
 ![Node Admin Initial Screen](/img/node/admin-UI-connect.png)
 
-- Under the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
-- Under the "**API endpoint**" field, by default for the docker users api endpoint should be set to `http://localhost:3001`, but you may need to replace "**localhost**" with your server IP address if you used a VPS and change the port if you adjusted the mapping on installation. For dappnode users this should be set to `http://node.hopr.public.dappnode:3001` by default.
-- Under the "**API token**" field, if you are using Docker, enter the [custom security token you created](./node-docker.md#21-adjust-apitoken-setting). If you are using DAppNode, please enter the credentials you created.
+- In the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
+- In the "**API endpoint**" field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
+- In the "**API token**" field, if you are using Docker, enter the [custom security token you created](./node-docker.md#21-adjust-apitoken-setting). If you are using DAppNode, enter the credentials you created.
 
-**Note:** If you want to save your node credentials to login easier in the future, tick "**Save API token locally (unsafe)**" and click "**Save**".
+**Note:** If you want to save your node credentials for login easier in the future, tick "**Save API token locally (unsafe)**" and click "**Save**".
 
-By clicking on the button "**Connect to the node**" you should connect to your node. If your connection was unsuccessful please refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
+By clicking the "**Connect to the node**" button, you should connect to your node. If your connection is unsuccessful, refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
 
 ---
 
@@ -79,7 +79,7 @@ By clicking on the button "**Connect to the node**" you should connect to your n
 
 ### INFO
 
-After [connecting your node](./node-management-admin-ui.md#connecting-your-node), you will be redirected to the node info section of the HOPR Admin. This is a great page to get all the high-level information about your node and its performance.
+After [connecting your node](./node-management-admin-ui.md#connecting-your-node), you will be redirected to the node info section of the HOPR Admin. This page provides all the high-level information about your node and its performance.
 
 #### Network
 
@@ -91,12 +91,12 @@ This section provides information about your node's eligibility to participate i
 | **Sync Process** | Shows the progress of the initial syncing process with the network. |
 | **Blockchain Network** | Describes the blockchain network on which the HOPR node operates for its on-chain activities. |
 | **Hopr Network** | Specifies the network/environment in which your node is running. |
-| **Connectivity Status** | Displays the health of your connection to the network. <br/><br/> **Note**: Please wait **15 minutes** after starting or restarting your node before checking the connectivity status. <br/><br/> - **Unknown**: The initial status when the node is started, indicating that connectivity has not yet been assessed. <br/>  - **Orange**: Represents a low-quality connection (**\< 0.5**) to at least one public node. <br/>  - **Yellow**: Signals a high-quality connection to at least one public node. <br/>  - **Green**: Denotes a high-quality connection to both public and at least one non-public node. |
-| **Announced address** | This is the IP address and port of the HOPRd node, which it announces on the network, allowing other nodes to establish connections with it. |
-| **Listening address address** | This is the IP address and port to which the HOPRd node is listening. |
-| **Current block** | This is a last block that the node got from the RPC. |
-| **Last indexed block** | This is a last indexed block from the chain which contains HOPR data. |
-| **Block checksum** | This is a last indexed block calculated checksum. |
+| **Connectivity Status** | Displays the health of your connection to the network. <br/><br/> **Note**: Please wait **15 minutes** after starting or restarting your node before checking the connectivity status. <br/><br/> - **Unknown**: The initial status when the node is started, indicating that connectivity has not yet been assessed. <br/>  - **Orange**: Represents a low-quality connection (**\< 0.5**) to at least one public node. <br/>  - **Yellow**: Signals a high-quality connection to at least one public node. <br/>  - **Green**: Denotes a high-quality connection to both a public and at least one non-public node. |
+| **Announced address** | This is the IP address and port of the HOPRd node, which it announces on the network, allowing other nodes to establish connections. |
+| **Listening address** | This is the IP address and port to which the HOPRd node is listening. |
+| **Current block** | This is the last block that the node received from the RPC. |
+| **Last indexed block** | This is the last indexed block from the chain that contains HOPR data. |
+| **Block checksum** | This is the checksum of the last indexed block. |
 
 #### Balances
 
@@ -169,7 +169,7 @@ Node shows different metrics which are useful for troubleshooting.
 
 - **Notifications**: Enable or disable notifications for specific sections.
 
-- **Strategies**: This section displays the current strategies of your node, where strategies help you manage your node more effectively by allowing you to configure settings such as the threshold for ticket aggregation or the redemption process. Strategies can be customized via the [configuration file](./manage-node-strategies.md).
+- **Strategies**: This section displays the current strategies of your node, which help you manage your node more effectively by allowing you to configure settings such as the threshold for ticket aggregation and the redemption process. Strategies can be customized via the [configuration file](./manage-node-strategies.md).
 
 ---
 

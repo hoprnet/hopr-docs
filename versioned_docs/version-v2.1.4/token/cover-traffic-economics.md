@@ -1,11 +1,11 @@
 ---
 id: cover-traffic-economics
-title: Cover Traffic economics
+title: Cover Traffic Economics
 ---
 
 The Cover Traffic economic model projects the expected reward of a node runner can expect given the underlying parameters.
 
-Here are 3 different scenarios to show how the current Cover Traffic economic model would work in a hypothetical network with 5 nodes:
+Here are 3 different scenarios showing how the current Cover Traffic economic model would work in a hypothetical network with 5 nodes:
 
 ## Table of terms
 
@@ -57,4 +57,4 @@ The owner of Node E made a strategic decision to split his 100,000-wxHOPR stake 
 | Expected tickets | 417    | 1250    | 2083    | 2083   | 3125   | 1042 |
 | APY (pct) | 50.0    | 50.0    | 50.0     | 50.0   | 50.0    | 50.0 |
 
-For a more detailed and in-depth explanation of the Cover Traffic economic model, please read: [here](https://github.com/hoprnet/ct-research/wiki/Economic-model)
+For a more detailed and in-depth explanation of the Cover Traffic economic model, read: [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).

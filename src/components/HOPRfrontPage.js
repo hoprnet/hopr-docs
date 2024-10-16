@@ -27,7 +27,7 @@ const FeatureList = [
     docName: 'core/what-is-hopr'
   },
   {
-    title: 'Run a node',
+    title: 'Run a Node',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-node.svg'} />,
     description: <>Learn to set up and run a node for the decentralized HOPR network.</>,
     docName: 'node/run-a-node-overview'

@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 <details>
 <summary>
 
-### How to find your public IP?
+### How do I find my public IP address?
 
 </summary>
 
@@ -37,7 +37,7 @@ VPS users should be able to find their IP address from their provider. It will a
   
   </summary>
 
-To run the HOPRd node, you need a static or public IP so other peers can reach you on the network. However, many ISPs only provide dynamic IPs. In this case, you can use Dynamic DNS (DDNS), which continually checks for IP changes and automatically updates the hostname with the latest IP. This means using a hostname instead of an IP address. Here's how to set it up:
+To run the HOPRd node, you need a static or public IP so other peers can reach you on the network. However, many ISPs only provide dynamic IPs. In this case, you can use Dynamic DNS (DDNS), which continually checks for IP changes and automatically updates the hostname with the latest IP. This allows you to use a hostname instead of an IP address. Here's how to set it up:"
 
 #### Via Your Router
 
@@ -60,7 +60,7 @@ For more information, view the documentation [here](https://docs.hoprnet.org/nod
 
 Use a Dynamic DNS service provider client to monitor IP changes and update your domain. We recommend [No-IP](http://www.noip.com). Install their client on your machine to monitor external IP changes and update the hostname.
 
-(**1**) Download & install the client based on your OS: [No-IP Download](https://noip.com/download)
+(**1**) Download and install the client based on your OS: [No-IP Download](https://noip.com/download)
 
 (**2**) After setting up DDNS, create a hostname (e.g., **hostname.hopto.org**) to use with a port on the HOPR package.
 
@@ -105,7 +105,7 @@ You can find where to purchase the relevant tokens [here](../token/acquiring-hop
 <details>
 <summary> 
   
-### What is the Network Registry NFT, and how will the boost NFTs from previous releases be utilized in the future?
+### What is the Network Registry NFT, and how will boost NFTs from previous releases be utilized in the future?
 </summary>
 Node runners from the previous Monte Rosa release were issued a special **Network Registry NFT**, which remains active for the Dufour release. This allows early access to the network with a reduced stake requirement of **10,000 wxHOPR**.
 
@@ -120,18 +120,18 @@ Node runners from the previous Monte Rosa release were issued a special **Networ
 
 Cover Traffic ("CT") is the new way to earn rewards. The Cover Traffic app has four components, which operate in the following sequence:
 
-- Netwatcher's task is to locate nodes on the network and create a list.
-- The Aggregator collects all node information from the Netwatchers and sends it to the database.
-- EconomicHandler applies the economic model and pushes the data to the queue.
-- Postman takes the queue and distributes a series of 1-hop messages to every node.
+- The Netwatcher’s task is to locate nodes on the network and create a list.
+- The Aggregator collects all node information from the Netwatcher and sends it to the database.
+- The EconomicHandler applies the economic model and pushes the data to the queue.
+- The Postman takes the queue and distributes a series of 1-hop messages to every node.
 </details>
 
 <details>
 <summary>
 
-### How often Cover Traffic is distributing the rewards?
+### How often is Cover Traffic distributing the rewards?
 </summary>
-Cover Traffic rewards are distributed continuously across the network. The system calculates the distribution delay for each node based on the amount staked by that node.
+Cover Traffic rewards are distributed continuously across the network. The system calculates the distribution delay for each node based on the amount staked.
 </details>
 
 <details>

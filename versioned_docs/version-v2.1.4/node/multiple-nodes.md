@@ -1,6 +1,6 @@
 ---
 id: multiple-nodes
-title: Running multiple nodes
+title: Running Multiple Nodes
 #toc_min_heading_level: 3
 #toc_max_heading_level: 5
 hide_table_of_contents: true
@@ -20,17 +20,17 @@ When running multiple nodes without a local RPC provider, it is essential to use
 
 :::
 
-To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Every node has to have different ports and they should not match between each nodes you are running on the same device or VPS.
+To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Each node must have different ports, and they should not match between the nodes you are running on the same device or VPS.
 
-For example, the second node should make these changes:
+For example, the second node should implement the following changes:
 
 - Change `-p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002`
 - Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
 - Add `--apiPort 3002` (where first defaults to 3001)
-- Make sure to suffix your IP address with the new port instead of `9091` in this example it would now be `9092`
-- Give a different name to your second node by changing `--name hoprd` to `--name hoprd-2`
+- Ensure you suffix your IP address with the new port, which in this example would now be `9092` instead of `9091`.
+- Assign a different name to your second node by changing `--name hoprd` to `--name hoprd-2`
 
-All these changes implemented would be similar to the following:
+These changes would result in the following configuration:
 
 ![New Node Comparison](/img/node/new-node-comparison.png)
 
@@ -81,7 +81,7 @@ Adjust the following secrets environment variables as needed:
 
 - "**HOPRD_PASSWORD**": Please replace "**\<YOUR HOPRD IDENTITY PASSWORD>**" with the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on how to create a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
 
-- "**HOPRD_API_TOKEN**": Replace the "**\<YOUR HOPRD API TOKEN>**" within your docker command with your own security token which is required to connect to your node via Admin UI or REST API. For guidance on how to create a secure secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
+- "**HOPRD_API_TOKEN**": Replace the "**\<YOUR HOPRD API TOKEN>**" within your docker command with your own security token which is required to connect to your node via HOPR Admin UI or REST API. For guidance on how to create a secure secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
 
 (**4**) Configure node strategies. Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and edit the "**hoprd.cfg.yaml**" file. Make adjustments according to these [guidelines](./manage-node-strategies.md) (refer to the "**Docker Compose**" section).
 

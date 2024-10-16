@@ -1,6 +1,6 @@
 ---
 id: custom-rpc-provider
-title: Custom RPC provider
+title: Custom RPC Provider
 ---
 
 ## Overview
@@ -17,7 +17,7 @@ Here are the different methods for running your own node or connecting to a thir
 
 #### **For VPS/PC/Mac users**
 
-To set up a Gnosis chain node, you will need to run both the Execution Layer (EL) and Consensus Layer (CL) clients. Make sure your hardware meets the necessary requirements:
+To set up a Gnosis chain node, you will need to run both the Execution Layer (EL) and Consensus Layer (CL) clients. Ensure that your hardware meets the necessary requirements:
 
 - [EL requirements](https://docs.sedge.nethermind.io/docs/networks/gnosis#nethermind-client)
 - [CL requirements](https://docs.sedge.nethermind.io/docs/networks/gnosis#consensus-clients-requirements)
@@ -54,7 +54,7 @@ After syncing, your RPC endpoint for the HOPR node will be [http://nethermind-xd
 
 ---
 
-### 2. Use Third-Party RPC providers (Moderately stable)
+### 2. Use third-party RPC providers (Moderately stable)
 
 We recommend using a third-party RPC provider that runs on the Nethermind execution client. These options are typically free and reliable enough for running your node:
 

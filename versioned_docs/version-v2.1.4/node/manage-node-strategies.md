@@ -1,6 +1,6 @@
 ---
 id: manage-node-strategies
-title: Node configuration and strategies
+title: Node Configuration and Strategies
 toc_min_heading_level: 2
 toc_max_heading_level: 5
 ---
@@ -12,22 +12,22 @@ Node strategies allow for much more detailed and granular control over your node
 
 ## Create and apply configuration file to your node
 
-Please select the platform:
+Please select your platform:
 
 <Tabs>
 <TabItem value="config_docker" label="Docker">
 
-(**1**) Download the example file specificaly for the Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-**Note**: The latest version of the default configuration file for all supported platforms is available on the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
+**Note**: The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 (**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 (**3**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
 
-(**4**) After uploading the configuration file, please [stop your current node](./node-operations.md#stop-your-hopr-node).
+(**4**) After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-(**5**) Once your node is stopped, you will need to add additional parameter "**--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'**" to link your configuration file to your current docker command.
+(**5**) Once your node is stopped, add the additional parameter "**--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'**" to link your configuration file to your current docker command.
 
 Docker command: 
 
@@ -35,9 +35,9 @@ Docker command:
 docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 
-**Note:** If you're running multiple nodes or have changed the default ports, please make the necessary port adjustments accordingly.
+**Note:** If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
 
-(**7**) Paste your docker command into the terminal window and execute it.
+(**7**) Paste your Docker command into the terminal window and execute it.
 
 (**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
  
@@ -58,9 +58,9 @@ The latest version of the default configuration file for all supported platforms
 </TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
-(**1**) Download the example file specificaly for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
 
-**Note**: The latest version of the default configuration file for all supported platforms is available on the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
+**Note**: The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 (**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
@@ -72,7 +72,7 @@ The latest version of the default configuration file for all supported platforms
 
 (**4**) In the "**Upload file**" section, click the "**Browse**" button next to the "**Choose file**" field, then select your newly created configuration file. Ensure that the configuration file is named "**hoprd.cfg.yaml**".
 
-(**5**) In the text field under "**Upload file**" section enter the path `/app/`.
+(**5**) In the text field under the "**Upload file**" section, enter the path `/app/`.
 
 ![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
 

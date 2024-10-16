@@ -1,13 +1,13 @@
 ---
 id: token-wrapping
-title: Wrapping HOPR tokens
+title: Wrapping HOPR Tokens
 hide_table_of_contents: true
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The HOPR token wrapper operates on the Gnosis chain and is primarily used to wrap HOPR tokens for staking and running HOPRd nodes. This enables participants to contribute to the network while earning rewards.
+The HOPR token wrapper operates on the Gnosis Chain and is primarily used to wrap HOPR tokens for staking and running HOPRd nodes. This enables participants to contribute to the network while earning rewards.
 
 <Tabs>
 <TabItem value="wrapp" label="Wrap xHOPR to wxHOPR">
@@ -24,7 +24,7 @@ The HOPR token wrapper operates on the Gnosis chain and is primarily used to wra
 
 ## 3. Access the wrapper section
 
-   Once your wallet is connected, click on "**Wrapper**" on the left-hand side of the page.
+   Once your wallet is connected, click "**Wrapper**" on the left-hand side of the page.
 
    ![Staking hub wrapper](/img/token/wrapper-2.jpg)
 
@@ -54,7 +54,7 @@ The HOPR token wrapper operates on the Gnosis chain and is primarily used to wra
 
 ## 3. Access the wrapper section
 
-   Once your wallet is connected, click on "**Wrapper**" on the left-hand side of the page.
+   Once your wallet is connected, click "**Wrapper**" on the left-hand side of the page.
 
    ![Staking hub wrapper](/img/token/wrapper-2.jpg)
 

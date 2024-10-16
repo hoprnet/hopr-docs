@@ -53,7 +53,7 @@
         "node/run-a-node-overview",
         {
           "type": "category",
-          "label": "Installation guide",
+          "label": "Installation Guide",
           "items": ["node/node-docker", "node/node-dappnode"]
         }
       ]
@@ -83,7 +83,7 @@
     },
     {
       "type": "category",
-      "label": "Advanced configuration",
+      "label": "Advanced Configuration",
       "collapsed": false,
       "items": [
         "node/multiple-nodes",

@@ -1,21 +1,21 @@
 ---
 id: port-forwarding
-title: Port forwarding
+title: Port Forwarding
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## When do you need to setup port forwarding?
+## When do you need to set up port forwarding?
 
 If you're running a HOPRd node on your local machine or Dappnode, you're likely behind NAT (Network Address Translation), which is commonly used in home and office networks to allow multiple devices to share a single public IP address; this setup hides the internal IP addresses from the external network. To make your node reachable by external peers, you'll need to expose a specific port to the public; otherwise, your node won't be able to connect to other nodes.
 
-## When you don't need to setup port forwarding?
+## When you don't need to set up port forwarding?
 
-- If you're running a HOPRd node on a VPS, there's no need to set up port forwarding.
-- We strongly recommend **not** port forwarding your REST API port (**default port is 3001**) unless you're using a "**Secret token**" for secure connections. If you're using a VPS, make sure the **3001** port is not exposed to the public for security reasons.
+- If you're running a HOPRd node on a VPS, you don't need to set up port forwarding.
+- We strongly recommend **not** forwarding your REST API port (**default port is 3001**) unless you're using a "**Secret token**" for secure connections. If you're using a VPS, ensure that port **3001** is not exposed to the public for security reasons.
 
-## How to configure port forwarding?
+## How to configure port forwarding
 
 ### 1. Find the internal IP address
 
@@ -76,7 +76,7 @@ Example:
 
 ### 2. Find your routers gateway IP address
 
-To access your router admin, you will need to find your router's default gateway IP address. Please select operating system:
+To access your router's admin interface, you will need to find your router's default gateway IP address. Please select your operating system:
 
 <Tabs>
 
@@ -90,9 +90,9 @@ To access your router admin, you will need to find your router's default gateway
 ip route show default | awk '/default/ {print $3}'
 ```
 
-It will print out your router's gateway IP address. Commonly, the gateway IP addresses of your router are **192.168.1.1** or **192.168.0.1**
+The output will display your router's gateway IP address. Commonly, the gateway IP addresses are **192.168.1.1** or **192.168.0.1**.
 
-(**3**) Enter the router's gateway IP address into the browser. This will load the login screen to your router, and usually, it should show the model of your router.
+(**3**) Enter the router's gateway IP address into your browser. This will load the login screen for your router, and it should usually display the model of your router.
 
 </TabItem>
 <TabItem value="mac_router_gateway" label="macOS">
@@ -127,11 +127,11 @@ It will print out your router's gateway IP address. Commonly, the gateway IP add
 </TabItem>
 </Tabs> 
 
-### 3. Setting up port forwarding on your router
+### 3. Set up port forwarding on your router
 
-(**1**) Please access your router's admin interface by entering [your gateway IP address](./port-forwarding.md#2-find-your-routers-gateway-ip-address) into your browser.
+(**1**) Access your router's admin interface by entering [your gateway IP address](./port-forwarding.md#2-find-your-routers-gateway-ip-address) into your browser.
 
-(**2**) Each router brand will have its own method of setting up port forwarding, but it usually should not be very difficult. Here is a list of instructions for the most popular router brands:
+(**2**) Each router brand will have its own method for setting up port forwarding, but it should usually be straightforward. Here is a list of instructions for the most popular router brands:
 
 - [TP-Link Router](https://www.tp-link.com/us/support/faq/134/)
 
@@ -141,14 +141,14 @@ It will print out your router's gateway IP address. Commonly, the gateway IP add
 
 - [Asus Router](https://www.asus.com/support/FAQ/1037906/)
 
-(**3**) Then setup port forwarding using the following settings:
+(**3**) Set up port forwarding using the following settings:
 
-- **Internal Ip address**: [Internal IP address](./port-forwarding.md#1-find-the-internal-ip-address) of your machine which is running HOPRd node.
+- **Internal Ip address**: The [internal IP address](./port-forwarding.md#1-find-the-internal-ip-address) of your machine running the HOPRd node.
 
-- **Protocol**: You will need to setup port forwarding for both **TCP** & **UDP**.
+- **Protocol**: You will need to set up port forwarding for both **TCP** and **UDP**.
 
-- **Internal & external port**: Use **9091** for both the internal and external ports. If you are running multiple nodes on the same machine, you will need to assign different ports for each node.
+- **Internal and external port**: Use **9091** for both the internal and external ports. If you are running multiple nodes on the same machine, you will need to assign different ports for each node.
 
-Example of how port forwarding settings looks like:
+Example of how port forwarding settings looks:
 
 ![Portforwarding rule](/img/node/asus-port-forwarding.png)

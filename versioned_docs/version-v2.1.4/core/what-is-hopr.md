@@ -20,6 +20,11 @@ It shouldn’t be this way. Users deserve privacy. Companies deserve tools to pr
 
 ## What is HOPR?
 
+<audio controls>
+  <source src="/audio/HOPR_pronounce.mp3" type="audio/mpeg"/>
+  Your browser does not support the audio element.
+</audio>
+
 HOPR is a way for people, companies, and devices to exchange information online with complete privacy. People who communicate and transact using HOPR — or apps and services which run on top of the HOPR platform — can be sure that no-one can find out what data is being shared, who is sending or receiving it, or even how much data is being sent.
 
 Best of all, HOPR is fully decentralized. It’s completely transparent and trustless, which means you never have to rely on a third party, and you’re never locked into a service or have to give up control of your data.

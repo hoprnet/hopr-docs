@@ -15,7 +15,7 @@ MyTokenTracker which is built on the top of the HOPR protocol shows how Ethereum
 
 The tool will display all the assets linked to the entered address on the left side of the screen. As these assets load, it also loads specific asset icons, which can reveal your IP address. This information is displayed on the right side of the screen, exposing a metadata leak.
 
-For example, if you use a DEXs like Uniswap, asset logos are being loaded by making request from your computer, making it easy to link your Ethereum address and IP address.
+For example, if you use a DEX like Uniswap, asset logos are loaded by making a request from your computer, making it easy to link your Ethereum address and IP address.
 
 ![MyTokenTracker shows data leak](/img/dapps/mytokentracker-leaked-info.png)
 

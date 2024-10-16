@@ -9,7 +9,7 @@ This is particularly problematic for growing networks like HOPR, but even mature
 
 How can we do that? Well, returning to our leaf analogy, when there’s no forest to hide your leaf in, what do you do? The answer is to grow your own forest. If there isn’t enough data to confuse a global adversary, we need to make more data from somewhere.
 
-Mixnets like HOPR ensure a constant level of privacy by sending arbitrary data through the network. This is called “Cover Traffic”, because the arbitrary data provides cover for legitimate packets.
+Mixnets like HOPR provide a minimum level of privacy by sending arbitrary data through the network. This is called “Cover Traffic”, because the arbitrary data provides cover for legitimate packets.
 
 Data packets sent in this way function just like normal packets, except they have no meaningful content. So relayers still get paid for relaying them, and they get mixed in with all the data for “real” packets.
 
