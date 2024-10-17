@@ -11,7 +11,7 @@ The diagram below illustrates the relationship between key components involved i
 
 - **HOPRd Node**: The HOPRd node is connected to the HOPR Staking Hub, allowing node operators to monitor their node’s performance, fund it with native tokens for on-chain activities, manage spending limits for opening payment channels, etc.
 
-- **HOPR Staking Hub**: The [HOPR Staking Hub](./staking-hub.md) is a platform designed for onboarding nodes onto the HOPR network. Through the Staking Hub, node operators using **HOPR Safe** can securely stake **wxHOPR** tokens, add multiple wallet owners for enhanced security, wrap HOPR tokens, monitor node performance, and earn rewards.
+- **HOPR Staking Hub**: The [HOPR Staking Hub](./staking-hub.md) is a platform designed for onboarding nodes onto the HOPR network. Through the Staking Hub, node operators using [HOPR Safe](../token/safestaking.md#why-is-hopr-using-safe) can securely stake **wxHOPR** tokens, add multiple wallet owners for enhanced security, wrap HOPR tokens, monitor node performance, and earn rewards.
 
 - **HOPR Admin UI**: The [HOPR Admin UI](./node-management-admin-ui.md) is a user-friendly interface that enables operators to manage HOPRd nodes. Through the Admin UI, users can configure the node settings, monitor performance, and perform maintenance tasks, making node operation accessible even to non-technical users. The Admin UI serves as the control center for managing node-related activities.
 
