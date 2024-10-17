@@ -6,7 +6,7 @@ title: HOPR Admin UI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The HOPR Admin UI provides a graphical interface that you can use to interact with your node and diagnose any potential issues. HOPR Admin UI is provided with the Dappnode HOPR package by default, so no separate action is needed, but for Docker users you will need to run an extra command to install HOPR Admin UI before you can access it.
+The HOPR Admin UI provides a graphical interface that you can use to interact with your node and diagnose any potential issues. HOPR Admin UI is provided with the Dappnode HOPR package by default, so no separate action is needed, but for Docker users, you will need to run an extra command to install HOPR Admin UI before you can access it.
 
 ## Installing HOPR Admin UI
 
@@ -210,11 +210,6 @@ Displays a list of received messages and allows you to interact with them. Addit
 ---
 
 ### CHANNELS: IN
-
-Displays a list of open payment channels from other nodes to your node. Next to the peerID, you can ping, add an alias, open/close a payment channel, or send a message from your end.
-
-**Unredeemed** - This indicates the number of unredeemed tickets on the specific payment channel.
-
 
 Displays a list of open payment channels from other nodes to your node. Next to the peerID, you can ping, add an alias, open/close a payment channel, or send a message from your end.
 

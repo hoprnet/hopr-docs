@@ -46,7 +46,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 
 Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
 
-- **port**: Default port is **9091**, change this port if you changed it under "**HOPRD_P2P_PORT**" environment variable.
+- **port**: Default port is **9091**, change this port if you changed it under the "**HOPRD_P2P_PORT**" environment variable.
 - **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#safe_module).
