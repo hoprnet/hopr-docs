@@ -18,7 +18,7 @@ Here are 3 different scenarios showing how the current Cover Traffic economic mo
 |  **Expected tickets** | Expected ticket numbers to be rewarded by the Cover Traffic. 1 ticket equals to 1 wxHOPR. |
 |  **APY (pct)** | Your staking rewards APY (Annual Percentage Yield). |
 
-## 1st economic model scenario:
+## 1st economic model scenario
 
 Every node runner is in between the Cover Traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
 
@@ -31,7 +31,7 @@ Every node runner is in between the Cover Traffic thresholds, receiving maximum 
 | Expected tickets | 465    | 1395    | 2326     | 2326    | 3488    |
 | APY (pct) | 55.81    | 55.81    | 55.81     | 55.81   | 55.81    |
 
-## 2nd economic model scenario:
+## 2nd economic model scenario
 
 The owner of Node E decided to stake 100,000 wxHOPR instead of 75,000 wxHOPR. We can see that their Transformed stake amount decreased from 100,000 to approximately 76,000 HOPR tokens. This is the amount from which Cover Traffic will calculate the rewards. Expected rewards are quite similar to the rewards if the node had staked 75,000 instead of 100,000 per node.
 
@@ -44,11 +44,11 @@ The owner of Node E decided to stake 100,000 wxHOPR instead of 75,000 wxHOPR. We
 | Expected tickets | 462    | 1386    | 2311     | 2311    | 3530    |
 | APY (pct) | 55.46    | 55.46    | 55.46     | 55.46   | 42.36    |
 
-## 3rd economic model scenario:
+## 3rd economic model scenario
 
 The owner of Node E made a strategic decision to split his 100,000-wxHOPR stake into two nodes, one with 75,000 wxHOPR and the other with 25,000 wxHOPR. By aggregating the expected rewards from both nodes, he significantly increased his total rewards compared to running a single node, as shown in the second scenario. This approach maximizes his rewards while staying within the stake threshold.
 
-|    | Node A | Node B | Node C | Node D | Node E (1st node) | Node E (2nd node)
+|    | Node A | Node B | Node C | Node D | Node E (1st node) | Node E (2nd node) |
 | -- | ------ | ------ | ------ | ------ | ------ | ------ |
 | Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000    | 75000    | 25000 |
 | Transformed Stake (wxHOPR) | 10000    | 30000    | 50000     | 50000   |75000    | 25000    |

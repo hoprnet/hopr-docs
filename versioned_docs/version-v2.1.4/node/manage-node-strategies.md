@@ -46,7 +46,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 
 Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
 
-- **port**: Default port is **9091**, change this port if you did changed under "**HOPRD_P2P_PORT**" environment variable.
+- **port**: Default port is **9091**, change this port if you changed it under "**HOPRD_P2P_PORT**" environment variable.
 - **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#safe_module).
@@ -371,7 +371,7 @@ Defines a promiscuous strategy that automatically manages HOPR channels based on
 | Settings | Description |
 | --- | --- |
 | `max_channels` | The maximum number of opened channels the strategy should maintain. |
-| `network_quality_threshold` | A quality threshold between 0 and 1 used to determine whether the strategy should open channel with the peer. Only node's above this threshold will be chosen for channels. |
+| `network_quality_threshold` | A quality threshold between 0 and 1 used to determine whether the strategy should open a channel with the peer. Only nodes above this threshold will be chosen for channels. |
 | `new_channel_stake` | The stake of tokens that should be allocated to a channel opened by the strategy. |
 | `minimum_node_balance` | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
 | `min_network_size_samples` | The minimum number of network quality samples before the strategy can start making decisions. |

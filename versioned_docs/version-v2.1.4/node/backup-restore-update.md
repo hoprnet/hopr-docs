@@ -13,7 +13,7 @@ Please select a platform to backup your node identity:
 <Tabs>
 <TabItem value="docker_backup" label="Docker">
 
-For Docker the identity file is automatically created and stored on your machine.
+For Docker, the identity file is automatically created and stored on your machine.
 
 (**1**) Find the identity file "**.hopr-id-dufour**" at this path "**/\<computer username>/.hoprd-db-dufour/**".
 
@@ -21,12 +21,12 @@ For Docker the identity file is automatically created and stored on your machine
 
 **Note:** Your database password is set to `open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0` by default, unless you changed it during the initial node setup.
 
-(**3**) Store the the backed-up file somewhere safe, along with your database password, in case you ever need to restore your node.
+(**3**) Store the backed-up file somewhere safe, along with your database password, in case you ever need to restore your node.
 
 </TabItem>
 <TabItem value="docker_compose_backup" label="Docker compose">
 
-For Docker compose the identity file is automatically created and stored on your machine.
+For Docker compose, the identity file is automatically created and stored on your machine.
 
 (**1**) Locate the identity file "**hopr.id**" at the following path: **"/\<computer username>/compose/hoprd_data/"**.
 
@@ -129,7 +129,7 @@ This will provide you with a list of Docker containers you are currently running
 
 ![Docker ps](/img/node/docker-ps-node-update.png)
 
-In the image above the container ID is: "**4951b2990936**". In your system, the Docker container ID will be different.
+In the image above, the container ID is: "**4951b2990936**". In your system, the Docker container ID will be different.
 
 (**3**) Kill the container using the following command: `docker kill <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
 
@@ -184,11 +184,11 @@ Please select platform to update your HOPR Admin UI:
 
 (**1**) Enter the following command `docker ps` into your terminal.
 
-This should provide you with a list of Docker containers you are currnetly running. Among them locate the one with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable**" and note the "**container ID**".
+This will provide you with a list of Docker containers you are currently running. Among them, locate the one with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable**" and note the "**container ID**".
 
 ![Docker ps](/img/node/docker-ps-admin-ui-update.png)
 
-In the image above the container ID is: "**0a74437b27f8**". In your system, the Docker container ID will be different.
+In the image above, the container ID is: "**0a74437b27f8**". In your system, the Docker container ID will be different.
 
 (**2**) Kill the container using the following command: `docker kill <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
 

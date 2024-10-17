@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 ### How to check if my node is performing normally?  
 </summary>
 
-(**1**) Connect to your node via the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+(**1**) Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
 (**2**) Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
 

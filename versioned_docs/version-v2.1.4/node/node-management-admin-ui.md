@@ -6,7 +6,7 @@ title: HOPR Admin UI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The HOPR Admin UI provides a graphical interface that you can use to interact with your node and diagnose any potential issues. HOPR Admin UI is provided with the Dappnode HOPR package by default, so no seperate action is needed, but for Docker users you will need to run an extra command to install HOPR Admin UI before you can access it.
+The HOPR Admin UI provides a graphical interface that you can use to interact with your node and diagnose any potential issues. HOPR Admin UI is provided with the Dappnode HOPR package by default, so no separate action is needed, but for Docker users you will need to run an extra command to install HOPR Admin UI before you can access it.
 
 ## Installing HOPR Admin UI
 
@@ -16,7 +16,7 @@ Open your terminal and paste the following Docker command to start HOPR Admin UI
 docker run -d -p 4677:4677 --pull always --name hopr-admin-for-2.1 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
-That's it! HOPR Admin UI should be running, and you can now [access it through your browser](./using-hopr-admin-v2.md#accessing-hopr-admin).
+That's it! HOPR Admin UI should be running, and you can now [access it through your browser](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
 ---
 
@@ -143,9 +143,9 @@ Shows the number of opened incoming & outgoing payment channels to and from this
 
 #### Nodes on the network
 
-- **Announced** - The number of total announced nodes on the HOPR network which are visible to your node.
+- **Announced** - The total number of nodes that have announced their presence on the HOPR network and are visible to your node. This includes also connected nodes with your node.
 
-- **Connected** - The number of visible nodes which have a connection to your node.
+- **Connected** - The number of nodes that have an active, direct connection to your node. These are the nodes your node can immediately communicate with.
 
 #### Aliases
 
@@ -178,11 +178,11 @@ Node shows different metrics which are useful for troubleshooting.
 Displays a list of nodes visible to your node, with specific information for each node:
 
 | Term | Description |
-| --- | --- |
-| **Peer ID** | The address used by other nodes on the network to interact with your node—allowing them to ping or send data. |
-| **Node Address** | The address used by other nodes on the network to interact with your node—allowing them to ping or send data. |
-| **Last Seen** | The address used by other nodes on the network to interact with your node—allowing them to ping or send data. |
-| **Quality** | The address used by other nodes on the network to interact with your node—allowing them to ping or send data. |
+| --- | --- | 
+| **Peer ID** | The unique identifier used by other nodes on the network to interact with your node. |
+| **Node Address** | The Ethereum address associated with the peer's node, used for on-chain interactions. |
+| **Last Seen** | The timestamp of the most recent interaction or connection with this peer. |
+| **Quality** | A measure of the connection quality with this peer, based on factors like latency and reliability. |
 | **Actions** | Next to each Peer ID, there are buttons that allow you to interact directly with the nodes through the interface: <br/><br/>  - **Ping Node**: Ping a node and measure the latency between your node and the target node. <br/> - **Add New Alias**: Assign a nickname or alias to the node. <br/> - **Open Outgoing Channel**: Create a payment channel from your node to the target node. <br/> - **Send Message**: Send a message to the target node, either directly or via a randomized route. You can choose the number of intermediaries, or **hops**, with a maximum of 3 hops.|
 
 If you haven't found a node on the list and you want to ping it, you'll find the **Ping Node** button at the top. This button allows you to ping any node, even if it's not on your node list.
@@ -214,6 +214,17 @@ Displays a list of received messages and allows you to interact with them. Addit
 Displays a list of open payment channels from other nodes to your node. Next to the peerID, you can ping, add an alias, open/close a payment channel, or send a message from your end.
 
 **Unredeemed** - This indicates the number of unredeemed tickets on the specific payment channel.
+
+
+Displays a list of open payment channels from other nodes to your node. Next to the peerID, you can ping, add an alias, open/close a payment channel, or send a message from your end.
+
+| Term | Description |
+| --- | --- |
+| **Node Address** | The Ethereum address of the node that opened the channel to your node. |
+| **Status** | It shows payment channel status. |
+| **Dedicated Funds** | The balance of wxHOPR allocated to the payment channel. |
+| **Unredeemed** | This indicates the number of unredeemed tickets on the specific payment channel. |
+| **Actions** | Available actions for this channel, such as pinging the peer, adding an alias, or closing the channel. |
 
 ---
 
