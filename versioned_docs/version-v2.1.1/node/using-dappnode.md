@@ -54,7 +54,7 @@ From the dashboard, note your:
 
 ![Module and Safe address](/img/node/updated-module-and-safe-address.png)
 
-(**6**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-ip-address).
+(**6**) Find your home network's public IP address, you will need it. If you don't know how to find your IP address, follow the instructions [here](./hidden-page.md#find-your-public-ip-address).
 
 (**7**) Return to the setup wizard and fill out the `Safe address`, `Module address`, `Public IP` and `RPC provider` fields accordingly (the bottom three).
 
@@ -132,7 +132,7 @@ Before updating your HOPR node, please make sure to write down the following inf
 
 Please note that significant changes have been introduced between versions **2.0.8** and **2.1.0**. During the upgrading process, there are additional steps you'll need to take:
 
-(**1**) Backup your identity file. Please follow the instructions [here](./using-dappnode#3-backup-your-identity-file).
+(**1**) Backup your identity file. Please follow the instructions [here](./using-dappnode#3-back-up-your-identity-file).
 
 (**2**) Navigate to the Dappstore and locate the HOPR package. Click on the "**Update**" button to proceed.
 
@@ -184,7 +184,7 @@ You will need to use the [file manager](http://my.dappnode/packages/my/hopr.publ
 
 (**5**) Navigate to the `File Manager` tab.
 
-![File Manager](/img/node/Dappnode-file-manager.png)
+![File Manager](/img/node/dappnode-file-manager.png)
 
 (**6**) In the text field under `Upload file` enter the path `/app/hoprd-db`.
 
@@ -241,7 +241,7 @@ If you have already installed your HOPR package, then you can still edit your no
 
 (**1**) Find HOPR in your packages and navigate to the `File Manager` tab. 
 
-![File Manager](/img/node/Dappnode-file-manager.png)
+![File Manager](/img/node/dappnode-file-manager.png)
 
 (**2**) In the text field under `Upload file` enter the path `/app`.
 

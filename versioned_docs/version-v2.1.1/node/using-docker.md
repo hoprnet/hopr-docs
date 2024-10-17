@@ -136,7 +136,7 @@ with
 
 You will need to edit your public IP address within the Docker command:
 
-(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./hidden-page.md#find-your-ip-address).
+(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./hidden-page.md#find-your-public-ip-address).
 
 (**2**) Replace the `host` within your docker command with your own public IP.
 
@@ -351,7 +351,7 @@ docker ps
 
 This should provide you with a list of Docker containers you are currnetly running. Among them locate the one with the label `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` and note the container ID.
 
-![Docker ps](/img/node/Docker-PS-update-node.png)
+![Docker ps](/img/node/docker-ps-node-update.png)
 
 In the image above the container ID is: `a5711c818f75`. In your system, the Docker container ID will be different.
 

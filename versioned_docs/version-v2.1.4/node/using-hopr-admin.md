@@ -105,13 +105,13 @@ If you are using Dappnode or Avado, you can download your identity file on their
 
 **_Note:_** You should download your identity file as soon as possible. As downloading the backup or DB folder will also download the database, which can get quite large in size if you’ve been running your node for a while.
 
-**_DAppNode –_** Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](using-dappnode#restoring-an-old-node) if needed.
+**_DAppNode –_** Find HOPR in your packages and navigate to the backup section. From there, all you have to do is click 'Download backup'. This will download a `.zip` file containing your identity file. For DAppNode, you should use this zipped file to [restore your node](./using-dappnode.md#restore-an-old-node) if needed.
 
 ![dappnode backup](/img/node/dappnode-backup.png)
 
 #### How to view your DAppNode identity file:
 
-You will not be able to use the identity file alone to [restore your old node](using-dappnode#restoring-an-old-node) on DAppNode and should use the entire zipped backup file. The instructions below are simply to view your identity file.
+You will not be able to use the identity file alone to [restore your old node](./using-dappnode.md#restore-an-old-node) on DAppNode and should use the entire zipped backup file. The instructions below are simply to view your identity file.
 
 (**1**) Extract the zipped file downloaded to see the DB folder and identity file.
 
@@ -129,7 +129,7 @@ From here, scroll down to the file manager and enter `/app/hoprd-db/.hopr-identi
 
 ![avado download](/img/node/Avado_backup_identity_file.png)
 
-Use the identity file to [restore your node](using-avado#alternative-method-using-your-identity-file) if needed.
+Use the identity file to [restore your node](./using-avado.md) if needed.
 
 **_Note:_** Make sure you enter `/app/hoprd-db` and not `/app/hoprd-db/`.
 

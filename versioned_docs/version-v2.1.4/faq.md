@@ -57,7 +57,7 @@ Proof of relay mechanism helps to separate the messaging and payment layers, bre
 
 ### What is Cover Traffic?
 
-Cover traffic - arbitrary data used to increase the background noise of the network. This boosts privacy by obscuring fluctuations in network usage.
+Cover Traffic - arbitrary data used to increase the background noise of the network. This boosts privacy by obscuring fluctuations in network usage.
 
 ### When will HOPR launch the mainnet?
 
@@ -79,7 +79,7 @@ You can buy HOPR tokens from Uniswap / Ascendex
 
 - Users can pay with HOPR tokens to send data through the HOPR network privately and securely.
 
-- Node runners can stake HOPR tokens in their nodes to be rewarded for relaying data. Node runners receive fees in HOPR for the data they help to relay, including a large number of tokens distributed in the form of cover traffic.
+- Node runners can stake HOPR tokens in their nodes to be rewarded for relaying data. Node runners receive fees in HOPR for the data they help to relay, including a large number of tokens distributed in the form of Cover Traffic.
 
 - Finally, the HOPR token gives users voting power in the HOPR Association DAO
   "
@@ -116,4 +116,4 @@ How to [install a hoprd node.](node/start-here).
 
 ### Are you rewarding node operators?
 
-Node operators can stake HOPR tokens in their nodes to be rewarded for relaying data. Node runners receive fees in HOPR for the data they help to relay, including a large number of tokens distributed in the form of cover traffic.
+Node operators can stake HOPR tokens in their nodes to be rewarded for relaying data. Node runners receive fees in HOPR for the data they help to relay, including a large number of tokens distributed in the form of Cover Traffic.

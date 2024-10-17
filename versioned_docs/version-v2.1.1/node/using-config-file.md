@@ -26,11 +26,11 @@ To set up your node's configuration file, you can use the example file.
 
 **If you are using Dappnode**, you do not need to edit the main variables.
 
-(**3**) Then feel free to edit as many of the customizable variabless as you would like. You can see a list of each variable its description/usage [here](./using-config-file.md#variables).
+(**3**) Then feel free to edit as many of the customizable variables as you would like. You can see a list of each variable its description/usage [here](./using-config-file.md#variables).
 
 (**4**) Save the completed configuration file. Where you save it will depend on whether you are using Dappnode or Docker.
 
-* **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process. If you are adding the configuration file to your node after installation, follow the instructions [here](./using-dappnode.md#adding-configuration-file-after-installation). 
+* **Dappnode users** can save the file anywhere they will be able to access it later as they will upload the file during the installation process. If you are adding the configuration file to your node after installation, follow the instructions [here](./using-dappnode.md#adding-configuration-file-after-installation).
 * **Docker users** should save the file within the database directory they will be using for their node. This is commonly set to `.hoprd-db-dufour`.
 
 (**5**) Rename the saved file. Sometimes the filename changes on download. 
@@ -38,7 +38,7 @@ To set up your node's configuration file, you can use the example file.
 - **For Dappnode:** the file name should strictly be `hoprd.cfg.yaml`
 - **For Docker:** You can choose your own filename, but you will need to ensure this exact file name is used within the configuration file path provided when you run your Docker command.
  
-# Variables
+## Variables
 
 ## Identity
 

@@ -1,6 +1,6 @@
 ---
 id: using-docker
-title: Set Up & Use Docker
+title: For Docker / Docker compose
 ---
 
 import Tabs from '@theme/Tabs';
@@ -136,11 +136,11 @@ with
 
 You will need to edit your public IP address within the Docker command:
 
-(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./hidden-page.md#find-your-ip-address).
+(**1**) Find your public IP address. If you do not know it, you can follow the instructions [here](./hidden-page.md#find-your-public-ip-address).
 
 (**2**) Replace the `host` within your docker command with your own public IP.
 
-For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 123.123.123.123:9091`.
+For example: replace `--host <YOUR_PUBLIC_IP>:9091` with `--host 1.2.3.4:9091`.
 
 Make sure not to remove the port `:9091` at the end.
 
@@ -260,7 +260,7 @@ Using the configuration file will allow you to customize your node's settings at
 (**2**) With your configuration file saved, copy the following command and make sure the path to the configuration file is correct.
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
 ```
 
 **Note:** If your database is located in the default directory, `.hoprd-db-dufour` and you have saved your configuration file there. Then you have nothing to adjust.
@@ -292,7 +292,7 @@ wget -O saint-louis.zip https://github.com/hoprnet/hoprnet/archive/refs/heads/re
 
 ### 2. Set Up Environment Variables
 Inside "compose" folder, rename `.env.example` to `.env` and adjust the following environment variables as needed:
-- `HOPRD_API_PORT`: The REST API port, default is **3001**. (Connects your node with the Admin UI)
+- `HOPRD_API_PORT`: The REST API port, default is **3001**. (Connects your node with the HOPR Admin UI)
 - `HOPRD_P2P_PORT`: The peer-to-peer communication port, default is **9091**. (This port should be exposed to enable external connections to your node)
 
 ```md
@@ -351,7 +351,7 @@ docker ps
 
 This should provide you with a list of Docker containers you are currnetly running. Among them locate the one with the label `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable` and note the container ID.
 
-![Docker ps](/img/node/Docker-PS-update-node.png)
+![Docker ps](/img/node/docker-ps-node-update.png)
 
 In the image above the container ID is: `a5711c818f75`. In your system, the Docker container ID will be different.
 

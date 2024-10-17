@@ -21,7 +21,7 @@ A full specification of all the events from _HoprChannels_ smart contract is det
 
 #### Importance score
 
-With the latest channel balances, **importance score** can be calculated per channel. This score is used as an indicator for cover traffic nodes to prioritize the distribution of cover traffic.
+With the latest channel balances, **importance score** can be calculated per channel. This score is used as an indicator for Cover Traffic nodes to prioritize the distribution of Cover Traffic.
 The importance score is calculated as a product of the **stake** of a node and the sum of the **weights** of all outgoing channels.
 
 ```

@@ -13,13 +13,13 @@ Expected Rewards = Cover Traffic Probability * Budget
 
 ## Cover Traffic Probability
 
-The probability of receiving cover traffic is determined by your [transformed stake](./ct-economic-model.md#transformed-stake) and the transformed stake of every other node in the network. 
+The probability of receiving Cover Traffic is determined by your [transformed stake](./ct-economic-model.md#transformed-stake) and the transformed stake of every other node in the network. 
 
 Cover Traffic Probability = Your Node's Transformed Stake / Total Transformed Stake in The Network.
 
 ## Transformed Stake
 
-A node's stake on the network has a transformation function applied to it. This transformed value is used when calculating rewards distributed by cover traffic. The following transformation function is used:
+A node's stake on the network has a transformation function applied to it. This transformed value is used when calculating rewards distributed by Cover Traffic. The following transformation function is used:
 
 ![Transformation Function](/img/node/CT-probability.png)
 
@@ -33,7 +33,7 @@ You can view the current parameters [here](./ct-economic-model.md#parameters) as
 
 ## Parameters
 
-These are the current parameters for the HOPR cover traffic economic model and their current values.
+These are the current parameters for the HOPR Cover Traffic economic model and their current values.
 
 **Note:** The HOPR Association can change these at any time. 
 
@@ -44,14 +44,14 @@ These are the current parameters for the HOPR cover traffic economic model and t
 * `Budget` = 100,000 wxHOPR
 * `Budget Period` = 2628000 Seconds
 
-Based on these parameters, 100,000 wxHOPR is currently distributed through cover traffic every month. This will change over time as nodes are added to the network, as the 
+Based on these parameters, 100,000 wxHOPR is currently distributed through Cover Traffic every month. This will change over time as nodes are added to the network, as the 
 HOPR Association aims to maintain an average APR of 10-15%.
 
 View the [examples below](./ct-economic-model.md#examples) to better understand how these parameters affect your transformed stake and total rewards.
 
 ## Examples
 
-These examples show how the current cover traffic economic model would work in a hypothetical network with 5 nodes. The example uses the [correct, current parameters](./ct-economic-model.md) used by cover traffic today. 
+These examples show how the current Cover Traffic economic model would work in a hypothetical network with 5 nodes. The example uses the [correct, current parameters](./ct-economic-model.md) used by Cover Traffic today. 
 
 ### Staking Between The Lower & Upper Threshold
 
@@ -71,10 +71,10 @@ In the below example, Node E has 100,000 wxHOPR staked. So their transformed sta
 
 ### Detailed Breakdown
 
-For a detailed breakdown of the cover traffic economic model, view the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).
+For a detailed breakdown of the Cover Traffic economic model, view the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).
 
 ## Multiple Nodes With One HOPR Safe
 
-You can have multiple HOPR nodes associated with a single HOPR Safe. In this case, the total staked wxHOPR is split between your nodes equally. For example, if you have 210,000 wxHOPR staked in your HOPR Safe and three HOPR nodes associated with it, the cover traffic app will treat it as if each node has 70,000 wxHOPR staked. 
+You can have multiple HOPR nodes associated with a single HOPR Safe. In this case, the total staked wxHOPR is split between your nodes equally. For example, if you have 210,000 wxHOPR staked in your HOPR Safe and three HOPR nodes associated with it, the Cover Traffic app will treat it as if each node has 70,000 wxHOPR staked. 
 
-So, it is essential not to run too many nodes. If you fall below 30,000 wxHOPR staked per node(or 10,000 with an NFT), you will stop receiving cover traffic rewards.
+So, it is essential not to run too many nodes. If you fall below 30,000 wxHOPR staked per node(or 10,000 with an NFT), you will stop receiving Cover Traffic rewards.

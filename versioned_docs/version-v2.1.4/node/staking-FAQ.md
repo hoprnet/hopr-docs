@@ -9,11 +9,11 @@ All NFTs are discontinued except the Network Registry NFT, which is necessary to
 
 ### With CT launch, what tokens will be redistributed to nodes in channels?
 
-Only `wxHOPR` is used within channels. Cover traffic will also distribute rewards in the form of tickets, redeemable for wxHOPR.
+Only `wxHOPR` is used within channels. Cover Traffic will also distribute rewards in the form of tickets, redeemable for wxHOPR.
 
 ### What is Cover Traffic, and what is its purpose?
 
-Cover Traffic ("CT") is the new way to earn rewards. The cover traffic app has four components, which operate in the following sequence:
+Cover Traffic ("CT") is the new way to earn rewards. The Cover Traffic app has four components, which operate in the following sequence:
 
 - Netwatcher's task is to locate nodes on the network and create a list.
 - The Aggregator collects all node information from the Netwatchers and sends it to the database.
@@ -38,13 +38,13 @@ Based on the Cover Traffic economic model rewards threshold, we have prepared so
 
 The Cover Traffic threshold was intentionally set to make the network more decentralized and to distribute rewards more fairly. This ensures that even node runners with a small stake have the opportunity to receive rewards. Currently, we are projecting a stable APY of 10-15%!
 
-**Important:** The Cover Traffic threshold rewards cap limitations mentioned above do not apply to rewards received from Cover traffic. If you stake up to 75,000 HOPR per node and the rewards you receive increase your stake, you will still receive the full APR!
+**Important:** The Cover Traffic threshold rewards cap limitations mentioned above do not apply to rewards received from Cover Traffic. If you stake up to 75,000 HOPR per node and the rewards you receive increase your stake, you will still receive the full APR!
 
 ### What is the Cover Traffic economic model, and how is it calculated?
 
 The Cover Traffic economic model projects the expected reward of a node runner can expect given the underlying parameters.
 
-Here are 3 different scenarios to show how the current cover traffic economic model would work in a hypothetical network with 5 nodes:
+Here are 3 different scenarios to show how the current Cover Traffic economic model would work in a hypothetical network with 5 nodes:
 
 :::tip Table terms
 
@@ -52,11 +52,11 @@ Here are 3 different scenarios to show how the current cover traffic economic mo
 
 **Transformed Stake (wxHOPR)** - Whenever a node runner exceeds the 75,000 wxHOPR threshold, this parameter ensures a drastic decrease in rewards.
 
-**CT probability (pct)** - Cover traffic probability, the higher you stake, the higher probability to receiwe rewards from the cover traffic.
+**CT probability (pct)** - Cover Traffic probability, the higher you stake, the higher probability to receiwe rewards from the Cover Traffic.
 
 **Expected reward (wxHOPR)** - Expected rewards based on the staking amount and node performance.
 
-**Expected tickets** - Expected ticket numbers to be rewarded by the Cover traffic. 1 ticket equals to 1 wxHOPR.
+**Expected tickets** - Expected ticket numbers to be rewarded by the Cover Traffic. 1 ticket equals to 1 wxHOPR.
 
 **APY (pct)** - Your staking rewards APY (Annual Percentage Yield).
 
@@ -64,7 +64,7 @@ Here are 3 different scenarios to show how the current cover traffic economic mo
 
 **1st scenario:**
 
-Every node runner is in between the Cover traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
+Every node runner is in between the Cover Traffic thresholds, receiving maximum rewards based on their stake amount and node performance.
 
 |    | Node A | Node B | Node C | Node D | Node E | 
 | -- | ------ | ------ | ------ | ------ | ------ |
@@ -163,4 +163,4 @@ Yes, you can. We don't have any limitations, you can see how to associate additi
 
 ### What is the maximum amount I can stake on a single node without penalty?
 
-The upper threshold for staking on a single node is 75,000 wxHOPR. Above this amount, the staked wxHOPR will be less valuable for receiving rewards through cover traffic. Read [here](../staking/ct-economic-model.md) for a simple overview of the cover traffic economic model. For a more detailed overview, check out the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).
+The upper threshold for staking on a single node is 75,000 wxHOPR. Above this amount, the staked wxHOPR will be less valuable for receiving rewards through Cover Traffic. Read [here](../staking/ct-economic-model.md) for a simple overview of the Cover Traffic economic model. For a more detailed overview, check out the documentation [here](https://github.com/hoprnet/ct-research/wiki/Economic-model).

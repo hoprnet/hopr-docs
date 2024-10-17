@@ -1,8 +1,8 @@
 {
-  "tutorialSidebar": [
+  "coreSidebar": [
     {
       "type": "category",
-      "label": "What is HOPR?",
+      "label": "Core concepts",
       "items": [
         "core/what-is-hopr",
         "core/what-is-metadata",
@@ -14,26 +14,113 @@
         "core/probabilistic-payments",
         "core/cover-traffic",
         "core/cover-traffic-nodes",
-        "core/balancing-cover-traffic",
-        "faq"
+        "core/balancing-cover-traffic"
+      ]
+    }
+  ],
+  "tokenSidebar": [
+    {
+      "type": "category",
+      "label": "Token economics",
+      "collapsed": false,
+      "items": [
+        "token/safestaking",
+        "token/cover-traffic-economics",
+        "token/acquiring-hopr-tokens",
+        "token/token-bridging",
+        "token/token-wrapping"
+      ]
+    }
+  ],
+  "dappsSidebar": [
+    {
+      "type": "category",
+      "label": "dApps",
+      "collapsed": false,
+      "items": [
+        "dapps/dapps-rpch",
+        "dapps/dapps-mytokentracker"
+      ]
+    }
+  ],
+  "nodeSidebar": [
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        "node/run-a-node-overview",
+        {
+          "type": "category",
+          "label": "Installation Guide",
+          "items": ["node/node-docker", "node/node-dappnode"]
+        }
       ]
     },
     {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
       "type": "category",
-      "label": "Run a HOPR node",
+      "label": "Node Management",
+      "collapsed": false,
       "items": [
-        "node/start-here",
-        "node/using-docker",
-        "node/using-dappnode",
-        "node/using-avado",
-        "node/using-hopr-admin-v2",
-        "node/using-staking-hub",
-        "node/grafana-dashboards",
-        "node/tickets-and-payment-channels",
-        "node/waitlist-FAQ",
-        "node/staking-FAQ"
+        "node/staking-hub",
+        "node/node-management-admin-ui",
+        "node/interaction-with-node",
+        "node/node-operations",
+        "node/backup-restore-update",
+        "node/port-forwarding"
       ]
     },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Advanced Configuration",
+      "collapsed": false,
+      "items": [
+        "node/multiple-nodes",
+        "node/manage-node-strategies",
+        "node/custom-rpc-provider",
+        "node/ac-migration-from-legacy"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Releases",
+      "collapsed": false,
+      "items": [
+        "node/releases"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Troubleshooting and FAQs",
+      "collapsed": false,
+      "items": [
+        "node/frequently-asked-questions",
+        "node/troubleshooting"
+      ]
+    }
+  ],
+  "tutorialSidebar": [
     {
       "type": "category",
       "label": "Developers",
@@ -57,21 +144,6 @@
         "developers/smart-contract",
         "developers/snippets",
         "developers/visualising-hopr-network-topology"
-      ]
-    },
-    {
-      "type": "category",
-      "label": "Ecosystem",
-      "items": [
-        "staking/why-use-safe",
-        "staking/what-is-safestaking",
-        "staking/ct-economic-model",
-        "ecosystem/hopr-token",
-        "ecosystem/gnosis-hopr-tokens",
-        "staking/how-to-get-hopr",
-        "staking/convert-hopr",
-        "staking/unstaking-s8",
-        "ecosystem/safe-erc777-bug"
       ]
     }
   ]
