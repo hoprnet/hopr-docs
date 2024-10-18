@@ -173,7 +173,7 @@ Instead of setting up a cluster locally, you can launch a cluster without any in
 Clusters launched through Playground are fully interconnected and prefunded similar to the described local setup.
 But will only run for 20 minutes at a time before closing. This is a good alternative for testing and devloping dApps. Simply use the nodes API URL and key when connecting to a node.
 
-![Playground Cluster](/img/dapps/playground-testing-node.png)
+![Playground Cluster](/img/developer/playground-testing-node.png)
 
 Here the API URL of the node is `https://zero_olive_mekong_ananke.playground.hoprnet.org:3001`, and the API Key is `4a0cc9838A08F2DE#F00cd59`.
 

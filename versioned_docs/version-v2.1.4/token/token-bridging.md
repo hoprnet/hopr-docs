@@ -107,7 +107,7 @@ Before initiating the bridging process from Gnosis to the Ethereum chain, please
 
    Click the "**Bridge**" button to begin transferring your HOPR tokens to the Ethereum chain.
 
-   ![Bridging HOPR tokens](/img/token/token-bridging-to-mainnet-1.jpg)
+   ![Bridging HOPR tokens](/img/token/token-bridging-to-mainnet-2.jpg)
 
 ## 5. Wait for Transaction Completion
 
