@@ -15,7 +15,7 @@ A payment channel runs through multiple states during its lifecycle, as shown in
 4. When closing a payment channel, the payment channel first goes into **Pending to close**. Channels need to wait for a timeout for nodes to redeem tickets and thus retrieve the assets. In rare cases, it can happen that the counterparty does not submit an on-chain commit after a node intends to open a payment channel. Under this circumstance, the channel can be turned immediately into **Pending to close**.
 5. Once the timeout is done, any of the involved nodes can finalize the closure and turn the payment channel state into **Closed**.
 
-![Payment channel states and possible state transitions.](/img/developer/channel_lifecycle_updated.png)
+![Payment channel states and possible state transitions.](/img/developer/channel_lifecycle.png)
 
 ### Struct
 
