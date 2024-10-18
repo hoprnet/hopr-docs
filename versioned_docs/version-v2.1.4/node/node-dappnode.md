@@ -70,7 +70,9 @@ For guidance on creating a secret token, please refer to this [guide](./frequent
 - In the **API endpoint** field, by default API endpoint should be set to `http://node.hopr.public.dappnode:3001`.
 - In the **API token** field, it will be empty by default. If you entered one during the setup process, please enter it here.
 
-(**3**) Click the "**Connect to the node**" button. A popup should appear with your node address, which starts with "**0x**". Copy your node address and return to the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist, or, if you have been approved to join the network, complete your onboarding.
+(**3**) Click the button "**Connect to the node**" where popup should appear with your node address which starts with "**0x**". Copy your node address.
+
+(**4**) **Note**: You don’t need to manually fund your node with **xDai** tokens. You will fund your node through the HOPR Staking Hub during the onboarding process. Return to the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist, or, if you've been approved, to complete your onboarding.
 
 ## 4. What's next?
 

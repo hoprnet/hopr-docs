@@ -157,7 +157,9 @@ http://127.0.0.1:4677
 - In the **API endpoint** field, the default API endpoint should be set to `http://localhost:3001`. However, you may need to replace `localhost` with your server's IP address if you used a VPS, and adjust the port if you changed the mapping during installation.
 - In the **API token** field, enter the [custom security token you created](./node-docker.md#21-adjust-apitoken-setting).
 
-(**3**) Click the button "**Connect to the node**" where popup should appear with your node address which starts with "**0x**". Copy your node address and return to the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist, or if you have been approved to join the network, complete your onboarding.
+(**3**) Click the button "**Connect to the node**" where popup should appear with your node address which starts with "**0x**". Copy your node address.
+
+(**4**) **Note**: You don’t need to manually fund your node with **xDai** tokens. You will fund your node through the HOPR Staking Hub during the onboarding process. Return to the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist, or, if you've been approved, to complete your onboarding.
 
 ## 6. What's next?
 
