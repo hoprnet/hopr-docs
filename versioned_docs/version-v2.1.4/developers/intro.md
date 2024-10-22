@@ -38,8 +38,6 @@ OpenAPI documentation to learn how to interact with HOPR nodes once they are up 
 The following three-part guide showcases how to get everything ready to build a HOPR app.
 
 - [HOPR Cluster Development Setup](/developers/starting-local-cluster)
-- [Interacting with a HOPR node](/developers/connecting-node)
-- [HOPR Apps - Hello world](/developers/tutorial-hello-world)
 
 #### OpenAPI Documentation
 
