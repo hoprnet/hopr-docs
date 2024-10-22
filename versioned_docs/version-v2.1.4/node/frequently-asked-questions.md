@@ -54,8 +54,6 @@ After setting up DDNS, you'll have a hostname (e.g., **hostname.hopto.org**) to 
 
 Example: `hostname.hopto.org:9091`
 
-For more information, view the documentation [here](https://docs.hoprnet.org/node/using-docker#23-adjust-public-ip-address).
-
 #### Via Client Installation
 
 Use a Dynamic DNS service provider client to monitor IP changes and update your domain. We recommend [No-IP](http://www.noip.com). Install their client on your machine to monitor external IP changes and update the hostname.
