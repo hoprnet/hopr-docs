@@ -55,8 +55,8 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
-          lastVersion: 'v2.1.4',
-          onlyIncludeVersions: ['v2.1.4'],
+          lastVersion: 'v2.1.5',
+          onlyIncludeVersions: ['v2.1.4', 'v2.1.5'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
