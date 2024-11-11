@@ -263,7 +263,7 @@ protocol:
 | Settings | Description |
 | --- | --- |
 | `protocol.ack` | Message acknowledgement sub-protocol configuration. |
-| `timeout` | Timeout in seconds. |
+| `protocol.ack.timeout` <br/> `protocol.heartbeat.timeout` <br/> `protocol.msg.timeout` <br/> `protocol.ticket_aggregation.timeout` | Timeout in seconds. |
 | `protocol.heartbeat` | Heartbeat sub-protocol configuration. |
 | `protocol.msg` | Message sub-protocol configuration. |
 | `protocol.ticket_aggregation` | Ticket aggregation sub-protocol configuration. |
@@ -488,7 +488,7 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 
 A strategy that does nothing. This is equivalent to leaving the strategies array empty.
 
-##### strategy.strategies: !ClosureFinalizer
+##### strategy.strategiesc: !ClosureFinalizer
 
 Monitors channels in the "**PendingToClose**" state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
 
