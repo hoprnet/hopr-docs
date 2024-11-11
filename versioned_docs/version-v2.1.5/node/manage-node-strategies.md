@@ -149,6 +149,7 @@ hopr:
         prefer_local_addresses: false
 identity:
     file: /app/hoprd-db/.hopr-identity
+    password: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
 api:
     enable: true
     host:
@@ -175,8 +176,8 @@ host:
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `address` | | The public IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the public IP address. |
-| `port` | `9091` | Listening on TCP & UDP ports. |
+| `host.address` | | The public IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the public IP address. |
+| `host.port` | `9091` | Listening on TCP & UDP ports. |
 
 ### hopr.db
 
@@ -191,9 +192,9 @@ db:
 
 | Settings | Description |
 | --- | --- |
-| `data` | Specifies the path to the database directory. For Docker users, the path is "**/app/hoprd-db**". For Dappnode users, the path is "**/app/hoprd-db/db**". |
-| `initialize` | Defaults to "**true**", meaning the database will be created if it doesn't already exist. If set to "**false**" and the database is missing, the node will not start. |
-| `force_initialize` | Defaults to "**false**". If set to "**true**", any existing database in the specified directory will be overwritten and re-initialized. |
+| `db.data` | Specifies the path to the database directory. For Docker users, the path is "**/app/hoprd-db**". For Dappnode users, the path is "**/app/hoprd-db/db**". |
+| `db.initialize` | Defaults to "**true**", meaning the database will be created if it doesn't already exist. If set to "**false**" and the database is missing, the node will not start. |
+| `db.force_initialize` | Defaults to "**false**". If set to "**true**", any existing database in the specified directory will be overwritten and re-initialized. |
 
 ### hopr.heartbeat
 
@@ -208,9 +209,9 @@ heartbeat:
 
 | Settings | Description |
 | --- | --- |
-| `interval` | Interval in which the heartbeat is triggered in seconds. |
-| `threshold` | The time interval for which to consider peer heartbeat renewal in seconds. |
-| `variance` | Round-to-round variance to complicate network sync in seconds. |
+| `heartbeat.interval` | Interval in which the heartbeat is triggered in seconds. |
+| `heartbeat.threshold` | The time interval for which to consider peer heartbeat renewal in seconds. |
+| `heartbeat.variance` | Round-to-round variance to complicate network sync in seconds. |
 
 ### hopr.network_options
 
@@ -232,16 +233,16 @@ network_options:
 
 | Settings | Description |
 | --- | --- |
-| `min_delay` | Minimum delay (seconds) will be multiplied by backoff, it will be half the actual minimum value. |
-| `max_delay` | Maximum delay in seconds. |
-| `quality_bad_threshold` | Quality threshold since a node is considered having "**bad**" connectivity. |
-| `quality_offline_threshold` | Quality threshold from which a node is considered available enough to be used. |
-| `quality_step` | Quality step on failed/successful ping probe. |
-| `quality_avg_window_size` | Size of the quality moving average window. |
-| `ignore_timeframe` | Indicates how long (in seconds) a node is considered "**ignored**". |
-| `backoff_exponent` | Backoff exponent when probing nodes. |
-| `backoff_min` | Minimum backoff (in seconds) when probing nodes. |
-| `backoff_max` | Maximum backoff (in seconds) when probing nodes. |
+| `network_options.min_delay` | Minimum delay (seconds) will be multiplied by backoff, it will be half the actual minimum value. |
+| `network_options.max_delay` | Maximum delay in seconds. |
+| `network_options.quality_bad_threshold` | Quality threshold since a node is considered having "**bad**" connectivity. |
+| `network_options.quality_offline_threshold` | Quality threshold from which a node is considered available enough to be used. |
+| `network_options.quality_step` | Quality step on failed/successful ping probe. |
+| `network_options.quality_avg_window_size` | Size of the quality moving average window. |
+| `network_options.ignore_timeframe` | Indicates how long (in seconds) a node is considered "**ignored**". |
+| `network_options.backoff_exponent` | Backoff exponent when probing nodes. |
+| `network_options.backoff_min` | Minimum backoff (in seconds) when probing nodes. |
+| `network_options.backoff_max` | Maximum backoff (in seconds) when probing nodes. |
 
 ### hopr.protocol
 
@@ -261,11 +262,11 @@ protocol:
 
 | Settings | Description |
 | --- | --- |
-| `ack` | Message acknowledgement sub-protocol configuration. |
+| `protocol.ack` | Message acknowledgement sub-protocol configuration. |
 | `timeout` | Timeout in seconds. |
-| `heartbeat` | Heartbeat sub-protocol configuration. |
-| `msg` | Message sub-protocol configuration. |
-| `ticket_aggregation` | Ticket aggregation sub-protocol configuration. |
+| `protocol.heartbeat` | Heartbeat sub-protocol configuration. |
+| `protocol.msg` | Message sub-protocol configuration. |
+| `protocol.ticket_aggregation` | Ticket aggregation sub-protocol configuration. |
 
 ### hopr.chain
 
@@ -281,10 +282,10 @@ chain:
 
 | Settings | Description |
 | --- | --- |
-| `provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). |
-| `announce` | Indicates whether the node should announce itself on-chain. |
-| `network` | Which blockchain network should be used by the node. |
-| `check_unrealized_balance` | Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled. |
+| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). |
+| `chain.announce` | Indicates whether the node should announce itself on-chain. |
+| `chain.network` | Which blockchain network should be used by the node. |
+| `chain.check_unrealized_balance` | Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled. |
 
 ### hopr.safe_module
 
@@ -299,9 +300,9 @@ safe_module:
 
 | Settings | Description |
 | --- | --- |
-| `safe_transaction_service_provider` | The node's safe transaction provider, such as https://safe-transaction.prod.hoprtech.net/ |
-| `safe_address` | Node's safe address, this must be provided by the user. |
-| `module_address` | Node's module address, this must be provided by the user. |
+| `safe_module.safe_transaction_service_provider` | The node's safe transaction provider, such as https://safe-transaction.prod.hoprtech.net/ |
+| `safe_module.safe_address` | Node's safe address, this must be provided by the user. |
+| `safe_module.module_address` | Node's module address, this must be provided by the user. |
 
 ### hopr.transport
 
@@ -315,8 +316,8 @@ transport:
 
 | Settings | Description |
 | --- | --- |
-| `announce_local_addresses` | Determines whether local addresses should be announced on-chain. Set to true for testing purposes only. |
-| `prefer_local_addresses` | Determines whether local addresses should be preferred when connecting to a peer. Set to true for testing purposes only. |
+| `transport.announce_local_addresses` | Determines whether local addresses should be announced on-chain. Set to true for testing purposes only. |
+| `transport.prefer_local_addresses` | Determines whether local addresses should be preferred when connecting to a peer. Set to true for testing purposes only. |
 
 ### identity
 
@@ -325,15 +326,15 @@ The main node's identity, defining it's on-chain and off-chain keys.
 ```md
 identity:
     file: /app/hoprd-db/.hopr-id-dufour
-    password: 'change_me'
+    password: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
     private_key: ''
 ```
 
 | Settings | Description |
 | --- | --- |
-| `file` | The path to the identity file. If no file exists at the specified location, a new one will be created. |
-| `password` | The database password used to access the identity file. For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
-| `private_key` | A private key that the node can use instead of an identity file. If provided, this will override the identity file. | 
+| `identity.file` | The path to the identity file. If no file exists at the specified location, a new one will be created. |
+| `identity.password` | The database password used to access the identity file. For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+| `identity.private_key` | A private key that the node can use instead of an identity file. If provided, this will override the identity file. | 
 
 ### api
 
@@ -342,7 +343,7 @@ The configuration of the REST API.
 ```md
 api:
     enable: true
-    auth: !Token YOUR_SECURITY_TOKEN # Change to your own token
+    auth: !Token YOUR_SECURITY_TOKEN
     host:
         address: !IPv4 0.0.0.0
         port: 3001
@@ -350,11 +351,11 @@ api:
 
 | Settings | Description |
 | --- | --- |
-| `enable` | Indicates whether the REST API should be enabled. Possible values: "**true**" or "**false**". |
-| `auth` | Authentication of the REST API. When using custom secret token, it is necessary to use "**!Token**" before secret token. Example: "**!Token My#S3cur1ty#Token**". For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
-| `host` | Defines the local interface host where the API should listen. |
-| `address` | The address of the local interface to listen on. |
-| `port` | The REST API TCP lsiten port. |
+| `api.enable` | Indicates whether the REST API should be enabled. Possible values: "**true**" or "**false**". |
+| `api.auth` | Authentication of the REST API. When using custom secret token, it is necessary to use "**!Token**" before secret token. Example: "**!Token My#S3cur1ty#Token**". For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+| `api.host` | Defines the local interface host where the API should listen. |
+| `api.address` | The address of the local interface to listen on. |
+| `api.port` | The REST API TCP lsiten port. |
 
 ### inbox
 
@@ -369,9 +370,9 @@ inbox:
 
 | Settings | Description |
 | --- | --- |
-| `capacity` | Capacity of messages in the Inbox, per message tag. |
-| `max_age` | The maximumm age of a message in the inbox in seconds. |
-| `excluded_tags` | Tags which are not allowed into the inbox. |
+| `inbox.capacity` | Capacity of messages in the Inbox, per message tag. |
+| `inbox.max_age` | The maximumm age of a message in the inbox in seconds. |
+| `inbox.excluded_tags` | Tags which are not allowed into the inbox. |
 
 ---
 
@@ -425,21 +426,21 @@ HOPR token amounts are measured with **18 decimal places**. When setting a custo
 
 :::
 
-#### on_fail_continue
+#### strategy.on_fail_continue
 
 When set to "**true**," the system will stop executing the subsequent strategies if any of the previous ones fail.
 
-#### allow_recursive
+#### strategy.allow_recursive
 
 Allows nesting strategies through **!MultiStrategy**.
 
 ---
 
-#### hopr.strategy.strategies
+#### strategy.strategies
 
 Contains a sequence of strategies to execute in the specified order. If left empty, the node will default to using only the "**!Passive**" strategy.
 
-##### Strategy: !Promiscuous
+##### strategy.strategies: !Promiscuous
 
 Defines a promiscuous strategy that automatically manages HOPR channels based on certain measured qualities of other HOPR nodes in the network.
 
@@ -453,7 +454,7 @@ Defines a promiscuous strategy that automatically manages HOPR channels based on
 | `enforce_max_channels` | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
 | `minimum_peer_version` | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
 
-##### Strategy: !AutoFunding
+##### strategy.strategies: !AutoFunding
 
 Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold.
 
@@ -462,7 +463,7 @@ Automatically funds channels with a specified amount if the stake on any channel
 | `funding_amount` | The amount to automatically fund a channel when its stake drops below the threshold. |
 | `min_stake_threshold` | The minimum stake value at which the channel will be automatically funded. |
 
-##### Strategy: !Aggregating
+##### strategy.strategies: !Aggregating
 
 Automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
 
@@ -473,7 +474,7 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 | `aggregation_timeout` |  | Maximum time to wait for the ticket aggregation to complete. |
 | `aggregate_on_channel_close` | `true` | When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. |
 
-##### Strategy: !AutoRedeeming
+##### strategy.strategies: !AutoRedeeming
 
 Automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
 
@@ -483,11 +484,11 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 | `minimum_redeem_ticket_value` | `30000000000000000000 HOPR` | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
 | `on_close_redeem_single_tickets_value_min` | `90000000000000000 HOPR` | The strategy will automatically redeem if there's a single ticket left when a channel transitions to "**PendingToClose**" and it has at least this value of HOPR. |
 
-##### Strategy: !Passive
+##### strategy.strategies: !Passive
 
 A strategy that does nothing. This is equivalent to leaving the strategies array empty.
 
-##### Strategy: !ClosureFinalizer
+##### strategy.strategies: !ClosureFinalizer
 
 Monitors channels in the "**PendingToClose**" state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
 
