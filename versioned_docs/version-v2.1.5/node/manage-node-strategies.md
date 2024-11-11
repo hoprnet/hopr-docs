@@ -48,8 +48,8 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 
 - **port**: Default port is **9091**, change this port if you changed it under the "**HOPRD_P2P_PORT**" environment variable.
 - **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
-- **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#safe_module).
-- **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#safe_module).
+- **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+- **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
 **Note**: To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
@@ -64,7 +64,7 @@ The latest version of the default configuration file for all supported platforms
 
 (**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
-**Note**: Adjust the [strategies section](./manage-node-strategies.md#strategy) according to your needs; no other configuration is required.
+**Note**: Adjust the [strategies section](./manage-node-strategies.md#hoprstrategy) according to your needs; no other configuration is required.
 
 (**3**) After adjusting the configuration file, connect to your Dappnode dashboard, locate the "**HOPR**" package, and navigate to the "**File Manager**" tab.
 
@@ -88,76 +88,77 @@ The latest version of the default configuration file for all supported platforms
 
 ## Understanding configuration file settings
 
-Configuration file used by the HOPR protocol. The file is written in YAML format and contains various settings related to the operation of the HOPR node. Below is a breakdown of the example file structure:
+Configuration file used by the HOPR protocol. The file is written in YAML format and contains various settings related to the operation of the HOPR node. Below is a breakdown of the file structure and the key settings within each section:
 
 ```md
-├── hopr:/
-│   ├── host:/
-│   │   ├── address
-│   │   └── port
-│   ├── db: /
-│   │   ├── data
-│   │   ├── initialize
-│   │   └── force_initialize
-│   ├── strategy:/
-│   │   ├── on_fail_continue
-│   │   ├── allow_recursive
-│   │   └── strategies:/
-│   │       ├── !Aggregating/
-│   │       │   ├── aggregation_threshold
-│   │       │   ├── unrealized_balance_ratio
-│   │       │   └── aggregate_on_channel_close
-│   │       ├── !AutoRedeeming/
-│   │       │   ├── redeem_only_aggregated
-│   │       │   ├── minimum_redeem_ticket_value
-│   │       │   └── on_close_redeem_single_tickets_value_min
-│   │       └── !ClosureFinalizer/
-│   │           └── max_closure_overdue
-│   ├── heartbeat:/
-│   │   ├── variance
-│   │   ├── interval
-│   │   └── threshold
-│   ├── network_options:/
-│   │   ├── min_delay
-│   │   ├── max_delay
-│   │   ├── quality_bad_threshold
-│   │   ├── quality_offline_threshold
-│   │   ├── quality_step
-│   │   ├── quality_avg_window_size
-│   │   ├── ignore_timeframe
-│   │   ├── backoff_exponent
-│   │   ├── backoff_min
-│   │   └── backoff_max
-│   ├── protocol:/
-│   │   ├── ack:/
-│   │   │   └── timeout
-│   │   ├── heartbeat:/
-│   │   │   └── timeout
-│   │   ├── msg:/
-│   │   │   └── timeout
-│   │   └── ticket_aggregation:/
-│   │       └── timeout
-│   ├── chain:/
-│   │   ├── announce
-│   │   ├── check_unrealized_balance
-│   │   └── network
-│   ├── safe_module:/
-│   │   └── safe_transaction_service_provider
-│   └── transport:/
-│       ├── announce_local_addresses
-│       └── prefer_local_addresses
-├── identity:/
-│   └── file
-├── api:/
-│   ├── enable
-│   └── host:/
-│       ├── address
-│       └── port
-└── inbox:/
-    ├── capacity
-    ├── max_age
-    └── excluded_tags:/
-        └── 0
+hopr:
+    host:
+        address: !IPv4 1.2.3.4
+        port: 9091
+    db:
+        data: /app/hoprd-db/db
+        initialize: true
+        force_initialize: false
+    strategy:
+        on_fail_continue: true
+        allow_recursive: true
+        strategies:
+            - !Aggregating
+            aggregation_threshold: 100
+            unrealized_balance_ratio: 0.9
+            aggregation_timeout: 60
+            aggregate_on_channel_close: true
+            - !AutoRedeeming
+            redeem_only_aggregated: true
+            minimum_redeem_ticket_value: "30000000000000000000 HOPR"
+            on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
+            - !ClosureFinalizer
+            max_closure_overdue: 3600
+    heartbeat:
+        variance: 1
+        interval: 20
+        threshold: 60
+    network_options:
+        min_delay: 1
+        max_delay: 300
+        quality_bad_threshold: 0.1
+        quality_offline_threshold: 0.0
+        quality_step: 0.1
+        quality_avg_window_size: 25
+        ignore_timeframe: 600
+        backoff_exponent: 1.5
+        backoff_min: 2.0
+        backoff_max: 300.0
+    protocol:
+        ack:
+            timeout: 15
+        heartbeat:
+            timeout: 15
+        msg:
+            timeout: 15
+        ticket_aggregation:
+            timeout: 15
+    chain:
+        announce: true
+        check_unrealized_balance: true
+        network: dufour
+    safe_module:
+        safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net
+    transport:
+        announce_local_addresses: false
+        prefer_local_addresses: false
+identity:
+    file: /app/hoprd-db/.hopr-identity
+api:
+    enable: true
+    host:
+        address: !IPv4 0.0.0.0
+        port: 3001
+inbox:
+    capacity: 512
+    max_age: 900
+    excluded_tags:
+        - 0
 ```
 
 ---
@@ -168,8 +169,8 @@ Specifies host to listen on for the HOPR P2P protocol.
 
 ```md
 host:
-  address: !IPv4 1.2.3.4 # Add your publc IP address here
-  port: 9091
+    address: !IPv4 1.2.3.4
+    port: 9091
 ```
 
 | Settings | Default value | Description |
@@ -183,9 +184,9 @@ Specifies details for the database used by the HOPR node.
 
 ```md
 db:
-  data: /app/hoprd-db
-  initialize: true
-  force_initialize: false
+    data: /app/hoprd-db
+    initialize: true
+    force_initialize: false
 ```
 
 | Settings | Description |
@@ -200,9 +201,9 @@ Configuration of the heartbeat mechanism for probing other nodes in the HOPR net
 
 ```md
 heartbeat:
-  interval: 60
-  threshold: 60
-  variance: 2
+    interval: 60
+    threshold: 60
+    variance: 2
 ```
 
 | Settings | Description |
@@ -217,16 +218,16 @@ Defines how the quality of nodes in the HOPR network is evaluated.
 
 ```md
 network_options:
-  min_delay: 1
-  max_delay: 300
-  quality_bad_threshold: 0.1
-  quality_offline_threshold: 0.0
-  quality_step: 0.1
-  quality_avg_window_size: 25
-  ignore_timeframe: 600
-  backoff_exponent: 1.5
-  backoff_min: 2.0
-  backoff_max: 300.0
+    min_delay: 1
+    max_delay: 300
+    quality_bad_threshold: 0.1
+    quality_offline_threshold: 0.0
+    quality_step: 0.1
+    quality_avg_window_size: 25
+    ignore_timeframe: 600
+    backoff_exponent: 1.5
+    backoff_min: 2.0
+    backoff_max: 300.0
 ```
 
 | Settings | Description |
@@ -247,15 +248,15 @@ network_options:
 Configuration of various HOPR sub-protocols.
 
 ```md
-  protocol:
+protocol:
     ack:
-      timeout: 15
+        timeout: 15
     heartbeat:
-      timeout: 15
+        timeout: 15
     msg:
-      timeout: 15
+        timeout: 15
     ticket_aggregation:
-      timeout: 15
+        timeout: 15
 ```
 
 | Settings | Description |
@@ -270,7 +271,7 @@ Configuration of various HOPR sub-protocols.
 
 Blockchain specific configuration.
 
-```bash
+```md
 chain:
     provider: https://gnosis-rpc.publicnode.com
     announce: true
@@ -291,9 +292,9 @@ Configuration of node's Safe.
 
 ```md
 safe_module:
-  safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net/
-  safe_address: '0x0000000000000000000000000000000000000000'
-  module_address: '0x0000000000000000000000000000000000000000'
+    safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net
+    safe_address: '0x0000000000000000000000000000000000000000'
+    module_address: '0x0000000000000000000000000000000000000000'
 ```
 
 | Settings | Description |
@@ -308,8 +309,8 @@ Transport related configuration.
 
 ```md
 transport:
-  announce_local_addresses: false
-  prefer_local_addresses: false
+    announce_local_addresses: false
+    prefer_local_addresses: false
 ```
 
 | Settings | Description |
@@ -323,9 +324,9 @@ The main node's identity, defining it's on-chain and off-chain keys.
 
 ```md
 identity:
-  file: /app/hoprd-db/.hopr-id-dufour
-  password: 'change_me'
-  private_key: ''
+    file: /app/hoprd-db/.hopr-id-dufour
+    password: 'change_me'
+    private_key: ''
 ```
 
 | Settings | Description |
@@ -340,11 +341,11 @@ The configuration of the REST API.
 
 ```md
 api:
-  enable: true
-  auth: !Token YOUR_SECURITY_TOKEN # Change to your own token
-  host:
-    address: !IPv4 0.0.0.0
-    port: 3001
+    enable: true
+    auth: !Token YOUR_SECURITY_TOKEN # Change to your own token
+    host:
+        address: !IPv4 0.0.0.0
+        port: 3001
 ```
 
 | Settings | Description |
@@ -359,11 +360,11 @@ api:
 
 HOPRd Message Inbox configuration
 
-```bash
+```md
 inbox:
-  capacity: 512
-  max_age: 900
-  excluded_tags: [ 0 ]
+    capacity: 512
+    max_age: 900
+    excluded_tags: [ 0 ]
 ```
 
 | Settings | Description |
@@ -384,38 +385,38 @@ In this section, you can configure various strategies for your node, enabling yo
 
 ```md
 strategy:
-  on_fail_continue: true
-  allow_recursive: false
-  strategies:
-    
-    - !Promiscuous
-      max_channels: 10
-      network_quality_threshold: 0.5
-      new_channel_stake: "1000000000000000000 HOPR"
-      minimum_node_balance: "1000000000000000000 HOPR"
-      min_network_size_samples: 20
-      enforce_max_channels: true
-      minimum_peer_version: ">=2.1.0"
-    
-    - !AutoFunding
-      funding_amount: "1000000000000000000 HOPR"
-      min_stake_threshold: "1000000000000000000 HOPR"
-    
-    - !Aggregating
-      aggregation_threshold: 100
-      unrealized_balance_ratio: 0.9
-      aggregation_timeout: 60
-      aggregate_on_channel_close: true
-    
-    - !AutoRedeeming
-      redeem_only_aggregated: true
-      minimum_redeem_ticket_value: "30000000000000000000 HOPR"
-      on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
-
-    - !Passive
-    
-    - !ClosureFinalizer
-      max_closure_overdue: 3600
+    on_fail_continue: true
+    allow_recursive: false
+    strategies:
+        
+        - !Promiscuous
+        max_channels: 10
+        network_quality_threshold: 0.5
+        new_channel_stake: "1000000000000000000 HOPR"
+        minimum_node_balance: "1000000000000000000 HOPR"
+        min_network_size_samples: 20
+        enforce_max_channels: true
+        minimum_peer_version: ">=2.1.0"    
+        
+        - !AutoFunding
+        funding_amount: "1000000000000000000 HOPR"
+        min_stake_threshold: "1000000000000000000 HOPR"
+        
+        - !Aggregating
+        aggregation_threshold: 100
+        unrealized_balance_ratio: 0.9
+        aggregation_timeout: 60
+        aggregate_on_channel_close: true
+        
+        - !AutoRedeeming
+        redeem_only_aggregated: true
+        minimum_redeem_ticket_value: "30000000000000000000 HOPR"
+        on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
+        
+        - !Passive    
+        
+        - !ClosureFinalizer
+        max_closure_overdue: 3600
 ```
 
 :::info
