@@ -168,6 +168,37 @@ Example log:
 </Tabs>
 </details>
 
+<details>
+<summary> 
+  
+### How to retrieve logs from your node?
+</summary>
+
+<Tabs>
+<TabItem value="docker_resync" label="Docker">
+
+(**1**) Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable**" and note the "**container ID**".
+
+(**2**) Get the logs from the docker container using the following command: `docker logs -t <Your_Container_ID> >> <File_name.log>`. Replace "**\<Your_Container_ID\>**" with your docker container ID. Replace "**\<File_name.log\>**" with your container ID and "**\<File_name.log\>**" with your chosen file name. After executing the command, wait until it finishes writing the logs to the file.
+
+Example:
+
+```md
+docker logs -t 4951b2990936 >> logs_from_hopr_node.log
+```
+</TabItem>
+<TabItem value="dappnode_resync" label="Dappnode">
+
+(**1**) Connect to your Dappnode dashboard.
+
+(**2**) Go to the [HOPR package logs page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs).
+
+(**3**) On the right side, click the "**Download all**" button to download HOPR node logs.
+
+</TabItem>
+</Tabs>
+</details>
+
 ---
 
 ## Troubleshooting HOPR Admin UI issues
