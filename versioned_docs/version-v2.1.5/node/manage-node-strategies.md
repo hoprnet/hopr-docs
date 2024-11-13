@@ -428,7 +428,7 @@ HOPR token amounts are measured with **18 decimal places**. When setting a custo
 
 #### strategy.on_fail_continue
 
-When set to "**true**," the system will stop executing the subsequent strategies if any of the previous ones fail.
+When set to "**true**", the system will continue executing subsequent strategies even if previous ones fail.
 
 #### strategy.allow_recursive
 
