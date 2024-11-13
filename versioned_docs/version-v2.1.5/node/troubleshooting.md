@@ -449,9 +449,7 @@ Make sure you have:
 
 (**3**) Connect an Ethernet cable to your Avado device.
 
-(**4**) Connect an Ethernet cable to your Avado device.
-
-(**5**) Attach the **bootable USB stick containing the Dappnode software** to any Avado USB port.
+(**4**) Attach the **bootable USB stick containing the Dappnode software** to any Avado USB port.
 
 #### 3. Finalise migration process
 
