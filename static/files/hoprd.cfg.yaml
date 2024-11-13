@@ -10,6 +10,7 @@ hopr:
       - !Aggregating
         aggregation_threshold: 100
         unrealized_balance_ratio: 0.9
+        aggregation_timeout: 60
         aggregate_on_channel_close: true
       - !AutoRedeeming
         redeem_only_aggregated: true
@@ -24,8 +25,8 @@ hopr:
   network_options:
     min_delay: 1
     max_delay: 300
-    quality_bad_threshold: 0.2
-    quality_offline_threshold: 0.5
+    quality_bad_threshold: 0.1
+    quality_offline_threshold: 0.0
     quality_step: 0.1
     quality_avg_window_size: 25
     ignore_timeframe: 600
