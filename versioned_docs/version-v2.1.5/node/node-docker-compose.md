@@ -19,7 +19,10 @@ Setting up a HOPR node with Docker Compose is intended for advanced users. It pr
 Start by downloading the "compose" folder from the HOPR repository to your local machine:
 
 ```md
-wget https://github.com/hoprnet/hoprnet/archive/refs/heads/master.zip && unzip master.zip "hoprnet-master/deploy/compose/*" -d extracted_files && mv extracted_files/hoprnet-master/deploy/compose . && rm -rf master.zip extracted_files
+VERSION="v2.1.5"
+wget -O hoprnet.zip https://github.com/hoprnet/hoprnet/archive/refs/tags/${VERSION}.zip || { echo "Download failed"; exit 1; }
+unzip hoprnet.zip "hoprnet-${VERSION}/deploy/compose/*" -d extracted_files || { echo "Extraction failed"; exit 1; }
+mv extracted_files/hoprnet-${VERSION}/deploy/compose . && rm -rf hoprnet.zip extracted_files
 ```
 
 ## 2. Set up environment variables
