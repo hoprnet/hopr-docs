@@ -9,6 +9,8 @@ hide_table_of_contents: true
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 1. Select method to run additional node
+
 Please select Docker method to run multiple nodes:
 
 <Tabs>
@@ -85,3 +87,28 @@ These changes ensure that each node operates independently without interference,
 
 </TabItem>
 </Tabs>
+
+## 2. Register your node
+
+Once you have started your additional node, you have to link your node with your current HOPR Safe.
+
+(**1**) Access the recently launched HOPR Admin UI. Assuming you used the default port numbers, you should be able to access the HOPR Admin UI at [http://localhost:4677](http://localhost:4677) (replace **localhost** with your **server IP address** if you are using a VPS).
+
+Example: 
+
+```md
+http://127.0.0.1:4677
+```
+
+(**2**) Click "**CONNECT TO NODE**" in the top right corner.  In the popup under "**Node credentials:**", do the following: 
+
+- In the **API endpoint** field, the default API endpoint should be set to `http://localhost:3001`. However, you may need to replace `localhost` with your server's IP address if you used a VPS, and adjust the port if you changed the mapping during installation.
+- In the **API token** field, enter the [custom security token you created](./node-docker.md#21-adjust-apitoken-setting).
+
+(**3**) Click the button "**Connect to the node**" where popup should appear with your node address which starts with "**0x**". Copy your node address.
+
+(**4**) **Note**: You don’t need to manually fund your node with **xDai** tokens. You will fund your node through the HOPR Staking Hub during the short onboarding process for the additional nodes. 
+
+Go to the [Nodes tab on the Staking Hub](https://hub.hoprnet.org/staking/dashboard#node), click the "**Add New Node**" button to register on the waitlist, and wait for approval, which occurs on a tri-weekly basis.
+
+(**5**) Once your node is granted access to the HOPR network, go to the [Nodes tab on the Staking Hub](https://hub.hoprnet.org/staking/dashboard#node), where you will find your recently approved node address. Click the "**train**" icon to complete the short onboarding process.
