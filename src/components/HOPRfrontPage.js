@@ -8,18 +8,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
  * **/
 
 const FeatureList = [
-  /*{
-    title: 'About HOPR',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-about.svg'} />,
-    description: <>Brief explanation what is HOPR.</>,
-    docName: 'v1.86/about-hopr'
-  },
-  {
-    title: 'Install a hoprd node',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-node-setup.svg'} />,
-    description: <>Guide on how to install a hoprd node.</>,
-    docName: 'v1.86/node/start-here'
-  },*/
   {
     title: 'What is HOPR?',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-core-concepts.svg'} />,
@@ -32,12 +20,6 @@ const FeatureList = [
     description: <>Learn to set up and run a node for the decentralized HOPR network.</>,
     docName: 'node/run-a-node-overview'
   },
-  /*{
-    title: 'Staking',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-staking.svg'} />,
-    description: <>How to earn money by staking on HOPR smart contract.</>,
-    docName: 'v1.86/staking/how-to-stake'
-  },*/
   {
     title: 'For Developers',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-development.svg'} />,
@@ -62,18 +44,6 @@ const FeatureList = [
     description: <>A glossary of key terms and definitions related to HOPR.</>,
     docName: 'glossary'
   }
-  /*{
-    title: 'Ecosystem',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-ecosystem.svg'} />,
-    description: <>Everything you need to know about HOPR's ecosystem.</>,
-    docName: 'ecosystem/introduction'
-  },
-  {
-    title: 'FAQ',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-faqs.svg'} />,
-    description: <>Frequently asked questions related to HOPR.</>,
-    docName: 'v1.86/faq'
-  }*/
 ]
 
 function Feature({ Svg, title, description, docName }) {

@@ -54,7 +54,7 @@
         {
           "type": "category",
           "label": "Installation Guide",
-          "items": ["node/node-docker", "node/node-dappnode"]
+          "items": ["node/node-docker", "node/node-docker-compose", "node/node-dappnode"]
         }
       ]
     },

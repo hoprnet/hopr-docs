@@ -47,8 +47,8 @@ Page properties are specified on the top of the page:
 
 ```
 ---
-id: start-here
-title: Start here
+id: what-is-hopr
+title: What is HOPR?
 ---
 ```
 
@@ -61,8 +61,8 @@ Text is formatted based on [Markdown markup language](https://www.markdownguide.
 ```
 {
   type: 'category',
-  label: 'Installing a hoprd node',
-  items: ['node/start-here', 'node/using-avado', 'node/using-docker']
+  label: 'Core concepts',
+  items: ["core/what-is-hopr", "core/what-is-metadata", "core/anonymous-routing", "core/mixnets", "core/incentives", "core/proof-of-relay", "core/tickets-and-payment-channels", "core/probabilistic-payments", "core/cover-traffic", "core/cover-traffic-nodes", "core/balancing-cover-traffic"]
 },
 ```
 
@@ -78,7 +78,7 @@ Is the name of a menu item.
 Are used only if the menu type is `category`.
 Items can be sub-pages or it can have also sub-categories.
 
-For example: `node/star-here`, `node` means a directory, `start-here` is the `ID` of a page (See HOPR docs file structure). Specifically for this example, `start-here` page is under the `node` directory.
+For example: `core/what-is-hopr`, `core` means a directory, `what-is-hopr` is the `ID` of a page (See HOPR docs file structure). Specifically for this example, `what-is-hopr` page is under the `core` directory.
 
 ## Adding embed videos
 
