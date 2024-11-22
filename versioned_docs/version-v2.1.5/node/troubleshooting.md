@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 ### How to check if my node is performing normally?  
 </summary>
 
-(**1**) Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+(**1**) Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, please refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
 
 (**2**) Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
 
@@ -202,6 +202,21 @@ docker logs -t 4951b2990936 >> logs_from_hopr_node.log
 ---
 
 ## Troubleshooting HOPR Admin UI issues
+
+<details>
+<summary>
+
+### HTTP Status code 422
+</summary>
+
+**Error description**: Your RPC provider is either not working or functioning incorrectly.
+
+**Error message**:
+
+```md
+Error fetching: {"name":"APIError","status":422,"statusText":"Unprocessable Entity","description":"HTTP Status code 422"}
+```
+</details>
 
 <details>
 <summary>
