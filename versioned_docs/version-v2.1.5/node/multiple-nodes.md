@@ -3,7 +3,7 @@ id: multiple-nodes
 title: Running Multiple Nodes
 #toc_min_heading_level: 3
 #toc_max_heading_level: 5
-hide_table_of_contents: true
+#hide_table_of_contents: true
 ---
 
 import Tabs from '@theme/Tabs';
