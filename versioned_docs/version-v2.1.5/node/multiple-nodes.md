@@ -50,9 +50,9 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 </TabItem>
 <TabItem value="docker_compose_multiple_nodes" label="Docker compose">
 
-:::info important
+:::note
 
-If you're running multiple nodes on the same machine, note that metrics setup is not supported in this configuration.
+Metrics setup is not supported when running multiple nodes on the same machine.
 
 :::
 
