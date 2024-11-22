@@ -206,6 +206,21 @@ docker logs -t 4951b2990936 >> logs_from_hopr_node.log
 <details>
 <summary>
 
+### HTTP Status code 422
+</summary>
+
+**Error description**: Your RPC provider is either not working or functioning incorrectly.
+
+**Error message**:
+
+```md
+Error fetching: {"name":"APIError","status":422,"statusText":"Unprocessable Entity","description":"HTTP Status code 422"}
+```
+</details>
+
+<details>
+<summary>
+
 ### UNAUTHORIZED/Authenticaltion Failed
 </summary>
 
