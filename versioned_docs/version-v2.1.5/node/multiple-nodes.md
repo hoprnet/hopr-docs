@@ -18,7 +18,7 @@ Please select Docker method to run multiple nodes:
 
 :::info important
 
-When running multiple nodes without a local RPC provider, it is essential to use a different RPC provider for each node. This ensures optimal performance and prevents potential conflicts due to RPC provider limitations. For more details about RPC providers, you can find information [here](./custom-rpc-provider.md).
+When running multiple nodes with third-party RPC providers, you must assign a different RPC provider to each node to avoid potential conflicts and ensure optimal performance, as third-party RPC providers have limitations. This requirement does not apply if you are using a local RPC provider. For more details about RPC providers, you can find information [here](./custom-rpc-provider.md).
 
 :::
 
