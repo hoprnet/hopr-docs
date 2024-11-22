@@ -11,16 +11,16 @@ import TabItem from '@theme/TabItem';
 
 ## 1. Select method to run additional node
 
-Please select Docker method to run multiple nodes:
-
-<Tabs>
-<TabItem value="docker_multiple_nodes" label="Docker">
-
 :::info important
 
 When running multiple nodes with third-party RPC providers, you must assign a different RPC provider to each node to avoid potential conflicts and ensure optimal performance, as third-party RPC providers have limitations. This requirement does not apply if you are using a local RPC provider. For more details about RPC providers, you can find information [here](./custom-rpc-provider.md).
 
 :::
+
+Please select Docker method to run multiple nodes:
+
+<Tabs>
+<TabItem value="docker_multiple_nodes" label="Docker">
 
 To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Each node must have different ports, and they should not match between the nodes you are running on the same device or VPS.
 
@@ -52,9 +52,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 
 :::info important
 
-- When running multiple nodes without a local RPC provider, it's crucial to assign a different RPC provider to each node. This ensures optimal performance and avoids potential conflicts caused by RPC provider limitations. For more information about RPC providers, refer to [this guide](./custom-rpc-provider.md).
-
-- If you're running multiple nodes on the same machine, note that metrics setup is not supported in this configuration.
+If you're running multiple nodes on the same machine, note that metrics setup is not supported in this configuration.
 
 :::
 
