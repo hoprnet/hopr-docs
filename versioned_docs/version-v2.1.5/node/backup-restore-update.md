@@ -24,7 +24,7 @@ For Docker, the identity file is automatically created and stored on your machin
 (**3**) Store the backed-up file somewhere safe, along with your database password, in case you ever need to restore your node.
 
 </TabItem>
-<TabItem value="docker_compose_backup" label="Docker compose">
+<TabItem value="docker_compose_backup" label="Docker Compose">
 
 For Docker compose, the identity file is automatically created and stored on your machine.
 
