@@ -108,9 +108,9 @@ Example:
 
 ### 2.5 Adjust "provider" setting
 
-You will need to adjust the setting with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md).
+You will need to adjust the setting with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md). 
 
-After obtaining the RPC provider URL, replace "**\<CUSTOM_RPC_PROVIDER>**" with your own RPC provider URL.
+After obtaining the RPC provider URL, replace "**\<CUSTOM_RPC_PROVIDER>**" with your own RPC provider URL. If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
 
 Example:
 

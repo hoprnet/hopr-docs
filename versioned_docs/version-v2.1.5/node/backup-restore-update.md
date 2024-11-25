@@ -69,7 +69,7 @@ Please select platform to restore your node identity:
 (**4**) Configure the Docker command with the required information, just as you did initially when setting up a new node. For more details, see [here](node-docker.md#2-configure-hoprd-command).
 
 </TabItem>
-<TabItem value="docker_compose_restore" label="Docker compose">
+<TabItem value="docker_compose_restore" label="Docker Compose">
 
 (**1**) Before restoring your node identity, ensure that you have [backed up of your HOPR node identity](./backup-restore-update#backup-your-node-identity). Verify that you have the "**hopr.id**" file and your database password.
 
@@ -142,7 +142,7 @@ docker kill 4951b2990936
 (**4**) Run the [latest configured command](node-docker.md#2-configure-hoprd-command) to update your node.
 
 </TabItem>
-<TabItem value="docker_compose_update" label="Docker compose">
+<TabItem value="docker_compose_update" label="Docker Compose">
 
 The update process occurs when you stop and restart the "**hoprd**" services, ensuring the latest version is applied:
 
@@ -201,7 +201,7 @@ docker kill 0a74437b27f8
 (**3**) Retrieve the [latest installation command for the HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui) and execute it in your terminal.
 
 </TabItem>
-<TabItem value="docker_compose_admin_UI" label="Docker compose">
+<TabItem value="docker_compose_admin_UI" label="Docker Compose">
 
 (**1**) Locate and navigate to the "**compose**" folder (assuming you haven't renamed it).
 
