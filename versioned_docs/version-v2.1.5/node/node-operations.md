@@ -26,6 +26,13 @@ docker rm -f 4951b2990936
 ```
 
 </TabItem>
+<TabItem value="docker_compose_stop" label="Docker Compose">
+
+(**1**) Go to your "**compose**" folder.
+
+(**2**) Use the profiles feature to stop only the "**hoprd**" profile associated with the hopr node. Run the following command: `COMPOSE_PROFILES=hoprd docker compose down`
+
+</TabItem>
 <TabItem value="dappnode_stop" label="Dappnode">
 
 (**1**) Connect to your Dappnode dashboard.
@@ -51,6 +58,13 @@ Please select platform to start your HOPR node:
 If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node) and select "**Docker**," then review **Step 6** for specific instructions.
 
 (**3**) Run your configured HOPR command by pasting it into the terminal.
+
+</TabItem>
+<TabItem value="docker_compose_start" label="Docker Compose">
+
+(**1**) Go to your "**compose**" folder.
+
+(**2**) Use the profiles feature to start only the "**hoprd**" profile associated with the hopr node. Run the following command: `COMPOSE_PROFILES=hoprd docker compose up -d`
 
 </TabItem>
 <TabItem value="dappnode_start" label="Dappnode">

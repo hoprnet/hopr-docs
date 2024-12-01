@@ -47,7 +47,7 @@ For guidance on creating a secure database password, please refer to this [guide
 
 For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
 
-(**3**) In the **RPC Provider URL** field, enter your custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md).
+(**3**) In the **RPC Provider URL** field, enter your custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the `http://` prefix followed by the IP address or localhost.
 
 (**4**) In the **Staking safe address** field, enter the recently copied Safe address.
 
