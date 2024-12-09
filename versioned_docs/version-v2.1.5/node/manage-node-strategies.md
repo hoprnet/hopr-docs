@@ -88,7 +88,7 @@ The latest version of the default configuration file for all supported platforms
 
 ## Understanding configuration file settings
 
-Configuration file used by the HOPR protocol. The file is written in YAML format and contains various settings related to the operation of the HOPR node. Below is a breakdown of the file structure and the key settings within each section:
+Configuration file used by the HOPR protocol. The file is written in YAML format and contains various settings related to the operation of the HOPR node. Below is a breakdown of the example file structure and the key settings within each section:
 
 ```md
 hopr:
@@ -113,7 +113,7 @@ hopr:
             minimum_redeem_ticket_value: "30000000000000000000 HOPR"
             on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
             - !ClosureFinalizer
-            max_closure_overdue: 3600
+            max_closure_overdue: 900
     heartbeat:
         variance: 1
         interval: 20
@@ -150,7 +150,7 @@ hopr:
         prefer_local_addresses: false
 identity:
     file: /app/hoprd-db/.hopr-identity
-    password: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
+    password: #For example: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
 api:
     enable: true
     host:
