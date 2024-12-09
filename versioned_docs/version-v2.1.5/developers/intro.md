@@ -44,7 +44,7 @@ The following three-part guide showcases how to get everything ready to build a 
 We use the [OpenAPI standard](https://swagger.io/specification/) to document our REST API. You can see it in our
 [REST API](/developers/rest-api) section.
 
-If you are running a hoprd node locally, you can see the exposed API endpoint of YOUR node at [http://<NODE_IP_ADDRESS>:<NODE_REST_API_PORT>/swagger-ui/](http://<NODE_IP_ADDRESS>:<NODE_REST_API_PORT>/swagger-ui/)
+If you are running a hoprd node locally, you can see the exposed API endpoint of YOUR node at **http://\<NODE_IP_ADDRESS>:\<NODE_REST_API_PORT>/swagger-ui/**
 
-- **"<NODE_IP_ADDRESS>"**: Fill in with your node's public IP address.
-- **"<NODE_REST_API_PORT>"**: Fill in with your node's REST API port.
+- **"\<NODE_IP_ADDRESS>"**: Fill in with your node's public IP address.
+- **"\<NODE_REST_API_PORT>"**: Fill in with your node's REST API port.
