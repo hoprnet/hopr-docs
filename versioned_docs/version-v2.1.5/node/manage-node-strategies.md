@@ -47,7 +47,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
 
 - **port**: Default port is **9091**, change this port if you changed it under the "**HOPRD_P2P_PORT**" environment variable.
-- **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable).
+- **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
@@ -88,7 +88,7 @@ The latest version of the default configuration file for all supported platforms
 
 ## Understanding configuration file settings
 
-Configuration file used by the HOPR protocol. The file is written in YAML format and contains various settings related to the operation of the HOPR node. Below is a breakdown of the file structure and the key settings within each section:
+Configuration file used by the HOPR protocol. The file is written in YAML format and contains various settings related to the operation of the HOPR node. Below is a breakdown of the example file structure and the key settings within each section:
 
 ```md
 hopr:
@@ -113,7 +113,7 @@ hopr:
             minimum_redeem_ticket_value: "30000000000000000000 HOPR"
             on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
             - !ClosureFinalizer
-            max_closure_overdue: 3600
+            max_closure_overdue: 900
     heartbeat:
         variance: 1
         interval: 20
@@ -139,6 +139,7 @@ hopr:
         ticket_aggregation:
             timeout: 15
     chain:
+        provider: https://gnosis-rpc.publicnode.com
         announce: true
         check_unrealized_balance: true
         network: dufour
@@ -149,7 +150,7 @@ hopr:
         prefer_local_addresses: false
 identity:
     file: /app/hoprd-db/.hopr-identity
-    password: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
+    password: #For example: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
 api:
     enable: true
     host:
@@ -274,7 +275,7 @@ Blockchain specific configuration.
 
 ```md
 chain:
-    provider: https://gnosis-rpc.publicnode.com
+    provider: https://rpc.gnosischain.com
     announce: true
     network: dufour
     check_unrealized_balance: true
@@ -282,7 +283,7 @@ chain:
 
 | Settings | Description |
 | --- | --- |
-| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). |
+| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.|
 | `chain.announce` | Indicates whether the node should announce itself on-chain. |
 | `chain.network` | Which blockchain network should be used by the node. |
 | `chain.check_unrealized_balance` | Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled. |

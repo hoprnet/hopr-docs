@@ -282,9 +282,9 @@ The waitlist is prioritized as follows:
 1. **Priority Applicants**: Applicants who own Network Registry NFTs are given priority, with their position on the waitlist determined by the time of registration.
 2. **Other Applicants**: Those without Network Registry NFTs are ranked by the size of their wxHOPR stake.
 
-The list of applicants is manually collected every **Friday at 8 AM CET**, and the waitlist is updated later that day. If you submit your application **after 8 AM CET**, your entry will be processed during the next three-week cycle.
+Applications are manually collected every three weeks on **Friday at 8 AM CET**, after which the waitlist is updated and **new slots** are allocated later that same day. If you submit your application **after 8 AM CET**, it will be processed during the next three-week cycle.
 
-**New slots** are allocated every three weeks on Fridays, with announcements made in our Telegram and Discord channels.
+Announcements about new slots are shared on our Telegram and Discord channels.
 
 To check your position on the waitlist, visit the [waitlist sheet](https://cryptpad.fr/sheet/#/2/sheet/view/NYbRDH+C993dfHwEL1RyyKNtxG5pRoOaxtI4hbRVUBw/).
 </details>
