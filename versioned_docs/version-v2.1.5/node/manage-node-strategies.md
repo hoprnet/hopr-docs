@@ -139,7 +139,7 @@ hopr:
         ticket_aggregation:
             timeout: 15
     chain:
-        provider: https://rpc.gnosischain.com
+        provider: https://gnosis-rpc.publicnode.com
         announce: true
         check_unrealized_balance: true
         network: dufour
