@@ -5,6 +5,8 @@ title: HOPR Staking Hub
 
 The [HOPR Staking Hub](https://hub.hoprnet.org) is a platform for onboarding HOPR node operators. It enables you to create a [HOPR Safe](../token/safestaking.md#why-does-hopr-use-safe) for securely depositing and managing your stake. Through the Hub, you can easily add and manage multiple nodes, handle transactions, monitor your nodes with essential performance metrics, use the token wrapper to wrap or unwrap HOPR tokens, and more.
 
+<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/-zYltiDFh9I" frameborder="0" allow="rel=0; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
+
 ---
 
 ## Connect to the HOPR Staking Hub
