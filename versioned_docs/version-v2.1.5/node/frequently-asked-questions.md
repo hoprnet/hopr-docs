@@ -145,7 +145,7 @@ There are a total of 10 Cover Traffic (CT) nodes, but only 5 nodes operate at an
 <details>
 <summary> 
   
-### When does a node receive rewards, and where are they sent?
+### When are my node(s) eligible to receive rewards, and where are the rewards sent?
 </summary>
 
 #### To be eligible for rewards, your node must meet the following criteria:
