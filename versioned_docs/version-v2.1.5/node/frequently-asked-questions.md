@@ -127,6 +127,48 @@ Cover Traffic ("CT") is the new way to earn rewards. The Cover Traffic app has f
 <details>
 <summary>
 
+### How many Cover Traffic nodes there are in total?
+</summary>
+There are a total of 10 Cover Traffic (CT) nodes, but only 5 nodes operate at any given time. The remaining 5 nodes are designated for updates to major releases, ensuring the relaying process remains uninterrupted. The currently active 5 nodes are:
+
+```md
+0xd30f8f6e5865d7ec947e101b1d6a183e9776ba40  
+0x5a5bf3d3ce59cd304f198b86c1a78adfadf31f83  
+0xa4642c066c1f8927db9d34abab599af784a2cff0  
+0xcbe8726c80cc0d7751b9545dd5a4b5b0e53e383d  
+0x764d3162a4024c5cba8817446ef563b27aa57598  
+```
+
+**Note:** Even if you have incoming payment channels from all 10 Cover Traffic nodes, only monitor the channels associated with the nodes currently relaying data. The list of active CT nodes can be found above.
+</details>
+
+<details>
+<summary> 
+  
+### When are my node(s) eligible to receive rewards, and where are the rewards sent?
+</summary>
+
+#### To be eligible for rewards, your node must meet the following criteria:
+
+(**1**) The node must be operational and reachable by the network nodes. Verify your node's performance by following the steps in the [troubleshooting guide](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+
+(**2**) You must open at least one payment channel with any random peer on the network. Refer to the example [here](./interaction-with-node.md#3-open-a-payment-channel-with-a-peer-named-betty) for guidance on how to set up a payment channel.
+
+#### Rewards are being sent to your Safe address in this order:
+
+(**1**) Cover traffic, determined by your staking amount, is relayed through your node.
+
+(**2**) For every relayed message, your node receives unredeemed tickets.
+
+(**3**) When the unredeemed tickets in a payment channel reach the aggregation threshold, they are combined into a single ticket representing the total value of the aggregated tickets. The default aggregation threshold value can be found in the example configuration file under the "**aggregation_threshold**" setting [here](./manage-node-strategies.md).
+
+(**4**) Once tickets are aggregated, your node redeems them and transfers the rewards to your Safe address.
+
+</details>
+
+<details>
+<summary>
+
 ### How often is Cover Traffic distributing the rewards?
 </summary>
 Cover Traffic rewards are distributed continuously across the network. The system calculates the distribution delay for each node based on the amount staked.
