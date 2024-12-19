@@ -38,13 +38,15 @@ For DAppNode users, if the peer quality is below 100%, follow these steps:
 
 - Connect to your DAppNode and navigate to the [HOPR package Config tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
    
-- In the bottom-right corner, click "**SHOW ADVANCED EDITOR**". 
+- In the bottom-right corner, click "**SHOW ADVANCED EDITOR**".
 
 - Check the values for "**HOPRD_HEARTBEAT_INTERVAL**" and ensure it is set to the default value of "**20**". Similarly, confirm that "**HOPRD_HEARTBEAT_THRESHOLD**" is set to its default value of "**60**".
 
 (**9**) On the "**CHANNELS: IN**" page, review the "**Unredeemed**" column for each incoming payment channel. Ensure that the values do not exceed **20%** above the threshold (the default threshold for ticket redemption is **30 wxHOPR**). If you’ve set a custom threshold, make sure the unredeemed value remains within **20%** of your custom setting.
 
 The redemption process works as follows: once the unredeemed value reaches **30 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
+
+(**10**) Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes, including Cover Traffic nodes and community nodes.
  
 **Note**: If one of above mentioned steps doesn't meet requirements, please refer to the topics on this troubleshooting page. If you are still unable to find a solution, feel free to reach out to the Ambassadors via Telegram or Discord channels for further assistance.
 </details>
@@ -52,7 +54,30 @@ The redemption process works as follows: once the unredeemed value reaches **30 
 <details>
 <summary> 
   
-### What should I do if my node is receiving rejected tickets? 
+### How can I verify if Cover Traffic is being relayed through my node(s) and if I'm receiving rewards?
+</summary>
+
+(**1**) Ensure your node is functioning correctly by following the steps outlined in the [troubleshooting guide](#how-to-check-if-my-node-is-performing-normally).
+ 
+(**2**) Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
+
+(**3**) On the "**CHANNELS: IN**" page, ensure you have at least 5 incoming payment channels from the following Cover Traffic nodes:
+
+```md
+0xd30f8f6e5865d7ec947e101b1d6a183e9776ba40
+0x5a5bf3d3ce59cd304f198b86c1a78adfadf31f83
+0xa4642c066c1f8927db9d34abab599af784a2cff0
+0xcbe8726c80cc0d7751b9545dd5a4b5b0e53e383d
+0x764d3162a4024c5cba8817446ef563b27aa57598
+```
+
+(**4**) Under the "**Unredeemed**" column, you should see an increasing number of unredeemed tickets. By default, once a channel reaches **30 wxHOPR** in unredeemed tickets, it will aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
+</details>
+
+<details>
+<summary> 
+  
+### What should I do if my node is receiving rejected tickets?
 </summary>
 If your node is receiving rejected tickets, several issues could be causing this, such as:
 
