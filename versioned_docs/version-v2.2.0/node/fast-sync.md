@@ -49,7 +49,7 @@ Please select platform to configure Fast Sync feature:
 </TabItem>
 <TabItem value="dappnode_fast_sync" label="Dappnode">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR repository: 
+(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR repository: https://storage.googleapis.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip (THIS IS FOR INTERNAL USAGE)
 
 (**2**) Connect to your DAppNode dashboard.
 
