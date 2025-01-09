@@ -17,7 +17,7 @@ Please select platform to configure Fast Sync feature:
 <Tabs>
 <TabItem value="docker_fast_sync" label="Docker">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR repository: 
+(**1**) Download the archived file "**hopr-logs-dufour-20250109.zip**" from the HOPR google cloud storage: [https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip](https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip)
 
 (**2**) Ensure that you have stopped the HOPRd node Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -34,7 +34,7 @@ Please select platform to configure Fast Sync feature:
 </TabItem>
 <TabItem value="docker_compose_fast_sync" label="Docker Compose">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR repository: 
+(**1**) Download the archived file "**hopr-logs-dufour-20250109.zip**" from the HOPR google cloud storage: [https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip](https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip)
 
 (**2**) Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -49,7 +49,7 @@ Please select platform to configure Fast Sync feature:
 </TabItem>
 <TabItem value="dappnode_fast_sync" label="Dappnode">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR repository: https://storage.googleapis.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip (THIS IS FOR INTERNAL USAGE)
+(**1**) Download the archived file "**hopr-logs-dufour-20250109.zip**" from the HOPR google cloud storage: [https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip](https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip)
 
 (**2**) Connect to your DAppNode dashboard.
 
