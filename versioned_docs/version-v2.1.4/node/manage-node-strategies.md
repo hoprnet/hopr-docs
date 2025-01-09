@@ -17,7 +17,7 @@ Please select your platform:
 <Tabs>
 <TabItem value="config_docker" label="Docker">
 
-(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml)
 
 **Note**: The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
@@ -58,7 +58,7 @@ The latest version of the default configuration file for all supported platforms
 </TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
-(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/legacy/hoprd.cfg.yaml)
 
 **Note**: The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 

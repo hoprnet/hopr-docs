@@ -17,9 +17,9 @@ Please select your platform:
 <Tabs>
 <TabItem value="config_docker" label="Docker">
 
-(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml)
+(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-**Note**: The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
+**Note:** The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 (**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
 
@@ -51,20 +51,20 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
-**Note**: To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
+**Note:** To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
 The latest version of the default configuration file for all supported platforms is available on the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 </TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
-(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/legacy/hoprd.cfg.yaml)
+(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
 
-**Note**: The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
+**Note:** The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 (**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
-**Note**: Adjust the [strategies section](./manage-node-strategies.md#hoprstrategy) according to your needs; no other configuration is required.
+**Note:** Adjust the [strategies section](./manage-node-strategies.md#hoprstrategy) according to your needs; no other configuration is required.
 
 (**3**) After adjusting the configuration file, connect to your Dappnode dashboard, locate the "**HOPR**" package, and navigate to the "**File Manager**" tab.
 
@@ -111,7 +111,6 @@ hopr:
             - !AutoRedeeming
             redeem_only_aggregated: true
             minimum_redeem_ticket_value: "30000000000000000000 HOPR"
-            on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
             - !ClosureFinalizer
             max_closure_overdue: 900
     heartbeat:
