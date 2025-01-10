@@ -129,14 +129,7 @@ hopr:
         backoff_min: 2.0
         backoff_max: 300.0
     protocol:
-        ack:
-            timeout: 15
-        heartbeat:
-            timeout: 15
-        msg:
-            timeout: 15
-        ticket_aggregation:
-            timeout: 15
+        outgoing_ticket_winning_prob: 1
     chain:
         provider: https://gnosis-rpc.publicnode.com
         announce: true
@@ -250,23 +243,12 @@ Configuration of various HOPR sub-protocols.
 
 ```md
 protocol:
-    ack:
-        timeout: 15
-    heartbeat:
-        timeout: 15
-    msg:
-        timeout: 15
-    ticket_aggregation:
-        timeout: 15
+    outgoing_ticket_winning_prob: 1
 ```
 
 | Settings | Description |
 | --- | --- |
-| `protocol.ack` | Message acknowledgement sub-protocol configuration. |
-| `protocol.ack.timeout` <br/> `protocol.heartbeat.timeout` <br/> `protocol.msg.timeout` <br/> `protocol.ticket_aggregation.timeout` | Timeout in seconds. |
-| `protocol.heartbeat` | Heartbeat sub-protocol configuration. |
-| `protocol.msg` | Message sub-protocol configuration. |
-| `protocol.ticket_aggregation` | Ticket aggregation sub-protocol configuration. |
+| `protocol.outgoing_ticket_winning_prob` | Outgoing ticket winning probability. Default value is 1. |
 
 ### hopr.chain
 
