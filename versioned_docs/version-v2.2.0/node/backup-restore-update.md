@@ -144,6 +144,7 @@ docker kill 4951b2990936
 - Locate the configuration file "**hoprd-docker.cfg.yaml**" inside the "**.hoprd-db-dufour**" folder.  
 - Find "**network_options.quality_bad_threshold**" and ensure it is set to a value of `0.1`.
 - Find "**network_options.quality_offline_threshold**" and ensure it is set to a value of `0.0`.
+- Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.
 
 **Note:** If these settings are not present in your configuration file, there is no need to add them.
 
@@ -184,7 +185,9 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 (**4**) During the update process, all data should be pre-filled. Click "**Submit**" to complete the HOPRd node update process.
 
-(**5**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
+(**5**) **Optional step**: If you have implemented a custom strategies file, make sure to update it with the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+
+(**6**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
  
 </TabItem>
 </Tabs>
