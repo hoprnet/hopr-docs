@@ -139,17 +139,15 @@ Please select platform to re-sync node:
 
 (**2**) **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
 
-(**3**) **Delete the necessary files:** on your machine, navigate to the **.hoprd-db-dufour** folder. Inside, locate the **db** folder and delete these files:
+**(3)** **Delete the necessary files:** On your machine, navigate to the **.hoprd-db-dufour** folder and perform the following steps:
 
-```md
-hopr_index.db
-hopr_index.db-shm
-hopr_index.db-wal
-```
+(**3.1**) Delete the **"tbf"** file.  
 
-**P.S.** If some files are missing, that's okay. Just ensure that the specified files mentioned above are removed.
+(**3.2**) Locate the **"db"** folder and remove **all** files inside it.
 
 (**4**) **Start your node**: once the cleanup is done, start your node again by following this [guide](./node-operations.md#start-your-hopr-node).
+
+(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
 
 </TabItem>
 <TabItem value="dappnode_resync" label="Dappnode">
