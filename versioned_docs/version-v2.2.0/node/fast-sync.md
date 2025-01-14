@@ -23,7 +23,7 @@ Please select platform to configure Fast Sync feature:
 
 (**3**) On your machine, navigate to the "**.hoprd-db-dufour**" folder. Inside, locate the "**db**" folder and delete all files in it.
 
-(**4**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
+(**4**) Extract the recently downloaded file "**hopr-logs-dufour-20250109.zip**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
 
 (**5**) Configure your node by creating and applying a configuration file. Follow this [guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
@@ -42,7 +42,7 @@ Please select platform to configure Fast Sync feature:
 
 (**4**) Locate the "**db**" folder by following the path "**/hoprd/db/**".
 
-(**5**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
+(**5**) Extract the recently downloaded file "**hopr-logs-dufour-20250109.zip**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
 
 (**6**) Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
 
@@ -60,7 +60,7 @@ Please select platform to configure Fast Sync feature:
 
 (**4**) Create a temporary folder, copy the archived file "**hopr.public.dappnode.eth_backup.tar.xz**" into the folder, and use an archiving tool to extract it.
 
-(**5**) After extracting the file, find the configuration file "**config**" and make changes:
+(**5**) Locate configuration file "**config**" and make changes:
 
 - Find "**network_options.quality_bad_threshold**" and ensure it is set to a value of `0.1`.
 - Find "**network_options.quality_offline_threshold**" and ensure it is set to a value of `0.0`.
@@ -68,9 +68,11 @@ Please select platform to configure Fast Sync feature:
 
 Save the changes to the configuration file.
 
-(**6**) Navigate to the "**db**" folder, then into the second "**db**" folder, and delete all files in it.
+(**7**) Extract the newly downloaded "**hopr-logs-dufour-20250109.zip**" file. This will produce three database files:  "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**".
 
-(**7**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder. 
+(**7.1**) In your temporary folder, navigate to the "**db**" folder, then enter the "**second db**" folder. Delete the old "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**" files.
+
+(**7.2**) Copy the newly extracted log files into current "**db**" folder.
 
 (**8**) **Archive files back**: Follow strict guide.
 

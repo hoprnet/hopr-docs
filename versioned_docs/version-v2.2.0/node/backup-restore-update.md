@@ -147,7 +147,7 @@ docker kill 4951b2990936
 
 **Note:** If these settings are not present in your configuration file, there is no need to add them.
 
-(**5**) Run the [latest configured command](node-docker.md#2-configure-hoprd-command) to update your node.
+(**5**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
 
 </TabItem>
 <TabItem value="docker_compose_update" label="Docker Compose">
@@ -178,21 +178,14 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 (**1**) Backup your identity file. Please follow the instructions [here](./backup-restore-update#backup-your-node-identity).
 
-(**2**) **Optional step:** If you have implemented [custom strategies](manage-node-strategies.md) on your node, you might need to make the following changes.
+(**2**) Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
 
-In the HOPR package, navigate to "**File Manager**". Under the "**Download File**" section, enter `/app/hoprd.cfg.yaml` and click "**Download**". Make edits to the configuration file you just downloaded:
+(**3**) Search for the HOPR package, access the package details, and click "**UPDATE**".
 
-- Find "**network_options.quality_bad_threshold**" and ensure it is set to a value of `0.1`.
-- Find "**network_options.quality_offline_threshold**" and ensure it is set to a value of `0.0`.
+(**4**) During the update process, all data should be pre-filled. Click "**Submit**" to complete the HOPRd node update process.
 
-**Note:** If these settings are not present in your configuration file, there is no need to add them.
-
-(**3**) Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
-
-(**4**) Search for the HOPR package, access the package details, and click "**UPDATE**".
-
-(**5**) During the update process, all data should be pre-filled. Click "**Submit**" to complete the HOPRd node update process.
-
+(**5**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
+ 
 </TabItem>
 </Tabs>
 

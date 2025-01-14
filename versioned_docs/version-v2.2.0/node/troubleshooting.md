@@ -127,6 +127,9 @@ There might be several causes on why your node received neglected tickets:
   
 ### How to re-sync my HOPRd node?
 </summary>
+
+**Note:** During the re-sync process, **all tickets in your database will be removed**, including any unredeemed tickets. This step is necessary to ensure optimal node performance, but please be aware that **unredeemed tickets will be lost**.
+
 Please select platform to re-sync node:
 
 <Tabs>
@@ -153,41 +156,20 @@ hopr_index.db-wal
 
 (**1**) **Connect to your DAppNode dashboard**.
 
-(**2**) **Backup your node**: Before proceeding with the re-sync process, ensure you back up your node:
+(**2**) **Backup your node identity**: Before proceeding with the re-sync process, ensure you back up your node identity by follwing this [guide](backup-restore-update.md#backup-your-node-identity).
 
-- Go to the [HOPR package Backup page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/backup).
-- Click "**Backup now**" and download the archived file "**hopr.public.dappnode.eth_backup.tar.xz**" to your computer. Make an additional copy and store it securely on your computer.
+(**3**) **Remove the volume for the HOPR package**: Go to the [Info tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info). Under the "**All volumes**" section, locate the volume size and click the "**trash can**" icon to remove the package volume. This will delete the package storage, including all databases.
 
-(**3**) **Unarchive and clean up files**: This step is necessary to force your node to re-sync without affecting the tickets data.
+(**4**) **Restore your node identity**: Follow this guide to [restore your node identity](backup-restore-update.md#restore-your-node-identity).
 
-- Create a temporary folder, copy the archived file "**hopr.public.dappnode.eth_backup.tar.xz**" into the folder, and use an archiving tool to extract it.
-- After extracting the file, navigate to the "**db**" folder, then into the second "**db**" folder, and delete the following files:
-
-    ```md
-    hopr_index.db
-    hopr_index.db-shm
-    hopr_index.db-wal
-    ```
-
-    **P.S.** If some files are missing, that's okay. Just ensure that the files listed above are deleted.
-
-- Open your **Terminal** (macOS/Linux) or **Command Prompt** (Windows), and navigate to the temporary folder where you extracted the files (**db**, **config**, **identity**).
-- Execute the following command to re-archive the files into a new archive named "**hopr.public.dappnode.eth_backup_resync.tar.xz**" with the changes:
-
-    ```md
-    tar -cJf hopr.public.dappnode.eth_backup_resync.tar.xz db config identity
-    ```
-
-(**4**) **Remove the volume for the HOPR package**: Go to the [Info tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info). Under the "**All volumes**" section, locate the volume size and click the "**trash can**" icon to remove the package volume. This will delete the package storage, including all databases.
-
-(**5**) **Restore the modified backup file**: Go to the [Backup tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/backup), click "**Restore**", and select the modified archive "**hopr.public.dappnode.eth_backup_resync.tar.xz**". On the "**Restoring backup**" popup, click "**Restore**". Once you receive the notification message "Restored backup for HOPR", the process has been completed successfully.
+(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
 
 (**6**) **Verify the restore process**: Go to the [Logs tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs). In the logs, you should see syncing process lines, indicating the restore was successful and the re-sync process is underway. Wait for the node to fully sync to 100%.
 
 Example log:
 
 ```md
-2024-09-26T06:48:50.267519Z  INFO ThreadId(18) chain_indexer::block: Sync progress 2.94% @ block 29897241
+2025-01-14T14:11:51.005595Z  INFO ThreadId(04) chain_indexer::block: Sync progress to last known head indexer="rpc" progress=97.97430830039525 block=38036660 head=38038341
 ```
 </TabItem>
 </Tabs>
