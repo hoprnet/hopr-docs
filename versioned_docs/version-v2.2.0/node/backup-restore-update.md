@@ -169,11 +169,6 @@ COMPOSE_PROFILES=hoprd docker compose down
 
 (**3**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
 
-(**3**) To start the "**hoprd**" services again and apply the latest version, run this command:
-
-```md
-COMPOSE_PROFILES=hoprd docker compose up -d
-```
 </TabItem>
 <TabItem value="dappnode_update" label="Dappnode">
 
