@@ -150,6 +150,27 @@ Please select platform to re-sync node:
 (**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
 
 </TabItem>
+<TabItem value="docker_compose_resync" label="Docker Compose">
+
+(**1**) Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
+
+```md
+COMPOSE_PROFILES=hoprd docker compose down
+```
+
+(**2**) **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
+
+(**3**) Within the "**compose**" directory, go to "**hoprd_data**", then "**hoprd**", delete the "**tbf**" file. Then locate the "**db**" folder. Remove **all** files inside "**db**" folder.
+
+(**4**) Return to the main "**compose**" folder and restart the "**hoprd**" services by running the following command:
+
+```md
+COMPOSE_PROFILES=hoprd docker compose up -d
+```
+
+(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
+
+</TabItem>
 <TabItem value="dappnode_resync" label="Dappnode">
 
 (**1**) **Connect to your DAppNode dashboard**.

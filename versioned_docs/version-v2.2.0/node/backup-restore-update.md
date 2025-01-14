@@ -161,13 +161,13 @@ The update process occurs when you stop and restart the "**hoprd**" services, en
 COMPOSE_PROFILES=hoprd docker compose down
 ```
 
-(**2**) **Optional step:** If you have implemented [custom strategies](manage-node-strategies.md) on your node, you might need to make the following changes:
+(**2**) Locate the configuration file "**hoprd.cfg.yaml**" in the "**hoprd_data**" folder inside the "**compose**" directory and do the following:
 
-- Locate the configuration file "**hoprd.cfg.yaml**" in the "**hoprd_data**" folder inside the "**compose**" directory. 
 - Find "**network_options.quality_bad_threshold**" and ensure it is set to a value of `0.1`.
 - Find "**network_options.quality_offline_threshold**" and ensure it is set to a value of `0.0`.
+- Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.
 
-**Note:** If these settings are not present in your configuration file, there is no need to add them.
+(**3**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
 
 (**3**) To start the "**hoprd**" services again and apply the latest version, run this command:
 
