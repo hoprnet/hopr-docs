@@ -38,7 +38,7 @@ For Docker compose, the identity file is automatically created and stored on you
 
 (**1**) Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
-(**2**) Under the "**Download file**" section, enter `/app/hoprd-db/.hopr-identity` and click "**Download**".
+(**2**) In the "**Download file**" section, enter `/app/hoprd-db/.hopr-identity` and click "**Download**". **Important:** If you're using a browser like Brave, the identity file will not download automatically. You'll need to click "**Keep**" in the downloads section of your browser. Ensure the file is fully downloaded; otherwise, you risk losing your node identity.
 
 (**3**) Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under "**Identity file password**", click the "**eye**" icon to unhide the database password and write it down.
 
