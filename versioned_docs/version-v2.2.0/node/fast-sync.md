@@ -23,7 +23,7 @@ Please select platform to configure Fast Sync feature:
 
 (**3**) On your machine, navigate to the "**.hoprd-db-dufour**" folder. Inside, locate the "**db**" folder and delete all files in it.
 
-(**4**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
+(**4**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will create an "**app**" folder. Navigate to the "**hoprd-db**" directory within it, then go to the "**db**" folder. Inside, you will find three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**". Copy all three files into the destination "**db**" folder.
 
 (**5**) Configure your node by creating and applying a configuration file. Follow this [guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
@@ -42,7 +42,7 @@ Please select platform to configure Fast Sync feature:
 
 (**4**) Locate the "**db**" folder by following the path "**/hoprd/db/**".
 
-(**5**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
+(**5**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will create an "**app**" folder. Navigate to the "**hoprd-db**" directory within it, then go to the "**db**" folder. Inside, you will find three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**". Copy all three files into the destination "**db**" folder.
 
 (**6**) Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
 
@@ -68,11 +68,9 @@ Please select platform to configure Fast Sync feature:
 
 Save the changes to the configuration file.
 
-(**7**) Extract the newly downloaded "**hopr_logs.tar.gz**" file. This will produce three database files:  "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**".
+(**7**) In your temporary folder, navigate to the "**db**" folder, then enter the "**second db**" folder. Delete the old "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**" files.
 
-(**7.1**) In your temporary folder, navigate to the "**db**" folder, then enter the "**second db**" folder. Delete the old "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**" files.
-
-(**7.2**) Copy the newly extracted log files into current "**db**" folder.
+(**7.1**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will create an "**app**" folder. Navigate to the "**hoprd-db**" directory within it, then go to the "**db**" folder. Inside, you will find three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**". Copy the newly extracted log files into current "**db**" folder.
 
 (**8**) **Archive files back**: Follow strict guide.
 
