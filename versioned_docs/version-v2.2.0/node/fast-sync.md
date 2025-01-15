@@ -17,13 +17,13 @@ Please select platform to configure Fast Sync feature:
 <Tabs>
 <TabItem value="docker_fast_sync" label="Docker">
 
-(**1**) Download the archived file "**hopr-logs-dufour-20250109.zip**" from the HOPR google cloud storage: [https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip](https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip)
+(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR google cloud storage: [https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz](https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz)
 
 (**2**) Ensure that you have stopped the HOPRd node Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
 (**3**) On your machine, navigate to the "**.hoprd-db-dufour**" folder. Inside, locate the "**db**" folder and delete all files in it.
 
-(**4**) Extract the recently downloaded file "**hopr-logs-dufour-20250109.zip**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
+(**4**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
 
 (**5**) Configure your node by creating and applying a configuration file. Follow this [guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
@@ -34,7 +34,7 @@ Please select platform to configure Fast Sync feature:
 </TabItem>
 <TabItem value="docker_compose_fast_sync" label="Docker Compose">
 
-(**1**) Download the archived file "**hopr-logs-dufour-20250109.zip**" from the HOPR google cloud storage: [https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip](https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip)
+(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR google cloud storage: [https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz](https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz)
 
 (**2**) Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -42,14 +42,14 @@ Please select platform to configure Fast Sync feature:
 
 (**4**) Locate the "**db**" folder by following the path "**/hoprd/db/**".
 
-(**5**) Extract the recently downloaded file "**hopr-logs-dufour-20250109.zip**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
+(**5**) Extract the recently downloaded file "**hopr_logs.tar.gz**". This will produce three database files: "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**". Copy all three files into the "**db**" folder.
 
 (**6**) Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
 
 </TabItem>
 <TabItem value="dappnode_fast_sync" label="Dappnode">
 
-(**1**) Download the archived file "**hopr-logs-dufour-20250109.zip**" from the HOPR google cloud storage: [https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip](https://storage.cloud.google.com/hoprd-sync-data-staging/dufour/hopr-logs-dufour-20250109.zip)
+(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR google cloud storage: [https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz](https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz)
 
 (**2**) Connect to your DAppNode dashboard.
 
@@ -68,7 +68,7 @@ Please select platform to configure Fast Sync feature:
 
 Save the changes to the configuration file.
 
-(**7**) Extract the newly downloaded "**hopr-logs-dufour-20250109.zip**" file. This will produce three database files:  "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**".
+(**7**) Extract the newly downloaded "**hopr_logs.tar.gz**" file. This will produce three database files:  "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**".
 
 (**7.1**) In your temporary folder, navigate to the "**db**" folder, then enter the "**second db**" folder. Delete the old "**hopr_logs.db**", "**hopr_logs.db-shm**", "**hopr_logs.db-wal**" files.
 
