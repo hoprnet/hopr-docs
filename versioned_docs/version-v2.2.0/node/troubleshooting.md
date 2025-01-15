@@ -128,7 +128,9 @@ There might be several causes on why your node received neglected tickets:
 ### How to re-sync my HOPRd node?
 </summary>
 
-**Note:** During the re-sync process, **all tickets in your database will be removed**, including any unredeemed tickets. This step is necessary to ensure optimal node performance, but please be aware that **unredeemed tickets will be lost**.
+:::warning Note
+During the re-sync process, **all tickets in your database will be removed**, including any unredeemed tickets. This step is necessary to ensure optimal node performance, but please be aware that **unredeemed tickets will be lost**.
+:::
 
 Please select platform to re-sync node:
 
