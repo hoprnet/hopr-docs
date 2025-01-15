@@ -15,6 +15,7 @@ hopr:
       - !AutoRedeeming
         redeem_only_aggregated: true
         minimum_redeem_ticket_value: "30000000000000000000 HOPR"
+        on_close_redeem_single_tickets_value_min: "90000000000000000 HOPR"
       - !ClosureFinalizer
         max_closure_overdue: 3600
   heartbeat:
@@ -32,12 +33,19 @@ hopr:
     backoff_exponent: 1.5
     backoff_min: 2.0
     backoff_max: 300.0
+  protocol:
+    ack:
+      timeout: 15
+    heartbeat:
+      timeout: 15
+    msg:
+      timeout: 15
+    ticket_aggregation:
+      timeout: 15
   chain:
     announce: true
     check_unrealized_balance: true
     network: dufour
-    keep_logs: true
-    fast_sync: true
   safe_module:
     safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net/
   transport:
