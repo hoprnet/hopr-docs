@@ -139,7 +139,7 @@ Example:
 docker kill 4951b2990936
 ```
 
-(**4**) **Optional step:** If you have implemented [custom strategies](manage-node-strategies.md) on your node, you might need to make the following changes:
+(**4**) **This step applies only to those who have implemented a custom [configuration file](manage-node-strategies.md) on your node**. You might need to make the following changes:
 
 - Locate the configuration file "**hoprd-docker.cfg.yaml**" inside the "**.hoprd-db-dufour**" folder.  
 - Find "**network_options.quality_bad_threshold**" and ensure it is set to a value of `0.1`.
@@ -167,6 +167,8 @@ COMPOSE_PROFILES=hoprd docker compose down
 - Find "**network_options.quality_offline_threshold**" and ensure it is set to a value of `0.0`.
 - Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.
 
+**Note:** If these settings are not present in your configuration file, there is no need to add them.
+
 (**3**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
 
 </TabItem>
@@ -180,7 +182,7 @@ COMPOSE_PROFILES=hoprd docker compose down
 
 (**4**) During the update process, all data should be pre-filled. Click "**Submit**" to complete the HOPRd node update process.
 
-(**5**) **Optional step**: If you have implemented a custom strategies file, make sure to update it with the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+(**5**) **This step applies only to those who have implemented a custom [configuration file](manage-node-strategies.md) on your node**. Make sure to update it with the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
 (**6**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
  
