@@ -167,6 +167,8 @@ COMPOSE_PROFILES=hoprd docker compose down
 - Find "**network_options.quality_offline_threshold**" and ensure it is set to a value of `0.0`.
 - Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.
 
+**Note:** If these settings are not present in your configuration file, there is no need to add them.
+
 (**3**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
 
 </TabItem>
