@@ -18,9 +18,9 @@ hopr:
       - !ClosureFinalizer
         max_closure_overdue: 3600
   heartbeat:
-    variance: 1
-    interval: 20
-    threshold: 60
+    variance: 2
+    interval: 60
+    threshold: 40
   network_options:
     min_delay: 1
     max_delay: 300
@@ -32,6 +32,10 @@ hopr:
     backoff_exponent: 1.5
     backoff_min: 2.0
     backoff_max: 300.0
+  protocol:
+    outgoing_ticket_winning_prob: 1
+    heartbeat:
+      timeout: 7
   chain:
     announce: true
     check_unrealized_balance: true

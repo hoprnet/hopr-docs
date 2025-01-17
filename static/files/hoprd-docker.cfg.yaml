@@ -13,6 +13,14 @@ hopr:
         minimum_redeem_ticket_value: "30000000000000000000 HOPR"
       - !ClosureFinalizer
         max_closure_overdue: 3600
-    chain:
-      keep_logs: true
-      fast_sync: true
+  heartbeat:
+    variance: 2
+    interval: 60
+    threshold: 40
+  protocol:
+    outgoing_ticket_winning_prob: 1
+    heartbeat:
+      timeout: 7
+  chain:
+    keep_logs: true
+    fast_sync: true
