@@ -117,6 +117,7 @@ hopr:
         variance: 2
         interval: 60
         threshold: 40
+        max_parallel_probes: 50
     network_options:
         min_delay: 1
         max_delay: 300
