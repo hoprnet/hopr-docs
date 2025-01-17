@@ -112,11 +112,11 @@ hopr:
             redeem_only_aggregated: true
             minimum_redeem_ticket_value: "30000000000000000000 HOPR"
             - !ClosureFinalizer
-            max_closure_overdue: 900
+            max_closure_overdue: 3600
     heartbeat:
-        variance: 1
-        interval: 20
-        threshold: 60
+        variance: 2
+        interval: 60
+        threshold: 40
     network_options:
         min_delay: 1
         max_delay: 300
@@ -130,6 +130,8 @@ hopr:
         backoff_max: 300.0
     protocol:
         outgoing_ticket_winning_prob: 1
+        heartbeat:
+            timeout: 7
     chain:
         provider: https://gnosis-rpc.publicnode.com
         announce: true
@@ -195,13 +197,15 @@ Configuration of the heartbeat mechanism for probing other nodes in the HOPR net
 
 ```md
 heartbeat:
+    max_parallel_probes: 50
     interval: 60
-    threshold: 60
+    threshold: 40
     variance: 2
 ```
 
 | Settings | Description |
 | --- | --- |
+| `heartbeat.max_parallel_probes` | The maximum number of concurrent heartbeat probes. |
 | `heartbeat.interval` | Interval in which the heartbeat is triggered in seconds. |
 | `heartbeat.threshold` | The time interval for which to consider peer heartbeat renewal in seconds. |
 | `heartbeat.variance` | Round-to-round variance to complicate network sync in seconds. |
@@ -244,11 +248,14 @@ Configuration of various HOPR sub-protocols.
 ```md
 protocol:
     outgoing_ticket_winning_prob: 1
+    heartbeat:
+        timeout: 7
 ```
 
 | Settings | Description |
 | --- | --- |
 | `protocol.outgoing_ticket_winning_prob` | Outgoing ticket winning probability. Default value is 1. |
+| `protocol.heartbeat.timeout` | Heartbeat sub-protocol configuration, with the timeout specified in seconds. |
 
 ### hopr.chain
 
@@ -336,8 +343,8 @@ api:
 | `api.enable` | Indicates whether the REST API should be enabled. Possible values: "**true**" or "**false**". |
 | `api.auth` | Authentication of the REST API. When using custom secret token, it is necessary to use "**!Token**" before secret token. Example: "**!Token My#S3cur1ty#Token**". For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
 | `api.host` | Defines the local interface host where the API should listen. |
-| `api.address` | The address of the local interface to listen on. |
-| `api.port` | The REST API TCP lsiten port. |
+| `api.host.address` | The address of the local interface to listen on. |
+| `api.host.port` | The REST API TCP lsiten port. |
 
 ### inbox
 
