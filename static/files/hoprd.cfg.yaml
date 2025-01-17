@@ -18,6 +18,7 @@ hopr:
       - !ClosureFinalizer
         max_closure_overdue: 3600
   heartbeat:
+    max_parallel_probes: 50
     variance: 2
     interval: 60
     threshold: 40
