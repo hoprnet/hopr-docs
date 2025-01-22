@@ -21,12 +21,12 @@ Fast Sync feature was implemented on the HOPRd version 2.2.0, it allows your nod
 <Tabs>
 <TabItem value="docker_fast_sync_backup" label="Docker">
 
-Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/.hoprd-db-dufour/**". Store these files for future use in a Fast Sync.
+(**3.1**) Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/.hoprd-db-dufour/**". Store these files for future use in a Fast Sync.
 
 </TabItem>
 <TabItem value="docker_compose_fast_sync_backup" label="Docker Compose">
 
-Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/compose/hoprd_data/hoprd/db/**". Store these files for future use in a Fast Sync.
+(**3.1**) Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/compose/hoprd_data/hoprd/db/**". Store these files for future use in a Fast Sync.
 
 </TabItem>
 <TabItem value="dappnode_fast_sync_backup" label="Dappnode">
