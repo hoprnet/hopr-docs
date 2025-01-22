@@ -6,18 +6,49 @@ title: Fast Sync
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## What is a Fast Sync?
+## What is Fast Sync?
 
-Fast Sync is a feature that allows your node to complete synchronization in as little as 10 to 20 minutes, even without a local RPC provider. The exact syncing duration may vary depending on your machine's hardware specifications.
+Fast Sync feature was implemented on the HOPRd version 2.2.0, it allows your node to complete synchronization in as little as 10 to 20 minutes, even without a local RPC provider. The exact syncing duration may vary depending on your machine's hardware specifications.
 
-## How to configure Fast Sync?
+## Preparing for Fast Sync
+
+(**1**) First, you must upgrade your node to the latest version. To update your node, follow this [guide](backup-restore-update.md#update-your-node).
+
+(**2**) You must fully synchronize your node from scratch. Once your node is fully synchronized, check if it is performing normally by following this [guide](troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+
+(**3**) Make a backup of your fully synchronized node, select your platform:
+
+<Tabs>
+<TabItem value="docker_fast_sync_backup" label="Docker">
+
+Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/.hoprd-db-dufour/**". Store these files for future use in a Fast Sync.
+
+</TabItem>
+<TabItem value="docker_compose_fast_sync_backup" label="Docker Compose">
+
+Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/compose/hoprd_data/hoprd/db/**". Store these files for future use in a Fast Sync.
+
+</TabItem>
+<TabItem value="dappnode_fast_sync_backup" label="Dappnode">
+
+(**3.1**) Go to the [HOPR package backup page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/backup).
+
+(**3.2**) Click the "**Backup now**" button to download a backup of your HOPR node.  
+**Important:** If you are using a browser like Brave, the backup file may not download automatically. You will need to click "**Keep**" in your browser’s downloads section.
+
+(**3.3**) Unarchive the downloaded backup file and navigate to the path **"/\hopr.public.dappnode.eth_backup/db/db/"** to find the database log files: "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**". Store these files for future use in a Fast Sync.
+
+</TabItem>
+</Tabs>
+
+## Enabling Fast Sync on your node
 
 Please select platform to configure Fast Sync feature:
 
 <Tabs>
 <TabItem value="docker_fast_sync" label="Docker">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR google cloud storage: [https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz](https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz)
+(**1**) Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
 
 (**2**) Ensure that you have stopped the HOPRd node Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -34,7 +65,7 @@ Please select platform to configure Fast Sync feature:
 </TabItem>
 <TabItem value="docker_compose_fast_sync" label="Docker Compose">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR google cloud storage: [https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz](https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz)
+(**1**) Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
 
 (**2**) Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -49,7 +80,7 @@ Please select platform to configure Fast Sync feature:
 </TabItem>
 <TabItem value="dappnode_fast_sync" label="Dappnode">
 
-(**1**) Download the archived file "**hopr_logs.tar.gz**" from the HOPR google cloud storage: [https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz](https://storage.googleapis.com/hoprd-sync-data-prod/hopr_logs.tar.gz)
+(**1**) Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
 
 (**2**) Connect to your DAppNode dashboard.
 
