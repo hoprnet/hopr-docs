@@ -141,8 +141,6 @@ docker kill 4951b2990936
 
 (**4**) Apply the latest configuration file to your HOPRd node by following this [step-by-step guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
-(**5**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
-
 </TabItem>
 <TabItem value="docker_compose_update" label="Docker Compose">
 
@@ -166,7 +164,11 @@ COMPOSE_PROFILES=hoprd docker compose down
 
 **Note:** If some of these settings are not present in your configuration file, there is no need to add them.
 
-(**3**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
+(**3**) To start the "**hoprd**" services again and apply the latest version, run this command:
+
+```md
+COMPOSE_PROFILES=hoprd docker compose up -d
+```
 
 </TabItem>
 <TabItem value="dappnode_update" label="Dappnode">
@@ -180,8 +182,6 @@ COMPOSE_PROFILES=hoprd docker compose down
 (**4**) During the update process, all data should be pre-filled. Click "**Submit**" to complete the HOPRd node update process.
 
 (**5**) Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
-
-(**6**) Re-sync your node by following this [guide](troubleshooting.md#how-to-re-sync-my-hoprd-node).
  
 </TabItem>
 </Tabs>
