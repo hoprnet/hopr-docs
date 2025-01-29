@@ -149,7 +149,7 @@ Please select platform to re-sync node:
 
 (**4**) **Start your node**: once the cleanup is done, start your node again by following this [guide](./node-operations.md#start-your-hopr-node).
 
-(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
+(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
 
 </TabItem>
 <TabItem value="docker_compose_resync" label="Docker Compose">
@@ -170,7 +170,7 @@ COMPOSE_PROFILES=hoprd docker compose down
 COMPOSE_PROFILES=hoprd docker compose up -d
 ```
 
-(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
+(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
 
 </TabItem>
 <TabItem value="dappnode_resync" label="Dappnode">
@@ -183,7 +183,7 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 (**4**) **Restore your node identity**: Follow this guide to [restore your node identity](backup-restore-update.md#restore-your-node-identity).
 
-(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-a-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#how-to-configure-fast-sync).
+(**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
 
 (**6**) **Verify the restore process**: Go to the [Logs tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs). In the logs, you should see syncing process lines, indicating the restore was successful and the re-sync process is underway. Wait for the node to fully sync to 100%.
 
