@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## What is Fast Sync?
 
-Fast Sync feature was implemented on the HOPRd version 2.2.0, it allows your node to complete synchronization in as little as 10 to 20 minutes, even without a local RPC provider. The exact syncing duration may vary depending on your machine's hardware specifications.
+The Fast Sync feature, introduced in HOPRd version 2.2.0, speeds up node synchronization by using HOPR logs database files. These files store logs from a previous sync performed via an RPC provider, allowing your node to read on-chain data efficiently. With Fast Sync, your node can complete synchronization in just 10 to 20 minutes, even without a local RPC provider. However, the exact duration may vary based on your hardware specifications.
 
 ## Preparing for Fast Sync
 
