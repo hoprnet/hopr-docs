@@ -36,7 +36,7 @@ The Fast Sync feature, introduced in HOPRd version 2.2.0, speeds up node synchro
 (**3.2**) Click the "**Backup now**" button to download a backup of your HOPR node.  
 **Important:** If you are using a browser like Brave, the backup file may not download automatically. You will need to click "**Keep**" in your browser’s downloads section.
 
-(**3.3**) Unarchive the downloaded backup file and navigate to the path **"/\hopr.public.dappnode.eth_backup/db/db/"** to find the database log files: "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**". Store these files for future use in a Fast Sync.
+(**3.3**) Unarchive the downloaded backup file and navigate to the path **"/hopr.public.dappnode.eth_backup/db/db/"** to find the database log files: "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**". Store these files for future use in a Fast Sync.
 
 </TabItem>
 </Tabs>
