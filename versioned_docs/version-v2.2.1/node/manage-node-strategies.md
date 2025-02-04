@@ -19,8 +19,6 @@ Please select your platform:
 
 (**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-**Note:** The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
-
 (**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 (**3**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
@@ -53,14 +51,10 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 
 **Note:** To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
-The latest version of the default configuration file for all supported platforms is available on the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
-
 </TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
 (**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
-
-**Note:** The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 (**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
 
@@ -156,6 +150,8 @@ inbox:
     excluded_tags:
         - 0
 ```
+
+**Note:** The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
 
 ---
 
