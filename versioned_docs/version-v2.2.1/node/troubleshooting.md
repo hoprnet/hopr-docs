@@ -64,11 +64,11 @@ The redemption process works as follows: once the unredeemed value reaches **30 
 (**3**) On the "**CHANNELS: IN**" page, ensure you have at least 5 incoming payment channels from the following Cover Traffic nodes:
 
 ```md
-0xd30f8f6e5865d7ec947e101b1d6a183e9776ba40
-0x5a5bf3d3ce59cd304f198b86c1a78adfadf31f83
-0xa4642c066c1f8927db9d34abab599af784a2cff0
-0xcbe8726c80cc0d7751b9545dd5a4b5b0e53e383d
-0x764d3162a4024c5cba8817446ef563b27aa57598
+0x5927c321Ca2a925d17EdCf9c58343E24337D18BA
+0x0543aa9d1DAfA9Cc49bF87Ce5ea1E18277b3ae0f
+0x29D61dDbc682f272fc7F0DFb203938e211471826
+0x8Fd1766b4215944f2Eb21F03e6820Bc3c75d936c
+0x633382b748e34432dF1dBDFDd234833454B3D768
 ```
 
 (**4**) Under the "**Unredeemed**" column, you should see an increasing number of unredeemed tickets. By default, once a channel reaches **30 wxHOPR** in unredeemed tickets, it will aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
@@ -118,7 +118,7 @@ There might be several causes on why your node received neglected tickets:
 
 - Tickets are marked as neglected when you close an incoming payment channel with unredeemed value. Since the tickets were not redeemed during the closure, they will be labeled as neglected tickets. This typically occurs when your node experiences issues, such as rejected tickets. To prevent continuous loss of rewards, it’s important to address the underlying issue.
 
-- When a payment channel is closed and the node's strategy value for "**on_close_redeem_single_tickets_value_min**" is set higher than the value of the channel’s individual tickets, those tickets will be marked as neglected. This happens because the ticket value does not meet the minimum threshold specified by the strategy. In this case, you need to customize your node strategies by following this [guide](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+- When a payment channel is closed and the node's strategy value for "**minimum_redeem_ticket_value**" is set higher than the value of the channel’s individual tickets, those tickets will be marked as neglected. This happens because the ticket value does not meet the minimum threshold specified by the strategy. In this case, you need to customize your node strategies by following this [guide](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 </details>
 
 
