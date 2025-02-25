@@ -1,15 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Extract the fragment identifier (without the '#' character)
-    const hash = window.location.hash.slice(1);
-    if (hash) {
-      // Find the element with the matching ID
-      const element = document.getElementById(hash);
-      // Check if the element is a <details> element
-      if (element && element.tagName.toLowerCase() === "details") {
-        // Open the details element to show its content
-        element.open = true;
-        // Optionally scroll the details element into view
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
+document.addEventListener("DOMContentLoaded", function () {
+    // Use a slight delay to ensure the content is fully rendered.
+    setTimeout(function () {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const targetH3 = document.getElementById(hash);
+        if (targetH3) {
+          // If the target element is an <h3>, trigger its click event.
+          if (targetH3.tagName.toLowerCase() === "h3") {
+            targetH3.click();
+          }
+          // Then, find the closest parent <details> element.
+          const detailsParent = targetH3.closest("details");
+          if (detailsParent) {
+            detailsParent.open = true;
+            detailsParent.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            console.warn("No parent <details> element found for the target <h3> element.");
+          }
+        } else {
+          console.warn("No element found with ID:", hash);
+        }
       }
-    }
+    }, 500); // Adjust the delay if necessary
   });  
