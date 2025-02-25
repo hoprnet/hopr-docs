@@ -1,22 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+    function openDetailsForHash() {
       const hash = window.location.hash.slice(1);
       if (hash) {
         const targetH3 = document.getElementById(hash);
         if (targetH3) {
-          // If the target element is an <h3>, trigger its click event.
+          // Simulate a click on the h3 element.
           if (targetH3.tagName.toLowerCase() === "h3") {
             targetH3.click();
           }
-          // Then, find the closest parent <details> element.
+          // Find and open the parent <details> element.
           const detailsParent = targetH3.closest("details");
           if (detailsParent) {
             detailsParent.open = true;
             detailsParent.scrollIntoView({ behavior: "smooth", block: "start" });
-          } else {
-            console.warn("No parent <details> element found for the target <h3> element.");
+            return true; // The element was found and handled.
           }
-        } else {
-          console.warn("No element found with ID:", hash);
         }
       }
-  });  
+      return false; // The target element isn't available yet.
+    }
+  
+    // Try running the function immediately.
+    if (!openDetailsForHash()) {
+      // If not found, set up a MutationObserver to monitor the DOM.
+      const observer = new MutationObserver(() => {
+        if (openDetailsForHash()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  });    
