@@ -19,7 +19,7 @@ Please select your platform:
 
 (**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-(**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
+(**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 (**3**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
 
@@ -49,14 +49,14 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
-**Note:** To adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
+**Note:** By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 </TabItem>
 <TabItem value="config_dappnode" label="Dappnode">
 
 (**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
 
-(**2**) Customize the recently downloaded configuration file to adjust the strategy settings according to your specific needs. For detailed instructions, refer to the [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies) section.
+(**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 **Note:** Adjust the [strategies section](./manage-node-strategies.md#hoprstrategy) according to your needs; no other configuration is required.
 

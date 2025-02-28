@@ -44,7 +44,7 @@ const config = {
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css',
     'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
   ],
-  scripts: [{ src: 'https://cdn-eu.usefathom.com/script.js', 'data-site': 'WMCAULEA', 'data-included-domains': 'docs.hoprnet.org', defer: true }],
+  scripts: [{ src: 'https://cdn-eu.usefathom.com/script.js', 'data-site': 'WMCAULEA', 'data-included-domains': 'docs.hoprnet.org', defer: true }, {src: '/js/custom.js', defer: true}],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -55,8 +55,8 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
-          lastVersion: 'v2.2.1',
-          onlyIncludeVersions: ['v2.1.5', 'v2.2.0', `v2.2.1`],
+          lastVersion: 'v2.2.3',
+          onlyIncludeVersions: ['v2.1.5', 'v2.2.3'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
