@@ -237,7 +237,7 @@ docker logs -t 4951b2990936 >> logs_from_hopr_node.log
 ### HTTP Status code 422
 </summary>
 
-**Error description**: Your RPC provider is either not working or functioning incorrectly.
+**Error description**: Your RPC provider is either unavailable or malfunctioning. Please switch to a functional RPC provider. If you are using a local RPC provider, please troubleshoot the issue.
 
 **Error message**:
 

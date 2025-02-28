@@ -131,12 +131,12 @@ This will provide you with a list of Docker containers you are currently running
 
 In the image above, the container ID is: "**4951b2990936**". In your system, the Docker container ID will be different.
 
-(**3**) Kill the container using the following command: `docker kill <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
+(**3**) Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
 
 Example: 
 
 ```md
-docker kill 4951b2990936
+docker rm -f 4951b2990936
 ```
 
 (**4**) Apply the latest configuration file to your HOPRd node by following this [step-by-step guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
@@ -154,7 +154,7 @@ COMPOSE_PROFILES=hoprd docker compose down
 
 (**2**) Locate the configuration file "**hoprd.cfg.yaml**" in the "**hoprd_data**" folder inside the "**compose**" directory and do the following:
 
-- Locate "**strategy.strategies**", under "**!Aggregating**" strategy find "**aggregation_threshold**" and replace `100` with `1000`. Then, find "**aggregation_timeout**" and remove this setting.
+- Locate "**strategy.strategies**", under "**!Aggregating**" strategy find "**aggregation_threshold**" and replace `100` with `250`. Then, find "**aggregation_timeout**" and remove this setting.
 - Locate "**strategy.strategies**", under "**!AutoRedeeming**" strategy find "**minimum_redeem_ticket_value**" and replace `30000000000000000000 HOPR` with `2500000000000000000 HOPR`.
 - Find "**chain**" section and remove only "**check_unrealized_balance**" setting.
 - Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.
@@ -204,12 +204,12 @@ This will provide you with a list of Docker containers you are currently running
 
 In the image above, the container ID is: "**0a74437b27f8**". In your system, the Docker container ID will be different.
 
-(**2**) Kill the container using the following command: `docker kill <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
+(**2**) Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
 
 Example: 
 
 ```md
-docker kill 0a74437b27f8
+docker rm -f 0a74437b27f8
 ```
 
 (**3**) Retrieve the [latest installation command for the HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui) and execute it in your terminal.
