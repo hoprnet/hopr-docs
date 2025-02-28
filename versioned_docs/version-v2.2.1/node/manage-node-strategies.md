@@ -104,7 +104,7 @@ hopr:
         allow_recursive: true
         strategies:
             - !Aggregating
-            aggregation_threshold: 1000
+            aggregation_threshold: 250
             unrealized_balance_ratio: 0.9
             aggregate_on_channel_close: true
             - !AutoRedeeming
