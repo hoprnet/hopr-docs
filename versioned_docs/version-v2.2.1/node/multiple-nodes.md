@@ -69,13 +69,17 @@ To operate multiple nodes on the same device or VPS, you must use distinct "comp
 
 (**4**) Modify secret environment variables, make adjustments if needed under "**.env-secrets**" file within your new "**HOPRd-node-2**" folder.
 
-(**5**) Configure node strategies, inside "**HOPRd-node-2**" folder, navigate to "**hoprd_data**" folder and edit "**hoprd.cfg.yaml**" file, assuming you are using the same safe wallet:
+(**5**) Modify the docker compose file. Make adjustments in the "**docker-compose.yml**" file within your new "**HOPRd-node-2**" folder:
+
+- Under "**services.hoprd**", change the "**container_name**" from `hoprd` to `hoprd-2`.
+
+(**6**) Configure node strategies, inside "**HOPRd-node-2**" folder, navigate to "**hoprd_data**" folder and edit "**hoprd.cfg.yaml**" file, assuming you are using the same safe wallet:
 
 - **port**: Change port from `9091` to `9092`.
 
-(**6**) Manage the identity file. If you have previously run a second node, transfer the identity file to the "**hoprd_data**" folder inside the "**HOPRd-node-2**" folder, and rename it to `hopr.id`. If this is your first time running a second node, the **hopr.id** file will be automatically generated when the HOPRd node is launched.
+(**7**) Manage the identity file. If you have previously run a second node, transfer the identity file to the "**hoprd_data**" folder inside the "**HOPRd-node-2**" folder, and rename it to `hopr.id`. If this is your first time running a second node, the **hopr.id** file will be automatically generated when the HOPRd node is launched.
 
-(**7**) Launch Docker Compose. When running multiple nodes, for the second node, you only need to use the "**hoprd**" profile. Ensure you are in the "**HOPRd-node-2**" folder when executing the command:
+(**8**) Launch Docker Compose. When running multiple nodes, for the second node, you only need to use the "**hoprd**" profile. Ensure you are in the "**HOPRd-node-2**" folder when executing the command:
 
 ```md
 COMPOSE_PROFILES=hoprd docker compose up -d
