@@ -100,9 +100,9 @@ Watch this video tutorial for step-by-step guidance:
 
 We recommend using a third-party RPC provider that runs on the Nethermind execution client. These options are typically free and reliable enough for running your node:
 
+- [Ankr](https://rpc.ankr.com/gnosis)
 - [Public Node](https://gnosis.publicnode.com)
-- [Gateway FM](https://gateway.fm) (**Note:** Ensure the URL includes an API key)
-- [Gnosis Chain RPC Providers](https://docs.gnosischain.com/tools/RPC%20Providers/#gnosis)
+- [DRPC](https://gnosis.drpc.org)
 
 ---
 
