@@ -53,7 +53,7 @@ For guidance on creating a secret token, please refer to this [guide](./frequent
 
 (**5**) In the **Staking safe module address** field, enter the recently copied Module address.
 
-(**6**) In the **Public host IP and port** field, enter your public IP suffixed with the port "**:9091**". Find your public IP address by following these instructions [here](./frequently-asked-questions#how-do-i-find-my-public-ip-address).
+(**6**) In the **Public host IP and port** field, enter your public IP suffixed with the port "**:9091**". To locate your external IP address and ensure it meets the requirements for running HOPRd node(s), please refer to our FAQ [here](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node).
 
 **Important:** Dynamic IPs are not suitable for this setup, as your node will become unreachable once your IP address changes. **If you have a dynamic IP, please use a DDNS service** and specify the DDNS address as your public IP, including the port, in the Docker command. You can find instructions on how to do this [here](./frequently-asked-questions#how-to-use-dynamic-dns).
 

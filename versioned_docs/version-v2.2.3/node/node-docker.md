@@ -94,7 +94,7 @@ Examples:
 
 ### 2.4 Adjust "host" setting
 
-(**1**) Find your public IP address by following these instructions [here](./frequently-asked-questions#how-do-i-find-my-public-ip-address).
+(**1**) To locate your external IP address and ensure it meets the requirements for running HOPRd node(s), please refer to our FAQ [here](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node).
 
 (**2**) Replace "**\<YOUR_PUBLIC_IP>**" in your Docker command with your own public IP, and add the libp2p port which by default is **9091**.
 

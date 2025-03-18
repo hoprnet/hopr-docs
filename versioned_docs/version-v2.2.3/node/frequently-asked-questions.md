@@ -7,14 +7,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <details>
-<summary>
-
-### How do I find my public IP address?
-
+<summary> 
+  
+### What are the requirements for an IP address to run a HOPRd node?
 </summary>
 
-#### For Linux or macOS
+#### How to find your external IP address
 
+<Tabs>
+<TabItem value="external_ip_linux_mac" label="For Linux or macOS users">
 (**1**) Open the terminal
 
 (**2**) Copy, paste and execute the following command: 
@@ -24,10 +25,58 @@ curl ifconfig.me
 ```
 
 (**3**) Note your public IP address from the output
-
-#### For VPS Users
-
+</TabItem>
+<TabItem value="external_ip_vps" label="For VPS users">
 VPS users should be able to find their IP address from their provider. It will also be your VPS IP, so it should be easy to find.
+</TabItem>
+</Tabs>
+
+---
+
+#### Determining if your external IP meets the requirements for an IP address to run a HOPRd node
+
+If you are planning to run HOPRd nodes under **NAT (Network Address Translation)**, such as running nodes on **Dappnode**, **Avado devices**, or **home/office computers/servers**. Please follow bellow the guide to determine if your IP address meets the requirements to run a HOPRd node.
+
+Your node's IP address is **crucial** for its performance. If it is **misconfigured** or does not meet the **necessary requirements**, your node **will not be reachable** by most peers, including **Cover Traffic nodes**, and you may **not receive rewards**.
+
+#### Step 1: Check if your external IP is a public IP
+
+For HOPRd nodes to communicate with each other on the HOPR network, every node must have a **public IP address**.
+
+The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly.
+
+:::warning Important
+If your ISP does not provide a **public IP**, you do not need to proceed with the following steps. Instead, you must find a way to obtain a public IP for your HOPRd node. One option is to **rent a low-cost cloud VPS** and run your HOPRd node there. More details are available [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
+:::
+
+---
+
+#### Step 2: Check if your public IP is static or dynamic
+
+##### Why is this important?
+
+- If your **public IP is dynamic**, it **changes over time**, causing your node to become unreachable.
+- If your **IP changes**, you must manually update your node's configuration with the new public IP.
+- A **static IP is recommended** to avoid frequent maintenance issues.
+
+##### How to check if your public IP is static or dynamic:
+
+- The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly. If it is **dynamic**, ask if they offer a **static IP option**.
+
+- **Alternative method (Less Reliable):**  
+  - Find your external IP by going to [https://whatismyipaddress.com](https://whatismyipaddress.com) and note the **IPv4 address** displayed.  
+  - Turn off your **router/modem** for **5-10 minutes**. Then turn it back on and reconnect.  
+  - Return to [https://whatismyipaddress.com](https://whatismyipaddress.com) and check the IPv4 address again.  
+     - If the IP address **has changed**, your IP is **dynamic**.  
+     - If the IP address **remains the same**, your IP **might** be static (although some ISPs assign "sticky" dynamic IPs that rarely change).  
+
+---
+
+#### Summary
+
+- If your **external IP address is not public**, you need to find a way to obtain a **public IP**, as your HOPRd node **will not function properly** and **will not receive rewards**.
+- If your **external IP address is public but dynamic**, your IP will change over time, requiring you to **manually update your node's public IP**. We strongly recommend following this guide to avoid frequent maintenance: [How to use dynamic DNS](frequently-asked-questions.md#how-to-use-dynamic-dns).
+- If your **external IP address is public and static**, you **meet all the requirements** to run a HOPRd node.
 </details>
 
 <details>
