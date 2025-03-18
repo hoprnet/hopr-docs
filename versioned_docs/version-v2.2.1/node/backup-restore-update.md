@@ -154,7 +154,7 @@ COMPOSE_PROFILES=hoprd docker compose down
 
 (**2**) Locate the configuration file "**hoprd.cfg.yaml**" in the "**hoprd_data**" folder inside the "**compose**" directory and do the following:
 
-- Locate "**strategy.strategies**", under "**!Aggregating**" strategy find "**aggregation_threshold**" and replace `100` with `1000`. Then, find "**aggregation_timeout**" and remove this setting.
+- Locate "**strategy.strategies**", under "**!Aggregating**" strategy find "**aggregation_threshold**" and replace `100` with `250`. Then, find "**aggregation_timeout**" and remove this setting.
 - Locate "**strategy.strategies**", under "**!AutoRedeeming**" strategy find "**minimum_redeem_ticket_value**" and replace `30000000000000000000 HOPR` with `2500000000000000000 HOPR`.
 - Find "**chain**" section and remove only "**check_unrealized_balance**" setting.
 - Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.

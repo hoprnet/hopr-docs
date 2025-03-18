@@ -131,7 +131,7 @@ Follow these steps to troubleshoot the issue:
 (**2**) Navigate to the "**CHANNELS: IN**" page. Under the "**Unredeemed**" column, perform one of the following:
 
 :::info  
-We assume you haven't customized your node strategies, so the hardcoded minimum redeem ticket value is **30 wxHOPR**. If you’ve changed this, please refer to your customized **minimum_redeem_ticket_value**.  
+We assume you haven't customized your node strategies, so the hardcoded minimum redeem ticket value is **2.5 wxHOPR**. If you’ve changed this, please refer to your customized **minimum_redeem_ticket_value**.  
 :::
 
 - (**a**) Check if there is a payment channel with **more than 34 - 35 wxHOPR** in unredeemed tokens. If so, close this specific payment channel to prevent receiving further rejected tickets.

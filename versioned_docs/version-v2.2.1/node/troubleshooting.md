@@ -42,9 +42,9 @@ For DAppNode users, if the peer quality is below 100%, follow these steps:
 
 - Check the values for "**HOPRD_HEARTBEAT_INTERVAL**" and ensure it is set to the default value of "**20**". Similarly, confirm that "**HOPRD_HEARTBEAT_THRESHOLD**" is set to its default value of "**60**".
 
-(**9**) On the "**CHANNELS: IN**" page, review the "**Unredeemed**" column for each incoming payment channel. Ensure that the values do not exceed **20%** above the threshold (the default threshold for ticket redemption is **30 wxHOPR**). If you’ve set a custom threshold, make sure the unredeemed value remains within **20%** of your custom setting.
+(**9**) On the "**CHANNELS: IN**" page, review the "**Unredeemed**" column for each incoming payment channel. Ensure that the values do not exceed **20%** above the threshold (the default threshold for ticket redemption is **2.5 wxHOPR**). If you’ve set a custom threshold, make sure the unredeemed value remains within **20%** of your custom setting.
 
-The redemption process works as follows: once the unredeemed value reaches **30 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
+The redemption process works as follows: once the unredeemed value reaches **2.5 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
 
 (**10**) Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes, including Cover Traffic nodes and community nodes.
  
@@ -71,7 +71,7 @@ The redemption process works as follows: once the unredeemed value reaches **30 
 0x633382b748e34432dF1dBDFDd234833454B3D768
 ```
 
-(**4**) Under the "**Unredeemed**" column, you should see an increasing number of unredeemed tickets. By default, once a channel reaches **30 wxHOPR** in unredeemed tickets, it will aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
+(**4**) Under the "**Unredeemed**" column, you should see an increasing number of unredeemed tickets. By default, once a channel reaches **2.5 wxHOPR** in unredeemed tickets, it will aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
 </details>
 
 <details>
@@ -91,7 +91,7 @@ Follow these steps to troubleshoot the issue:
 (**2**) Navigate to the "**CHANNELS: IN**" page. Under the "**Unredeemed**" column, perform one of the following:
 
 :::info  
-We assume you haven't customized your node strategies, so the hardcoded minimum redeem ticket value is **30 wxHOPR**. If you’ve changed this, please refer to your customized **minimum_redeem_ticket_value**.  
+We assume you haven't customized your node strategies, so the hardcoded minimum redeem ticket value is **2.5 wxHOPR**. If you’ve changed this, please refer to your customized **minimum_redeem_ticket_value**.  
 :::
 
 - (**a**) Check if there is a payment channel with **more than 34 - 35 wxHOPR** in unredeemed tokens. If so, close this specific payment channel to prevent receiving further rejected tickets.
