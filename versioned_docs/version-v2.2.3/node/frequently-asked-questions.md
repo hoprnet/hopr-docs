@@ -33,9 +33,9 @@ VPS users should be able to find their IP address from their provider. It will a
 
 ---
 
-#### Determining if your external IP meets the requirements for an IP address to run a HOPRd node
+#### Determining whether your external IP meets the requirements to run a HOPRd node
 
-If you are planning to run HOPRd nodes under **NAT (Network Address Translation)**, such as running nodes on **Dappnode**, **Avado devices**, or **home/office computers/servers**. Please follow bellow the guide to determine if your IP address meets the requirements to run a HOPRd node.
+If you are planning to run HOPRd node(s) under **NAT (Network Address Translation)**, such as running node(s) on **Dappnode**, **Avado devices**, or **home/office computers/servers**. Please follow bellow the guide to determine if your IP address meets the requirements to run a HOPRd node.
 
 Your node's IP address is **crucial** for its performance. If it is **misconfigured** or does not meet the **necessary requirements**, your node **will not be reachable** by most peers, including **Cover Traffic nodes**, and you may **not receive rewards**.
 
