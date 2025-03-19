@@ -39,7 +39,9 @@ If you are planning to run HOPRd node(s) under **NAT (Network Address Translatio
 
 Your node's IP address is **crucial** for its performance. If it is **misconfigured** or does not meet the **necessary requirements**, your node **will not be reachable** by most peers, including **Cover Traffic nodes**, and you may **not receive rewards**.
 
-#### Step 1: Check if your external IP is a public IP
+---
+
+##### Step 1: Check if your external IP is a public IP
 
 For HOPRd nodes to communicate with each other on the HOPR network, every node must have a **public IP address**.
 
@@ -51,7 +53,7 @@ If your ISP does not provide a **public IP**, you do not need to proceed with th
 
 ---
 
-#### Step 2: Check if your public IP is static or dynamic
+##### Step 2: Check if your public IP is static or dynamic
 
 ##### Why is this important?
 
@@ -135,6 +137,8 @@ There are no specific requirements for creating a database password or secret to
 
 **Note:** To evaluate the strength of your password, you can use the [Bitwarden Password Strength Testing Tool](https://bitwarden.com/password-strength/#Password-Strength-Testing-Tool).
 </details>
+
+---
 
 ## Staking related FAQ
 
@@ -341,6 +345,8 @@ Currently, you can try to get Network Registry NFT on [nifftyfair](https://nifty
 </summary>
 Yes, you can run multiple nodes, but ensure that each node meets the minimum staking threshold, which depends on whether or not you hold a Network Registry NFT. For further details, please refer to this FAQ question [here](./frequently-asked-questions.md#what-is-the-minimum-stake-required-to-participate-in-the-dufour-release).
 </details>
+
+---
 
 ## Waitlist related FAQ
 
