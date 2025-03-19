@@ -87,6 +87,8 @@ There are no specific requirements for creating a database password or secret to
 **Note:** To evaluate the strength of your password, you can use the [Bitwarden Password Strength Testing Tool](https://bitwarden.com/password-strength/#Password-Strength-Testing-Tool).
 </details>
 
+---
+
 ## Staking related FAQ
 
 <details>
@@ -292,6 +294,8 @@ Currently, you can try to get Network Registry NFT on [nifftyfair](https://nifty
 </summary>
 Yes, you can run multiple nodes, but ensure that each node meets the minimum staking threshold, which depends on whether or not you hold a Network Registry NFT. For further details, please refer to this FAQ question [here](./frequently-asked-questions.md#what-is-the-minimum-stake-required-to-participate-in-the-dufour-release).
 </details>
+
+---
 
 ## Waitlist related FAQ
 
