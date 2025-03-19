@@ -37,6 +37,8 @@
 body {
   /*font-family: 'Source Code Pro', monospace;*/
   font-family: 'Lato';
+  /*font-family: 'Inter', sans-serif;*/
+
 }
 .footer {
   background: linear-gradient(#000050, #0000b4) !important;
@@ -57,6 +59,13 @@ code {
 .theme-doc-markdown ul ul{
   margin-top: 1rem;
 }
+.theme-doc-markdown > details h4{
+  font-size: 1.25rem;
+}
+.theme-doc-markdown > details h5{
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
 .theme-doc-markdown > details > div > div{
   border-top: 1px solid #000050;
 }
@@ -66,7 +75,6 @@ code {
 .theme-doc-markdown details summary::before{
   --docusaurus-details-decoration-color: #000050;
 }
-
 .theme-doc-markdown details{
   border: 1px solid #000050;
   color: #414141;
