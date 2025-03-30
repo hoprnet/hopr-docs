@@ -167,7 +167,7 @@ host:
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `host.address` | | The public IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the public IP address. |
+| `host.address` | | The external IP address of the machine where the node is running. Make sure to include **!IPv4** before entering the external IP address. Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements. |
 | `host.port` | `9091` | Listening on TCP & UDP ports. |
 
 ### hopr.db

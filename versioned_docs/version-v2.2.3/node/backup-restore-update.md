@@ -139,7 +139,7 @@ Example:
 docker rm -f 4951b2990936
 ```
 
-(**4**) Apply the latest configuration file to your HOPRd node by following this [step-by-step guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+(**4**) Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
 </TabItem>
 <TabItem value="docker_compose_update" label="Docker Compose">

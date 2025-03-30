@@ -9,11 +9,8 @@ import TabItem from '@theme/TabItem';
 <details>
 <summary> 
   
-### What are the requirements for an IP address to run a HOPRd node?
+### How to find the external IP address?
 </summary>
-
-#### How to find your external IP address
-
 <Tabs>
 <TabItem value="external_ip_linux_mac" label="For Linux or macOS users">
 (**1**) Open the terminal
@@ -30,10 +27,13 @@ curl ifconfig.me
 VPS users should be able to find their IP address from their provider. It will also be your VPS IP, so it should be easy to find.
 </TabItem>
 </Tabs>
+</details>
 
----
-
-#### Determining whether your external IP meets the requirements to run a HOPRd node
+<details>
+<summary> 
+  
+### What are the requirements for an IP address to run a HOPRd node?
+</summary>
 
 If you are planning to run HOPRd node(s) under **NAT (Network Address Translation)**, such as running node(s) on **Dappnode**, **Avado devices**, or **home/office computers/servers**. Please follow bellow the guide to determine if your IP address meets the requirements to run a HOPRd node.
 
@@ -46,10 +46,6 @@ Your node's IP address is **crucial** for its performance. If it is **misconfigu
 For HOPRd nodes to communicate with each other on the HOPR network, every node must have a **public IP address**.
 
 The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly.
-
-:::warning Important
-If your ISP does not provide a **public IP**, you do not need to proceed with the following steps. Instead, you must find a way to obtain a public IP for your HOPRd node. One option is to **rent a low-cost cloud VPS** and run your HOPRd node there. More details are available [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
-:::
 
 ---
 
@@ -74,11 +70,50 @@ If your ISP does not provide a **public IP**, you do not need to proceed with th
 
 ---
 
-#### Summary
+##### Step 3: Actions
 
-- If your **external IP address is not public**, you need to find a way to obtain a **public IP**, as your HOPRd node **will not function properly** and **will not receive rewards**.
-- If your **external IP address is public but dynamic**, your IP will change over time, requiring you to **manually update your node's public IP**. We strongly recommend following this guide to avoid frequent maintenance: [How to use dynamic DNS](frequently-asked-questions.md#how-to-use-dynamic-dns).
-- If your **external IP address is public and static**, you **meet all the requirements** to run a HOPRd node.
+Select the action based on your external IP type:
+
+<Tabs>
+<TabItem value="faq_exip_nonpublic" label="Is NOT Public">
+If your **external IP address is not public**, you will need to add additional variable, select HOPRd node method:
+
+<Tabs>
+<TabItem value="faq_exip_docker" label="For Docker">
+Add additional variable "**-e HOPRD_NAT=true**" to your docker command after "**-e RUST_LOG=info**":
+
+```md
+... -e RUST_LOG=info -e HOPRD_NAT=true ...
+```
+</TabItem>
+<TabItem value="faq_exip_docker_compose" label="For Docker compose">
+
+(**1**) Inside "**compose**" folder, edit **.env** file.
+
+(**2**) Add additional variable "**HOPRD_NAT=true**" and save file.
+
+</TabItem>
+<TabItem value="faq_exip_dappnode" label="For Dappnode">
+
+(**1**) Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
+
+(**2**) Scroll to the bottom and make sure under "**Enable NAT mode**" it is set to "**true**".
+
+</TabItem>
+</Tabs>
+:::warning Note
+Adding this variable doesn’t guarantee your node will function normally or receive rewards. It enables TCP connections under NAT, allowing your node to connect to publicly available nodes on the network, including **cover traffic nodes**.
+
+We recommend monitoring your node — if it stops earning rewards, you will need a public IP. One option is to **rent a low-cost cloud VPS**. More info [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
+:::
+</TabItem>
+<TabItem value="faq_exip_public_dyn" label="Is Public and Dynamic">
+If your **external IP address is public but dynamic**, your IP will change over time, requiring you to **manually update your node's public IP**. We strongly recommend following this guide to avoid frequent maintenance: [How to use dynamic DNS](frequently-asked-questions.md#how-to-use-dynamic-dns).
+</TabItem>
+<TabItem value="faq_exip_public" label="Is Public and Static">
+If your **external IP address is public and static**, you **meet all the requirements** to run a HOPRd node.
+</TabItem>
+</Tabs>
 </details>
 
 <details>
