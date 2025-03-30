@@ -28,13 +28,13 @@ import TabItem from '@theme/TabItem';
 
 (**5**) In the "**INFO**" page, check the "**Balances**" section and confirm that the "**xDai: Node**" balance is at least "**0.03 xDai**."
 
-(**6**) In the "**INFO**" page, scroll to the "**Nodes on the network**" section and ensure the "**Announced**" node count exceeds **700** and the "**Connected**" node count is above **150**.
+(**6**) In the "**INFO**" page, scroll to the "**Nodes on the network**" section and ensure the "**Announced**" node count exceeds **900** and the "**Connected**" node count is above **250**.
 
 (**7**) On the "**TICKETS**" page, ensure that there are no "**Neglected**" or "**Rejected**" tickets.
 
-(**8**) On the "**PEERS**" page, ensure that most of your peers have 100% quality (assuming your node has been running for at least 1 hour).
+(**8**) On the "**PEERS**" page, ensure that most of your peers have **100%** quality (assuming your node has been running for at least 1 hour).
 
-For DAppNode users, if the peer quality is below 100%, follow these steps:
+For DAppNode users, if the peer quality is **below 100%**, follow these steps:
 
 - Connect to your DAppNode and navigate to the [HOPR package Config tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
    
@@ -46,8 +46,40 @@ For DAppNode users, if the peer quality is below 100%, follow these steps:
 
 The redemption process works as follows: once the unredeemed value reaches **2.5 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
 
-(**10**) Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes, including Cover Traffic nodes and community nodes.
- 
+(**10**) Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes.
+
+(**11**) To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
+
+#### Cover Traffic node 1 
+```
+PeerID: 12D3KooWQtu46V9N8qoMYsovhwc7NuoDveFFZ8fUpTmkp1HGBktf
+Eth address: 0x5927c321Ca2a925d17EdCf9c58343E24337D18BA
+```
+
+#### Cover Traffic node 2
+```
+PeerID: 12D3KooWCd3LKkrxfYmnUk5D58wNBvwS3sEFdqzp8w3NASYTgrA4
+Eth address: 0x0543aa9d1DAfA9Cc49bF87Ce5ea1E18277b3ae0f
+```
+
+#### Cover Traffic node 3 
+```
+PeerID: 12D3KooWGeKvur7uKKj1qN1tZk5kNvCvX3JJo2Gd2xMXABZvsETg
+Eth address: 0x29D61dDbc682f272fc7F0DFb203938e211471826
+```
+
+#### Cover Traffic node 4 
+```
+PeerID: 12D3KooWFXwabMyeDh3MY2cznj4kb2GG3FHrv1dJsDv5zLNtwhKn
+Eth address: 0x8Fd1766b4215944f2Eb21F03e6820Bc3c75d936c
+```
+
+#### Cover Traffic node 5 
+```
+PeerID: 12D3KooWDYfvNbHeNs8vB94rmFbZASrHoHAEUEFRZyRR4yqyJFMF
+Eth address: 0x633382b748e34432dF1dBDFDd234833454B3D768
+```
+
 **Note:** If one of above mentioned steps doesn't meet requirements, please refer to the topics on this troubleshooting page. If you are still unable to find a solution, feel free to reach out to the Ambassadors via Telegram or Discord channels for further assistance.
 </details>
 
@@ -71,7 +103,15 @@ The redemption process works as follows: once the unredeemed value reaches **2.5
 0x633382b748e34432dF1dBDFDd234833454B3D768
 ```
 
-(**4**) Under the "**Unredeemed**" column, you should see an increasing number of unredeemed tickets. By default, once a channel reaches **2.5 wxHOPR** in unredeemed tickets, it will aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
+**(4)** Under the "**Unredeemed**" column, you should see an increasing number of unredeemed tickets. By default, once a channel accumulates **2.5 wxHOPR** in unredeemed tickets, it will automatically aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
+
+If you notice that your node is not redeeming tickets or is consistently receiving rejected tickets, ensure the following settings are correctly configured:
+
+Go to the "**CONFIGURATION**" page and check the "**Strategies**" section:
+
+- Ensure the "**aggregation_threshold**" is set to **250**.
+- Ensure the "**minimum_redeem_ticket_value**" is set to **2500000000000000000 HOPR**. We recommend keeping this value low to avoid losing larger amounts of earned HOPR tokens in case the node underperforms.
+
 </details>
 
 <details>
@@ -237,7 +277,7 @@ docker logs -t 4951b2990936 >> logs_from_hopr_node.log
 ### HTTP Status code 422
 </summary>
 
-**Error description**: Your RPC provider is either not working or functioning incorrectly.
+**Error description**: Your RPC provider is either unavailable or malfunctioning. Please switch to a functional RPC provider. If you are using a local RPC provider, please troubleshoot the issue.
 
 **Error message**:
 

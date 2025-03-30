@@ -1,0 +1,439 @@
+---
+id: snippets
+title: Code Snippets for HOPR Apps
+---
+
+import IframeLoader from './components/IframeLoader'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Common Functions
+
+Most HOPR applications require to do at least one of the following actions:
+
+- Send commands to a HOPR node REST API via an Authenticated request
+- Connect to a WebSocket HOPR and listen to responses sent there
+- Prompt users for the HOPR node HTTP and WebSocket endpoints and API token
+
+Since these actions are usually cumbersome, we have generated a few code snippets developers can copy and paste
+to execute most of these actions quickly. These snippets will eventually be included in an SDK[^1], but for the time being,
+having them here is the easiest and fastest way for anyone to get started.
+
+---
+
+### useWebSocket.js
+
+<IframeLoader
+  url={'/developers/snippets/useWebSocket.js'}
+  loadingMessage="Loading useWebSocket.js"
+  callback={(iframe) => {
+    Array.from(iframe.contentWindow.document.querySelectorAll('nav')).map((nav) => (nav.style.display = 'none'))
+    Array.from(iframe.contentWindow.document.querySelectorAll('footer')).map(
+      (footer) => (footer.style.display = 'none')
+    )
+  }}
+  width="100%"
+  height="400"
+  frameBorder="0"
+  marginHeight="0"
+  marginWidth="0"
+/>
+
+---
+
+### WebSocketHandler.jsx
+
+<IframeLoader
+  url={'/developers/snippets/WebSocketHandler.jsx'}
+  loadingMessage="Loading WebSocketHandler.jsx"
+  callback={(iframe) => {
+    Array.from(iframe.contentWindow.document.querySelectorAll('nav')).map((nav) => (nav.style.display = 'none'))
+    Array.from(iframe.contentWindow.document.querySelectorAll('footer')).map(
+      (footer) => (footer.style.display = 'none')
+    )
+  }}
+  width="100%"
+  height="400"
+  frameBorder="0"
+  marginHeight="0"
+  marginWidth="0"
+/>
+
+---
+
+### getHeaders.js
+
+<IframeLoader
+  url={'/developers/snippets/getHeaders.js'}
+  loadingMessage="Loading getHeaders.js"
+  callback={(iframe) => {
+    Array.from(iframe.contentWindow.document.querySelectorAll('nav')).map((nav) => (nav.style.display = 'none'))
+    Array.from(iframe.contentWindow.document.querySelectorAll('footer')).map(
+      (footer) => (footer.style.display = 'none')
+    )
+  }}
+  width="100%"
+  height="400"
+  frameBorder="0"
+  marginHeight="0"
+  marginWidth="0"
+/>
+
+## API Example Use
+
+Here are some examples of how to use HOPR APIs with your terminal, Python or JS. HOPR is code agnostic so any language would work, you could even use API platforms like [Postman](https://web.postman.co/) to interact with your HOPR node. 
+
+### accountWithdraw
+
+<Tabs>
+<TabItem value="accountWithdrawTerminal" label="Terminal">
+
+```bash
+curl -X POST http://YOUR_API_URL:3001/api/v2/account/withdraw \
+  -H "Content-Type: application/json" \
+  -H "x-auth-token: YOUR_API_KEY" \
+  -d '{"amount": "1000000000000000000", "currency": "HOPR", "recipient": "YOUR_WALLET_ADDRESS"}'
+```
+
+</TabItem>
+<TabItem value="accountWithdrawPython" label="Python">
+
+```Python
+import requests
+import json
+
+api_url = "https://YOUR_API_URL/api/v2/account/withdraw"
+
+payload = json.dumps({
+    "amount": "1000000000000000000",
+    "currency": "HOPR",
+    "recipient": "YOUR_WALLET_ADDRESS"
+})
+
+headers = {
+  'x-auth-token': YOUR_API_KEY,
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", api_url, headers=headers, data=payload)
+```
+
+</TabItem>
+<TabItem value="accountWithdrawJS" label="JavaScript">
+
+```JavaScript
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/account/withdraw';
+
+const headers = {
+    'Content-Type': 'application/json',
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+const payload = {
+    amount: '1000000000000000000',
+    currency: 'HOPR',
+    recipient: 'YOUR_WALLET_ADDRESS',
+};
+```
+
+</TabItem>
+</Tabs>
+
+### accountBalances
+<Tabs>
+<TabItem value="accountBalancesTerminal" label="Terminal">
+
+```bash
+curl -X GET http://YOUR_API_URL:3001/api/v2/account/balances \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="accountBalancesPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/account/balances"
+headers = {'x-auth-token': 'YOUR_API_KEY'}
+
+response = requests.request("GET", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="accountBalancesJS" label="JavaScript">
+
+```JavaScript
+const axios = require("axios");
+
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/account/balances';
+
+const headers = {
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+axios.get(API_URL, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
+```
+</TabItem>
+</Tabs>
+
+### accountAddresses
+<Tabs>
+<TabItem value="accountAddressesTerminal" label="Terminal">
+
+```bash
+curl -X GET http://YOUR_API_URL:3001/api/v2/account/addresses \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="accountAddressesPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/account/addresses"
+headers = {'x-auth-token': 'YOUR_API_KEY'}
+
+response = requests.request("GET", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="accountAddressesJS" label="JavaScript">
+
+```JavaScript
+const axios = require("axios");
+
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/account/addresses';
+
+const headers = {
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+axios.get(API_URL, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
+```
+</TabItem>
+</Tabs>
+
+### Get Aliases
+
+<Tabs>
+<TabItem value="GetAliasesTerminal" label="Terminal">
+
+```bash
+curl -X GET http://YOUR_API_URL:3001/api/v2/aliases \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="GetAliasesPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/aliases"
+headers = {'x-auth-token': 'YOUR_API_KEY'}
+
+response = requests.request("GET", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="GetAliasesJS" label="JavaScript">
+
+```JavaScript
+const axios = require("axios");
+
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/aliases';
+
+const headers = {
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+axios.get(API_URL, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
+```
+</TabItem>
+</Tabs>
+
+### Set Alias
+
+<Tabs>
+<TabItem value="aliasesTerminal" label="Terminal">
+
+```bash
+curl -X POST http://YOUR_API_URL:3001/api/v2/aliases \
+  -H "x-auth-token: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"peerId": "16Uiu2HAmUsJwbECMroQUC29LQZZWsYpYZx1oaM1H9DBoZHLkYn12", "alias": "Alice"}'
+```
+</TabItem>
+<TabItem value="aliasesPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/aliases"
+headers = {'x-auth-token': 'YOUR_API_KEY', 'Content-Type': 'application/json'}
+data = {'peerId': '16Uiu2HAmUsJwbECMroQUC29LQZZWsYpYZx1oaM1H9DBoZHLkYn12', 'alias': 'Alice'}
+
+response = requests.request("POST", api_url, headers=headers, json=data)
+```
+</TabItem>
+<TabItem value="aliasesJS" label="JavaScript">
+
+```JavaScript
+const axios = require("axios");
+
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/aliases';
+
+const headers = {
+    'x-auth-token': 'YOUR_API_KEY',
+    'Content-Type': 'application/json',
+};
+
+const data = {
+  peerId: '16Uiu2HAmUsJwbECMroQUC29LQZZWsYpYZx1oaM1H9DBoZHLkYn12',
+  alias: 'Alice',
+};
+
+axios.post(API_URL, data, { headers })
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
+```
+</TabItem>
+</Tabs>
+
+### channelsRedeemTickets
+
+<Tabs>
+<TabItem value="channelsRedeemTicketsTerminal" label="Terminal">
+
+```bash
+curl -X POST http://YOUR_API_URL:3001/api/v2/channels/tickets/redeem \
+  -H "Content-Type: application/json" \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="channelsRedeemTicketsPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/channels/tickets/redeem"
+
+headers = {
+  'x-auth-token': YOUR_API_KEY,
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="channelsRedeemTicketsJS" label="JavaScript">
+
+```JavaScript
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/tickets/redeem';
+
+const headers = {
+    'Content-Type': 'application/json',
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: headers
+});
+```
+</TabItem>
+</Tabs>
+
+### channelsGetTickets
+
+<Tabs>
+<TabItem value="channelsGetTicketsTerminal" label="Terminal">
+
+```bash
+curl -X GET http://YOUR_API_URL:3001/api/v2/channels/tickets \
+  -H "Content-Type: application/json" \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+
+</TabItem>
+<TabItem value="channelsGetTicketsPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/channels/tickets"
+
+headers = {
+  'x-auth-token': YOUR_API_KEY,
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("GET", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="channelsGetTicketsJS" label="JavaScript">
+
+```JavaScript
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels/tickets';
+
+const headers = {
+    'Content-Type': 'application/json',
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+const response = await fetch(API_URL, {
+    method: 'GET',
+    headers: headers
+});
+```
+</TabItem>
+</Tabs>
+
+### channelsCloseChannel
+
+<Tabs>
+<TabItem value="channelsCloseChannelTerminal" label="Terminal">
+
+```bash
+curl -X DELETE http://YOUR_API_URL:3001/api/v2/channels \
+  -H "Content-Type: application/json" \
+  -H "x-auth-token: YOUR_API_KEY"
+```
+</TabItem>
+<TabItem value="channelsCloseChannelPython" label="Python">
+
+```Python
+import requests
+
+api_url = "https://YOUR_API_URL/api/v2/channels"
+
+headers = {
+  'x-auth-token': YOUR_API_KEY,
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("DELETE", api_url, headers=headers)
+```
+</TabItem>
+<TabItem value="channelsCloseChannelJS" label="JavaScript">
+
+```JavaScript
+const API_URL = 'http://YOUR_API_URL:3001/api/v2/channels';
+
+const headers = {
+    'Content-Type': 'application/json',
+    'x-auth-token': 'YOUR_API_KEY',
+};
+
+const response = await fetch(API_URL, {
+    method: 'DELETE',
+    headers: headers
+});
+```
+</TabItem>
+</Tabs>
+
+
+[^1]: To get updates on the progress of our SDK, please subscribe to this [issue](https://github.com/hoprnet/hoprnet/issues/3538).

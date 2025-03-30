@@ -94,9 +94,11 @@ Examples:
 
 ### 2.4 Adjust "host" setting
 
-(**1**) Find your public IP address by following these instructions [here](./frequently-asked-questions#how-do-i-find-my-public-ip-address).
+(**1**) Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
 
-(**2**) Replace "**\<YOUR_PUBLIC_IP>**" in your Docker command with your own public IP, and add the libp2p port which by default is **9091**.
+(**2**) If you are planning to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment. Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+
+(**3**) Replace "**\<YOUR_PUBLIC_IP>**" in your Docker command with your own public IP, and add the libp2p port which by default is **9091**.
 
 Example: 
 

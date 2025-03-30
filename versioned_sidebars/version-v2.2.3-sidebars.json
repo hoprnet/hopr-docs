@@ -1,0 +1,140 @@
+{
+  "coreSidebar": [
+    {
+      "type": "category",
+      "label": "Core concepts",
+      "items": [
+        "core/what-is-hopr",
+        "core/what-is-metadata",
+        "core/anonymous-routing",
+        "core/mixnets",
+        "core/incentives",
+        "core/proof-of-relay",
+        "core/tickets-and-payment-channels",
+        "core/probabilistic-payments",
+        "core/cover-traffic",
+        "core/cover-traffic-nodes",
+        "core/balancing-cover-traffic"
+      ]
+    }
+  ],
+  "tokenSidebar": [
+    {
+      "type": "category",
+      "label": "Token economics",
+      "collapsed": false,
+      "items": [
+        "token/safestaking",
+        "token/cover-traffic-economics",
+        "token/acquiring-hopr-tokens",
+        "token/token-bridging",
+        "token/token-wrapping"
+      ]
+    }
+  ],
+  "dappsSidebar": [
+    {
+      "type": "category",
+      "label": "dApps",
+      "collapsed": false,
+      "items": [
+        "dapps/dapps-rpch",
+        "dapps/dapps-mytokentracker"
+      ]
+    }
+  ],
+  "nodeSidebar": [
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "collapsible": true,
+      "collapsed": false,
+      "items": [
+        "node/run-a-node-overview",
+        {
+          "type": "category",
+          "label": "Installation Guide",
+          "items": ["node/node-docker", "node/node-docker-compose", "node/node-dappnode"]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Node Management",
+      "collapsed": false,
+      "items": [
+        "node/staking-hub",
+        "node/node-management-admin-ui",
+        "node/interaction-with-node",
+        "node/node-operations",
+        "node/backup-restore-update",
+        "node/port-forwarding"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Advanced Configuration",
+      "collapsed": false,
+      "items": [
+        "node/multiple-nodes",
+        "node/manage-node-strategies",
+        "node/custom-rpc-provider",
+        "node/fast-sync",
+        "node/ac-migration-from-legacy"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Releases",
+      "collapsed": false,
+      "items": [
+        "node/releases"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr>",
+      "defaultStyle": true
+    },
+    {
+      "type": "category",
+      "label": "Troubleshooting and FAQs",
+      "collapsed": false,
+      "items": [
+        "node/frequently-asked-questions",
+        "node/troubleshooting"
+      ]
+    }
+  ],
+  "tutorialSidebar": [
+    {
+      "type": "category",
+      "label": "Developers",
+      "link": {
+        "type": "doc",
+        "id": "developers/intro"
+      },
+      "items": [
+        "developers/starting-local-cluster",
+        "developers/rest-api",
+        "developers/smart-contract",
+        "developers/snippets"
+      ]
+    }
+  ]
+}
