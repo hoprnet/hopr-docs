@@ -19,8 +19,8 @@ When running multiple nodes with third-party RPC providers, you must assign a di
 
 Please select Docker method to run multiple nodes:
 
-<Tabs>
-<TabItem value="docker_multiple_nodes" label="Docker">
+<Tabs queryString="multi_nodes">
+<TabItem value="docker" label="Docker">
 
 To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Each node must have different ports, and they should not match between the nodes you are running on the same device or VPS.
 
@@ -48,7 +48,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 ```
 
 </TabItem>
-<TabItem value="docker_compose_multiple_nodes" label="Docker compose">
+<TabItem value="docker-compose" label="Docker compose">
 
 :::note
 

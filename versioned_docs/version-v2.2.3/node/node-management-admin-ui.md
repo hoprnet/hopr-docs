@@ -24,8 +24,8 @@ That's it! HOPR Admin UI should be running, and you can now [access it through y
 
 Please choose a platform:
 
-<Tabs>
-<TabItem value="docker_admin_ui" label="Docker">
+<Tabs queryString="access_admin">
+<TabItem value="docker" label="Docker">
 
 Assuming you used the default port number, you should be able to access the HOPR Admin UI at [http://localhost:4677](http://localhost:4677). Replace **localhost** with your **server IP address** if you are using a VPS.
 
@@ -36,7 +36,7 @@ http://127.0.0.1:4677
 ``` 
 
 </TabItem>
-<TabItem value="dappnode_admin_ui" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 The HOPR Admin UI already comes with the HOPR package on Dappnode:
 

@@ -10,8 +10,8 @@ import TabItem from '@theme/TabItem';
 
 Please select a platform to stop your HOPR node:
 
-<Tabs>
-<TabItem value="docker_stop" label="Docker">
+<Tabs queryString="stop_node">
+<TabItem value="docker" label="Docker">
 
 To stop your current HOPR node, we will perform the HOPR Docker container removal procedure.
 
@@ -26,14 +26,14 @@ docker rm -f 4951b2990936
 ```
 
 </TabItem>
-<TabItem value="docker_compose_stop" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 (**1**) Go to your "**compose**" folder.
 
 (**2**) Use the profiles feature to stop only the "**hoprd**" profile associated with the hopr node. Run the following command: `COMPOSE_PROFILES=hoprd docker compose down`
 
 </TabItem>
-<TabItem value="dappnode_stop" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Connect to your Dappnode dashboard.
 
@@ -48,8 +48,8 @@ docker rm -f 4951b2990936
 
 Please select platform to start your HOPR node:
 
-<Tabs>
-<TabItem value="docker_start" label="Docker">
+<Tabs queryString="start_node">
+<TabItem value="docker" label="Docker">
 
 (**1**) Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -60,14 +60,14 @@ If you're using a configuration file to manage your node strategies, refer to th
 (**3**) Run your configured HOPR command by pasting it into the terminal.
 
 </TabItem>
-<TabItem value="docker_compose_start" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 (**1**) Go to your "**compose**" folder.
 
 (**2**) Use the profiles feature to start only the "**hoprd**" profile associated with the hopr node. Run the following command: `COMPOSE_PROFILES=hoprd docker compose up -d`
 
 </TabItem>
-<TabItem value="dappnode_start" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Connect to your Dappnode dashboard.
 

@@ -10,8 +10,8 @@ import TabItem from '@theme/TabItem';
 
 Please select a platform to backup your node identity:
 
-<Tabs>
-<TabItem value="docker_backup" label="Docker">
+<Tabs queryString="backup_identity">
+<TabItem value="docker" label="Docker">
 
 For Docker, the identity file is automatically created and stored on your machine.
 
@@ -24,7 +24,7 @@ For Docker, the identity file is automatically created and stored on your machin
 (**3**) Store the backed-up file somewhere safe, along with your database password, in case you ever need to restore your node.
 
 </TabItem>
-<TabItem value="docker_compose_backup" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 For Docker compose, the identity file is automatically created and stored on your machine.
 
@@ -34,7 +34,7 @@ For Docker compose, the identity file is automatically created and stored on you
 
 (**3**) Safely store the backed-up "**hopr.id**" file along with your database password in case you need to restore your node in the future.
 </TabItem>
-<TabItem value="dappnode_backup" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
@@ -57,8 +57,8 @@ For Docker compose, the identity file is automatically created and stored on you
 
 Please select platform to restore your node identity:
 
-<Tabs>
-<TabItem value="docker_restore" label="Docker">
+<Tabs queryString="restore_identity">
+<TabItem value="docker" label="Docker">
 
 (**1**) Before restoring your node identity, ensure that you have [backed up your HOPR node identity](./backup-restore-update.md#backup-your-node-identity). Confirm that you have the HOPR identity file: "**.hopr-identity**" and make sure you also have the database password.
 
@@ -69,7 +69,7 @@ Please select platform to restore your node identity:
 (**4**) Configure the Docker command with the required information, just as you did initially when setting up a new node. For more details, see [here](node-docker.md#2-configure-hoprd-command).
 
 </TabItem>
-<TabItem value="docker_compose_restore" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 (**1**) Before restoring your node identity, ensure that you have [backed up of your HOPR node identity](./backup-restore-update#backup-your-node-identity). Verify that you have the "**hopr.id**" file and your database password.
 
@@ -87,7 +87,7 @@ COMPOSE_PROFILES=hoprd docker compose down
 COMPOSE_PROFILES=hoprd docker compose up -d
 ```
 </TabItem>
-<TabItem value="dappnode_restore" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Make sure you can view hidden files.
 
@@ -118,8 +118,8 @@ Click the "**Upload**" button to upload HOPR identity file.
 
 Please select platform to update your node identity:
 
-<Tabs>
-<TabItem value="docker_update" label="Docker">
+<Tabs queryString="update_node">
+<TabItem value="docker" label="Docker">
 
 (**1**) Back up your identity file. Follow the instructions in this [guide](./backup-restore-update#backup-your-node-identity).
 
@@ -142,7 +142,7 @@ docker rm -f 4951b2990936
 (**4**) Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
 </TabItem>
-<TabItem value="docker_compose_update" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 The update process occurs when you stop and restart the "**hoprd**" services, ensuring the latest version is applied:
 
@@ -170,7 +170,7 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 ```
 
 </TabItem>
-<TabItem value="dappnode_update" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Backup your identity file. Please follow the instructions [here](./backup-restore-update#backup-your-node-identity).
 
@@ -193,8 +193,8 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 Please select platform to update your HOPR Admin UI:
 
-<Tabs>
-<TabItem value="docker_admin_UI" label="Docker">
+<Tabs queryString="update_admin">
+<TabItem value="docker" label="Docker">
 
 (**1**) Enter the following command `docker ps` into your terminal.
 
@@ -215,7 +215,7 @@ docker rm -f 0a74437b27f8
 (**3**) Retrieve the [latest installation command for the HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui) and execute it in your terminal.
 
 </TabItem>
-<TabItem value="docker_compose_admin_UI" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 (**1**) Locate and navigate to the "**compose**" folder (assuming you haven't renamed it).
 

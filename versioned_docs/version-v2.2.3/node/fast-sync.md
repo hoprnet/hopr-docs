@@ -18,18 +18,18 @@ The Fast Sync feature, introduced in HOPRd version 2.2.0, speeds up node synchro
 
 (**3**) Make a backup of your fully synchronized node, select your platform:
 
-<Tabs>
-<TabItem value="docker_fast_sync_backup" label="Docker">
+<Tabs queryString="fs_backup">
+<TabItem value="docker" label="Docker">
 
 (**3.1**) Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/.hoprd-db-dufour/**". Store these files for future use in a Fast Sync.
 
 </TabItem>
-<TabItem value="docker_compose_fast_sync_backup" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 (**3.1**) Find the database log files "**hopr_logs.db**", "**hopr_logs.db-shm**", and "**hopr_logs.db-wal**" at the path "**/\<computer username>/compose/hoprd_data/hoprd/db/**". Store these files for future use in a Fast Sync.
 
 </TabItem>
-<TabItem value="dappnode_fast_sync_backup" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**3.1**) Go to the [HOPR package backup page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/backup).
 
@@ -45,8 +45,8 @@ The Fast Sync feature, introduced in HOPRd version 2.2.0, speeds up node synchro
 
 Please select platform to configure Fast Sync feature:
 
-<Tabs>
-<TabItem value="docker_fast_sync" label="Docker">
+<Tabs queryString="fs_config">
+<TabItem value="docker" label="Docker">
 
 (**1**) Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
 
@@ -63,7 +63,7 @@ Please select platform to configure Fast Sync feature:
 (**7**) Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
 
 </TabItem>
-<TabItem value="docker_compose_fast_sync" label="Docker Compose">
+<TabItem value="docker-compose" label="Docker Compose">
 
 (**1**) Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
 
@@ -78,7 +78,7 @@ Please select platform to configure Fast Sync feature:
 (**6**) Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
 
 </TabItem>
-<TabItem value="dappnode_fast_sync" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
 
