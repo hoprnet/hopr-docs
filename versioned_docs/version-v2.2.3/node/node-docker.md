@@ -16,8 +16,8 @@ Please note that you must start the onboarding process before setting up your no
 
 Before proceeding, you need to install **Docker Desktop** on your machine.
 
-<Tabs>
-<TabItem value="Linux" label="Linux">
+<Tabs queryString="docker_os">
+<TabItem value="linux" label="Linux">
 
 Depending on your distribution, please follow the official guidelines to install and run Docker on your workstation.
 
@@ -27,7 +27,7 @@ Depending on your distribution, please follow the official guidelines to install
 - [Installing Docker in CentOS](https://docs.docker.com/engine/install/centos/)
 
 </TabItem>
-<TabItem value="mac" label="macOS">
+<TabItem value="macos" label="macOS">
 
 1. Visit the [Docker](https://www.docker.com/get-started) website and download Docker Desktop to your computer.
 2. Follow the installation wizard steps to ensure Docker is installed.

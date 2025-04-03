@@ -14,8 +14,8 @@ Node strategies allow for much more detailed and granular control over your node
 
 Please select your platform:
 
-<Tabs>
-<TabItem value="config_docker" label="Docker">
+<Tabs queryString="config">
+<TabItem value="docker" label="Docker">
 
 (**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
@@ -40,7 +40,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 (**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
  
 </TabItem>
-<TabItem value="config_docker_compose" label="Docker compose">
+<TabItem value="docker-compose" label="Docker compose">
 
 Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
 
@@ -52,7 +52,7 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 **Note:** By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 </TabItem>
-<TabItem value="config_dappnode" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
 
