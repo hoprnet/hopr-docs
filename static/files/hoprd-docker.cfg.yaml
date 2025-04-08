@@ -11,7 +11,7 @@ hopr:
         redeem_only_aggregated: true
         minimum_redeem_ticket_value: "2500000000000000000 HOPR"
       - !ClosureFinalizer
-        max_closure_overdue: 3600
+        max_closure_overdue: 300
   chain:
     keep_logs: true
     fast_sync: true

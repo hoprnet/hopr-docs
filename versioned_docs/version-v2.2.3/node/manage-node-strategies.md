@@ -105,7 +105,7 @@ hopr:
             redeem_only_aggregated: true
             minimum_redeem_ticket_value: "2500000000000000000 HOPR"
             - !ClosureFinalizer
-            max_closure_overdue: 3600
+            max_closure_overdue: 300
     heartbeat:
         variance: 2
         interval: 60
@@ -400,7 +400,7 @@ strategy:
         - !Passive    
         
         - !ClosureFinalizer
-        max_closure_overdue: 3600
+        max_closure_overdue: 300
 ```
 
 :::info
@@ -476,4 +476,4 @@ Monitors channels in the "**PendingToClose**" state whose channel closure grace 
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `max_closure_overdue` | `3600` | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |
+| `max_closure_overdue` | `300` | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |
