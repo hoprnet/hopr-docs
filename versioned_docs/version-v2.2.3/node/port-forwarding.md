@@ -23,8 +23,8 @@ import TabItem from '@theme/TabItem';
 
 Determine the internal IP address of your machine running HOPRd. Please select your operating system or device:
 
-<Tabs>
-<TabItem value="linux_port_forwarding" label="Linux">
+<Tabs queryString="port_forwarding">
+<TabItem value="linux" label="Linux">
 
 (**1**) Open your terminal window.
 
@@ -42,7 +42,7 @@ Example:
 192.168.5.68
 ``` 
 </TabItem>
-<TabItem value="macOS_port_forwarding" label="macOS">
+<TabItem value="macos" label="macOS">
 
 (**1**) Open your terminal window.
 
@@ -60,7 +60,7 @@ Example:
 192.168.5.68
 ```
 </TabItem>
-<TabItem value="dappnode_port_forwarding" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Connect to your Dappnode dashboard
 
@@ -80,9 +80,9 @@ Example:
 
 To access your router's admin interface, you will need to find your router's default gateway IP address. Please select your operating system:
 
-<Tabs>
+<Tabs queryString="router_gateway">
 
-<TabItem value="linux_router_gateway" label="Linux">
+<TabItem value="linux" label="Linux">
 
 (**1**) Open your terminal window.
 
@@ -97,7 +97,7 @@ The output will display your router's gateway IP address. Commonly, the gateway 
 (**3**) Enter the router's gateway IP address into your browser. This will load the login screen for your router, and it should usually display the model of your router.
 
 </TabItem>
-<TabItem value="mac_router_gateway" label="macOS">
+<TabItem value="macos" label="macOS">
 
 (**1**) Open your terminal window.
 
@@ -112,7 +112,7 @@ It will print out your router's gateway IP address. Commonly, the gateway IP add
 (**3**) Enter the router's gateway IP address into the browser. This will load the login screen to your router, and usually, it should show the model of your router.
 
 </TabItem>
-<TabItem value="windows_router_gateway" label="Windows">
+<TabItem value="windows" label="Windows">
 
 (**1**) Open your command prompt window.
 

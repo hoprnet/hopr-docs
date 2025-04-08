@@ -174,8 +174,8 @@ During the re-sync process, **all tickets in your database will be removed**, in
 
 Please select platform to re-sync node:
 
-<Tabs>
-<TabItem value="docker_resync" label="Docker">
+<Tabs queryString="resync">
+<TabItem value="docker" label="Docker">
 
 (**1**) **Stop your node**: follow this [guide](./node-operations.md#stop-your-hopr-node) to stop your HOPR node.
 
@@ -192,7 +192,7 @@ Please select platform to re-sync node:
 (**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
 
 </TabItem>
-<TabItem value="docker_compose_resync" label="Docker Compose">
+<TabItem value="docker_compose" label="Docker Compose">
 
 (**1**) Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
 
@@ -213,7 +213,7 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 (**5**) **Optional step**: If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
 
 </TabItem>
-<TabItem value="dappnode_resync" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) **Connect to your DAppNode dashboard**.
 
@@ -242,8 +242,8 @@ Example log:
 ### How to retrieve logs from your node?
 </summary>
 
-<Tabs>
-<TabItem value="docker_resync" label="Docker">
+<Tabs queryString="retrieve-logs">
+<TabItem value="docker" label="Docker">
 
 (**1**) Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable**" and note the "**container ID**".
 
@@ -255,7 +255,7 @@ Example:
 docker logs -t 4951b2990936 >> logs_from_hopr_node.log
 ```
 </TabItem>
-<TabItem value="dappnode_resync" label="Dappnode">
+<TabItem value="dappnode" label="Dappnode">
 
 (**1**) Connect to your Dappnode dashboard.
 
@@ -351,8 +351,8 @@ Address: 0xa6512ad...657730b0313
 
 Please select connection method to your Avado device:
 
-<Tabs>
-<TabItem value="migration_method_ssh" label="Connect using SSH">
+<Tabs queryString="connection">
+<TabItem value="ssh" label="Connect using SSH">
 
 #### 1. Find your Avado internal IP address
 
@@ -408,7 +408,7 @@ sudo reboot
 
 (**5**) Please wait 5 minutes, then check if "**DappNodeWifi**" appears in your computer's Wi-Fi list. The default Wi-Fi password for DappNode is `dappnode`.
 </TabItem>
-<TabItem value="migration_method_external" label="Connect using external monitor and keyboard">
+<TabItem value="peripherals" label="Connect using external monitor and keyboard">
 
 #### 1. Prerequisites for connection to your Avado device
 
@@ -475,8 +475,8 @@ sudo reboot
 
 If the Avado Wi-Fi appears on your computer's Wi-Fi list, it suggests a problem with the USB's boot settings, as the device did not attempt to initiate the installation process. Please select connection method to your Avado device:
 
-<Tabs>
-<TabItem value="migration_method_ssh_avado" label="Connect using SSH">
+<Tabs queryString="connection">
+<TabItem value="ssh" label="Connect using SSH">
 
 #### 1. Prerequisites for connection to your Avado device
 
@@ -514,7 +514,7 @@ Make sure you have:
 
 (**6**) Wait for **5 minutes** and check if "**DappNodeWifi**" has appeared in your computer's wifi list. The default Wi-Fi password for DappNode is `dappnode`.
 </TabItem>
-<TabItem value="migration_method_external_avado" label="Connect using external monitor and keyboard">
+<TabItem value="peripherals" label="Connect using external monitor and keyboard">
 
 #### 1. Prerequisites for connection to your Avado device
 
