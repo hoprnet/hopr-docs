@@ -1,7 +1,6 @@
 (function() {
   let currentHash = '';
 
-
   function handleHash() {
     setTimeout(function () {
       const hash = window.location.hash.slice(1);

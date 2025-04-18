@@ -12,7 +12,7 @@ This page provides comprehensive information on the latest HOPRd Node and HOPR A
 | **2.2.3 (Recommended)** | Dufour | 2025-03-30 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.3) |
 | 2.2.1 | Dufour | 2025-01-29 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.1) |
 | 2.2.0 | Dufour | 2025-01-15 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.0) |
-| 2.1.5 | Dufour | 2024-11-13 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.1.5) |
+| 2.1.5 | Dufour | 2024-11-13 | No | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.1.5) |
 
 **Eligible for CT rewards** – This section indicates whether the HOPRd release qualifies for Cover Traffic rewards. If your node is running a version **lower than 2.2.0**, it will not be eligible to receive these rewards. Ensure your node is updated.
 
