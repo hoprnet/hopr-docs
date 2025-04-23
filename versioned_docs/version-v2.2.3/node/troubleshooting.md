@@ -22,7 +22,10 @@ import TabItem from '@theme/TabItem';
 
 - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
 
-(**3**) On the "**INFO**" page, navigate to the "**Network**" section and ensure the "**Eligible**" status displays "**Yes**". If your node was recently created, it must be fully synced (**100%**) before it becomes eligible.
+(**3**) On the **INFO** page, navigate to the **Network** section:
+
+- If the Eligible status displays **Yes**, your node has successfully joined the HOPRd network.  
+- If it displays **No**, and your node was recently created, it must reach **100%** sync before becoming eligible.
 
 (**4**) On the "**INFO**" page, under the "**Network**" section, verify that the "**Sync process**" is at "**100%**".
 
@@ -32,8 +35,8 @@ import TabItem from '@theme/TabItem';
 
 (**7**) On the "**CONFIGURATION**" page, under the "**Strategies**" section check the following:
 
-- the "**aggregation_threshold**" value does not exceed **450**.
-- the "**minimum_redeem_ticket_value**" value does not exceed **"25000000000000000000" // = 25 wxHOPR**
+- The "**aggregation_threshold**" value does not exceed **450**.
+- The "**minimum_redeem_ticket_value**" value does not exceed **"25000000000000000000" // = 25 wxHOPR**
 
 (**8**) On the "**TICKETS**" page, ensure that there are no "**Neglected**" or "**Rejected**" tickets.
 
