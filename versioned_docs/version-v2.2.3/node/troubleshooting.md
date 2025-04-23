@@ -22,17 +22,25 @@ import TabItem from '@theme/TabItem';
 
 - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
 
-(**3**) On the "**INFO**" page, navigate to the "**Network**" section and ensure the "**Eligible**" status displays "**Yes**." If your node was recently created, it must be fully synced (**100%**) before it becomes eligible.
+(**3**) On the **INFO** page, navigate to the **Network** section:
 
-(**4**) In the "**INFO**" page, under the "**Network**" section, verify that the "**Sync process**" is at "**100%**."
+- If the Eligible status displays **Yes**, your node has successfully joined the HOPRd network.  
+- If it displays **No**, and your node was recently created, it must reach **100%** sync before becoming eligible.
 
-(**5**) In the "**INFO**" page, check the "**Balances**" section and confirm that the "**xDai: Node**" balance is at least "**0.03 xDai**."
+(**4**) On the "**INFO**" page, under the "**Network**" section, verify that the "**Sync process**" is at "**100%**".
 
-(**6**) In the "**INFO**" page, scroll to the "**Nodes on the network**" section and ensure the "**Announced**" node count exceeds **900** and the "**Connected**" node count is above **250**.
+(**5**) On the "**INFO**" page, check the "**Balances**" section and confirm that the "**xDai: Node**" balance is at least "**0.03 xDai**".
 
-(**7**) On the "**TICKETS**" page, ensure that there are no "**Neglected**" or "**Rejected**" tickets.
+(**6**) On the "**INFO**" page, scroll to the "**Nodes on the network**" section and ensure the "**Announced**" node count exceeds **1000** and the "**Connected**" node count is above **300**.
 
-(**8**) On the "**PEERS**" page, ensure that most of your peers have **100%** quality (assuming your node has been running for at least 1 hour).
+(**7**) On the "**CONFIGURATION**" page, under the "**Strategies**" section check the following:
+
+- The "**aggregation_threshold**" value does not exceed **450**.
+- The "**minimum_redeem_ticket_value**" value does not exceed **"25000000000000000000" // = 25 wxHOPR**
+
+(**8**) On the "**TICKETS**" page, ensure that there are no "**Neglected**" or "**Rejected**" tickets.
+
+(**9**) On the "**PEERS**" page, ensure that most of your peers have **100%** quality (assuming your node has been running for at least 1 hour).
 
 For DAppNode users, if the peer quality is **below 100%**, follow these steps:
 
@@ -42,13 +50,13 @@ For DAppNode users, if the peer quality is **below 100%**, follow these steps:
 
 - Check the values for "**HOPRD_HEARTBEAT_INTERVAL**" and ensure it is set to the default value of "**20**". Similarly, confirm that "**HOPRD_HEARTBEAT_THRESHOLD**" is set to its default value of "**60**".
 
-(**9**) On the "**CHANNELS: IN**" page, review the "**Unredeemed**" column for each incoming payment channel. Ensure that the values do not exceed **20%** above the threshold (the default threshold for ticket redemption is **2.5 wxHOPR**). If you’ve set a custom threshold, make sure the unredeemed value remains within **20%** of your custom setting.
+(**10**) On the "**CHANNELS: IN**" page, review the "**Unredeemed**" column for each incoming payment channel. Ensure that the values do not exceed **20%** above the threshold (the default threshold for ticket redemption is **2.5 wxHOPR**). If you’ve set a custom threshold, make sure the unredeemed value remains within **20%** of your custom setting.
 
 The redemption process works as follows: once the unredeemed value reaches **2.5 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
 
-(**10**) Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes.
+(**11**) Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes.
 
-(**11**) To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
+(**12**) To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
 
 #### Cover Traffic node 1 
 ```
@@ -138,7 +146,7 @@ We assume you haven't customized your node strategies, so the hardcoded minimum 
 
 - (**b**) If no payment channels have **more than 34 - 35 wxHOPR** in unredeemed tokens, close all incoming payment channels. Follow the guideline on how to do this [here](./interaction-with-node.md#close-incoming-channel). Please note that closing an incoming payment channel will result in the loss of unredeemed ticket value, which will be marked as neglected tickets because they were not redeemed.
 
-(**3**) After completing either step **(a)** or **(b)** from **step 2**, go to the "**TICKETS**" page and monitor the "**Rejected value**." If the value continues to increase, take one of the following actions:
+(**3**) After completing either step **(a)** or **(b)** from **step 2**, go to the "**TICKETS**" page and monitor the "**Rejected value**". If the value continues to increase, take one of the following actions:
 
 - (**a**) If you performed action **(a)** in **step 2**, close all incoming payment channels. Follow the guideline on how to do this [here](./interaction-with-node.md#close-incoming-channel). Please note that closing an incoming payment channel will result in the loss of unredeemed ticket value, which will be marked as neglected tickets because they were not redeemed. 
 
@@ -358,7 +366,7 @@ Please select connection method to your Avado device:
 
 (**1**) To locate the internal IP address of your Avado device, first connect to your router. Please follow only the specific step outlined in [this guide](./port-forwarding.md#2-find-your-routers-gateway-ip-address) to identify your router's gateway IP address.
 
-(**2**) Log in to your router by entering the router's gateway IP address into your browser's address bar. Since router interfaces vary, search for sections labeled "**DHCP Clients**," "**Connected Devices**," or "**Connected Clients**." Within this section, look for the client named "**dappnode**" to find its associated IP address.
+(**2**) Log in to your router by entering the router's gateway IP address into your browser's address bar. Since router interfaces vary, search for sections labeled "**DHCP Clients**," "**Connected Devices**," or "**Connected Clients**". Within this section, look for the client named "**dappnode**" to find its associated IP address.
 
 #### 2. Connect to your Avado device
 
