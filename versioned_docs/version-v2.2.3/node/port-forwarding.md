@@ -6,6 +6,13 @@ title: Port Forwarding
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## What are the ports and what is their purpose?
+
+| Port | Protocol  | Description |
+| ---- | --------------- | ---- |
+| **9091** | **TCP & UDP** | Used for peer-to-peer (P2P) communication between nodes on the HOPRd network. If you're running multiple nodes on the same machine or network, make sure to assign a unique P2P port to each node. |
+| **3001** | **TCP**       | The default port for the HOPRd REST API. It allows external applications to interact with your HOPRd node via API calls.   
+
 ## When do you need to set up port forwarding?
 
 - If you're running a HOPRd node on your local machine or Dappnode, you're likely behind NAT (Network Address Translation), which is commonly used in home and office networks to allow multiple devices to share a single public IP address; this setup hides the internal IP addresses from the external network. To make your node reachable by external peers, you'll need to expose a specific port to the public; otherwise, your node won't be able to connect to other nodes.
