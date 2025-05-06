@@ -62,6 +62,8 @@ For guidance on creating a secret token, please refer to this [guide](./frequent
 
 - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
 
+- Expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+
 (**7**) Click "**Submit**". On the next screen, accept the disclaimer, and your HOPR package should start installing immediately.
 
 ![dappnode setup wizard](/img/node/dappnode-hopr-package-install-phase.jpg)
