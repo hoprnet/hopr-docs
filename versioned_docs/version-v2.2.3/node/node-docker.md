@@ -98,7 +98,9 @@ Examples:
 
 (**2**) If you are planning to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment. Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
 
-(**3**) Replace "**\<YOUR_PUBLIC_IP>**" in your Docker command with your own public IP, and add the libp2p port which by default is **9091**.
+(**3**) Expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+
+(**4**) Replace "**\<YOUR_PUBLIC_IP>**" in your Docker command with your own public IP, and add the libp2p port which by default is **9091**.
 
 Example: 
 

@@ -25,9 +25,29 @@ To operate your node in the HOPR network, you must stake HOPR tokens. The minimu
 
 The minimum requirements for running **HOPRd** on your device are:
 
+- Operating systems: Linux & macOS
 - Dual-Core CPU or 2vCPU
 - 2GB of RAM
 - at least 5GB of disk space
+
+### Where can you run a HOPRd node?
+
+#### Dappnode
+
+The easiest way to run a single HOPRd node is by installing the HOPRd package on Dappnode.
+Dappnode is an open-source platform that simplifies running blockchain nodes and decentralized apps (dApps) on your own hardware—no advanced technical skills needed.
+Learn more at [https://dappnode.com](https://dappnode.com).
+
+#### VPS
+
+You can rent an inexpensive Virtual Private Server (VPS) to run one or even multiple HOPRd nodes.
+Setting up a node on a VPS requires only basic Unix command-line knowledge.
+For a list of recommended VPS providers, see [this section](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps) of our FAQ.
+
+#### Personal Computer
+
+If you're using the Linux or macOS operating system, you can run a HOPRd node directly on your own computer. To earn continuously distributed rewards, your HOPRd node must remain online 24/7.
+
 
 ### Ready to run your node?
 

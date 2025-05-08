@@ -11,17 +11,20 @@ Please note that you must start the onboarding process before setting up your no
 
 ## 1. Install the HOPR Package
 
-While connected to your Dappnode's network or via a VPN:
+(**1**) Connect to your Dappnode either [via your local network](https://docs.dappnode.io/docs/user/access-your-dappnode/wifi) or remotely using the [Dappnode VPN](https://docs.dappnode.io/docs/user/access-your-dappnode/vpn/overview).
 
-(**1**) Open the DAppStore using the sidebar to the left.
+**Note:** If you choose the remote connection method, you’ll need to port forward port `51820` on your router to access your Dappnode from anywhere.
+For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
-(**2**) Search for **HOPR** using the DAppStore search bar.
+(**2**) Open the DAppStore using the sidebar to the left.
+
+(**3**) Search for **HOPR** using the DAppStore search bar.
 
 ![DAppStore Search Bar](/img/node/Search-HOPR-Dappstore.png)
 
-(**3**) You should see the latest version of the HOPR client in the listed dApps. Click the "**GET**" button under the HOPR package. This will take you to a new interface.
+(**4**) You should see the latest version of the HOPR client in the listed dApps. Click the "**GET**" button under the HOPR package. This will take you to a new interface.
 
-(**4**) Press "**INSTALL**". This will open the setup wizard.
+(**5**) Press "**INSTALL**". This will open the setup wizard.
 
 ![Install HOPR](/img/node/dappnode-hopr-package-view.png)
 
@@ -58,6 +61,8 @@ For guidance on creating a secret token, please refer to this [guide](./frequent
 - Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
 
 - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+
+- Expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
 (**7**) Click "**Submit**". On the next screen, accept the disclaimer, and your HOPR package should start installing immediately.
 
