@@ -95,14 +95,6 @@
   })(window.history);
  
   window.addEventListener('locationchange', handleHash);
-  /*window.addEventListener('locationchange', function() {
-    if (!window.location.hash && currentHash) {
-      const url = new URL(window.location.href);
-      url.hash = '#' + currentHash;
-      history.replaceState(null, '', url.toString());
-      console.log('Restored hash to:', '#' + currentHash);
-    }
-  });*/
 
   // (Optional) Listen for native hashchange to keep currentHash in sync.
   window.addEventListener('hashchange', function() {
