@@ -57,8 +57,8 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
     - The default port for peer-to-peer communication is **9091**.
 
     - If you’ve set a different port using the `HOPRD_P2P_PORT` environment variable, make sure to use that one instead.
-    
-    - You must expose this port (default or custom) to the public so other nodes can connect to your HOPRd node. See our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding) for instructions.
+
+    - If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
 - **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).

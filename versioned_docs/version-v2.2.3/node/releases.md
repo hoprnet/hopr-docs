@@ -20,6 +20,6 @@ This page provides comprehensive information on the latest HOPRd Node and HOPR A
 
 |  HOPR Admin UI version | Release date | Changelog |
 |-----|-----|-----|
-| **2.1.14 (Recommended)**  | 2025-01-16  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.14) |
+| **2.2.0 (Recommended)**  | 2025-04-29  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.2.0) |
+| 2.1.14  | 2025-01-16  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.14) |
 | 2.1.12  | 2024-12-03  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.12) |
-| 2.1.10  | 2024-11-12  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.10) |
