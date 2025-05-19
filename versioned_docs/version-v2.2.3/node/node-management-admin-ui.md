@@ -239,7 +239,10 @@ Displays a list of opened payment channels from your node to other nodes on the 
 
 ### SESSIONS
 
-Establish session-based connections from your node to a destination node on the HOPR network using either direct (zero-hop) or privacy-enhancing multi-hop routing.
+Use HOPR Sessions to tunnel traffic through the mixnet over UDP or TCP connections. Choose between a direct (zero-hop) route or a multi-hop path for enhanced privacy. Some examples:
+
+- Create TCP based sessions to tunnel HTTP requests
+- Create UDP based sessions to tunnel Wireguard requests
 
 :::note
 
@@ -253,7 +256,7 @@ Update the docker run command to include the port forwarding:
 Example:
 
 ```md
-docker run ... -p 1422:1422/udp ...
+docker run ... -p 1422:1422/udp -p 1422:1422/tcp ...
 ``` 
 
 </TabItem>
@@ -270,6 +273,7 @@ services:
     ports:
       ...
       - "1422:1422/udp"
+      - "1422:1422/tcp"
 ``` 
 
 </TabItem>
@@ -284,16 +288,17 @@ services:
 - PACKAGE PORT NUMBER: **1422**
 - PROTOCOL: Select **UDP**
 6. Click "**Update Port Mappings**" to save your changes.
+7. Repeat step 4, but this time select the **TCP** protocol instead.
 </TabItem>
 </Tabs>
 
-**Important:** If you are running HOPRd node behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose listening port **1422** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+**Important:** If you are running a HOPRd node behind NAT (Network Address Translation)—such as on a computer or server at home or in an office environment—you must expose the listening port **1422** using both **UDP** and **TCP** protocols to the public. This allows other nodes on the HOPR network to connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 :::
 
 | Term | Description |
 | --- | --- |
 | **Destination** | You have to specify the destination HOPRd node's PeerID. The destination HOPR node forwards all the data to the given **session target** over the selected IP protocol. |
-| **Listen host** | Enter your HOPRd node's listening port, where it will have an open endpoint to receive data. For example: **`:1422`** |
+| **Listen host** | The entry point of the session. You need to run a HOPRd node and open both **UDP** and **TCP** listening ports to start receiving response traffic. By default, use the listening port **`:1422`**.|
 | **Session Target** | Enter the session target that the destination node will connect to. You must specify either a domain or an IP address with a port. For example: **`example.com:80`** <br/><br/>**Note:** By default, HOPRd nodes are not allowed to access any website. You must ensure that the **Destination** node has the session target domain/IP address in its allow list. |
 | **Capabilities** | Retransmission and Segmentation capabilities are used only with the TCP protocol. <br/><br/> **Retransmission** ensures reliability by guaranteeing that every piece of your data eventually arrives at the other end in order. <br/><br/> **Segmentation** is the process of breaking your continuous data stream into discrete chunks called segments before sending them out as IP datagrams. It minimizes fragmentation, reduces latency, and helps TCP’s congestion-control algorithms manage flow. |
 | **Protocol** | Select the IP protocol: either **UDP** or **TCP**. |
