@@ -33,7 +33,7 @@ mv .env.sample .env
 Adjust the following environment variables as needed:
 
 - "**HOPRD_API_PORT**": The REST API port, default is **3001**. (Connects your node with the HOPR Admin UI)
-- "**HOPRD_P2P_PORT**": The peer-to-peer communication port, default is **9091**. (This port should be exposed to enable external connections to your node)
+- "**HOPRD_P2P_PORT**": The peer-to-peer communication port, default is **9091**. (If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).This port should be exposed to enable external connections to your node).
 
 ## 3. Set up secrets environment variables
 

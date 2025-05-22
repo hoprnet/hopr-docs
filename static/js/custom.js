@@ -1,4 +1,10 @@
 (function() {
+  /*const origDispatch = EventTarget.prototype.dispatchEvent;
+  EventTarget.prototype.dispatchEvent = function(event) {
+    console.log('[evt]', event.type, 'on', this);
+    return origDispatch.call(this, event);
+  };*/
+
   let currentHash = '';
 
   function handleHash() {
@@ -87,16 +93,8 @@
       return ret;
     };
   })(window.history);
-
-  // Listen for our custom 'locationchange' event.
-  window.addEventListener('locationchange', function() {
-    if (!window.location.hash && currentHash) {
-      const url = new URL(window.location.href);
-      url.hash = '#' + currentHash;
-      history.replaceState(null, '', url.toString());
-      console.log('Restored hash to:', '#' + currentHash);
-    }
-  });
+ 
+  window.addEventListener('locationchange', handleHash);
 
   // (Optional) Listen for native hashchange to keep currentHash in sync.
   window.addEventListener('hashchange', function() {

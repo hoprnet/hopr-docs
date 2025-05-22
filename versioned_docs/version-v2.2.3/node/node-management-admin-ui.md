@@ -59,11 +59,11 @@ To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
 (**1**) In the top right corner of the initial HOPR Admin UI screen, click "**CONNECT TO NODE**".
 
-![Node Admin Initial Screen](/img/node/admin-UI-home.png)
+![Node Admin Initial Screen](/img/node/admin-UI-home.jpg)
 
 (**2**) Under "**Node credentials:**" do the following:
 
-![Node Admin Initial Screen](/img/node/admin-UI-connect.png)
+![Node Admin Initial Screen](/img/node/admin-UI-connect.jpg)
 
 - In the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
 - In the "**API endpoint**" field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
@@ -234,3 +234,73 @@ Displays a list of opened payment channels from your node to other nodes on the 
 | **Open multiple outgoing channels** | You can prepate a csv file to open multiple payment channels in bulk. |
 | **Fund outgoing channel** | By specifying the node address (0x...) and HOPR amount, you can fund an outgoing payment channel with additional wxHOPR. |
 | **Export outgoing channels as a CSV** | You can export the entire list of outgoing payment channels as a CSV file. |
+
+---
+
+### SESSIONS
+
+Use HOPR Sessions to tunnel traffic through the mixnet over UDP or TCP connections. Choose between a direct (zero-hop) route or a multi-hop path for enhanced privacy.
+
+Some examples:
+- Create TCP-based sessions to tunnel HTTP requests.
+- Create UDP-based sessions to tunnel WireGuard requests.
+
+:::note
+
+To start using the sessions feature, your HOPRd node must have an open listening port. Choose your platform:
+
+<Tabs queryString="sessions_port">
+<TabItem value="docker" label="Docker">
+
+Update the docker run command to include the port forwarding:
+
+Example:
+
+```md
+docker run ... -p 1422:1422/udp -p 1422:1422/tcp ...
+``` 
+
+</TabItem>
+<TabItem value="docker-compose" label="Docker Compose">
+
+Locate **docker-compose.yaml** and update the ports: section of **hoprd**.
+
+Example:
+
+```md
+services:
+  hoprd:
+    ...
+    ports:
+      ...
+      - "1422:1422/udp"
+      - "1422:1422/tcp"
+``` 
+
+</TabItem>
+<TabItem value="dappnode" label="Dappnode">
+
+1. Connect to your Dappnode.
+2. Navigate to the **HOPR package**.
+3. Go to the Network tab and locate the **Public Port Mapping** section.
+4. Add a new port entry by clicking on **New port +**.
+5. Configure the following settings:
+- HOST PORT: **1422**
+- PACKAGE PORT NUMBER: **1422**
+- PROTOCOL: Select **UDP**
+6. Click "**Update Port Mappings**" to save your changes.
+7. Repeat step 4, but this time select the **TCP** protocol instead.
+</TabItem>
+</Tabs>
+
+**Important:** If you are running a HOPRd node behind NAT (Network Address Translation)—such as on a computer or server at home or in an office environment—you must expose the listening port **1422** using both **UDP** and **TCP** protocols to the public. This allows other nodes on the HOPR network to connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+:::
+
+| Term | Description |
+| --- | --- |
+| **Destination** | You have to specify the destination HOPRd node's PeerID. The destination HOPR node forwards all the data to the given **session target** over the selected IP protocol. |
+| **Listen host** | The entry point of the session consists of the HOPRd node’s IP address and the exposed listening port. To use this, you must run a HOPRd node and expose both **UDP** and **TCP** ports (e.g., **`1422`**) to receive response traffic.<br/><br/>If you are running the HOPRd node natively (using the binary), you must specify the public IP address and listening port of the node — for example: **`1.2.3.4:1422`**. If you are running the HOPRd node in Docker or on DappNode, you can specify only the listening port — for example: **`:1422`** — and the system will automatically resolve the internal IP address of the Docker container.|
+| **Session Target** | Enter the session target that the destination node will connect to. You must specify either a domain or an IP address with a port. For example: **`example.com:80`** <br/><br/>**Note:** By default, HOPRd nodes are not allowed to access any website. You must ensure that the **Destination** node has the session target domain/IP address in its allow list. |
+| **Capabilities** | Retransmission and Segmentation capabilities are used only with the TCP protocol. <br/><br/> **Retransmission** ensures reliability by guaranteeing that every piece of your data eventually arrives at the other end in order. <br/><br/> **Segmentation** is the process of breaking your continuous data stream into discrete chunks called segments before sending them out as IP datagrams. It minimizes fragmentation, reduces latency, and helps TCP’s congestion-control algorithms manage flow. |
+| **Protocol** | Select the IP protocol: either **UDP** or **TCP**. |
+| **Path** | You can select up to **3 intermediate nodes**, the default is **0 hops**. If using intermediate nodes, you must ensure that your node has an open channel with the first intermediate node, and that all subsequent nodes have open channels with one another. |
