@@ -239,10 +239,11 @@ Displays a list of opened payment channels from your node to other nodes on the 
 
 ### SESSIONS
 
-Use HOPR Sessions to tunnel traffic through the mixnet over UDP or TCP connections. Choose between a direct (zero-hop) route or a multi-hop path for enhanced privacy. Some examples:
+Use HOPR Sessions to tunnel traffic through the mixnet over UDP or TCP connections. Choose between a direct (zero-hop) route or a multi-hop path for enhanced privacy.
 
-- Create TCP based sessions to tunnel HTTP requests
-- Create UDP based sessions to tunnel Wireguard requests
+Some examples:
+- Create TCP-based sessions to tunnel HTTP requests.
+- Create UDP-based sessions to tunnel WireGuard requests.
 
 :::note
 
