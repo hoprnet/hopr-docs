@@ -115,7 +115,7 @@ Example screenshot of successfully started service:
 
 :::note 
 
-If the `hoprd.service` is not active, please generate the logs before seeking help.
+If the `hoprd.service` **is not active**, please generate the logs before seeking help.
 
 Run the following command to generate the logs:
 
