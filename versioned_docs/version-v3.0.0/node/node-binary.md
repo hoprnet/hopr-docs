@@ -1,6 +1,6 @@
 ---
 id: node-binary
-title: For Native Binary
+title: For Binary
 ---
 
 import Tabs from '@theme/Tabs';
