@@ -124,7 +124,7 @@ Example:
 
 ### 2.6 Implement configuration file 
 
-(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml)
 
 (**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
 

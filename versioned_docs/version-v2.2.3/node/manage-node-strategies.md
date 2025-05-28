@@ -17,7 +17,7 @@ Please select your platform:
 <Tabs queryString="config">
 <TabItem value="docker" label="Docker">
 
-(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml)
 
 (**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
@@ -69,7 +69,7 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/legacy/hoprd.cfg.yaml)
 
 (**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
