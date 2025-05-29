@@ -124,7 +124,7 @@ Example:
 
 ### 2.6 Implement configuration file 
 
-(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml)
+(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
 (**2**) Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
 
@@ -164,7 +164,7 @@ Example:
 http://127.0.0.1:4677
 ```
 
-(**2**) Click "**CONNECT TO NODE**" in the top right corner.  In the popup under "**Node credentials:**", do the following: 
+(**2**) Click "**CONNECT TO NODE**" in the top right corner. In the popup under "**Node credentials:**", do the following: 
 
 - In the **API endpoint** field, the default API endpoint should be set to `http://localhost:3001`. However, you may need to replace `localhost` with your server's IP address if you used a VPS, and adjust the port if you changed the mapping during installation.
 - In the **API token** field, enter the [custom security token you created](./node-docker.md#21-adjust-apitoken-setting).
