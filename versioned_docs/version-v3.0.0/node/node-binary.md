@@ -101,7 +101,7 @@ sudo systemctl enable hoprd
 (**5**) Start **hoprd.service** service:
 
 ```
-sudo systemctl enable hoprd
+sudo systemctl start hoprd
 ```
 
 (**6**) Check if **hoprd.service** service started successfully:
