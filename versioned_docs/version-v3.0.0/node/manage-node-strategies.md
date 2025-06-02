@@ -21,16 +21,16 @@ Please select your platform:
 
 (**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
-(**3**) Navigate to the "**.hopr-id-dufour**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
+(**3**) Navigate to the "**hoprd**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
 
 (**4**) After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-(**5**) Once your node is stopped, add the additional parameter "**--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'**" to link your configuration file to your current docker command.
+(**5**) Once your node is stopped, add the additional parameter "**--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'**" to link your configuration file to your current docker command.
 
 Docker command: 
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
+docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/hoprd/:/app/data --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/data/hopr.id --data /app/data/ --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
 ```
 
 **Note:** If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
@@ -42,7 +42,7 @@ docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=un
 </TabItem>
 <TabItem value="docker-compose" label="Docker compose">
 
-Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
+Inside the "**compose**" folder, navigate to the "**hoprd/conf**" subfolder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
 
 - **address**: 
 
@@ -81,7 +81,7 @@ Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and mak
 
 (**4**) In the "**Upload file**" section, click the "**Browse**" button next to the "**Choose file**" field, then select your newly created configuration file. Ensure that the configuration file is named "**hoprd.cfg.yaml**".
 
-(**5**) In the text field under the "**Upload file**" section, enter the path **`/app/`**.
+(**5**) In the text field under the "**Upload file**" section, enter the path **`/app/hoprd/conf/`**.
 
 ![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
 
@@ -140,7 +140,7 @@ hopr:
         address: !IPv4 1.2.3.4
         port: 9091
     db:
-        data: /app/hoprd-db/db
+        data: /app/data
         initialize: true
         force_initialize: false
     strategy:
@@ -187,7 +187,7 @@ hopr:
         announce_local_addresses: false
         prefer_local_addresses: false
 identity:
-    file: /app/hoprd-db/.hopr-identity
+    file: /app/data/hopr.id
     password: #For example: 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
 api:
     enable: true

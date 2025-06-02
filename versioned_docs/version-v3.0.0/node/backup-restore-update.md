@@ -1,6 +1,7 @@
 ---
 id: backup-restore-update
 title: Backup, Restore and Update Your Node
+toc_max_heading_level: 2
 ---
 
 import Tabs from '@theme/Tabs';
@@ -121,9 +122,14 @@ Please select platform to update your node identity:
 <Tabs queryString="update_node">
 <TabItem value="docker" label="Docker">
 
-(**1**) Back up your identity file. Follow the instructions in this [guide](./backup-restore-update#backup-your-node-identity).
 
-(**2**) Enter the following command `docker ps` into your terminal.
+### 1. Back up your identity file
+
+Follow the instructions in this [guide](./backup-restore-update#backup-your-node-identity).
+
+### 2. Check your running Docker containers
+
+Enter the following command `docker ps` into your terminal.
 
 This will provide you with a list of Docker containers you are currently running. Among them, locate the one with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable**" and note the "**container ID**".
 
@@ -131,15 +137,60 @@ This will provide you with a list of Docker containers you are currently running
 
 In the image above, the container ID is: "**4951b2990936**". In your system, the Docker container ID will be different.
 
-(**3**) Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
+### 3. Remove the old container 
 
-Example: 
+Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID: 
 
 ```md
 docker rm -f 4951b2990936
 ```
 
-(**4**) Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+### 4 (Optional): Update HOPRd Node Folder Structure
+
+Starting with **HOPRd v3.0.0**, we’ve introduced unified paths for the **database**, **identity**, and **configuration files** across all platforms to improve consistency and maintainability.
+
+Your existing paths will still work, but starting from **version 3.0.0, we will rely exclusively on the new paths**. We recommend updating to these new standards to ensure long-term compatibility.
+
+
+#### Path Changes Overview
+
+| Old path | New path | Description |
+| --- | --- |  --- |
+| -v $HOME/.hoprd-db-dufour:/app/hoprd-db | -v $HOME/hoprd/:/app/data | Mount path for the **database** directory. |
+| --identity /app/hoprd-db/.hopr-id-dufour | --identity /app/conf/hopr.id | Path to the **identity file**, now moved to the `conf` directory. |
+| --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml' | --configurationFilePath '/app/conf/hoprd.cfg.yaml' | Path to the **configuration file**, also moved to the `conf` directory. |
+
+Follow these sub-steps to restructure your existing HOPRd setup for compatibility with the latest version.
+
+#### 4.1 Rename the Existing Node Folder
+
+Assuming your current folder is named **.hoprd-db-dufour**, rename it to **hoprd**:
+
+    ```
+    mv .hoprd-db-dufour hoprd
+    ```
+
+**P.S.** If you're running multiple nodes on the same machine, use unique names like **hoprd-2**, **hoprd-3**, etc.
+
+#### 4.2 Move db into a New data Folder
+
+Inside the renamed **hoprd** folder, create a **data** directory and move the **db** folder into it:
+
+    ```
+    mkdir data && mv db data
+    ```
+
+#### 4.3 Organize Identity and Config Files
+
+Inside the **hoprd** folder, create a **conf** directory and move the identity (assuming your current identity file is named **.hopr-id-dufour**) and config (assuming your current configuration file is named **hoprd-docker.cfg.yaml**) files into it. Rename the identity file to hopr.id: 
+
+    ``` 
+    mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
+    ```
+
+### 5. Update your configuration file
+
+Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">

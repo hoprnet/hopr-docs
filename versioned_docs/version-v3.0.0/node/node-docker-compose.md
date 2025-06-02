@@ -19,7 +19,7 @@ Setting up a HOPR node with Docker Compose is intended for advanced users. It pr
 Start by downloading the "compose" folder from the HOPR repository to your local machine:
 
 ```md
-wget https://github.com/hoprnet/hoprnet/archive/refs/heads/release/singapore.zip && unzip singapore.zip "hoprnet-release-singapore/deploy/compose/*" -d extracted_files && mv extracted_files/hoprnet-release-singapore/deploy/compose . && rm -rf singapore.zip extracted_files
+wget https://github.com/hoprnet/hoprnet/archive/refs/heads/release/kaunas.zip && unzip kaunas.zip "hoprnet-release-kaunas/deploy/compose/*" -d extracted_files && mv extracted_files/hoprnet-release-kaunas/deploy/compose . && rm -rf kaunas.zip extracted_files
 ```
 
 ## 2. Set up environment variables
@@ -51,7 +51,7 @@ Adjust the following secrets environment variables as needed:
 
 ## 4. Configure node strategies
 
-Inside the "**compose**" folder, navigate to the "**hoprd_data**" folder and edit the "**hoprd.cfg.yaml**" file. Make adjustments according to these [guidelines](./manage-node-strategies.md) (refer to the "**Docker Compose**" section).
+Inside the "**compose**" folder, navigate to the "**hoprd/conf**" subfolder and edit the "**hoprd.cfg.yaml**" file. Make adjustments according to these [guidelines](./manage-node-strategies.md) (refer to the "**Docker Compose**" section).
 
 ## 5. Setup Prometheus
 
@@ -81,7 +81,7 @@ The default login credentials are:
 
 ## 6. Manage the identity file
 
-If you have previously run a node, transfer the identity file to the "**hoprd_data**" folder inside the "**compose**" folder, and rename it to `hopr.id`. If this is your first time running a node, the **hopr.id** file will be automatically generated when the HOPRd node is launched.
+If you have previously run a node, move the identity file to the "**compose/hoprd/conf**" subfolder and rename it to `hopr.id`. If this is your first time running a node, the **hopr.id** file will be automatically generated when the HOPRd node is launched.
 
 ## 7. Launch Docker Compose
 
