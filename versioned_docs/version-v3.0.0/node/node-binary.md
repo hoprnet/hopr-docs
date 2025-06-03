@@ -29,7 +29,7 @@ After extraction, you should see the following files: **hoprd**, **hoprd-api-sch
 
 ## 2. Implement configuration file
 
-(**1**) Inside the newly created **hoprd** folder, download the example file specificaly for Native Binary: [hoprd-binary.cfg.yaml](pathname:///files/hoprd-binary.cfg.yaml).
+(**1**) Inside the newly created **hoprd** folder, create a **conf** directory. Then, download the example configuration file specifically for the Native Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/hoprd-binary.cfg.yaml).
 
 (**2**) Make adjustments according to these [guidelines](./manage-node-strategies.md?config=native-binary).
 
@@ -64,7 +64,7 @@ Restart=on-failure
 RestartSec=5
 
 Environment="HOPRD_DATA=/root/hoprd/data/"
-Environment="HOPRD_CONFIGURATION_FILE_PATH=/root/hoprd/hoprd.cfg.yaml"
+Environment="HOPRD_CONFIGURATION_FILE_PATH=/root/hoprd/conf/hoprd-binary.cfg.yaml"
 Environment="HOPR_INTERNAL_LIBP2P_MSG_ACK_MAX_TOTAL_STREAMS=1000"
 
 WorkingDirectory=/root/hoprd/

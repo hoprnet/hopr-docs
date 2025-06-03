@@ -145,7 +145,7 @@ Remove the container using the following command: `docker rm -f <Your_Container_
 docker rm -f 4951b2990936
 ```
 
-### 4 (Optional): Update HOPRd Node Folder Structure
+### 4. (Optional): Update HOPRd Node Folder Structure
 
 Starting with **HOPRd v3.0.0**, we’ve introduced unified paths for the **database**, **identity**, and **configuration files** across all platforms to improve consistency and maintainability.
 
@@ -166,27 +166,27 @@ Follow these sub-steps to restructure your existing HOPRd setup for compatibilit
 
 Assuming your current folder is named **.hoprd-db-dufour**, rename it to **hoprd**:
 
-    ```
-    mv .hoprd-db-dufour hoprd
-    ```
+```
+mv .hoprd-db-dufour hoprd
+```
 
 **P.S.** If you're running multiple nodes on the same machine, use unique names like **hoprd-2**, **hoprd-3**, etc.
 
 #### 4.2 Move db into a New data Folder
 
-Inside the renamed **hoprd** folder, create a **data** directory and move the **db** folder into it:
+Navigate to the renamed **hoprd** folder, from here create a **data** directory and move the **db** folder into it:
 
-    ```
-    mkdir data && mv db data
-    ```
+```
+mkdir data && mv db data
+```
 
 #### 4.3 Organize Identity and Config Files
 
-Inside the **hoprd** folder, create a **conf** directory and move the identity (assuming your current identity file is named **.hopr-id-dufour**) and config (assuming your current configuration file is named **hoprd-docker.cfg.yaml**) files into it. Rename the identity file to hopr.id: 
+Inside the **hoprd** folder, create a **conf** directory and move the identity file (assuming your current identity file is named **.hopr-id-dufour**) and configuration file (assuming your current configuration file is named **hoprd-docker.cfg.yaml**) into it:
 
-    ``` 
-    mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
-    ```
+```
+mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
+```
 
 ### 5. Update your configuration file
 
@@ -197,24 +197,55 @@ Ensure your configuration file is up to date by applying the [latest configurati
 
 The update process occurs when you stop and restart the "**hoprd**" services, ensuring the latest version is applied:
 
-(**1**) Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
+### 1. Stop hoprd services
+
+Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
 
 ```md
 COMPOSE_PROFILES=hoprd docker compose down
 ```
 
-(**2**) Locate the configuration file "**hoprd.cfg.yaml**" in the "**hoprd_data**" folder inside the "**compose**" directory and do the following:
+### 2. (Optional): Update HOPRd Node Folder Structure
 
-- Locate "**strategy.strategies**", under "**!Aggregating**" strategy find "**aggregation_threshold**" and replace `100` with `250`. Then, find "**aggregation_timeout**" and remove this setting.
-- Locate "**strategy.strategies**", under "**!AutoRedeeming**" strategy find "**minimum_redeem_ticket_value**" and replace `30000000000000000000 HOPR` with `2500000000000000000 HOPR`.
-- Find "**chain**" section and remove only "**check_unrealized_balance**" setting.
-- Locate and remove the entire "**protocol**" section, including all settings nested under the "**protocol**" heading.
-- Locate and remove the entire "**heartbeat**" section, including all settings nested under the "**heartbeat**" heading.
-- Locate and remove the entire "**network_options**" section, including all settings nested under the "**network_options**" heading.
+Starting with **HOPRd v3.0.0**, we’ve introduced unified paths for the **database**, **identity**, and **configuration files** across all platforms to improve consistency and maintainability.
 
-**Note:** If some of these settings are not present in your configuration file, there is no need to add them.
+Your existing paths will still work, but starting from **version 3.0.0, we will rely exclusively on the new paths**. We recommend updating to these new standards to ensure long-term compatibility.
 
-(**3**) To start the "**hoprd**" services again and apply the latest version, run this command:
+#### Path Changes Overview
+
+| Old path | New path | Description |
+| --- | --- |  --- |
+| /compose/hoprd_data/hoprd/ | /compose/hoprd/data | Mount path for the **database** directory. |
+| /compose/hoprd_data/hopr.id | /compose/hoprd/conf/hopr.id | Path to the **identity file**, now moved to the `conf` directory. |
+| /compose/hoprd_data/hoprd.cfg.yaml | /compose/hoprd/conf/hoprd.cfg.yaml | Path to the **configuration file**, also moved to the `conf` directory. |
+
+Follow these sub-steps to restructure your existing HOPRd setup for compatibility with the latest version.
+
+#### 2.1 Rename the Existing Node and Database folders
+
+Navigate to the **compose** folder. From there, use the following command to rename **hoprd_data** to **hoprd**, and then, inside the newly renamed **hoprd** folder, rename the database folder **hoprd** to **data**:
+
+```md
+mv hoprd_data hoprd && mv hoprd/hoprd hoprd/data
+```
+
+#### 2.2 Organize Identity and Config Files 
+
+Still inside the **compose** folder, use the following command to create a **conf** folder inside **hoprd**, and move the identity and configuration files into it:
+
+```
+mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
+```
+
+### 3. Update your configuration file
+
+Inside the **compose** folder, locate the configuration file **hoprd.cfg.yaml** at the path **/hoprd/conf**, and then do the following:
+
+- Locate "**strategy.strategies**", under "**!AutoRedeeming**" strategy find "**minimum_redeem_ticket_value**" and replace current 18 decimal number to `2.5 wxHOPR`. Example: `minimum_redeem_ticket_value = '2.5 wxHOPR'`.
+
+### 4. Start hoprd services
+
+To start the "**hoprd**" services again and apply the latest version, run this command:
 
 ```md
 COMPOSE_PROFILES=hoprd docker compose up -d

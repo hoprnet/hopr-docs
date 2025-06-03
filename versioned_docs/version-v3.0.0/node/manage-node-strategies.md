@@ -56,9 +56,9 @@ Inside the "**compose**" folder, navigate to the "**hoprd/conf**" subfolder and 
 
     - The default port for peer-to-peer communication is **9091**.
 
-    - If you’ve set a different port using the `HOPRD_P2P_PORT` environment variable, make sure to use that one instead.
+    - If you’ve set a different port using the **HOPRD_P2P_PORT** environment variable, make sure to use that one instead.
 
-    - If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+    - If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
 - **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
@@ -103,7 +103,7 @@ Inside the "**hoprd**" folder, make the necessary edits to the "**hoprd-binary.c
     
     - Replace **127.0.0.1** with your own public IP address when configuring your node.
 
-- **host -> port**: If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+- **host.port**: If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 - **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
 - **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 - **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
@@ -113,7 +113,7 @@ Inside the "**hoprd**" folder, make the necessary edits to the "**hoprd-binary.c
     Example: 
 
     ```md
-    /root/hoprd/hopr.id
+    /root/hoprd/conf/hopr.id
     ```
 
 - **password**: Enter the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on creating a secure database password, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
