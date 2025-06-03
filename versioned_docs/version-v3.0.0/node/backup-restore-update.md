@@ -72,7 +72,7 @@ Please select platform to restore your node identity:
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-(**1**) Before restoring your node identity, ensure that you have [backed up of your HOPR node identity](./backup-restore-update#backup-your-node-identity). Verify that you have the "**hopr.id**" file and your database password.
+(**1**) Before restoring your node identity, ensure that you have [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). Verify that you have the "**hopr.id**" file and your database password.
 
 (**2**) Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
 
