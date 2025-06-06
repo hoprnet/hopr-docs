@@ -16,7 +16,7 @@ Please select a platform to backup your node identity:
 
 For Docker, the identity file is automatically created and stored on your machine.
 
-(**1**) Find the identity file "**hopr.id**" at this path "**/\<computer username>/hoprd/conf/**".
+(**1**) Back up the identity file "**hopr.id**", which you will find at the following path: "**/\<computer username>/hoprd/conf/**".
 
 (**2**) Write down the database password, which is set by this setting in the HOPRd docker command "**--password**". 
 
@@ -29,7 +29,7 @@ For Docker, the identity file is automatically created and stored on your machin
 
 For Docker compose, the identity file is automatically created and stored on your machine.
 
-(**1**) Locate the identity file "**hopr.id**" at the following path: **"/\<computer username>/compose/hoprd/conf/"**.
+(**1**) Back up the identity file "**hopr.id**", which you will find at the following path: "**/\<computer username>/compose/hoprd/conf/**".
 
 (**2**) In the "**compose**" folder, open the secrets environment file "**.env-secrets**" and note down the database password stored under the "**HOPRD_PASSWORD**" variable.
 
@@ -47,8 +47,6 @@ For Docker compose, the identity file is automatically created and stored on you
 
 (**4**) Store the backed up file somewhere safe, along with your database password, in case you ever need to restore your node.
 
-(**5**) To ensure you backed up the correct file, unarchive the "**hopr-identity.tar**" file to verify the presence of the "**.hopr-identity**"  file. Make sure you have enabled the feature to view hidden files on your machine.
-
 </TabItem>
 
 </Tabs>
@@ -61,7 +59,7 @@ Please select platform to restore your node identity:
 <Tabs queryString="restore_identity">
 <TabItem value="docker" label="Docker">
 
-(**1**) Before restoring your node identity, ensure that you have [backed up your HOPR node identity](./backup-restore-update.md#backup-your-node-identity). Confirm that you have the HOPR identity file: "**hopr.id**" and make sure you also have the database password.
+(**1**) Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file "**hopr.id**" and the corresponding database password.
 
 (**2**) Copy your backed-up "**hopr.id**" file into the "**hoprd/conf/**" folder to restore your node identity.
 
@@ -72,7 +70,7 @@ Please select platform to restore your node identity:
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-(**1**) Before restoring your node identity, ensure that you have [backed up of your HOPR node identity](./backup-restore-update#backup-your-node-identity). Verify that you have the "**hopr.id**" file and your database password.
+(**1**) Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file **"hopr.id"** and the corresponding database password.
 
 (**2**) Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
 
@@ -98,13 +96,13 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 **For Mac:** With the Finder app open, simultaneously press the key combination: **Command + Shift + . (Dot)**. You will need to do this whenever you upload the identity file.
 
-(**2**) Before restoring your node identity, ensure that you have [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). Retrieve the "**hopr.id**" file from the archived "**hopr-identity.tar**" and ensure that you have the database password.
+(**2**) Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file "**hopr.id**" and the corresponding database password.
 
 (**3**) Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the "**Pause**" icon to stop HOPR package.
 
 (**4**) Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager). Under the "**Upload file**" section fill in required information:
 
-- In the **Choose file** field, click "**Browse**", ensure that hidden files are enabled, and select the "**hopr.id**" file.
+- In the **Choose file** field, click "**Browse**", and select the "**hopr.id**" file.
 - In the **Defaults to $WORKDIR/** field, enter the database folder location: `/app/hoprd/conf/`.
 
 Click the "**Upload**" button to upload HOPR identity file.
