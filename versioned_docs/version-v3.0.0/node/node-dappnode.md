@@ -11,86 +11,134 @@ Please note that you must start the onboarding process before setting up your no
 
 ## 1. Install the HOPR Package
 
-(**1**) Connect to your Dappnode either [via your local network](https://docs.dappnode.io/docs/user/access-your-dappnode/wifi) or remotely using the [Dappnode VPN](https://docs.dappnode.io/docs/user/access-your-dappnode/vpn/overview).
 
-**Note:** If you choose the remote connection method, you’ll need to port forward port `51820` on your router to access your Dappnode from anywhere.
-For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+1. Connect to your Dappnode:
 
-(**2**) Open the DAppStore using the sidebar to the left.
+   - [Via your local network](https://docs.dappnode.io/docs/user/access-your-dappnode/wifi)
+   - Or remotely using [Dappnode VPN](https://docs.dappnode.io/docs/user/access-your-dappnode/vpn/overview). You’ll need to port forward port `51820` on your router to access your Dappnode from anywhere. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
-(**3**) Search for **HOPR** using the DAppStore search bar.
+2. Open the **DAppStore** from the sidebar.
 
-![DAppStore Search Bar](/img/node/Search-HOPR-Dappstore.png)
+3. Use the DAppStore search bar to find `HOPR`.
 
-(**4**) You should see the latest version of the HOPR client in the listed dApps. Click the "**GET**" button under the HOPR package. This will take you to a new interface.
+   ![DAppStore Search Bar](/img/node/Search-HOPR-Dappstore.png)
 
-(**5**) Press "**INSTALL**". This will open the setup wizard.
+4. Click **GET** on the HOPR package to open the package details.
 
-![Install HOPR](/img/node/dappnode-hopr-package-view.png)
+5. Click **INSTALL** to start the setup wizard.
 
-**Note:** Alternatively, click "**UPDATE**" if you have already installed the HOPR client.
+   ![Install HOPR](/img/node/dappnode-hopr-package-view.png)
+
+:::tip
+Already have HOPR installed? Click **UPDATE** instead.
+:::
+
+---
 
 ## 2. Obtain Safe & Module addresses to complete node setup
 
-### 2.1 Copy your Safe address and Module address
+### 2.1 Copy Your Safe and Module Addresses
 
-Go to the [onboarding page](https://hub.hoprnet.org/staking/onboarding) and copy the afe and Module addresses.
+Go to the [onboarding page](https://hub.hoprnet.org/staking/onboarding) and copy both your **Safe address** and **Module address**.
 
 ![dappnode env variable](/img/node/dappnode-env-variables-3.png)
 
-**Note:** If you are re-installing an existing node and not onboarding, you can find the addresses within the dashboard. Go to the [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard) where you should find your Safe and Module address at the top of the staking section.
+:::tip
+If you're re-installing an existing node (not onboarding), you can find your addresses in the  
+[Staking Dashboard](https://hub.hoprnet.org/staking/dashboard), at the top of the staking section.
+:::
 
 ### 2.2 Complete installing HOPR package
 
-(**1**) In the **Identity file password** field, enter the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future.
+1. **Identity file password**  
 
-For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
+   In the **Identity file password** field, enter the database password, which is required to encrypt your identity file.  
+   Make sure to write down this password, as you will need it if you ever need to restore your node in the future.
 
-(**2**) In the **REST API Token** field, enter the **secret token**, which will be used to securely connect to your node. This ensures that unauthorized users on the same network cannot access your node.
+   For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
 
-For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
+2. **REST API Token**  
 
-(**3**) In the **RPC Provider URL** field, enter your custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the `http://` prefix followed by the IP address or localhost.
+   In the **REST API Token** field, enter the **secret token**, which will be used to securely connect to your node.  
+   This ensures that unauthorized users on the same network cannot access your node.
 
-(**4**) In the **Staking safe address** field, enter the recently copied Safe address.
+   For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
 
-(**5**) In the **Staking safe module address** field, enter the recently copied Module address.
+3. **RPC Provider URL**  
 
-(**6**) In the **Public host IP and port** field, enter your public IP suffixed with the port "**:9091**". 
+   In the **RPC Provider URL** field, enter your custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md). 
+   
+   If you're using a local RPC endpoint, ensure the URL includes the `http://` prefix followed by the IP address or `localhost`.
 
-- Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
+4. **Staking Safe Address**  
 
-- Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+   In the **Staking safe address** field, enter the recently copied Safe address.
 
-- Expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+5. **Staking Module Address**  
 
-(**7**) Click "**Submit**". On the next screen, accept the disclaimer, and your HOPR package should start installing immediately.
+   In the **Staking safe module address** field, enter the recently copied Module address.
 
-![dappnode setup wizard](/img/node/dappnode-hopr-package-install-phase.jpg)
+6. **Public Host IP and Port**  
+
+   In the **Public host IP and port** field, enter your public IP suffixed with the port `:9091`.
+
+   - Locate your external IP address by referring to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address).
+   - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+   - Expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+
+ 7. **Submit to install package**  
+   
+   Click **Submit**. On the next screen, accept the disclaimer, and your HOPR package should start installing immediately.
+
+   ![dappnode setup wizard](/img/node/dappnode-hopr-package-install-phase.jpg)
+
+---
 
 ## 3. Link your node to your HOPR Safe wallet
 
-(**1**) Once installed, go to "**Packages**" and click on "**HOPR**". Once inside the HOPR package, click on "**Ui**" to enter the HOPR Admin UI.
+1. **Access the Admin UI**  
+   
+   Once installed, go to **Packages** and click on **HOPR**. Inside the HOPR package, click **Ui** to open the HOPR Admin UI.
 
-(**2**) Click "**CONNECT TO NODE**" in the top right corner. In the popup under "**Node credentials:**", do the following:
+2. **Connect to the Node**  
+   
+   Click **CONNECT TO NODE** in the top-right corner. In the popup under **Node credentials**, do the following:
 
-- In the **API endpoint** field, by default API endpoint should be set to `http://node.hopr.public.dappnode:3001`.
-- In the **API token** field, it will be empty by default. If you entered one during the setup process, please enter it here.
+   - In the **API endpoint** field, the default value should be: `http://node.hopr.public.dappnode:3001`
 
-(**3**) Click the button "**Connect to the node**" where popup should appear with your node address which starts with "**0x**". Copy your node address.
+   - In the **API token** field, it will be empty by default. If you entered one during setup, enter it here.
 
-(**4**) **Note:** You don’t need to manually fund your node with **xDai** tokens. You will fund your node through the HOPR Staking Hub during the onboarding process. Return to the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist, or, if you've been approved, to complete your onboarding.
+3. **Copy Your Node Address**  
+   
+   Click the **Connect to the node** button. A popup will appear showing your node address, which starts with `0x`. Copy this address for the next step.
+
+4. **Node Funding Note**  
+   
+   You don’t need to manually fund your node with **xDai** tokens. Your node will be funded automatically through the HOPR Staking Hub during onboarding.
+
+   Visit the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist or complete your onboarding if already approved.
+
+---
 
 ## 4. What's next?
 
-Once you’ve completed the onboarding process, ensure your node is fully synced (100%) and that you've opened at least one outgoing payment channel with a random peer. These are the requirements for Cover Traffic, which allows your node to start earning rewards. Follow these steps:
+Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
 
-(**1**) Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+These are the requirements for Cover Traffic, which allows your node to start earning rewards.
 
-(**2**) On the "**INFO**" page, under the "**Network**" section, confirm that the "**Sync Process**" is at "**100%**". If it’s not fully synced yet, you will need to wait until the process is complete.
+Follow these steps:
 
-(**3**) Once your node is fully synced, go to the "**PEERS**" page and select a random peer with a connection quality above 90%. Click the "**OPEN Outgoing Channel**" icon, enter **1** as the amount (or any other amount of your choice), and then click "**Open Channel**". Within a minute, you will receive a notification confirming that the payment channel has been opened.
+1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
-(**4**) Navigate to the "**CHANNELS: OUT**" page to verify that the outgoing payment channel has been successfully opened.
+2. On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
+   If it’s not fully synced yet, you’ll need to wait until the process is complete.
+
+3. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
+   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
+   You’ll receive a notification once the channel has been opened.
+
+4. Navigate to the `CHANNELS: OUT` page to verify the outgoing payment channel has been successfully opened.
+
+---
 
 **Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).

@@ -7,6 +7,8 @@ toc_max_heading_level: 2
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Backup your node identity
 
 Please select a platform to backup your node identity:
@@ -14,38 +16,102 @@ Please select a platform to backup your node identity:
 <Tabs queryString="backup_identity">
 <TabItem value="docker" label="Docker">
 
-For Docker, the identity file is automatically created and stored on your machine.
+The identity file is automatically created and stored on your machine.
 
-(**1**) Back up the identity file "**hopr.id**", which you will find at the following path: "**/\<computer username>/hoprd/conf/**".
+---
 
-(**2**) Write down the database password, which is set by this setting in the HOPRd docker command "**--password**". 
+### 1. Back Up Your Identity File
 
-**Note:** Your database password is set to `open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0` by default, unless you changed it during the initial node setup.
+The identity file `hopr.id` is located at:  
+```
+/<computer username>/hoprd/conf/
+```
 
-(**3**) Store the backed-up file somewhere safe, along with your database password, in case you ever need to restore your node.
+---
+
+### 2. Write Down Your Database Password
+
+The password is set using the `--password` flag in the HOPRd Docker command.
+
+**Default password:**
+```
+open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0
+```
+
+---
+
+### 3. Store Your Backup Safely
+
+Save both the `hopr.id` file and your password in a secure location.
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
 For Docker compose, the identity file is automatically created and stored on your machine.
 
-(**1**) Back up the identity file "**hopr.id**", which you will find at the following path: "**/\<computer username>/compose/hoprd/conf/**".
+---
 
-(**2**) In the "**compose**" folder, open the secrets environment file "**.env-secrets**" and note down the database password stored under the "**HOPRD_PASSWORD**" variable.
+### 1. Back Up Your Identity File
 
-(**3**) Safely store the backed-up "**hopr.id**" file along with your database password in case you need to restore your node in the future.
+Back up the identity file `hopr.id`, which you will find at the following path:  
+```
+/<computer username>/compose/hoprd/conf/
+```
+
+### 2. Note Down Your Database Password
+
+In the `compose` folder, open the secrets environment file `.env-secrets` and locate the database password stored under the variable:  
+```
+HOPRD_PASSWORD
+```
+
+### 3. Store Your Backup Safely
+
+Safely store both the `hopr.id` file and your database password in a secure location in case you need to restore your node in the future.
+
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-(**1**) Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+The identity file is automatically created and stored on the DappNode machine.
 
-(**2**) In the "**Download file**" section, enter `/app/hoprd/conf/hopr.id` and click "**Download**". **Important:** If you're using a browser like Brave, the identity file will not download automatically. You'll need to click "**Keep**" in the downloads section of your browser. Ensure the file is fully downloaded; otherwise, you risk losing your node identity.
+---
 
-(**3**) Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under "**Identity file password**", click the "**eye**" icon to unhide the database password and write it down.
+### 1. Access the File Manager
 
-**Note:** Your database password is set to `"open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0"` (including the double quotes) by default, unless you changed it during the initial node setup.
+Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
-(**4**) Store the backed up file somewhere safe, along with your database password, in case you ever need to restore your node.
+---
+
+### 2. Download Your Identity File
+
+In the Download file section, enter the following path and click Download:  
+```
+/app/hoprd/conf/hopr.id
+```
+
+**Important:**
+If you're using a browser like Brave, the identity file may not download automatically.  
+Click **Keep** in the browser's downloads section to confirm.  
+Ensure the file is fully downloaded, or you risk losing your node identity.
+
+---
+
+### 3. Retrieve Your Database Password
+
+Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).  
+Under Identity file password, click the eye icon to unhide the database password and write it down.
+
+Default password:
+```
+"open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0"
+```
+(Including the double quotes)
+
+---
+
+### 4. Store Your Backup Safely
+
+Store both the downloaded `hopr.id` file and your database password in a secure location for future recovery.
 
 </TabItem>
 
@@ -59,209 +125,319 @@ Please select platform to restore your node identity:
 <Tabs queryString="restore_identity">
 <TabItem value="docker" label="Docker">
 
-(**1**) Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file "**hopr.id**" and the corresponding database password.
+### 1. Ensure You Have a Backup
 
-(**2**) Copy your backed-up "**hopr.id**" file into the "**hoprd/conf/**" folder to restore your node identity.
+Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity).  
+You will need the identity file `hopr.id` and the corresponding database password.
 
-(**3**) Update the "**--password**" tag in the Docker command to match the database password used for your previous node.
+---
 
-(**4**) Configure the Docker command with the required information, just as you did initially when setting up a new node. For more details, see [here](node-docker.md#2-configure-hoprd-command).
+### 2. Restore the Identity File
+
+Copy your backed-up `hopr.id` file into the following folder:  
+```
+/hoprd/conf/
+```
+
+---
+
+### 3. Set the Password Flag
+
+Update the `--password` tag in your Docker command to match the database password used for your previous node.
+
+---
+
+### 4. Configure Your Docker Command
+
+Configure the Docker command with the required information, just as you did when initially setting up a new node.  
+For more details, see [this section](node-docker.md#2-configure-hoprd-command).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-(**1**) Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file **"hopr.id"** and the corresponding database password.
+### 1. Ensure You Have a Backup
 
-(**2**) Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
+Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity).  
+You will need the identity file `hopr.id` and the corresponding database password.
 
-```md
+---
+
+### 2. Stop the hoprd Services
+
+Navigate to the `compose` folder and stop the `hoprd` services by running the following command:
+```
 COMPOSE_PROFILES=hoprd docker compose down
 ```
 
-(**3**) Inside "**compose**" folder copy the "**hopr.id**" file into the "**/hoprd/conf**" folder.
+---
 
-(**4**) Return to the main "**compose**" folder and restart the "**hoprd**" services by running the following command:
+### 3. Restore the Identity File
 
-```md
+Inside the `compose` folder, copy your `hopr.id` file into:
+```
+/hoprd/conf/
+```
+
+---
+
+### 4. Restart the hoprd Services
+
+Return to the main `compose` folder and restart the `hoprd` services by running:
+```
 COMPOSE_PROFILES=hoprd docker compose up -d
 ```
+
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-(**1**) Make sure you can view hidden files.
+### 1. Enable Viewing Hidden Files
 
-**For Windows:** Open the File Manager app, and under "**View -> Show**", ensure that **hidden files** is checked. 
+**For Windows**:  
+Open the File Manager app, and under `View → Show`, ensure that hidden files is checked.
 
-![Hiden Files](/img/node/Hidden_files_windows.png)
+![Hidden Files](/img/node/Hidden_files_windows.png)
 
-**For Mac:** With the Finder app open, simultaneously press the key combination: **Command + Shift + . (Dot)**. You will need to do this whenever you upload the identity file.
+**For Mac**:  
+With the Finder app open, press the key combination:  
+`Command + Shift + . (Dot)`  
+You will need to repeat this whenever you upload the identity file.
 
-(**2**) Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file "**hopr.id**" and the corresponding database password.
+---
 
-(**3**) Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the "**Pause**" icon to stop HOPR package.
+### 2. Ensure You Have a Backup
 
-(**4**) Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager). Under the "**Upload file**" section fill in required information:
+Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity).  
+You will need the identity file `hopr.id` and the corresponding database password.
 
-- In the **Choose file** field, click "**Browse**", and select the "**hopr.id**" file.
-- In the **Defaults to $WORKDIR/** field, enter the database folder location: `/app/hoprd/conf/`.
+---
 
-Click the "**Upload**" button to upload HOPR identity file.
+### 3. Pause the HOPR Package
 
-(**5**) Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the "**Play**" or "**Restart**" icon to start the HOPR package.
+Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Pause` icon to stop the HOPR package.
+
+---
+
+### 4. Upload the Identity File
+
+Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+
+Under the `Upload file` section, fill in the following:
+
+- In the **Choose file** field, click `Browse` and select the `hopr.id` file.
+- In the **Defaults to $WORKDIR/** field, enter:
+```
+/app/hoprd/conf/
+```
+
+Click the `Upload` button to upload the identity file.
+
+---
+
+### 5. Restart the HOPR Package
+
+Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
  
 </TabItem>
 </Tabs>
+
 ---
 
 ## Update your node
 
-When migrating from **v2.2.x** to **v3.0.0**, there's no need to re-sync your node — the process is automated. Simply follow the steps below.
+When migrating from `v2.2.x` to `v3.0.0`, there's no need to re-sync your node — the process is automated. Simply follow the steps below.
 
 Please select your platform to update your HOPRd node:
 
 <Tabs queryString="update_node">
 <TabItem value="docker" label="Docker">
 
-### 1. Back up your identity file
+### 1. Back Up Your Identity File
 
 Follow the instructions in this [guide](./backup-restore-update#backup-your-node-identity).
 
-### 2. Check your running Docker containers
+---
 
-Enter the following command `docker ps` into your terminal.
+### 2. Check Your Running Docker Containers
 
-This will provide you with a list of Docker containers you are currently running. Among them, locate the one with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable**" and note the "**container ID**".
+Enter the following command in your terminal:
+```
+docker ps
+```
+
+This will show all running Docker containers. Look for the one labeled:
+```
+europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable
+```
+
+Note the container ID. For example:
+```
+4951b2990936
+```
 
 ![Docker ps](/img/node/docker-ps-node-update.png)
 
-In the image above, the container ID is: "**4951b2990936**". In your system, the Docker container ID will be different.
+---
 
-### 3. Remove the old container 
+### 3. Remove the Old Container
 
-Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID: 
+Remove the old container using:
+```
+docker rm -f <Your_Container_ID>
+```
 
-```md
+Example:
+```
 docker rm -f 4951b2990936
 ```
 
-### 4. (Optional): Update HOPRd Node Folder Structure
+---
 
-Starting with **HOPRd v3.0.0**, we’ve introduced unified paths for the **database**, **identity**, and **configuration files** across all platforms to improve consistency and maintainability.
+### 4. (Optional) Update HOPRd Node Folder Structure
 
-Your existing paths will still work, but starting from **version 3.0.0, we will rely exclusively on the new paths**. We recommend updating to these new standards to ensure long-term compatibility.
+Starting with HOPRd v3.0.0, we’ve introduced unified paths for the database, identity, and configuration files to improve consistency and maintainability.
 
+Your existing paths will still work, but starting with version 3.0.0, we recommend updating to these new standards for long-term compatibility.
 
-#### Path Changes Overview
+### Path Changes Overview
 
-| Old path | New path | Description |
-| --- | --- |  --- |
-| -v $HOME/.hoprd-db-dufour:/app/hoprd-db | -v $HOME/hoprd/:/app/data | Mount path for the **database** directory. |
-| --identity /app/hoprd-db/.hopr-id-dufour | --identity /app/conf/hopr.id | Path to the **identity file**, now moved to the `conf` directory. |
-| --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml' | --configurationFilePath '/app/conf/hoprd.cfg.yaml' | Path to the **configuration file**, also moved to the `conf` directory. |
+| Old Path | New Path | Description |
+|----------|----------|-------------|
+| `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` | `-v $HOME/hoprd/:/app/data` | Mount path for the database directory |
+| `--identity /app/hoprd-db/.hopr-id-dufour` | `--identity /app/conf/hopr.id` | Path to the identity file |
+| `--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'` | `--configurationFilePath '/app/conf/hoprd.cfg.yaml'` | Path to the configuration file |
 
-Follow these sub-steps to restructure your existing HOPRd setup for compatibility with the latest version.
+---
 
-#### 4.1 Rename the Existing Node Folder
+1. **Rename the Existing Node Folder**
 
-Assuming your current folder is named **.hoprd-db-dufour**, rename it to **hoprd**:
+    If your current folder is named `.hoprd-db-dufour`, rename it to `hoprd`:
+    ```
+    mv .hoprd-db-dufour hoprd
+    ```
 
-```
-mv .hoprd-db-dufour hoprd
-```
+    *Tip: If running multiple nodes, use names like `hoprd-2`, `hoprd-3`, etc.*
 
-**P.S.** If you're running multiple nodes on the same machine, use unique names like **hoprd-2**, **hoprd-3**, etc.
+2. **Move db into a New Data Folder**
 
-#### 4.2 Move db into a New data Folder
+    Navigate into the `hoprd` folder, create a `data` directory, and move the `db` folder into it:
+    ```
+    mkdir data && mv db data
+    ```
 
-Navigate to the renamed **hoprd** folder, from here create a **data** directory and move the **db** folder into it:
+3. **Organize Identity and Config Files**
 
-```
-mkdir data && mv db data
-```
+    Inside the `hoprd` folder, create a `conf` directory and move the identity and configuration files:
+    ```
+    mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
+    ```
 
-#### 4.3 Organize Identity and Config Files
+4. **Update Your Configuration File**
 
-Inside the **hoprd** folder, create a **conf** directory and move the identity file (assuming your current identity file is named **.hopr-id-dufour**) and configuration file (assuming your current configuration file is named **hoprd-docker.cfg.yaml**) into it:
-
-```
-mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
-```
-
-### 5. Update your configuration file
-
-Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+    Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-The update process occurs when you stop and restart the "**hoprd**" services, ensuring the latest version is applied:
+The update process occurs when you stop and restart the `hoprd` services, ensuring the latest version is applied.
 
-### 1. Stop hoprd services
+---
 
-Navigate to the "**compose**" folder and stop the "**hoprd**" services by running the following command:
+### 1. Stop hoprd Services
 
-```md
+Navigate to the `compose` folder and stop the `hoprd` services by running:
+```
 COMPOSE_PROFILES=hoprd docker compose down
 ```
 
-### 2. (Optional): Update HOPRd Node Folder Structure
+---
 
-Starting with **HOPRd v3.0.0**, we’ve introduced unified paths for the **database**, **identity**, and **configuration files** across all platforms to improve consistency and maintainability.
+### 2. (Optional) Update HOPRd Node Folder Structure
 
-Your existing paths will still work, but starting from **version 3.0.0, we will rely exclusively on the new paths**. We recommend updating to these new standards to ensure long-term compatibility.
+Starting with HOPRd v3.0.0, unified paths have been introduced for the database, identity, and configuration files across all platforms.  
+Your existing paths still work, but it's strongly recommended to adopt the new structure for long-term compatibility.
 
-#### Path Changes Overview
+### Path Changes Overview
 
-| Old path | New path | Description |
-| --- | --- |  --- |
-| /compose/hoprd_data/hoprd/ | /compose/hoprd/data | Mount path for the **database** directory. |
-| /compose/hoprd_data/hopr.id | /compose/hoprd/conf/hopr.id | Path to the **identity file**, now moved to the `conf` directory. |
-| /compose/hoprd_data/hoprd.cfg.yaml | /compose/hoprd/conf/hoprd.cfg.yaml | Path to the **configuration file**, also moved to the `conf` directory. |
+| Old Path                          | New Path                    | Description                                |
+|----------------------------------|-----------------------------|--------------------------------------------|
+| `/compose/hoprd_data/hoprd/`     | `/compose/hoprd/data`       | Mount path for the database directory      |
+| `/compose/hoprd_data/hopr.id`    | `/compose/hoprd/conf/hopr.id` | Path to the identity file (now in `conf`)  |
+| `/compose/hoprd_data/hoprd.cfg.yaml` | `/compose/hoprd/conf/hoprd.cfg.yaml` | Path to the configuration file (now in `conf`) |
 
-Follow these sub-steps to restructure your existing HOPRd setup for compatibility with the latest version.
+---
 
-#### 2.1 Rename the Existing Node and Database folders
+1. **Rename the Existing Node and Database Folders**
 
-Navigate to the **compose** folder. From there, use the following command to rename **hoprd_data** to **hoprd**, and then, inside the newly renamed **hoprd** folder, rename the database folder **hoprd** to **data**:
+    From the `compose` directory, run:
+    ```
+    mv hoprd_data hoprd && mv hoprd/hoprd hoprd/data
+    ```
 
-```md
-mv hoprd_data hoprd && mv hoprd/hoprd hoprd/data
+2. **Organize Identity and Config Files**
+
+    Still inside the `compose` folder, create a `conf` directory and move the identity and config files:
+
+    ```
+    mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
+    ```
+
+---
+
+### 3. Update Your Configuration File
+
+Inside the `compose` folder, locate the config file at:
+```
+/hoprd/conf/hoprd.cfg.yaml
 ```
 
-#### 2.2 Organize Identity and Config Files 
+Then edit the file:
 
-Still inside the **compose** folder, use the following command to create a **conf** folder inside **hoprd**, and move the identity and configuration files into it:
-
+- Find the `strategy.strategies` section.
+- Under the `!AutoRedeeming` strategy, replace the existing 18-decimal value for `minimum_redeem_ticket_value` with:
 ```
-mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
+minimum_redeem_ticket_value = '2.5 wxHOPR'
 ```
 
-### 3. Update your configuration file
+---
 
-Inside the **compose** folder, locate the configuration file **hoprd.cfg.yaml** at the path **/hoprd/conf**, and then do the following:
+### 4. Start hoprd Services
 
-- Locate "**strategy.strategies**", under "**!AutoRedeeming**" strategy find "**minimum_redeem_ticket_value**" and replace current 18 decimal number to `2.5 wxHOPR`. Example: `minimum_redeem_ticket_value = '2.5 wxHOPR'`.
-
-### 4. Start hoprd services
-
-To start the "**hoprd**" services again and apply the latest version, run this command:
-
-```md
+To apply the latest version, restart the `hoprd` services:
+```
 COMPOSE_PROFILES=hoprd docker compose up -d
 ```
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-(**1**) Backup your identity file. Please follow the instructions [here](./backup-restore-update#backup-your-node-identity).
+### 1. Back Up Your Identity File
 
-(**2**) Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
+Follow the instructions [here](./backup-restore-update#backup-your-node-identity) to back up your identity file.
 
-(**3**) Search for the HOPR package, access the package details, and click "**UPDATE**".
+---
 
-(**4**) During the update process, all data should be pre-filled. Click "**Submit**" to complete the HOPRd node update process.
+### 2. Open the Dappstore
 
-(**5**) Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
+
+---
+
+### 3. Find and Select the HOPR Package
+
+Search for the HOPR package, access its details, and click `UPDATE`.
+
+---
+
+### 4. Submit the Update
+
+During the update process, all data fields should be pre-filled.  
+Click `Submit` to complete the HOPRd node update process.
+
+---
+
+### 5. Apply the Latest Configuration File
+
+Ensure your configuration file is current by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
  
 </TabItem>
 </Tabs>
@@ -270,46 +446,81 @@ COMPOSE_PROFILES=hoprd docker compose up -d
 
 ## Update your HOPR Admin UI
 
-**Note:** For Dappnode users, the HOPR Admin UI cannot be updated separately, as it is bundled with the HOPR package.
+:::note
+For Dappnode users, the HOPR Admin UI is bundled with the HOPR package and cannot be updated separately.
+:::
 
-Please select platform to update your HOPR Admin UI:
+Please select your platform to update the HOPR Admin UI:
 
 <Tabs queryString="update_admin">
 <TabItem value="docker" label="Docker">
 
-(**1**) Enter the following command `docker ps` into your terminal.
+### 1. List Running Docker Containers
 
-This will provide you with a list of Docker containers you are currently running. Among them, locate the one with the label "**europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable**" and note the "**container ID**".
+Run the following command in your terminal:
 
-![Docker ps](/img/node/docker-ps-admin-ui-update.png)
+```bash
+docker ps
+```
 
-In the image above, the container ID is: "**0a74437b27f8**". In your system, the Docker container ID will be different.
+Look for the container using the image:
 
-(**2**) Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace "**\<Your_Container_ID\>**" with your container ID.
+```
+europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+```
 
-Example: 
+Note the container ID listed in your terminal.
 
-```md
+![Docker container list showing hopr-admin image](/img/node/docker-ps-admin-ui-update.png)
+
+---
+
+### 2. Remove the Admin UI Container
+
+Replace `<Your_Container_ID>` with your actual container ID:
+
+```bash
+docker rm -f <Your_Container_ID>
+```
+
+Example:
+
+```bash
 docker rm -f 0a74437b27f8
 ```
 
-(**3**) Retrieve the [latest installation command for the HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui) and execute it in your terminal.
+---
+
+### 3. Reinstall the Latest Admin UI
+
+Retrieve and run the [latest Admin UI installation command](./node-management-admin-ui.md#installing-hopr-admin-ui) in your terminal.
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-(**1**) Locate and navigate to the "**compose**" folder (assuming you haven't renamed it).
+### 1. Navigate to Your Compose Directory
 
-(**2**) To restart the process, first stop the "**admin-ui**" services. You can do this by running the following command:
+Locate and open the `compose` folder (assuming you haven't renamed it).
 
-```md
+---
+
+### 2. Stop the Admin UI Services
+
+Use the following command:
+
+```bash
 COMPOSE_PROFILES=admin-ui docker compose down
 ```
 
-(**3**) To start the "**admin-ui**" services again, use this command:
+---
 
-```md
+### 3. Restart the Admin UI Services
+
+To restart and apply the update:
+
+```bash
 COMPOSE_PROFILES=admin-ui docker compose up -d
-``` 
+```
+
 </TabItem>
 </Tabs>
