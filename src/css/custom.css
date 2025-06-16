@@ -49,7 +49,7 @@ body {
 
 }
 @media (min-width: 997px) {
-  .thin-scrollbar {
+  nav.thin-scrollbar {
             padding: .5rem!important;
             scrollbar-gutter: stable
   }
