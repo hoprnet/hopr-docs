@@ -48,6 +48,12 @@ body {
   color: #414141;
 
 }
+@media (min-width: 997px) {
+  .thin-scrollbar {
+            padding: .5rem!important;
+            scrollbar-gutter: stable
+  }
+}
 .footer {
   background: linear-gradient(#000050, #0000b4) !important;
 }
