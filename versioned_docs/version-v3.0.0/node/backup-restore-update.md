@@ -287,7 +287,7 @@ docker rm -f <Your_Container_ID>
 
 Example:
 ```
-docker rm -f 4951b2990936
+docker rm -f 8baa38408847
 ```
 
 ---
