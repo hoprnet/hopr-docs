@@ -271,7 +271,7 @@ europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable
 
 Note the container ID. For example:
 ```
-4951b2990936
+8baa38408847
 ```
 
 ![Docker ps](/img/node/docker-ps-node-update.png)
