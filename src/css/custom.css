@@ -41,18 +41,48 @@
   --docusaurus-details-decoration-color: #000050!important;
 }
 
-body {
-  /*font-family: 'Source Code Pro', monospace;*/
-  font-family: 'Lato';
-  /*font-family: 'Inter', sans-serif;*/
-  color: #414141;
-
-}
 @media (min-width: 997px) {
   nav.thin-scrollbar {
             padding: .5rem!important;
             scrollbar-gutter: stable
   }
+}
+
+/* Reset the top-level counter */
+.theme-doc-markdown {
+  counter-reset: h2counter;
+}
+
+/* H2 → “1. ”, “2. ”, … */
+.theme-doc-markdown h2 {
+  counter-increment: h2counter;
+  counter-reset: h3counter;    /* reset h3 when a new h2 appears */
+  font-weight: 600;
+}
+.theme-doc-markdown h2::before {
+  content: counter(h2counter) ". ";
+  margin-right: 0.15rem;        /* optional spacing */
+  font-weight: 600;            /* match your heading style */
+}
+
+/* H3 → “1.1 ”, “1.2 ”, … */
+.theme-doc-markdown h3 {
+  counter-increment: h3counter;
+  counter-reset: h4counter;    /* reset h4 when a new h3 appears */
+  font-weight: 600;
+}
+.theme-doc-markdown h3::before {
+  content: counter(h2counter) "." counter(h3counter) " ";
+  margin-right: 0.2rem;
+  font-weight: 600;
+}
+
+body {
+  /*font-family: 'Source Code Pro', monospace;*/
+  font-family: 'Lato';
+  /*font-family: 'Inter', sans-serif;*/
+  color: #414141!important;
+
 }
 .footer {
   background: linear-gradient(#000050, #0000b4) !important;
@@ -231,7 +261,7 @@ a:hover {
 }*/
 hr{
   background-color: #f1f1f1!important;
-}
+}*/
 .markdown a, .markdown ul li a{
   text-decoration: underline;
 }
