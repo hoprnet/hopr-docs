@@ -9,7 +9,8 @@ This page provides comprehensive information on the latest HOPRd Node and HOPR A
 
 | HOPRd version | Environment | Release date | Eligible for CT rewards |  Changelog |
 |-----|-----|------|-----|-----|
-| **2.2.3 (Recommended)** | Dufour | 2025-03-30 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.3) |
+| **3.0.0 (Recommended)** | Dufour | TBA | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v3.0.0) |
+| 2.2.3 | Dufour | 2025-03-30 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.3) |
 | 2.2.1 | Dufour | 2025-01-29 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.1) |
 | 2.2.0 | Dufour | 2025-01-15 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.0) |
 | 2.1.5 | Dufour | 2024-11-13 | No | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.1.5) |
@@ -20,6 +21,7 @@ This page provides comprehensive information on the latest HOPRd Node and HOPR A
 
 |  HOPR Admin UI version | Release date | Changelog |
 |-----|-----|-----|
-| **2.2.0 (Recommended)**  | 2025-04-29  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.2.0) |
+| **3.0.0 (Recommended)** | TBA  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v3.0.0) |
+| 2.2.0   | 2025-04-29  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.2.0) |
 | 2.1.14  | 2025-01-16  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.14) |
 | 2.1.12  | 2024-12-03  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.12) |
