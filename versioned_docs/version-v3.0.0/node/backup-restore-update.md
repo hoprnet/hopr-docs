@@ -150,7 +150,7 @@ Update the `--password` tag in your Docker command to match the database passwor
 ### 4. Configure Your Docker Command
 
 Configure the Docker command with the required information, just as you did when initially setting up a new node.  
-For more details, see [this section](node-docker.md#2-configure-hoprd-command).
+For more details, see [this section](node-docker.md#configure-hoprd-command).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">

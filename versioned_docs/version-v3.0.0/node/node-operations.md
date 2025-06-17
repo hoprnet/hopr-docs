@@ -53,7 +53,7 @@ Please select platform to start your HOPR node:
 
 (**1**) Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
-**(2)** Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#2-configure-hoprd-command). 
+**(2)** Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#configure-hoprd-command). 
 
 If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node) and select "**Docker**," then review **Step 6** for specific instructions.
 

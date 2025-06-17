@@ -76,7 +76,7 @@ docker run \
   --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
 ```
 
-Below is a quick reference of all the `hoprd` CLI flags you’ll need:
+Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
 
 | Flag                                                        | Description                              |
 | ----------------------------------------------------------- | ---------------------------------------- |
@@ -87,6 +87,7 @@ Below is a quick reference of all the `hoprd` CLI flags you’ll need:
 | `--host '<YOUR_PUBLIC_IP>:9091'`                            | Your public libp2p endpoint (port 9091)  |
 | `--provider '<CUSTOM_RPC_PROVIDER>'`                        | Gnosis Chain RPC URL                     |
 | `--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'` | Path to your custom strategy YAML file   |
+
 
 The following settings need to be adjusted in the current Docker command:
 
@@ -110,7 +111,8 @@ Make sure to make a note of the API token you created. You will need it to conne
 
 ### Adjust `password` setting
 
-Enter the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on creating a secure database password, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
+1. Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)).
+2. Replace `<YOUR_DB_PASSWORD>` in the Docker command above.
 
 Example:
 
@@ -118,47 +120,37 @@ Example:
 --password 'rjVFCcqnTNJSh_8Z3P94@M2bep&Dk#UHX$agWf'
 ```
 
+:::note
+Make sure to write down this password, as you will need it if you ever need to restore your node in the future.
+:::
+
 ---
 
 ### Adjust `safeAddress` and `moduleAddress`
 
 :::tip Already Have These Addresses?
-If you copied the Docker command from the **HOPR Staking Hub** during onboarding, the Safe and Module addresses are already included. You can skip to [Step 2.4](./node-docker.md#24-adjust-host-setting).
+If you copied the Docker command from the **HOPR Staking Hub** during onboarding, the Safe and Module addresses are already included. You can skip to [Step 2.4](./node-docker.md#adjust-host-setting).
 :::
 
-If not, follow these steps to retrieve and set them manually:
-
-1. Visit the [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard).  
-   Your **Safe** and **Module** addresses will be displayed at the top of the staking section.
-
-   ![Staking Hub showing Safe and Module addresses](/img/node/updated-module-and-safe-address.png)
-
-2. Replace `SAFE_WALLET_ADDRESS` and `MODULE_ADDRESS` in your Docker command with your actual values.
+1. Go to the [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard).
+2. Copy your Safe and Module addresses (see screenshot below):
+   ![Module and Safe address](/img/node/updated-module-and-safe-address.png)
+3. Replace `<SAFE_WALLET_ADDRESS>` and `<MODULE_ADDRESS>` in the Docker command above.
    
-   Example:
+Example:
 
-   ```bash
-   --safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9
-   --moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2
-   ```
+```bash
+--safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9
+--moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2
+```
 
 ---
 
-### Adjust `host` setting
+### Adjust "host" setting
 
-1. Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
-
-2. If you are planning to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment. Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
-
-3. If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
-
-4. Replace `YOUR_PUBLIC_IP` in your Docker command with your own public IP, and add the libp2p port which by default is `9091`.
-
-    Example: 
-
-    ```md
-    --host 1.2.3.4:9091
-    ```
+1. Find your public IP (see [FAQ](./frequently-asked-questions.md#how-to-find-the-external-ip-address)).
+2. If behind NAT such as on computers or servers at home or in an office environment, configure port forwarding for port `9091` (see [Port forwarding guide](./port-forwarding.md#how-to-configure-port-forwarding)).
+3. Replace `<YOUR_PUBLIC_IP>` with your IP (e.g., `1.2.3.4:9091`).
 
 :::caution
 Dynamic IPs are not suitable for this setup, as your node will become unreachable once your IP address changes. **If you have a dynamic IP, use a DDNS service** and specify the DDNS address as your public IP, including the port, in the Docker command. You can find instructions on how to do this [here](./frequently-asked-questions#how-to-use-dynamic-dns).
@@ -166,11 +158,10 @@ Dynamic IPs are not suitable for this setup, as your node will become unreachabl
 
 ---
 
-### Adjust `provider` setting
+### Adjust "provider" setting
 
-You will need to adjust the setting with a custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md). 
-
-After obtaining the RPC provider URL, replace `CUSTOM_RPC_PROVIDER` with your own RPC provider URL. If you're using a local RPC endpoint, ensure the URL includes the `http://` prefix followed by the IP address or localhost.
+1. Obtain a Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).
+2. Replace `<CUSTOM_RPC_PROVIDER>` in the Docker command above.
 
 Example:
 
@@ -182,17 +173,15 @@ Example:
 
 ### Implement configuration file 
 
-1. Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
-
-2. Feel free to customize the strategy settings to suit your specific needs. For detailed guidance, refer to the section: [understanding node strategies](./manage-node-strategies.md#understanding-node-strategies).
-
-3. Navigate to the `.hopr-id-dufour` directory on your machine, create a `conf` directory, and upload the newly created configuration file there. Ensure the file is named `hoprd-docker.cfg.yaml`.
+1. Download the example file for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml).
+2. Customize your strategy (see [Understanding node strategies](./manage-node-strategies.md#understanding-node-strategies)).
+3. Create a `hoprd` folder, then inside it create a `conf` folder and place `hoprd-docker.cfg.yaml` there.
 
 ---
 
 ## Start Your Node
 
-Once you have [configured your Docker command](node-docker.md#2-configure-hoprd-command) correctly, you can start your node using the adjusted Docker command.
+Once you have [configured your Docker command](node-docker.md#configure-hoprd-command) correctly, you can start your node using the adjusted Docker command.
 
 1. Open your terminal.
 
@@ -201,7 +190,7 @@ Once you have [configured your Docker command](node-docker.md#2-configure-hoprd-
     ```md
     docker --help
     ```
-    If you see a list of available Docker commands, Docker is installed correctly. If not, make sure [Docker is installed](./node-docker.md#1-install-docker).
+    If you see a list of available Docker commands, Docker is installed correctly. If not, make sure [Docker is installed](./node-docker.md#install-docker).
 
 3. Paste your configured HOPRd command into the terminal and execute it.
 
@@ -240,13 +229,13 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
 
    - **API token**:  
      
-     Enter your [custom security token](./node-docker.md#21-adjust-apitoken-setting) from setup.
+     Enter your [custom security token](./node-docker.md#adjust-apitoken-setting) from setup.
 
 3. **Copy your node address**  
    
    After clicking **Connect to the node**, your node address (starting with `0x`) will appear. Copy it for use during onboarding.
 
-4. **Return to the HOPR Staking Hub**  
+4. **Return to the HOPR Staking Hub**
    
    There's no need to manually fund your node with xDai tokens. Funding will happen during onboarding via the HOPR Staking Hub.
 

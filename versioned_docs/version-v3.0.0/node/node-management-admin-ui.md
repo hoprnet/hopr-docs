@@ -67,7 +67,7 @@ To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
 - In the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
 - In the "**API endpoint**" field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
-- In the "**API token**" field, if you are using Docker, enter the [custom security token you created](./node-docker.md#a-adjust-apitoken-setting). If you are using DAppNode, enter the credentials you created.
+- In the "**API token**" field, if you are using Docker, enter the [custom security token you created](./node-docker.md#adjust-apitoken-setting). If you are using DAppNode, enter the credentials you created.
 
 **Note:** If you want to save your node credentials for login easier in the future, tick "**Save API token locally (unsafe)**" and click "**Save**".
 

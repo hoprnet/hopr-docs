@@ -14,7 +14,7 @@ Please note that you must complete the onboarding process before setting up your
 
 Setting up a HOPR node with Docker Compose is intended for advanced users. It provides a sophisticated setup, allowing the use of a configuration file and node monitoring tools to enhance the node management experience.
 
-## 1. Download "compose" folder
+## Download "compose" folder
 
 Start by downloading the "compose" folder from the HOPR repository to your local machine:
 
@@ -24,7 +24,7 @@ wget https://github.com/hoprnet/hoprnet/archive/refs/heads/release/kaunas.zip &&
 
 ---
 
-## 2. Set up environment variables
+## Set up environment variables
 
 Inside the `compose` folder, rename `.env.sample` to `.env`:
 
@@ -46,7 +46,7 @@ Adjust the following environment variables in the `.env` file:
 
 ---
 
-## 3. Set up secrets environment variables
+## Set up secrets environment variables
 
 Inside the `compose` folder, rename `.env-secrets.sample` to `.env-secrets`:
 
@@ -64,7 +64,7 @@ Adjust the following secrets environment variables in the `.env-secrets` file:
 
 ---
 
-## 4. Configure node strategies
+## Configure node strategies
 
 Inside the `compose` folder, navigate to the `hoprd/conf` subfolder and open the `hoprd.cfg.yaml` file.
 
@@ -72,7 +72,7 @@ Make adjustments according to these [configuration guidelines](./manage-node-str
 
 ---
 
-## 5. (Optional) Setup Prometheus
+## (Optional) Setup Prometheus
 
 Prometheus allows you to monitor your node’s performance. 
 
@@ -82,7 +82,7 @@ Inside the `compose` folder, navigate to the `prometheus` directory and open the
 
 | Field            | Description                                                                                       | Default Value                                |
 |------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------|
-| `credentials`    | Secret token defined in your `HOPRD_API_TOKEN` (set in [Step 3](#3-set-up-secrets-environment-variables)).                                   | *(User-defined)*                             |
+| `credentials`    | Secret token defined in your `HOPRD_API_TOKEN` (set in [Step 3](#set-up-secrets-environment-variables)).                                   | *(User-defined)*                             |
 | `targets`        | API target port. Use `HOPRD_API_PORT`. Only change if port differs from the default.             | `3001`                                       |
 | `job`            | Label to identify your node on the Grafana dashboard.                                             | `hoprd-node-1`                               |
 | `namespace`      | Category/group label for your node. Useful for organization-wide node tracking.                  | `Specify the name of the company/investor`   |
@@ -104,7 +104,7 @@ Default login credentials:
 
 ---
 
-## 6. Manage the identity file
+## Manage the identity file
 
 If you've previously run a node, move your identity file into the `compose/hoprd/conf` folder and rename it to `hopr.id`.
 
@@ -112,7 +112,7 @@ If this is your first time running a node, the `hopr.id` file will be generated 
 
 ---
 
-## 7. Launch Docker Compose
+## Launch Docker Compose
 
 Docker Compose supports multiple profiles.  
 Use the `hoprd` profile for the node and the `admin-ui` profile for the user interface.
@@ -121,25 +121,25 @@ Make sure you're inside the `compose` folder before executing the following comm
 
 ---
 
-### To launch the HOPR node only:
+### To launch the HOPR node only: {#no-counter}
 
 ```bash
 COMPOSE_PROFILES=hoprd docker compose up -d
 ```
 
-### To launch the HOPR Admin UI only:
+### To launch the HOPR Admin UI only: {#no-counter}
 
 ```bash
 COMPOSE_PROFILES=admin-ui docker compose up -d
 ```
 
-### To launch both the HOPRd node and the HOPR Admin UI:
+### To launch both the HOPRd node and the HOPR Admin UI: {#no-counter}
 
 ```bash
 COMPOSE_PROFILES=hoprd,admin-ui docker compose up -d
 ```
 
-### To launch the HOPRd node, Admin UI, and metrics (if you completed Step 5):
+### To launch the HOPRd node, Admin UI, and metrics (if you completed Step 5): {#no-counter}
 
 ```bash
 COMPOSE_PROFILES=hoprd,admin-ui,metrics,metrics-vis docker compose up -d
@@ -147,7 +147,7 @@ COMPOSE_PROFILES=hoprd,admin-ui,metrics,metrics-vis docker compose up -d
 
 ---
 
-## 8. What's next?
+## What's next?
 
 Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
 

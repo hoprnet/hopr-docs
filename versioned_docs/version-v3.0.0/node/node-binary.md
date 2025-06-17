@@ -9,7 +9,7 @@ Please note that you must start the onboarding process before setting up your no
 
 :::
 
-## 1. Download HOPRd binary file
+## Download HOPRd binary file
 
 1. **Go to the Release Page**  
    
@@ -40,7 +40,7 @@ Please note that you must start the onboarding process before setting up your no
 
 ---
 
-## 2. Implement configuration file
+## Implement configuration file
 
 1. **Create the Configuration Directory**  
    
@@ -56,7 +56,7 @@ Please note that you must start the onboarding process before setting up your no
 
 ---
 
-## 3. Configure systemd for native binary
+## Configure systemd for native binary
 
 Systemd allows you to create a service that runs your application in the background.
 
@@ -161,7 +161,7 @@ After making changes, save **hoprd.service** file.
 
 ---
 
-## 4. Start HOPR Admin UI
+## Start HOPR Admin UI
 
 HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
 
@@ -171,7 +171,7 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
 
 ---
 
-## 5. Link your node to your HOPR Safe wallet
+## Link your node to your HOPR Safe wallet
 
 1. **Access the HOPR Admin UI**  
    
@@ -194,7 +194,7 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
 
    - **API token**:  
      
-     Enter your [custom security token](./node-docker.md#a-adjust-apitoken-setting) from setup.
+     Enter your [custom security token](./node-docker.md#adjust-apitoken-setting) from setup.
 
 3. **Copy your node address**  
    
@@ -208,7 +208,7 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
 
 ---
 
-## 6. What's next?
+## What's next?
 
 Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
 

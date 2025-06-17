@@ -9,7 +9,7 @@ Please note that you must start the onboarding process before setting up your no
 
 :::
 
-## 1. Install the HOPR Package
+## Install the HOPR Package
 
 
 1. Connect to your Dappnode:
@@ -35,9 +35,9 @@ Already have HOPR installed? Click **UPDATE** instead.
 
 ---
 
-## 2. Obtain Safe & Module addresses to complete node setup
+## Obtain Safe & Module addresses to complete node setup
 
-### 2.1 Copy Your Safe and Module Addresses
+### Copy Your Safe and Module Addresses
 
 Go to the [onboarding page](https://hub.hoprnet.org/staking/onboarding) and copy both your **Safe address** and **Module address**.
 
@@ -48,7 +48,7 @@ If you're re-installing an existing node (not onboarding), you can find your add
 [Staking Dashboard](https://hub.hoprnet.org/staking/dashboard), at the top of the staking section.
 :::
 
-### 2.2 Complete installing HOPR package
+### Complete installing HOPR package
 
 1. **Identity file password**  
 
@@ -94,7 +94,7 @@ If you're re-installing an existing node (not onboarding), you can find your add
 
 ---
 
-## 3. Link your node to your HOPR Safe wallet
+## Link your node to your HOPR Safe wallet
 
 1. **Access the Admin UI**  
    
@@ -120,7 +120,7 @@ If you're re-installing an existing node (not onboarding), you can find your add
 
 ---
 
-## 4. What's next?
+## What's next?
 
 Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
 
