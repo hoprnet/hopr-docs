@@ -5,10 +5,13 @@ title: HOPR Admin UI
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import NoCounter from '@site/src/components/NoCounter';
+
+<NoCounter>
 
 The HOPR Admin UI provides a graphical interface that you can use to interact with your node and diagnose any potential issues. HOPR Admin UI is provided with the Dappnode HOPR package by default, so no separate action is needed, but for Docker users, you will need to run an extra command to install HOPR Admin UI before you can access it.
 
-## Installing HOPR Admin UI
+## Installing HOPR Admin UI 
 
 Open your terminal and paste the following Docker command to start HOPR Admin UI:
 
@@ -304,3 +307,5 @@ services:
 | **Capabilities** | Retransmission and Segmentation capabilities are used only with the TCP protocol. <br/><br/> **Retransmission** ensures reliability by guaranteeing that every piece of your data eventually arrives at the other end in order. <br/><br/> **Segmentation** is the process of breaking your continuous data stream into discrete chunks called segments before sending them out as IP datagrams. It minimizes fragmentation, reduces latency, and helps TCP’s congestion-control algorithms manage flow. |
 | **Protocol** | Select the IP protocol: either **UDP** or **TCP**. |
 | **Path** | You can select up to **3 intermediate nodes**, the default is **0 hops**. If using intermediate nodes, you must ensure that your node has an open channel with the first intermediate node, and that all subsequent nodes have open channels with one another. |
+
+</NoCounter>

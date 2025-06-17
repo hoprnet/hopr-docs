@@ -75,6 +75,6 @@ If you're using a configuration file to manage your node strategies, refer to th
 
 - To resume an existing HOPR package, navigate to "**Packages**", select the [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), and click the "**Play**" icon to activate it.
 
-- To set up a new HOPR package, please refer to this [guide](node-dappnode.md#1-install-the-hopr-package).
+- To set up a new HOPR package, please refer to this [guide](node-dappnode.md#install-the-hopr-package).
 </TabItem>
 </Tabs>

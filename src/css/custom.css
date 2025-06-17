@@ -68,7 +68,53 @@ body {
   counter-reset: h4counter;   
   font-weight: 600;
 }
-#no-counter::before{
+p{
+  line-height: 1.75;
+}
+.markdown > .no-counter > pre,
+  .markdown > .no-counter > ul,
+  .markdown > .no-counter > p {
+    margin-bottom: var(--ifm-leading);
+  }
+
+.markdown .no-counter li {
+    word-wrap: break-word;
+  }
+
+.markdown .no-counter li > p {
+      margin-top: var(--ifm-list-paragraph-margin);
+    }
+
+.markdown .no-counter li + li {
+      margin-top: var(--ifm-list-item-margin);
+    }
+.markdown > .no-counter > h2 {
+    --ifm-h2-font-size: 2rem;
+
+    margin-bottom: calc(
+      var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
+    );
+    margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
+  }
+.markdown > .no-counter > h3 {
+    --ifm-h3-font-size: 1.5rem;
+
+    margin-bottom: calc(
+      var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
+    );
+    margin-top: calc(var(--ifm-h3-vertical-rhythm-top) * var(--ifm-leading));
+  }
+.markdown > .no-counter > h4,
+  .markdown > .no-counter > h5,
+  .markdown > .no-counter > h6 {
+    margin-bottom: calc(
+      var(--ifm-heading-vertical-rhythm-bottom) * var(--ifm-leading)
+    );
+    margin-top: calc(
+      var(--ifm-heading-vertical-rhythm-top) * var(--ifm-leading)
+    );
+  }
+.no-counter h2::before, .no-counter h3::before, .no-counter h4::before{
   content: " "!important;
 }
 .theme-doc-markdown h3::before {
@@ -274,7 +320,7 @@ hr{
 :is(header, h1, h2) + hr, ul.menu__list > li > hr {
   background-color: var(--ifm-hr-background-color)!important;  /* your “special” color */
 }
-.markdown > h2{
+.markdown h2{
   font-size: var(--h2-font-size);
 }
 h1 {
