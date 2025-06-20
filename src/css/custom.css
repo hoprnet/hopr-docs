@@ -62,11 +62,18 @@ body {
   margin-right: 0.15rem;
   font-weight: 600;
 }
-
 .theme-doc-markdown h3 {
   counter-increment: h3counter;
   counter-reset: h4counter;   
   font-weight: 600;
+}
+.theme-doc-markdown h3::before {
+  content: counter(h2counter) "." counter(h3counter) " ";
+  margin-right: 0.2rem;
+  font-weight: 600;
+}
+.markdown > .re-counter > h3::before {
+  content: counter(h3counter) ".";
 }
 p{
   line-height: 1.75;
@@ -76,7 +83,9 @@ p{
   .markdown > .no-counter > p {
     margin-bottom: var(--ifm-leading);
   }
-
+.markdown .no-counter > h2 {
+  margin-top: revert!important;
+}
 .markdown .no-counter li {
     word-wrap: break-word;
   }
@@ -96,7 +105,7 @@ p{
     );
     margin-top: calc(var(--ifm-h2-vertical-rhythm-top) * var(--ifm-leading));
   }
-.markdown > .no-counter > h3 {
+.markdown > .no-counter > h3, .markdown > .re-counter > h3{
     --ifm-h3-font-size: 1.5rem;
 
     margin-bottom: calc(
@@ -116,11 +125,6 @@ p{
   }
 .no-counter h2::before, .no-counter h3::before, .no-counter h4::before{
   content: " "!important;
-}
-.theme-doc-markdown h3::before {
-  content: counter(h2counter) "." counter(h3counter) " ";
-  margin-right: 0.2rem;
-  font-weight: 600;
 }
 
 @media (min-width: 997px) {
@@ -489,8 +493,9 @@ span.theme-code-block-highlighted-line {
   font-size: 1.2rem !important
 }
 
+/*
 [class*="strategies"] code, [class*="node-management-admin-ui"] code{
   background: none;
   color: #414141;
   border: 0px;
-}
+}*/

@@ -5,7 +5,7 @@ title: HOPR Admin UI
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import NoCounter from '@site/src/components/NoCounter';
+import { NoCounter } from '@site/src/components/Counter';
 
 <NoCounter>
 
@@ -43,13 +43,13 @@ http://127.0.0.1:4677
 
 The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
-(**1**) Go to "**Packages**" and click on "**HOPR**".
+1. Go to "**Packages**" and click on "**HOPR**".
 
 ![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
 
-(**2**) Once inside, click "**Ui**" to open the HOPR Admin UI.
+2. Once inside, click "**Ui**" to open the HOPR Admin UI.
 
-(**3**) Connect your node as suggested [here](./node-management-admin-ui.md#connecting-your-node).
+3. Connect your node as suggested [here](./node-management-admin-ui.md#connecting-your-node).
 
 </TabItem>
 </Tabs>
@@ -60,11 +60,11 @@ The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
 To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
-(**1**) In the top right corner of the initial HOPR Admin UI screen, click "**CONNECT TO NODE**".
+1. In the top right corner of the initial HOPR Admin UI screen, click "**CONNECT TO NODE**".
 
 ![Node Admin Initial Screen](/img/node/admin-UI-home.jpg)
 
-(**2**) Under "**Node credentials:**" do the following:
+2. Under "**Node credentials:**" do the following:
 
 ![Node Admin Initial Screen](/img/node/admin-UI-connect.jpg)
 

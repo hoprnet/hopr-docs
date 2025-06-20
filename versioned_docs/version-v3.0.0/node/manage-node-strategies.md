@@ -7,6 +7,9 @@ toc_max_heading_level: 5
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { NoCounter } from '@site/src/components/Counter';
+
+<NoCounter>
 
 Node strategies allow for much more detailed and granular control over your node's behavior and its interaction with the protocol, making this feature primarily suited for advanced users. These strategies enable you to effectively manage your node by configuring settings such as the threshold for ticket aggregation, the redemption process, and more. To modify or manage these strategies, you will need to implement a configuration file.
 
@@ -17,34 +20,36 @@ Please select your platform:
 <Tabs queryString="config">
 <TabItem value="docker" label="Docker">
 
-(**1**) Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+1. Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-(**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+2. By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
-(**3**) Navigate to the "**hoprd**" directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named "**hoprd-docker.cfg.yaml**".
+3. Navigate to the **hoprd** directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named **hoprd-docker.cfg.yaml**.
 
-(**4**) After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
+4. After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-(**5**) Once your node is stopped, add the additional parameter "**--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'**" to link your configuration file to your current docker command.
+5. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'** to link your configuration file to your current docker command.
 
-Docker command: 
+    **Docker command:**
 
-```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/hoprd/:/app/data --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/data/hopr.id --data /app/data/ --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
-```
+    ```md
+    docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/hoprd/:/app/data --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/data/hopr.id --data /app/data/ --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
+    ```
 
-**Note:** If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
+    :::note
+    If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
+    :::
 
-(**7**) Paste your Docker command into the terminal window and execute it.
+6. Paste your Docker command into the terminal window and execute it.
 
-(**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
+7. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
  
 </TabItem>
 <TabItem value="docker-compose" label="Docker compose">
 
-Inside the "**compose**" folder, navigate to the "**hoprd/conf**" subfolder and make the necessary edits to the "**hoprd.cfg.yaml**" file:
+Inside the **compose** folder, navigate to the **hoprd/conf** subfolder and make the necessary edits to the **hoprd.cfg.yaml** file:
 
-- **address**: 
+1. Locate: `address` and do the following:
 
     - Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
 
@@ -52,7 +57,7 @@ Inside the "**compose**" folder, navigate to the "**hoprd/conf**" subfolder and 
     
     - Replace **127.0.0.1** with your own public IP address when configuring your node.
 
-- **port**: 
+2. Locate: `port` and do the following:
 
     - The default port for peer-to-peer communication is **9091**.
 
@@ -60,42 +65,58 @@ Inside the "**compose**" folder, navigate to the "**hoprd/conf**" subfolder and 
 
     - If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
-- **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
-- **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
-- **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+3. Locate: `provider` and do the following:
+    
+    Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.
 
-**Note:** By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+4. Locate: `safe_address` and do the following:
+
+    Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+
+5. Locate: `module_address` and do the following:
+
+    Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+
+:::note
+
+By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+
+:::
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-(**1**) Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
 
-(**2**) By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+2. By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
-**Note:** Adjust the [strategies section](./manage-node-strategies.md#hoprstrategy) according to your needs; no other configuration is required.
+    :::note
 
-(**3**) After adjusting the configuration file, connect to your Dappnode dashboard, locate the "**HOPR**" package, and navigate to the "**File Manager**" tab.
+    Adjust the [strategies section](./manage-node-strategies.md#hoprstrategy) according to your needs; no other configuration is required.
 
-![File Manager](/img/node/dappnode-file-manager.png)
+    ::::
 
-(**4**) In the "**Upload file**" section, click the "**Browse**" button next to the "**Choose file**" field, then select your newly created configuration file. Ensure that the configuration file is named "**hoprd.cfg.yaml**".
+3. After adjusting the configuration file, connect to your Dappnode dashboard, locate the **HOPR** package, and navigate to the **File Manager** tab.
 
-(**5**) In the text field under the "**Upload file**" section, enter the path **`/app/hoprd/conf/`**.
+    ![File Manager](/img/node/dappnode-file-manager.png)
 
-![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
+4. In the **Upload file** section, click the **Browse** button next to the **Choose file** field, then select your newly created configuration file. Ensure that the configuration file is named **hoprd.cfg.yaml**.
 
-(**6**) Click the "**Upload**" button and wait for the upload to finish.
+5. In the text field under the **Upload file** section, enter the path **`/app/hoprd/conf/`**.
 
-(**7**) Go to the "**Info**" page within your HOPR package, and click the "**Restart**" button to restart your node.
+    ![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
 
-(**8**) Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the "**CONFIGURATION**" page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
+6. Click the **Upload** button and wait for the upload to finish.
+
+7. Go to the **Info** page within your HOPR package, and click the **Restart** button to restart your node.
+
+8. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
 </TabItem>
 <TabItem value="native-binary" label="Native Binary">
 
-Inside the "**hoprd**" folder, make the necessary edits to the "**hoprd-binary.cfg.yaml**" file:
+Inside the **hoprd** folder, make the necessary edits to the **hoprd-binary.cfg.yaml** file:
 
-- **address**: 
+1. Locate: `address` and do the following: 
 
     - Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
 
@@ -103,12 +124,25 @@ Inside the "**hoprd**" folder, make the necessary edits to the "**hoprd-binary.c
     
     - Replace **127.0.0.1** with your own public IP address when configuring your node.
 
-- **host.port**: If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
-- **provider**: Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#1-run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.
-- **safe_address**: Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
-- **module_address**: Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+2. Locate: `host.port` and do the following:
 
-- **file**: Add the full path to the location where **hopr.id** identity file will be created. 
+    If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+
+3. Locate: `provider` and do the following:
+
+    Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.
+
+4. Locate: `safe_address` and do the following:
+    
+    Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+
+5. Locate: `module_address` and do the following:
+
+    Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
+
+6. Locate: `file` and do the following:
+
+    Add the full path to the location where **hopr.id** identity file will be created. 
 
     Example: 
 
@@ -116,9 +150,13 @@ Inside the "**hoprd**" folder, make the necessary edits to the "**hoprd-binary.c
     /root/hoprd/conf/hopr.id
     ```
 
-- **password**: Enter the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on creating a secure database password, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
+7. Locate: `password` and do the following:
 
-- **auth**: Create a secret token, which is required for connecting to your node via REST API. For guidance on creating a secure secret token, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
+    Enter the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on creating a secure database password, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
+
+8. Locate: `auth` and do the following:
+
+    Create a secret token, which is required for connecting to your node via REST API. For guidance on creating a secure secret token, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
 
     Example:
 
@@ -201,7 +239,11 @@ inbox:
         - 0
 ```
 
-**Note:** The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
+:::note
+
+The latest version of the default configuration file for all supported platforms is available in the [HOPR GitHub repository](https://github.com/hoprnet/hoprnet/blob/master/hoprd/hoprd/example_cfg.yaml).
+
+:::
 
 ---
 
@@ -233,9 +275,9 @@ db:
 
 | Settings | Description |
 | --- | --- |
-| `db.data` | Specifies the path to the database directory. For Docker users, the path is "**/app/hoprd-db**". For Dappnode users, the path is "**/app/hoprd-db/db**". |
-| `db.initialize` | Defaults to "**true**", meaning the database will be created if it doesn't already exist. If set to "**false**" and the database is missing, the node will not start. |
-| `db.force_initialize` | Defaults to "**false**". If set to "**true**", any existing database in the specified directory will be overwritten and re-initialized. |
+| `db.data` | Specifies the path to the database directory. For Docker users, the path is **/app/hoprd-db**. For Dappnode users, the path is **/app/hoprd-db/db**. |
+| `db.initialize` | Defaults to **true**, meaning the database will be created if it doesn't already exist. If set to **false** and the database is missing, the node will not start. |
+| `db.force_initialize` | Defaults to **false**. If set to **true**, any existing database in the specified directory will be overwritten and re-initialized. |
 
 ### hopr.heartbeat
 
@@ -278,11 +320,11 @@ network_options:
 | --- | --- |
 | `network_options.min_delay` | Minimum delay (seconds) will be multiplied by backoff, it will be half the actual minimum value. |
 | `network_options.max_delay` | Maximum delay in seconds. |
-| `network_options.quality_bad_threshold` | Quality threshold since a node is considered having "**bad**" connectivity. |
+| `network_options.quality_bad_threshold` | Quality threshold since a node is considered having **bad** connectivity. |
 | `network_options.quality_offline_threshold` | Quality threshold from which a node is considered available enough to be used. |
 | `network_options.quality_step` | Quality step on failed/successful ping probe. |
 | `network_options.quality_avg_window_size` | Size of the quality moving average window. |
-| `network_options.ignore_timeframe` | Indicates how long (in seconds) a node is considered "**ignored**". |
+| `network_options.ignore_timeframe` | Indicates how long (in seconds) a node is considered **ignored**. |
 | `network_options.backoff_exponent` | Backoff exponent when probing nodes. |
 | `network_options.backoff_min` | Minimum backoff (in seconds) when probing nodes. |
 | `network_options.backoff_max` | Maximum backoff (in seconds) when probing nodes. |
@@ -317,7 +359,7 @@ chain:
 
 | Settings | Description |
 | --- | --- |
-| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the "**http://**" prefix followed by the IP address or localhost.|
+| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.|
 | `chain.announce` | Indicates whether the node should announce itself on-chain. |
 | `chain.network` | Which blockchain network should be used by the node. |
 | `chain.check_unrealized_balance` | Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled. |
@@ -386,8 +428,8 @@ api:
 
 | Settings | Description |
 | --- | --- |
-| `api.enable` | Indicates whether the REST API should be enabled. Possible values: "**true**" or "**false**". |
-| `api.auth` | Authentication of the REST API. When using custom secret token, it is necessary to use "**!Token**" before secret token. Example: "**!Token My#S3cur1ty#Token**". For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+| `api.enable` | Indicates whether the REST API should be enabled. Possible values: **true** or **false**. |
+| `api.auth` | Authentication of the REST API. When using custom secret token, it is necessary to use **!Token** before secret token. Example: **!Token My#S3cur1ty#Token**. For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
 | `api.host` | Defines the local interface host where the API should listen. |
 | `api.host.address` | The address of the local interface to listen on. |
 | `api.host.port` | The REST API TCP lsiten port. |
@@ -461,7 +503,7 @@ HOPR token amounts are measured with **18 decimal places**. When setting a custo
 
 #### strategy.on_fail_continue
 
-When set to "**true**", the system will continue executing subsequent strategies even if previous ones fail.
+When set to **true**, the system will continue executing subsequent strategies even if previous ones fail.
 
 #### strategy.allow_recursive
 
@@ -471,7 +513,7 @@ Allows nesting strategies through **!MultiStrategy**.
 
 #### strategy.strategies
 
-Contains a sequence of strategies to execute in the specified order. If left empty, the node will default to using only the "**!Passive**" strategy.
+Contains a sequence of strategies to execute in the specified order. If left empty, the node will default to using only the **!Passive** strategy.
 
 ##### strategy.strategies: !Promiscuous
 
@@ -484,7 +526,7 @@ Defines a promiscuous strategy that automatically manages HOPR channels based on
 | `new_channel_stake` | The stake of tokens that should be allocated to a channel opened by the strategy. |
 | `minimum_node_balance` | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
 | `min_network_size_samples` | The minimum number of network quality samples before the strategy can start making decisions. |
-| `enforce_max_channels` | When set to "**true**", the strategy will forcefully close channels, even with peers that exceed the "**network_quality_threshold**", if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
+| `enforce_max_channels` | When set to **true**, the strategy will forcefully close channels, even with peers that exceed the **network_quality_threshold**, if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
 | `minimum_peer_version` | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
 
 ##### strategy.strategies: !AutoFunding
@@ -505,7 +547,7 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 | `aggregation_threshold` | `100` | Number of acknowledged winning tickets in a channel that triggers the ticket aggregation in that channel when exceeded. |
 | `unrealized_balance_ratio` | `0.9` | The percentage of unredeemed ticket value in a channel that, when exceeded, triggers ticket aggregation for that channel. |
 | `aggregation_timeout` |  | Maximum time to wait for the ticket aggregation to complete. |
-| `aggregate_on_channel_close` | `true` | When set to "**true**", the strategy will automatically aggregate tickets in channels that have transitioned to the "**PendingToClose**" state. |
+| `aggregate_on_channel_close` | `true` | When set to **true**, the strategy will automatically aggregate tickets in channels that have transitioned to the **PendingToClose** state. |
 
 ##### strategy.strategies: !AutoRedeeming
 
@@ -513,7 +555,7 @@ Automatically aggregates tickets when the number of unredeemed tickets in a chan
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `redeem_only_aggregated` | `true` | When set to "**true**", the strategy will redeem only aggregated tickets. |
+| `redeem_only_aggregated` | `true` | When set to **true**, the strategy will redeem only aggregated tickets. |
 | `minimum_redeem_ticket_value` | `30000000000000000000 HOPR` | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
 
 ##### strategy.strategies: !Passive
@@ -522,8 +564,9 @@ A strategy that does nothing. This is equivalent to leaving the strategies array
 
 ##### strategy.strategiesc: !ClosureFinalizer
 
-Monitors channels in the "**PendingToClose**" state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
+Monitors channels in the **PendingToClose** state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
 
 | Settings | Default value | Description |
 | --- | --- | --- |
 | `max_closure_overdue` | `300` | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |
+</NoCounter>

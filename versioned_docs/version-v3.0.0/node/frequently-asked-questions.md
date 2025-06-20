@@ -240,7 +240,7 @@ There are a total of 10 Cover Traffic (CT) nodes, but only 5 nodes operate at an
 
 (**1**) The node must be operational and reachable by the network nodes. Verify your node's performance by following the steps in the [troubleshooting guide](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
 
-(**2**) You must open at least one payment channel with any random peer on the network. Refer to the example [here](./interaction-with-node.md#3-open-a-payment-channel-with-a-peer-named-betty) for guidance on how to set up a payment channel.
+(**2**) You must open at least one payment channel with any random peer on the network. Refer to the example [here](./interaction-with-node.md#open-a-payment-channel-with-a-peer-named-betty) for guidance on how to set up a payment channel.
 
 #### Rewards are being sent to your Safe address in this order:
 
