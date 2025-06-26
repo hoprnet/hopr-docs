@@ -20,60 +20,68 @@ Please select your platform:
 <Tabs queryString="config">
 <TabItem value="docker" label="Docker">
 
-1. Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+1. **Download HOPRd configuration file**
 
-2. By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+    Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
-3. Navigate to the **hoprd** directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named **hoprd-docker.cfg.yaml**.
+2. **(Optional) modify configuration file**
 
-4. After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
+    By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
-5. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'** to link your configuration file to your current docker command.
+3. **Upload configuration file**
 
-    **Docker command:**
+    Navigate to the **hoprd** directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named **hoprd-docker.cfg.yaml**.
 
-    ```md
-    docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/hoprd/:/app/data --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/data/hopr.id --data /app/data/ --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
-    ```
+4. **Launch HOPRd node**
 
-    :::note
-    If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
-    :::
+    1. After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-6. Paste your Docker command into the terminal window and execute it.
+    2. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'** to link your configuration file to your current docker command.
 
-7. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
+        **Docker command:**
+
+        ```md
+        docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/hoprd/:/app/data --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/data/hopr.id --data /app/data/ --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
+        ```
+
+        :::note
+        If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
+        :::
+
+    3. Paste your Docker command into the terminal window and execute it.
+
+    4. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
  
 </TabItem>
 <TabItem value="docker-compose" label="Docker compose">
 
 Inside the **compose** folder, navigate to the **hoprd/conf** subfolder and make the necessary edits to the **hoprd.cfg.yaml** file:
 
-1. Locate: `address` and do the following:
+1. **Locate `address` and set your public IP**
 
-    - Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
+   1. Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
 
-    - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+   2. Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
     
-    - Replace **127.0.0.1** with your own public IP address when configuring your node.
+   3. Replace **127.0.0.1** with your own public IP address when configuring your node.
 
-2. Locate: `port` and do the following:
+2. **Locate `host.port` and expose port 9091**
 
-    - The default port for peer-to-peer communication is **9091**.
+    1. The default port for peer-to-peer communication is **9091**.
 
-    - If you’ve set a different port using the **HOPRD_P2P_PORT** environment variable, make sure to use that one instead.
+    2. If you’ve set a different port using the **HOPRD_P2P_PORT** environment variable, make sure to use that one instead.
 
-    - If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+    3. If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
-3. Locate: `provider` and do the following:
+3. **Locate `provider` and specify your RPC endpoint**
     
     Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.
 
-4. Locate: `safe_address` and do the following:
+4. **Locate `safe_address` and enter your Safe wallet address**
 
     Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
-5. Locate: `module_address` and do the following:
+5. **Locate `module_address` and enter your Module address**
 
     Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
@@ -86,9 +94,13 @@ By default, the strategy settings file is pre-configured and works well as is. H
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+1. **Download HOPRd configuration file**
 
-2. By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+    Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+
+2. **(Optional) modify configuration file**
+
+    By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
     :::note
 
@@ -96,69 +108,73 @@ By default, the strategy settings file is pre-configured and works well as is. H
 
     ::::
 
-3. After adjusting the configuration file, connect to your Dappnode dashboard, locate the **HOPR** package, and navigate to the **File Manager** tab.
+3. **Upload configuration file**
 
-    ![File Manager](/img/node/dappnode-file-manager.png)
+    1. After adjusting the configuration file, connect to your Dappnode dashboard, locate the **HOPR** package, and navigate to the **File Manager** tab.
 
-4. In the **Upload file** section, click the **Browse** button next to the **Choose file** field, then select your newly created configuration file. Ensure that the configuration file is named **hoprd.cfg.yaml**.
+        ![File Manager](/img/node/dappnode-file-manager.png)
 
-5. In the text field under the **Upload file** section, enter the path **`/app/hoprd/conf/`**.
+    2. In the **Upload file** section, click the **Browse** button next to the **Choose file** field, then select your newly created configuration file. Ensure that the configuration file is named **hoprd.cfg.yaml**.
 
-    ![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
+    3. In the text field under the **Upload file** section, enter the path **`/app/hoprd/conf/`**.
 
-6. Click the **Upload** button and wait for the upload to finish.
+        ![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
 
-7. Go to the **Info** page within your HOPR package, and click the **Restart** button to restart your node.
+    4. Click the **Upload** button and wait for the upload to finish.
 
-8. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
+4. **Restart HOPRd package**
+
+    1. Go to the **Info** page within your HOPR package, and click the **Restart** button to restart your node.
+
+    2. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
 </TabItem>
 <TabItem value="native-binary" label="Native Binary">
 
-Inside the **hoprd** folder, make the necessary edits to the **hoprd-binary.cfg.yaml** file:
+Inside the **hoprd/conf** folder, open **hoprd-binary.cfg.yaml** and update the following keys:
 
-1. Locate: `address` and do the following: 
+1. **Locate `address` and set your public IP**
 
-    - Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
+    1. Locate your external IP address by refering to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address). 
 
-    - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+    2. Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
     
-    - Replace **127.0.0.1** with your own public IP address when configuring your node.
+    3. Replace **127.0.0.1** with your own public IP address when configuring your node.
 
-2. Locate: `host.port` and do the following:
+2. **Locate `host.port` and expose port 9091**
 
     If you plan to run HOPRd node(s) behind NAT (Network Address Translation), such as on computers or servers at home or in an office environment, you must expose port **9091** to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
 
-3. Locate: `provider` and do the following:
+3. **Locate `provider` and specify your RPC endpoint**
 
     Use your own RPC provider, more details about [custom RPC provider](./custom-rpc-provider.md#run-your-own-gnosis-chain-node-most-secure-and-reliable). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.
 
-4. Locate: `safe_address` and do the following:
+4. **Locate `safe_address` and enter your Safe wallet address**
     
     Add your Safe wallet address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
-5. Locate: `module_address` and do the following:
+5. **Locate `module_address` and enter your Module address**
 
     Add your Module address, more details under [safe_module](./manage-node-strategies.md#hoprsafe_module).
 
-6. Locate: `file` and do the following:
+6. **Locate `file` and set path for the identity file**
 
     Add the full path to the location where **hopr.id** identity file will be created. 
 
-    Example: 
+    **Example:** 
 
     ```md
     /root/hoprd/conf/hopr.id
     ```
 
-7. Locate: `password` and do the following:
+7. **Locate `password` and set database password**
 
     Enter the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on creating a secure database password, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
 
-8. Locate: `auth` and do the following:
+8. **Locate `auth` and specify secret token for the REST API**
 
     Create a secret token, which is required for connecting to your node via REST API. For guidance on creating a secure secret token, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
 
-    Example:
+    **Example:**
 
     ```md
     !Token My#S3cur1ty#Token

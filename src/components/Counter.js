@@ -7,3 +7,7 @@ export function NoCounter({children}) {
 export function ReCounter({children}) {
   return <div className="re-counter">{children}</div>;
 }
+
+export function ReCounter2nd({children}) {
+  return <div className="re-counter-2">{children}</div>;
+}

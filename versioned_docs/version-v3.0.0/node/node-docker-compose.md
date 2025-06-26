@@ -1,10 +1,12 @@
 ---
 id: node-docker-compose
 title: For Docker Compose
+toc_max_heading_level: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { NoCounter } from '@site/src/components/Counter';
 
 :::info
 
@@ -114,14 +116,11 @@ If this is your first time running a node, the `hopr.id` file will be generated 
 
 ## Launch Docker Compose
 
-Docker Compose supports multiple profiles.  
-Use the `hoprd` profile for the node and the `admin-ui` profile for the user interface.
+Docker Compose supports multiple profiles. Use the `hoprd` profile for the node and the `admin-ui` profile for the user interface. Make sure you're inside the `compose` folder before executing the following commands:
 
-Make sure you're inside the `compose` folder before executing the following commands:
+<NoCounter>
 
----
-
-### To launch the HOPR node only: {#no-counter}
+### To launch the HOPR node only:
 
 ```bash
 COMPOSE_PROFILES=hoprd docker compose up -d
@@ -144,16 +143,14 @@ COMPOSE_PROFILES=hoprd,admin-ui docker compose up -d
 ```bash
 COMPOSE_PROFILES=hoprd,admin-ui,metrics,metrics-vis docker compose up -d
 ```
-
+</NoCounter>
 ---
 
 ## What's next?
 
-Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
+Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer. 
 
-These are the requirements for Cover Traffic, which allows your node to start earning rewards.
-
-Follow these steps:
+To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
 
 1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 

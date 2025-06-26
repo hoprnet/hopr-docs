@@ -3,6 +3,10 @@ id: releases
 title: Mainnet Releases
 ---
 
+import { NoCounter } from '@site/src/components/Counter';
+
+<NoCounter>
+
 This page provides comprehensive information on the latest HOPRd Node and HOPR Admin UI releases, including detailed changelogs for each version. Whether you're a developer, node runner, or end user, staying updated is crucial to ensure optimal performance and security for your HOPR network.
 
 ## HOPRd node public releases 
@@ -25,3 +29,5 @@ This page provides comprehensive information on the latest HOPRd Node and HOPR A
 | 2.2.0   | 2025-04-29  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.2.0) |
 | 2.1.14  | 2025-01-16  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.14) |
 | 2.1.12  | 2024-12-03  | [Changelog](https://github.com/hoprnet/hopr-admin/releases/tag/v2.1.12) |
+
+</NoCounter>

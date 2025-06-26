@@ -110,7 +110,7 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
    | **Environment**      | Sets environment variables required by the HOPRd process. |
    | **WorkingDirectory** | Sets the working directory where relative paths will resolve. |
 
-After making changes, save **hoprd.service** file.
+   After making changes, save **hoprd.service** file.
 
 3. **Reload systemd**  
 
@@ -188,13 +188,9 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
    
    Click **CONNECT TO NODE** in the top-right corner. In the **Node credentials** popup:
 
-   - **API endpoint**:  
-     
-     Default is `http://localhost:3001`. Replace `localhost` with your VPS IP if applicable. Adjust the port if you changed it.
+   - **API endpoint**: Default is `http://localhost:3001`. Replace `localhost` with your VPS IP if applicable. Adjust the port if you changed it.
 
-   - **API token**:  
-     
-     Enter your [custom security token](./node-docker.md#adjust-apitoken-setting) from setup.
+   - **API token**: Enter the custom security token you created during the [initial HOPRd setup](#implement-configuration-file).
 
 3. **Copy your node address**  
    
@@ -212,9 +208,7 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
 
 Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
 
-These are the requirements for Cover Traffic, which allows your node to start earning rewards.
-
-Follow these steps:
+To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
 
 1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 

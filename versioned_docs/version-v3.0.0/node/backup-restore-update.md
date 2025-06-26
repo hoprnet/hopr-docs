@@ -162,23 +162,21 @@ Please select platform to restore your node identity:
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-1. Enable Viewing Hidden Files
+1. **Enable Viewing Hidden Files**
 
-- **For Windows:**  
-    Open the File Manager app, and under `View → Show`, ensure that hidden files is checked.
+    - **For Windows:**  
+        Open the File Manager app, and under `View → Show`, ensure that hidden files is checked.
 
-    ![Hidden Files](/img/node/Hidden_files_windows.png)
+        ![Hidden Files](/img/node/Hidden_files_windows.png)
 
-- **For Mac:**  
-    With the Finder app open, press the key combination:  
-    `Command + Shift + . (Dot)`  
-    You will need to repeat this whenever you upload the identity file.
+    - **For Mac:**  
+        With the Finder app open, press the key combination:  
+        `Command + Shift + . (Dot)`  
+        You will need to repeat this whenever you upload the identity file.
 
 2. **Ensure You Have a Backup**
 
-    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity).  
-
-    You will need the identity file `hopr.id` and the corresponding database password.
+    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file `hopr.id` and the corresponding database password.
 
 3. **Pause the HOPR Package**
 
@@ -186,16 +184,16 @@ Please select platform to restore your node identity:
 
 4. **Upload the Identity File**
 
-    4.1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+    1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
-    4.2. Under the `Upload file` section, fill in the following:
+    2. Under the `Upload file` section, fill in the following:
 
-    - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
-    - In the **Defaults to $WORKDIR/** field, enter:
+        - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
+        - In the **Defaults to $WORKDIR/** field, enter:
 
-        ```
-        /app/hoprd/conf/
-        ```
+            ```
+            /app/hoprd/conf/
+            ```
 
     4.3. Click the `Upload` button to upload the identity file.
 
@@ -223,37 +221,30 @@ Please select your platform to update your HOPRd node:
 
 2. **Check Your Running Docker Containers**
 
-    2.1. **Check running docker containers**
+    1. **Check running docker containers**
     
-    Enter the following command in your terminal:
-    
-    ```
-    docker ps
-    ```
-
-    This will show all running Docker containers. Look for the one labeled:
-    ```
-    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable
-    ```
-
-    2.2 **Write down Hoprd node container ID**
-    
-        Note the container ID. For example:
+        Enter the following command in your terminal:
         
         ```
-        8baa38408847
+        docker ps
         ```
+
+        This will show all running Docker containers. Look for the one labeled: `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable`
+
+    2. **Write down Hoprd node container ID**
+    
+        Note the container ID. For example: `8baa38408847`
 
         ![Docker ps](/img/node/docker-ps-node-update.png)
 
 3. **Remove the Old Container**
 
-    Remove the old container using:
+    Remove the old container using (Replace `<Your_Container_ID>` with writen down HOPRd node container ID):
     ```
     docker rm -f <Your_Container_ID>
     ```
 
-    Example:
+    **Example:**
     ```
     docker rm -f 8baa38408847
     ```
@@ -272,16 +263,18 @@ Please select your platform to update your HOPRd node:
     | `--identity /app/hoprd-db/.hopr-id-dufour` | `--identity /app/conf/hopr.id` | Path to the identity file |
     | `--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'` | `--configurationFilePath '/app/conf/hoprd.cfg.yaml'` | Path to the configuration file |
 
-        4.1. **Rename the Existing Node Folder**
+    1. **Rename the Existing Node Folder**
 
         If your current folder is named `.hoprd-db-dufour`, rename it to `hoprd`:
         ```
         mv .hoprd-db-dufour hoprd
         ```
 
-        *Tip: If running multiple nodes, use names like `hoprd-2`, `hoprd-3`, etc.*
+        :::note 
+        If running multiple nodes, use names like `hoprd-2`, `hoprd-3`, etc.*
+        :::
 
-        4.2. **Move db into a New Data Folder**
+    2. **Move db into a New Data Folder**
 
         Navigate into the `hoprd` folder, create a `data` directory, and move the `db` folder into it:
         ```
@@ -324,38 +317,38 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
     | `/compose/hoprd_data/hopr.id`    | `/compose/hoprd/conf/hopr.id` | Path to the identity file (now in `conf`)  |
     | `/compose/hoprd_data/hoprd.cfg.yaml` | `/compose/hoprd/conf/hoprd.cfg.yaml` | Path to the configuration file (now in `conf`) |
 
-    2.1. **Rename the Existing Node and Database Folders**
+    1. **Rename the Existing Node and Database Folders**
 
-    From the `compose` directory, run:
-    ```
-    mv hoprd_data hoprd && mv hoprd/hoprd hoprd/data
-    ```
+        From the `compose` directory, run:
+        ```
+        mv hoprd_data hoprd && mv hoprd/hoprd hoprd/data
+        ```
 
-    2.2. **Organize Identity and Config Files**
+    2. **Organize Identity and Config Files**
 
-    Still inside the `compose` folder, create a `conf` directory and move the identity and config files:
+        Still inside the `compose` folder, create a `conf` directory and move the identity and config files:
 
-    ```
-    mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
-    ```
+        ```
+        mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
+        ```
 
 3. **Update Your Configuration File**
 
-    3.1. **Locate configuration file**
+    1. **Locate configuration file**
     
-    Inside the `compose` folder, locate the config file at:
-    ```
-    /hoprd/conf/hoprd.cfg.yaml
-    ```
+        Inside the `compose` folder, locate the config file at:
+        ```
+        /hoprd/conf/hoprd.cfg.yaml
+        ```
 
     3.2. **Edit hoprd.cfg.yaml file**
 
-    - Find the `strategy.strategies` section.
-    - Under the `!AutoRedeeming` strategy, replace the existing 18-decimal value for `minimum_redeem_ticket_value` with:
-    
-        ```
-        minimum_redeem_ticket_value = '2.5 wxHOPR'
-        ```
+        - Find the `strategy.strategies` section.
+        - Under the `!AutoRedeeming` strategy, replace the existing 18-decimal value for `minimum_redeem_ticket_value` with:
+            
+            ```
+            minimum_redeem_ticket_value = '2.5 wxHOPR'
+            ```
 
 4. **Start hoprd Services**
 
@@ -429,7 +422,7 @@ Please select your platform to update the HOPR Admin UI:
     docker rm -f <Your_Container_ID>
     ```
 
-    Example:
+    **Example:**
 
     ```bash
     docker rm -f 0a74437b27f8

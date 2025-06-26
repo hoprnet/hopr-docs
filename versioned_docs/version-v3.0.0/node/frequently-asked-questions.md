@@ -5,7 +5,9 @@ title: Frequently Asked Questions
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { NoCounter } from '@site/src/components/Counter';
 
+<NoCounter>
 <details>
 <summary> 
   
@@ -13,15 +15,14 @@ import TabItem from '@theme/TabItem';
 </summary>
 <Tabs queryString="external_ip">
 <TabItem value="linux_macos" label="For Linux or macOS users">
-(**1**) Open the terminal
 
-(**2**) Copy, paste and execute the following command: 
+1. Open the terminal
+2. Copy, paste and execute the following command: 
 
-```bash
-curl ifconfig.me
-```
-
-(**3**) Note your public IP address from the output
+    ```bash
+    curl ifconfig.me
+    ```
+3. Note your public IP address from the output
 </TabItem>
 <TabItem value="vps" label="For VPS users">
 VPS users should be able to find their IP address from their provider. It will also be your VPS IP, so it should be easy to find.
@@ -41,79 +42,76 @@ Your node's IP address is **crucial** for its performance. If it is **misconfigu
 
 ---
 
-##### Step 1: Check if your external IP is a public IP
+1. **Check if your external IP is a public IP**
 
-For HOPRd nodes to communicate with each other on the HOPR network, every node must have a **public IP address**.
+    For HOPRd nodes to communicate with each other on the HOPR network, every node must have a **public IP address**.
+    The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly.
 
-The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly.
+2. **Check if your public IP is static or dynamic**
 
----
+    **Why is this important?**
 
-##### Step 2: Check if your public IP is static or dynamic
+    - If your **public IP is dynamic**, it **changes over time**, causing your node to become unreachable.
+    - If your **IP changes**, you must manually update your node's configuration with the new public IP.
+    - A **static IP is recommended** to avoid frequent maintenance issues.
 
-##### Why is this important?
+    **How to check if your public IP is static or dynamic:**
 
-- If your **public IP is dynamic**, it **changes over time**, causing your node to become unreachable.
-- If your **IP changes**, you must manually update your node's configuration with the new public IP.
-- A **static IP is recommended** to avoid frequent maintenance issues.
+    - The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly. If it is **dynamic**, ask if they offer a **static IP option**.
 
-##### How to check if your public IP is static or dynamic:
+    - **Alternative method (Less Reliable):**  
+      - Find your external IP by going to [https://whatismyipaddress.com](https://whatismyipaddress.com) and note the **IPv4 address** displayed.  
+      - Turn off your **router/modem** for **5-10 minutes**. Then turn it back on and reconnect.  
+      - Return to [https://whatismyipaddress.com](https://whatismyipaddress.com) and check the IPv4 address again.  
+        - If the IP address **has changed**, your IP is **dynamic**.  
+        - If the IP address **remains the same**, your IP **might** be static (although some ISPs assign "sticky" dynamic IPs that rarely change).  
 
-- The **only reliable way** to check this is to **contact your Internet Service Provider (ISP)** and ask directly. If it is **dynamic**, ask if they offer a **static IP option**.
+3. **Actions based on your external IP type**
 
-- **Alternative method (Less Reliable):**  
-  - Find your external IP by going to [https://whatismyipaddress.com](https://whatismyipaddress.com) and note the **IPv4 address** displayed.  
-  - Turn off your **router/modem** for **5-10 minutes**. Then turn it back on and reconnect.  
-  - Return to [https://whatismyipaddress.com](https://whatismyipaddress.com) and check the IPv4 address again.  
-     - If the IP address **has changed**, your IP is **dynamic**.  
-     - If the IP address **remains the same**, your IP **might** be static (although some ISPs assign "sticky" dynamic IPs that rarely change).  
+    Select your external IP type:
 
----
+    <Tabs queryString="ip_type">
+    <TabItem value="non-public" label="Is NOT Public">
+    If your **external IP address is not public**, you will need to add additional variable, select HOPRd node method:
 
-##### Step 3: Actions
+    <Tabs queryString="NAT_variable">
+    <TabItem value="docker" label="For Docker">
+    Add additional variable **-e HOPRD_NAT=true** to your docker command after **-e RUST_LOG=info**:
 
-Select the action based on your external IP type:
+    ```md
+    ... -e RUST_LOG=info -e HOPRD_NAT=true ...
+    ```
+    </TabItem>
+    <TabItem value="docker-compose" label="For Docker compose">
 
-<Tabs queryString="ip_type">
-<TabItem value="non-public" label="Is NOT Public">
-If your **external IP address is not public**, you will need to add additional variable, select HOPRd node method:
+    1. Inside **compose** folder, edit **.env** file.
 
-<Tabs queryString="NAT_variable">
-<TabItem value="docker" label="For Docker">
-Add additional variable "**-e HOPRD_NAT=true**" to your docker command after "**-e RUST_LOG=info**":
+    2. Add additional variable **HOPRD_NAT=true** and save file.
 
-```md
-... -e RUST_LOG=info -e HOPRD_NAT=true ...
-```
-</TabItem>
-<TabItem value="docker-compose" label="For Docker compose">
+    </TabItem>
+    <TabItem value="dappnode" label="For Dappnode">
 
-(**1**) Inside "**compose**" folder, edit **.env** file.
+    1. Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
 
-(**2**) Add additional variable "**HOPRD_NAT=true**" and save file.
+    2. Scroll to the bottom and make sure under **Enable NAT mode** it is set to **true**.
 
-</TabItem>
-<TabItem value="dappnode" label="For Dappnode">
+    </TabItem>
+    </Tabs>
 
-(**1**) Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
+    :::warning Note
+    Adding this variable doesn’t guarantee your node will function normally or receive rewards. It enables TCP connections under NAT, allowing your node to connect to publicly available nodes on the network, including **cover traffic nodes**.
 
-(**2**) Scroll to the bottom and make sure under "**Enable NAT mode**" it is set to "**true**".
+    We recommend monitoring your node — if it stops earning rewards, you will need a public IP. One option is to **rent a low-cost cloud VPS**. More info [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
+    :::
 
-</TabItem>
-</Tabs>
-:::warning Note
-Adding this variable doesn’t guarantee your node will function normally or receive rewards. It enables TCP connections under NAT, allowing your node to connect to publicly available nodes on the network, including **cover traffic nodes**.
-
-We recommend monitoring your node — if it stops earning rewards, you will need a public IP. One option is to **rent a low-cost cloud VPS**. More info [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
-:::
-</TabItem>
-<TabItem value="public-dynamic" label="Is Public and Dynamic">
-If your **external IP address is public but dynamic**, your IP will change over time, requiring you to **manually update your node's public IP**. We strongly recommend following this guide to avoid frequent maintenance: [How to use dynamic DNS](frequently-asked-questions.md#how-to-use-dynamic-dns).
-</TabItem>
-<TabItem value="publis-static" label="Is Public and Static">
-If your **external IP address is public and static**, you **meet all the requirements** to run a HOPRd node.
-</TabItem>
-</Tabs>
+    </TabItem>
+    <TabItem value="public-dynamic" label="Is Public and Dynamic">
+    If your **external IP address is public but dynamic**, your IP will change over time, requiring you to **manually update your node's public IP**. We strongly recommend following this guide to avoid frequent maintenance: [How to use dynamic DNS](frequently-asked-questions.md#how-to-use-dynamic-dns).
+    </TabItem>
+    <TabItem value="publis-static" label="Is Public and Static">
+    If your **external IP address is public and static**, you **meet all the requirements** to run a HOPRd node.
+    </TabItem>
+    </Tabs>
 </details>
 
 <details>
@@ -123,44 +121,44 @@ If your **external IP address is public and static**, you **meet all the require
   
   </summary>
 
-To run the HOPRd node, you need a static or public IP so other peers can reach you on the network. However, many ISPs only provide dynamic IPs. In this case, you can use Dynamic DNS (DDNS), which continually checks for IP changes and automatically updates the hostname with the latest IP. This allows you to use a hostname instead of an IP address. Here's how to set it up:"
+To run the HOPRd node, you need a static or public IP so other peers can reach you on the network. However, many ISPs only provide dynamic IPs. In this case, you can use Dynamic DNS (DDNS), which continually checks for IP changes and automatically updates the hostname with the latest IP. This allows you to use a hostname instead of an IP address. Here's how to set it up:
 
-#### Via Your Router
+<Tabs queryString="Dynamic_DNS">
+  <TabItem value="router" label="Via Router">
+  Most router brands support dynamic DNS. You can use the router brand's credentials or third-party services like [No-IP](https://www.noip.com).
 
-Most router brands support dynamic DNS. You can use the router brand's credentials or third-party services like [No-IP](https://www.noip.com).
+  Brands supporting Dynamic DNS:
 
-Brands supporting Dynamic DNS:
+  - [TP-Link](https://www.tp-link.com/us/support/faq/1367/)
+  - [ASUS](https://www.asus.com/support/faq/1011725/)
+  - [NETGEAR](https://kb.netgear.com/23930/How-do-I-set-up-Dynamic-DNS-DDNS-on-my-NETGEAR-router)
+  - [Linksys](https://www.linksys.com/gb/support-article/?articleNum=140708)
 
-* [TP-Link](https://www.tp-link.com/us/support/faq/1367/)
-* [ASUS](https://www.asus.com/support/faq/1011725/)
-* [NETGEAR](https://kb.netgear.com/23930/How-do-I-set-up-Dynamic-DNS-DDNS-on-my-NETGEAR-router)
-* [Linksys](https://www.linksys.com/gb/support-article/?articleNum=140708)
+  After setting up DDNS, you'll have a hostname (e.g., **hostname.hopto.org**) to use with a port on the HOPR package instead of an IP address.
 
-After setting up DDNS, you'll have a hostname (e.g., **hostname.hopto.org**) to use with a port on the HOPR package instead of an IP address.
+  **Example:** `hostname.hopto.org:9091`
+  </TabItem>
+  <TabItem value="client" label="Via Client Installation">
+  Use a Dynamic DNS service provider client to monitor IP changes and update your domain. We recommend [No-IP](http://www.noip.com). Install their client on your machine to monitor external IP changes and update the hostname.
 
-Example: `hostname.hopto.org:9091`
+  1. Download and install the client based on your OS: [No-IP Download](https://noip.com/download)
 
-#### Via Client Installation
+  2. After setting up DDNS, create a hostname (e.g., **hostname.hopto.org**) to use with a port on the HOPR package.
 
-Use a Dynamic DNS service provider client to monitor IP changes and update your domain. We recommend [No-IP](http://www.noip.com). Install their client on your machine to monitor external IP changes and update the hostname.
+      **Example:** `hostname.hopto.org:9091`
+  </TabItem>
+  <TabItem value="dappnode" label="For Dappnode">
+  If you're running the HOPRd node on Dappnode, it supports DynDNS. Here's what to do:
 
-(**1**) Download and install the client based on your OS: [No-IP Download](https://noip.com/download)
+  1. Connect to the Dappnode dashboard.
 
-(**2**) After setting up DDNS, create a hostname (e.g., **hostname.hopto.org**) to use with a port on the HOPR package.
+  2. Click the colorful icon in the top right corner and find "DAppNode Identity". Look for a DynDNS URL like **hiuhu234hiu.dyndns.dappnode.io**.
 
-Example: `hostname.hopto.org:9091`
+  3. Go to HOPR package configuration (http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under **Public host IP and port**, replace the IP address with the DynDNS URL including the port number.
 
-#### For Dappnode
-
-If you're running the HOPRd node on Dappnode, it supports DynDNS. Here's what to do:
-
-(**1**) Connect to the Dappnode dashboard.
-
-(**2**) Click the colorful icon in the top right corner and find "DAppNode Identity". Look for a DynDNS URL like **hiuhu234hiu.dyndns.dappnode.io**.
-
-(**3**) Go to HOPR package configuration (http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under "**Public host IP and port**", replace the IP address with the DynDNS URL including the port number.
-
-Example: `hiuhu234hiu.dyndns.dappnode.io:9091`
+      **Example:** `hiuhu234hiu.dyndns.dappnode.io:9091`
+  </TabItem>
+</Tabs>
 </details>
 
 <details>
@@ -170,7 +168,9 @@ Example: `hiuhu234hiu.dyndns.dappnode.io:9091`
 </summary>
 There are no specific requirements for creating a database password or secret token, but both should be treated like passwords. We recommend using the [Bitwarden Password Generator](https://bitwarden.com/password-generator/) to create a strong token.
 
-**Note:** To evaluate the strength of your password, you can use the [Bitwarden Password Strength Testing Tool](https://bitwarden.com/password-strength/#Password-Strength-Testing-Tool).
+:::note
+To evaluate the strength of your password, you can use the [Bitwarden Password Strength Testing Tool](https://bitwarden.com/password-strength/#Password-Strength-Testing-Tool).
+:::
 </details>
 
 ---
@@ -195,7 +195,9 @@ You can find where to purchase the relevant tokens [here](../token/acquiring-hop
 </summary>
 Node runners from the previous Monte Rosa release were issued a special **Network Registry NFT**, which remains active for the Dufour release. This allows early access to the network with a reduced stake requirement of **10,000 wxHOPR**.
 
-**Important**: All other boost NFTs from previous releases have been discontinued.
+:::note
+All other boost NFTs from previous releases have been discontinued.
+:::
 </details>
 
 <details>
@@ -227,7 +229,9 @@ There are a total of 10 Cover Traffic (CT) nodes, but only 5 nodes operate at an
 0x764d3162a4024c5cba8817446ef563b27aa57598  
 ```
 
-**Note:** Even if you have incoming payment channels from all 10 Cover Traffic nodes, only monitor the channels associated with the nodes currently relaying data. The list of active CT nodes can be found above.
+:::note
+Even if you have incoming payment channels from all 10 Cover Traffic nodes, only monitor the channels associated with the nodes currently relaying data. The list of active CT nodes can be found above.
+:::
 </details>
 
 <details>
@@ -238,19 +242,19 @@ There are a total of 10 Cover Traffic (CT) nodes, but only 5 nodes operate at an
 
 #### To be eligible for rewards, your node must meet the following criteria:
 
-(**1**) The node must be operational and reachable by the network nodes. Verify your node's performance by following the steps in the [troubleshooting guide](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+1. The node must be operational and reachable by the network nodes. Verify your node's performance by following the steps in the [troubleshooting guide](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
 
-(**2**) You must open at least one payment channel with any random peer on the network. Refer to the example [here](./interaction-with-node.md#open-a-payment-channel-with-a-peer-named-betty) for guidance on how to set up a payment channel.
+2. You must open at least one payment channel with any random peer on the network. Refer to the example [here](./interaction-with-node.md#open-a-payment-channel-with-a-peer-named-betty) for guidance on how to set up a payment channel.
 
 #### Rewards are being sent to your Safe address in this order:
 
-(**1**) Cover traffic, determined by your staking amount, is relayed through your node.
+1. Cover traffic, determined by your staking amount, is relayed through your node.
 
-(**2**) For every relayed message, your node receives unredeemed tickets.
+2. For every relayed message, your node receives unredeemed tickets.
 
-(**3**) When the unredeemed tickets in a payment channel reach the aggregation threshold, they are combined into a single ticket representing the total value of the aggregated tickets. The default aggregation threshold value can be found in the example configuration file under the "**aggregation_threshold**" setting [here](./manage-node-strategies.md).
+3. When the unredeemed tickets in a payment channel reach the aggregation threshold, they are combined into a single ticket representing the total value of the aggregated tickets. The default aggregation threshold value can be found in the example configuration file under the **aggregation_threshold** setting [here](./manage-node-strategies.md).
 
-(**4**) Once tickets are aggregated, your node redeems them and transfers the rewards to your Safe address.
+4. Once tickets are aggregated, your node redeems them and transfers the rewards to your Safe address.
 
 </details>
 
@@ -342,9 +346,13 @@ There are both pros and cons to using physical hardware versus a VPS, depending 
 
 - **Higher costs for running local nodes**: Running a local Gnosis node on a VPS can be expensive due to the required hardware resources and storage. Relying on third-party RPC providers may negatively impact node performance, as external endpoints can introduce latency, limitations, and instability.
 
+---
+
 #### Conclusion
 
 While physical hardware offers more advantages over VPS, such as better decentralization and cost efficiency, we recommend trying a low-cost cloud VPS provider to assess your expenses versus rewards. Economically, it’s important that your staking amount covers your expenses and generates positive returns.
+
+---
 
 #### Our Recommended low-cost cloud VPS providers
 
@@ -395,11 +403,11 @@ To facilitate a controlled and smooth scaling of the HOPR network during the ini
 
 To join the waitlist:
 
-(**1**) Visit the [HOPR Staking Hub](https://hub.hoprnet.org/), start the onboarding process, and create a HOPR Safe.
+1. Visit the [HOPR Staking Hub](https://hub.hoprnet.org), start the onboarding process, and create a HOPR Safe.
 
-(**2**) During the onboarding process, you will be guided on how to start your HOPR Node.
+2. During the onboarding process, you will be guided on how to start your HOPR Node.
 
-(**3**) You will then need to register both your newly created Safe address and your active HOPRd node address on the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ).
+3. You will then need to register both your newly created Safe address and your active HOPRd node address on the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ).
 
 This allows your participation in the scaling process and ensures you're queued for network access as new slots become available.
 </details>
@@ -428,7 +436,9 @@ To check your position on the waitlist, visit the [waitlist sheet](https://crypt
 </summary>
 The waitlist is updated manually. If you have submitted the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ) with accurate details, your address should appear soon.
 
-**Important**: Addresses that have removed their staked wxHOPR will be periodically removed from the waitlist. Ensure your stake hasn't dropped below the minimum requirement, especially if you have recently withdrawn funds from your HOPR Safe.
+:::info important
+Addresses that have removed their staked wxHOPR will be periodically removed from the waitlist. Ensure your stake hasn't dropped below the minimum requirement, especially if you have recently withdrawn funds from your HOPR Safe.
+:::
 </details>
 
 <details>
@@ -438,3 +448,5 @@ The waitlist is updated manually. If you have submitted the [waitlist form](http
 </summary>
 Your position may fluctuate if you don't own a Network Registry NFT. New applicants with a higher wxHOPR stake might have joined, or other users may have been off-boarded or moved down the list due to withdrawing funds or not meeting the required minimum stake.
 </details>
+
+</NoCounter>

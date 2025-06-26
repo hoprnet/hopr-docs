@@ -37,16 +37,16 @@ Payment channels are funded edges between two nodes. They are a link between two
 
 1. There are two ways to open a payment channel with a peer named **Betty**:
 
-- On the **PEERS** page, next to the selected peer, click **OPEN outgoing channel**. In the popup window, enter the amount of wxHOPR you would like to allocate for the payment channel (e.g., `1`) and click **Open Channel**.
-- Alternatively, navigate to the **CHANNELS: OUT** page. At the top, click **OPEN outgoing channel**, enter the peer's **node address** (starting with **0x**) and the amount of wxHOPR you wish to allocate (e.g., `1`), then click **Open Channel**.
+    - On the **PEERS** page, next to the selected peer, click **OPEN outgoing channel**. In the popup window, enter the amount of wxHOPR you would like to allocate for the payment channel (e.g., `1`) and click **Open Channel**.
+    - Alternatively, navigate to the **CHANNELS: OUT** page. At the top, click **OPEN outgoing channel**, enter the peer's **node address** (starting with **0x**) and the amount of wxHOPR you wish to allocate (e.g., `1`), then click **Open Channel**.
 
 2. In a few minutes, this will open a channel from you to Betty with 1 wxHOPR staked in it and you will receive a message about the channel has been successfully opened. You can use these tokens to pay Betty and all other nodes in any relay you use, where Betty is the first intermediary node. All your active outgoing channels can be viewed on the **CHANNELS: OUT** page.
 
-:::note
-Channels are unidirectional, opening this channel does not mean that a channel from Betty to your node exists. Only one channel can exist in a single direction between two nodes.
-:::
+    :::note
+    Channels are unidirectional, opening this channel does not mean that a channel from Betty to your node exists. Only one channel can exist in a single direction between two nodes.
+    :::
 
-![Channel direction](/img/node/channel-direction-hopr-white.png)
+    ![Channel direction](/img/node/channel-direction-hopr-white.png)
 
 ---
 
@@ -68,11 +68,11 @@ Let's start by sending a direct (0-HOP) message to **Betty's** node:
 
 1. Go to the **MESSAGES** page, and at the top, click **SEND message** icon. In the popup, fill in the following:
 
-- In the **Receiver** field, enter either `Betty` or **Betty's Peer ID**.
-- In the **Message** field, type the message you want to send to **Betty**.
-- In the **Send mode** field, leave the default option **Direct Message** selected.
+    - In the **Receiver** field, enter either `Betty` or **Betty's Peer ID**.
+    - In the **Message** field, type the message you want to send to **Betty**.
+    - In the **Send mode** field, leave the default option **Direct Message** selected.
 
-![Message popup](/img/node/sending-0-hop-message.png)
+    ![Message popup](/img/node/sending-0-hop-message.png)
 
 2. Click **Send**. The **Betty's** node should now receive your message.
 
@@ -147,7 +147,7 @@ We will attempt to send a 1-HOP message via a peer with whom we don't have an op
 
 When attempting to send a 1-HOP message via **Chao**, you will encounter an error indicating that no payment channel exists between your node and **Chao**'s node.
 
-Error example:
+**Error example:**
 
 ```md
 Sending message failed failed.
@@ -164,7 +164,7 @@ Path error: missing channel between 0xc5d14c38ca45d61c73ecde2bd39ed162fe3f7711 a
 </summary>
 The message will fail to relay if a payment channel does not exist between any of the intermediate nodes. You’ll receive an error indicating that there is no payment channel between **Betty** and **Chao**. (**Note:** This guide assumes you already have an open payment channel with **Betty**, with sufficient funds staked, such as **1 wxHOPR**).
 
-Error example:
+**Error example:**
 
 ```md
 Sending message failed.

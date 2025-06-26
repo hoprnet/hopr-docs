@@ -44,8 +44,8 @@ http://127.0.0.1:4677
 The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
 1. Go to "**Packages**" and click on "**HOPR**".
-
-![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
+  
+    ![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
 
 2. Once inside, click "**Ui**" to open the HOPR Admin UI.
 
@@ -61,20 +61,22 @@ The HOPR Admin UI already comes with the HOPR package on Dappnode:
 To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
 1. In the top right corner of the initial HOPR Admin UI screen, click "**CONNECT TO NODE**".
-
-![Node Admin Initial Screen](/img/node/admin-UI-home.jpg)
+    
+    ![Node Admin Initial Screen](/img/node/admin-UI-home.jpg)
 
 2. Under "**Node credentials:**" do the following:
+    
+    ![Node Admin Initial Screen](/img/node/admin-UI-connect.jpg)
 
-![Node Admin Initial Screen](/img/node/admin-UI-connect.jpg)
+    - In the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
+    - In the "**API endpoint**" field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
+    - In the "**API token**" field, if you are using Docker, enter the custom security token you created during the [initial HOPRd setup](./node-docker.md#configure-hoprd-command). If you are using DAppNode, enter the credentials you created.
 
-- In the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
-- In the "**API endpoint**" field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
-- In the "**API token**" field, if you are using Docker, enter the [custom security token you created](./node-docker.md#adjust-apitoken-setting). If you are using DAppNode, enter the credentials you created.
+    :::note
+    If you want to save your node credentials for login easier in the future, tick "**Save API token locally (unsafe)**" and click "**Save**".
+    :::
 
-**Note:** If you want to save your node credentials for login easier in the future, tick "**Save API token locally (unsafe)**" and click "**Save**".
-
-By clicking the "**Connect to the node**" button, you should connect to your node. If your connection is unsuccessful, refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
+    By clicking the "**Connect to the node**" button, you should connect to your node. If your connection is unsuccessful, refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
 
 ---
 

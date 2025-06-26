@@ -28,6 +28,7 @@
   --h4-font-size: 0.95rem !important;
   --ifm-color-emphasis-300: #f2f2f2;
   --ifm-color-code-primary: #fff;
+  --docusaurus-details-decoration-color: transparent!important;
 
   /*--ifm-code-background: #0000b4;
   --ifm-code-border-radius: 0.125rem;
@@ -78,25 +79,70 @@ body {
 p{
   line-height: 1.75;
 }
+/*.markdown li > p {
+  margin: 0 0 var(--ifm-list-paragraph-margin);
+}*/
+
 .markdown > .no-counter > pre,
   .markdown > .no-counter > ul,
   .markdown > .no-counter > p {
-    margin-bottom: var(--ifm-leading);
+    /*margin-bottom: var(--ifm-leading);*/
   }
 .markdown .no-counter > h2 {
   margin-top: revert!important;
 }
 .markdown .no-counter li {
     word-wrap: break-word;
-  }
-
+}
+.collapsibleContent_i85q{
+  border-top-color: #000050!important;
+}
 .markdown .no-counter li > p {
       margin-top: var(--ifm-list-paragraph-margin);
-    }
-
+}
 .markdown .no-counter li + li {
       margin-top: var(--ifm-list-item-margin);
-    }
+}
+table tr:nth-child(2n){
+  background-color: transparent;
+}
+ol ol,
+ul ol {
+  list-style-type: decimal;
+}
+.markdown ol > li{
+  counter-increment: lvl1;
+}
+.markdown ol > li > ol > li {
+  counter-increment: lvl2;
+}
+/*********/
+.re-counter-2 {
+  --chapter: 2;
+}
+.re-counter-2 > ol > li::marker {
+  content: var(--chapter) "." counter(sub) ". ";
+}
+.re-counter-2 > ol {
+  counter-reset: chapter 2 sub 0;   /* chapter = 2; sub = 0 */
+}
+.re-counter-2 > ol > li {
+  counter-increment: sub;           /* sub = 1, 2, 3… */
+}
+.re-counter-2 > ol > li::marker {
+  content: counter(chapter) "." counter(sub) ". ";
+}
+/*********/
+.re-counter-2 > ol > li > ol > li {
+  counter-reset:inherit;
+}
+.re-counter-2 > ol > li > ol > li::marker, .re-counter > ol > li > ol > li::marker {
+  content:normal!important;
+}
+/*********/
+.markdown ol > li > ol > li::marker {
+  content: counter(lvl1) "." counter(lvl2) " ";
+}
 .markdown > .no-counter > h2 {
     --ifm-h2-font-size: 2rem;
 
@@ -143,17 +189,18 @@ code {
   padding: var(--ifm-code-padding);
   border-radius: 0rem;
 }
+/*
 .markdown > ol {
   padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
-
 .markdown > ol li {
   margin-bottom: 0.75rem;
 }
-.markdown li>p{
+.markdown li > p{
   margin-bottom: var(--ifm-leading);
 }
+*/
 .prism-code .token-line{
   display: block!important;
 }
@@ -249,6 +296,12 @@ line-height: 1.5rem;
 }
 .theme-admonition-info.alert a, .theme-admonition-info.alert a:hover{
   color: #000050;
+}
+.markdown ul > li{
+  list-style-type: disc;
+}
+.admonition_xJq3{
+  margin-top: 1rem;
 }
 
 .theme-admonition-info.alert a:hover{
