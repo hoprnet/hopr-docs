@@ -19,7 +19,6 @@ if (DOCS_ALGOLIA_APP_ID && DOCS_ALGOLIA_API_KEY) {
   }
 }
 
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'HOPR Docs',

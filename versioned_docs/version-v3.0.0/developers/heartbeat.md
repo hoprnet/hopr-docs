@@ -1,6 +1,7 @@
 ---
 id: heartbeat
 title: Heartbeat Mechanism
+group: h-no-count
 ---
 
 ## Heartbeat Mechanism

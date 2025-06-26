@@ -1,6 +1,7 @@
 ---
 id: mixnets
 title: Mixnets
+group: h-no-count
 ---
 
 Splitting the data into packets and sending each one on a different route through a network of relay nodes is a good first step to solving the problem of sending data privately, but it’s still possible for a powerful attacker to gather enough information to de-anonymize the network.

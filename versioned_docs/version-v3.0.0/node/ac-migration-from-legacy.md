@@ -7,6 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { NoCounter } from '@site/src/components/Counter';
 
+
 <NoCounter>
 
 ## Prerequisites for migration to Dappnode

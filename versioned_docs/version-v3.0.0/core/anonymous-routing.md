@@ -1,6 +1,7 @@
 ---
 id: anonymous-routing
 title: Anonymous Routing
+group: h-no-count
 ---
 
 Connection metadata can be used to build up a profile of all our activities, both on the Internet and off it.

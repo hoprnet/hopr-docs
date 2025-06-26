@@ -1,6 +1,7 @@
 ---
 id: what-is-metadata
 title: What is Metadata?
+group: h-no-count
 ---
 
 The [HOPR protocol](https://hoprnet.org) is special because it protects both your data AND your connection metadata. But what is this metadata, and why is protecting it so important?

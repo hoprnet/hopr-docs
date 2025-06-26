@@ -169,7 +169,7 @@ ul ol {
       var(--ifm-heading-vertical-rhythm-top) * var(--ifm-leading)
     );
   }
-.no-counter h2::before, .no-counter h3::before, .no-counter h4::before{
+.no-counter h2::before, .no-counter h3::before, .no-counter h4::before, .h-no-count h2::before, .h-no-count h3::before{
   content: " "!important;
 }
 

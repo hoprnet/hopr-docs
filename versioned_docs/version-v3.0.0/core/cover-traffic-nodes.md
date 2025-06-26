@@ -1,6 +1,7 @@
 ---
 id: cover-traffic-nodes
 title: Cover Traffic Nodes
+group: h-no-count
 ---
 
 One of HOPR’s innovations is to link Cover Traffic directly to staking: the more HOPR tokens you have, the more Cover Traffic you’ll receive, and the more HOPR tokens you’ll earn for relaying it.

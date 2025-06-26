@@ -1,6 +1,7 @@
 ---
 id: what-is-hopr
 title: What is HOPR?
+group: h-no-count
 ---
 
 ## The Reality of the Today’s Internet

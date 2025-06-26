@@ -1,6 +1,7 @@
 ---
 id: probabilistic-payments
 title: Probabilistic Payments
+group: h-no-count
 ---
 
 Incentivizing a private mixnet like the HOPR network allows it to scale and reward node runners for the important work they do to provide online privacy. Blockchains allow these incentives to be awarded in a trustless and decentralized way, but it’s essential that blockchain integration doesn’t compromise the metadata privacy of the underlying mixnet.

@@ -1,6 +1,7 @@
 ---
 id: incentives
 title: Incentives
+group: h-no-count
 ---
 
 Encryption, mixing, remixing, and relaying is very computationally expensive compared to just sending data directly and openly. We need a way to cover these costs or the network can never grow and thrive.

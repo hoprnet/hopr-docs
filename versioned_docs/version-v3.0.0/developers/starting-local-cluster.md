@@ -1,6 +1,7 @@
 ---
 id: starting-local-cluster
 title: HOPR Cluster Development Setup
+group: h-no-count
 ---
 
 import Tabs from '@theme/Tabs';

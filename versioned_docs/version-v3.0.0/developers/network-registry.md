@@ -1,6 +1,7 @@
 ---
 id: network-registry
 title: Network Registry
+group: h-no-count
 ---
 
 To test HOPR protocol and develop dApps on top of HOPR at a resonable scale, nodes are only allowed to join the network (sending messages) if they are registered on a "Network Registry" smart contract.

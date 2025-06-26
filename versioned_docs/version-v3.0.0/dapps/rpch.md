@@ -1,6 +1,7 @@
 ---
 id: dapps-rpch
 title: RPCh
+group: h-no-count
 ---
 
 RPCh is the only private, secure, and decentralized gateway to the blockchain, offering the first true protection against data harvesting by RPC providers. The RPCh app is built on top of the HOPR protocol, ensuring enhanced privacy and security for blockchain interactions.
