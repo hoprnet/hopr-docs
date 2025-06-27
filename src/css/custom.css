@@ -536,7 +536,14 @@ span.theme-code-block-highlighted-line {
   aspect-ratio: 16 / 9;
   width: 100%;
 }
-
+.TOC_Layout{
+    position: sticky;
+  top: var(--ifm-navbar-height, 0);
+  align-self: flex-start; 
+  max-height: calc(100vh - var(--ifm-navbar-height, 0));
+  overflow-y: auto;
+  padding-top: 1rem;
+}
 .TOC_Layout h4{
   padding-left: 15px;
   border-left: 1px solid #f2f2f2;
