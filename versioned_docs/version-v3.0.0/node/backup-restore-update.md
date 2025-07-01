@@ -108,7 +108,7 @@ Please select platform to restore your node identity:
 
 1. **Ensure You Have a Backup**
 
-    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity).  
+    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update?backup_identity=docker#backup-your-node-identity).  
     
     You will need the identity file `hopr.id` and the corresponding database password.
 
@@ -134,7 +134,7 @@ Please select platform to restore your node identity:
 
 1. **Ensure You Have a Backup**
 
-    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity).  
+    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update?backup_identity=docker-compose#backup-your-node-identity).  
     
     You will need the identity file `hopr.id` and the corresponding database password.
 
@@ -176,7 +176,7 @@ Please select platform to restore your node identity:
 
 2. **Ensure You Have a Backup**
 
-    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update#backup-your-node-identity). You will need the identity file `hopr.id` and the corresponding database password.
+    Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update?backup_identity=dappnode#backup-your-node-identity). You will need the identity file `hopr.id` and the corresponding database password.
 
 3. **Pause the HOPR Package**
 
@@ -217,13 +217,11 @@ Please select your platform to update your HOPRd node:
 
 1. **Back Up Your Identity File**
 
-    Follow the instructions in this [guide](./backup-restore-update#backup-your-node-identity).
+    Follow the instructions in this [guide](./backup-restore-update?backup_identity=docker#backup-your-node-identity).
 
-2. **Check Your Running Docker Containers**
+2. **Remove current running HOPRd container**
 
-    1. **Check running docker containers**
-    
-        Enter the following command in your terminal:
+    1. Enter the following command in your terminal to check running docker containers:
         
         ```
         docker ps
@@ -231,25 +229,23 @@ Please select your platform to update your HOPRd node:
 
         This will show all running Docker containers. Look for the one labeled: `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable`
 
-    2. **Write down Hoprd node container ID**
+    2. Write down HOPRd node container ID:
     
-        Note the container ID. For example: `8baa38408847`
+        **Example:**
+        ```
+        8baa38408847
+        ```
 
         ![Docker ps](/img/node/docker-ps-node-update.png)
 
-3. **Remove the Old Container**
+    3. Remove the old container using (Replace `<Your_Container_ID>` with writen down HOPRd node container ID): `docker rm -f <Your_Container_ID>`
 
-    Remove the old container using (Replace `<Your_Container_ID>` with writen down HOPRd node container ID):
-    ```
-    docker rm -f <Your_Container_ID>
-    ```
+        **Example:**
+        ```
+        docker rm -f 8baa38408847
+        ```
 
-    **Example:**
-    ```
-    docker rm -f 8baa38408847
-    ```
-
-4. **(Optional) Update HOPRd Node Folder Structure**
+3. **(Optional) Update HOPRd Node Folder Structure**
 
     Starting with HOPRd v3.0.0, we’ve introduced unified paths for the database, identity, and configuration files to improve consistency and maintainability.
 
@@ -281,16 +277,16 @@ Please select your platform to update your HOPRd node:
         mkdir data && mv db data
         ```
 
-5. **Organize Identity and Config Files**
+    3. **Organize Identity and Config Files**
 
-    Inside the `hoprd` folder, create a `conf` directory and move the identity and configuration files:
-    ```
-    mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
-    ```
+        Inside the `hoprd` folder, create a `conf` directory and move the identity and configuration files:
+        ```
+        mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
+        ```
 
-6. **Update Your Configuration File**
+4. **Update Your Configuration File**
 
-    Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+    Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md?config=docker#create-and-apply-configuration-file-to-your-node).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
@@ -360,25 +356,25 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-### Back Up Your Identity File
+1. **Back Up Your Identity File**
 
-Follow the instructions [here](./backup-restore-update#backup-your-node-identity) to back up your identity file.
+    Follow the instructions [here](./backup-restore-update?backup_identity=dappnode#backup-your-node-identity) to back up your identity file.
 
-1. **Open the Dappstore**
+2. **Open the Dappstore**
 
     Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
 
-2. **Find and Select the HOPR Package**
+3. **Find and Select the HOPR Package**
 
     Search for the HOPR package, access its details, and click `UPDATE`.
 
-3. **Submit the Update**
+4. **Submit the Update**
 
     During the update process, all data fields should be pre-filled. Click `Submit` to complete the HOPRd node update process.
 
-4. **Apply the Latest Configuration File**
+5. **Apply the Latest Configuration File**
 
-    Ensure your configuration file is current by applying the [latest configuration file](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+    Ensure your configuration file is current by applying the [latest configuration file](manage-node-strategies.md?config=dappnode#create-and-apply-configuration-file-to-your-node).
  
 </TabItem>
 </Tabs>

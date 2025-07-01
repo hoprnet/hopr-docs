@@ -2,6 +2,7 @@
 id: token-wrapping
 title: Wrapping HOPR Tokens
 hide_table_of_contents: true
+group: h-no-count
 ---
 
 import Tabs from '@theme/Tabs';

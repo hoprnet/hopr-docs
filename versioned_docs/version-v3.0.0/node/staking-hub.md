@@ -39,7 +39,7 @@ The [HOPR Staking Hub](https://hub.hoprnet.org) is a platform for onboarding HOP
 
 ## Add additional node
 
-Before adding an additional node, ensure you have allocated enough stake per node. For more information, refer to the [HOPR Network participation requirements](./run-a-node-overview.md#requirements-for-participating-in-the-hopr-network).
+Before adding an additional node, ensure you have allocated enough stake per node. For more information, refer to the [HOPR Network participation requirements](./run-a-node-overview.md#node-system-requirements).
 
 1. Start your additional node. You can find detailed instructions [here](./multiple-nodes.md).
 

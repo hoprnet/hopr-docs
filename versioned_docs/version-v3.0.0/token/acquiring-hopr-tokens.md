@@ -1,6 +1,7 @@
 ---
 id: acquiring-hopr-tokens
 title: Acquiring HOPR Tokens
+group: h-no-count
 ---
 
 ## Overview

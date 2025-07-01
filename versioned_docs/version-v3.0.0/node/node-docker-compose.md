@@ -16,9 +16,9 @@ Please note that you must complete the onboarding process before setting up your
 
 Setting up a HOPR node with Docker Compose is intended for advanced users. It provides a sophisticated setup, allowing the use of a configuration file and node monitoring tools to enhance the node management experience.
 
-## Download "compose" folder
+## Download compose folder
 
-Start by downloading the "compose" folder from the HOPR repository to your local machine:
+Start by downloading the `compose` folder from the HOPR repository to your local machine:
 
 ```bash
 wget https://github.com/hoprnet/hoprnet/archive/refs/heads/release/kaunas.zip && unzip kaunas.zip "hoprnet-release-kaunas/deploy/compose/*" -d extracted_files && mv extracted_files/hoprnet-release-kaunas/deploy/compose . && rm -rf kaunas.zip extracted_files

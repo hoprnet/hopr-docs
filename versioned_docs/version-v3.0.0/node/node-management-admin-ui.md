@@ -43,11 +43,11 @@ http://127.0.0.1:4677
 
 The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
-1. Go to "**Packages**" and click on "**HOPR**".
+1. Go to **Packages** and click on **HOPR**.
   
     ![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
 
-2. Once inside, click "**Ui**" to open the HOPR Admin UI.
+2. Once inside, click **Ui** to open the HOPR Admin UI.
 
 3. Connect your node as suggested [here](./node-management-admin-ui.md#connecting-your-node).
 
@@ -60,23 +60,25 @@ The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
 To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
-1. In the top right corner of the initial HOPR Admin UI screen, click "**CONNECT TO NODE**".
+1. In the top right corner of the initial HOPR Admin UI screen, click **CONNECT TO NODE**.
     
     ![Node Admin Initial Screen](/img/node/admin-UI-home.jpg)
 
-2. Under "**Node credentials:**" do the following:
+2. Under **Node credentials:** do the following:
     
     ![Node Admin Initial Screen](/img/node/admin-UI-connect.jpg)
 
-    - In the "**Local name**" field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
-    - In the "**API endpoint**" field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
-    - In the "**API token**" field, if you are using Docker, enter the custom security token you created during the [initial HOPRd setup](./node-docker.md#configure-hoprd-command). If you are using DAppNode, enter the credentials you created.
+    - In the **Local name** field, give this node a nickname. This is optional but may be useful if you are running multiple nodes.
+    
+    - In the **API endpoint** field, the default API endpoint for Docker users should be set to `http://localhost:3001`. However, you may need to replace 'localhost' with your server's IP address if you used a VPS, and adjust the port if you modified the mapping during installation. For DAppnode users, this should be set to `http://node.hopr.public.dappnode:3001` by default.
+    
+    - In the **API token** field, if you are using Docker, enter the custom security token you created during the [initial HOPRd setup](./node-docker.md#configure-hoprd-command). If you are using DAppNode, enter the credentials you created.
 
     :::note
-    If you want to save your node credentials for login easier in the future, tick "**Save API token locally (unsafe)**" and click "**Save**".
+    If you want to save your node credentials for login easier in the future, tick **Save API token locally (unsafe)** and click **Save**.
     :::
 
-    By clicking the "**Connect to the node**" button, you should connect to your node. If your connection is unsuccessful, refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
+    By clicking the **Connect to the node** button, you should connect to your node. If your connection is unsuccessful, refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
 
 ---
 
@@ -204,7 +206,7 @@ You can use the alias command to give an address a more memorable name. Also you
 
 ### MESSAGES
 
-Displays a list of received messages and allows you to interact with them. Additionally, you can send a message to any recipient on the HOPR network. Clicking the "**send message**" button will open a message form popup with the following fields:
+Displays a list of received messages and allows you to interact with them. Additionally, you can send a message to any recipient on the HOPR network. Clicking the **send message** button will open a message form popup with the following fields:
 
 | Term | Description |
 | --- | --- |
@@ -234,7 +236,7 @@ Displays a list of opened payment channels from your node to other nodes on the 
 
 | Term | Description |
 | --- | --- |
-| **Closing Channel** | To close a payment channel, you must perform two actions. First, click "**Close the Channel**" to initiate the closure. After a grace period of 5 minutes, if your node is not configured to automatically finalize the closure of the payment channel, you will need to manually click again to complete the process. <br/><br/> Node manual configuration can be customized via the [configuration file](./manage-node-strategies.md). |
+| **Closing Channel** | To close a payment channel, you must perform two actions. First, click **Close the Channel** to initiate the closure. After a grace period of 5 minutes, if your node is not configured to automatically finalize the closure of the payment channel, you will need to manually click again to complete the process. <br/><br/> Node manual configuration can be customized via the [configuration file](./manage-node-strategies.md). |
 | **Open outgoing channel** | By specifying the node address (0x...) and HOPR amount, you can open a payment channel to the specified node. |
 | **Open multiple outgoing channels** | You can prepate a csv file to open multiple payment channels in bulk. |
 | **Fund outgoing channel** | By specifying the node address (0x...) and HOPR amount, you can fund an outgoing payment channel with additional wxHOPR. |
@@ -293,7 +295,7 @@ services:
 - HOST PORT: **1422**
 - PACKAGE PORT NUMBER: **1422**
 - PROTOCOL: Select **UDP**
-6. Click "**Update Port Mappings**" to save your changes.
+6. Click **Update Port Mappings** to save your changes.
 7. Repeat step 4, but this time select the **TCP** protocol instead.
 </TabItem>
 </Tabs>
