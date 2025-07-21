@@ -1,6 +1,6 @@
 ---
 id: node-dappnode
-title: For Dappnode
+title: Dappnode
 ---
 
 :::info

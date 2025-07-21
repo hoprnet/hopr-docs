@@ -1,6 +1,6 @@
 ---
 id: node-docker-compose
-title: For Docker Compose
+title: Docker Compose
 toc_max_heading_level: 2
 ---
 

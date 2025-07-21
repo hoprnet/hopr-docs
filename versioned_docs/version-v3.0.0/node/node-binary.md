@@ -1,6 +1,6 @@
 ---
 id: node-binary
-title: For Binary
+title: Binary
 ---
 
 :::info
@@ -48,7 +48,7 @@ Please note that you must start the onboarding process before setting up your no
 
 2. **Download the Example Config File**  
    
-   Get the example configuration file specifically for the Native Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/hoprd-binary.cfg.yaml)
+   Get the example configuration file specifically for the Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/hoprd-binary.cfg.yaml)
 
 3. **Adjust Configuration Values**  
    
@@ -56,7 +56,7 @@ Please note that you must start the onboarding process before setting up your no
 
 ---
 
-## Configure systemd for native binary
+## Configure systemd for binary
 
 Systemd allows you to create a service that runs your application in the background.
 

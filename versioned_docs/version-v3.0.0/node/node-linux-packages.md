@@ -1,6 +1,6 @@
 ---
 id: node-linux-packages
-title: For Linux
+title: Linux
 ---
 
 import Tabs from '@theme/Tabs';

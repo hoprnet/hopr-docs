@@ -1,6 +1,6 @@
 ---
 id: node-macos
-title: For macOS
+title: macOS
 ---
 
 import Tabs from '@theme/Tabs';

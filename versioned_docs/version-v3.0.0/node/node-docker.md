@@ -1,6 +1,6 @@
 ---
 id: node-docker
-title: For Docker
+title: Docker
 ---
 
 import Tabs from '@theme/Tabs';

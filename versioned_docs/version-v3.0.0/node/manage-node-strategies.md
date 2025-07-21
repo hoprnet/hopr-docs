@@ -158,7 +158,7 @@ By default, the strategy settings file is pre-configured and works well as is. H
 
     2. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
 </TabItem>
-<TabItem value="native-binary" label="Native Binary">
+<TabItem value="native-binary" label="Native">
 
 Inside the **hoprd/conf** folder, open **hoprd-binary.cfg.yaml** and update the following keys:
 
