@@ -3,6 +3,10 @@ id: staking-hub
 title: HOPR Staking Hub
 ---
 
+import { NoCounter } from '@site/src/components/Counter';
+
+<NoCounter>
+
 The [HOPR Staking Hub](https://hub.hoprnet.org) is a platform for onboarding HOPR node operators. It enables you to create a [HOPR Safe](../token/safestaking.md#why-does-hopr-use-safe) for securely depositing and managing your stake. Through the Hub, you can easily add and manage multiple nodes, handle transactions, monitor your nodes with essential performance metrics, use the token wrapper to wrap or unwrap HOPR tokens, and more.
 
 <iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/-zYltiDFh9I" frameborder="0" allow="rel=0; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
@@ -101,9 +105,15 @@ Before adding an additional node, ensure you have allocated enough stake per nod
 
 3. In the field next to **ADD OWNER**, enter the wallet address of the additional owner (ensure that you have full control over this new owner's wallet). Then, click **ADD**. In the popup, if you agree to proceed, click **ADD** again and confirm the transaction through your wallet.
 
+    :::note Recommendation
+
+    To enhance the security and recoverability of your Safe account, we recommend configuring it with **a minimum of 3 owners**, and requiring **2 confirmations** to authorize transactions. This setup ensures that if one owner loses access, the remaining two can continue managing and executing transactions without disruption.
+
+    :::
+
 4. Once the transaction is complete, the new owner should be visible. While optional, we recommend increasing the **Required confirmations** from `1` to `2`. This ensures that both owners must approve any on-chain actions, preventing unauthorized transactions if one wallet is compromised.
 
-To do this, change the **Required confirmations** from `1` to `2`, click **UPDATE**, and confirm the transaction through your wallet.
+    To do this, change the **Required confirmations** from `1` to `2`, click **UPDATE**, and confirm the transaction through your wallet.
 
 ---
 
@@ -122,3 +132,5 @@ To do this, change the **Required confirmations** from `1` to `2`, click **UPDAT
 4. Once the transaction is complete, click **Dashboard** on the left-hand side, then go to the **SAFE** tab. Click **Edit**.
 
 5. Next to **Safe Owners**, select the owner you would like to remove, click the **Trash** icon, and approve the transaction in your wallet.
+
+</NoCounter>
