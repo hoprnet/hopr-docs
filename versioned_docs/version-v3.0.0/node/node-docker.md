@@ -54,7 +54,7 @@ docker run \
   --log-opt max-size=100M \
   --log-opt max-file=5 \
   -ti \
-  -v $HOME/hoprd/:/app/data \
+  -v $HOME/.hoprd-db-dufour/:/app/hoprd-db \
   --name hoprd \
   -p 9091:9091/tcp \
   -p 9091:9091/udp \
@@ -65,8 +65,8 @@ docker run \
   --init \
   --api \
   --announce \
-  --identity /app/conf/hopr.id \
-  --data /app/data/ \
+  --identity /app/hoprd-db/.hopr-id-dufour \
+  --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
   --apiToken '<YOUR_API_TOKEN>' \
   --password '<YOUR_DB_PASSWORD>' \
@@ -74,7 +74,7 @@ docker run \
   --moduleAddress '<MODULE_ADDRESS>' \
   --host '<YOUR_PUBLIC_IP>:9091' \
   --provider '<CUSTOM_RPC_PROVIDER>' \
-  --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
+  --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 
 Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
@@ -176,7 +176,7 @@ The following settings need to be adjusted in the current Docker command:
    
    2. Customize your strategy (see [Understanding node strategies](./manage-node-strategies.md?config=docker#understanding-node-strategies)).
    
-   3. Create a `hoprd` folder, then inside it create a `conf` folder and place `hoprd-docker.cfg.yaml` there.
+   3. Create a `hoprd` folder and place the `hoprd-docker.cfg.yaml` configuration file inside it.
 
 </ReCounter2nd>
 

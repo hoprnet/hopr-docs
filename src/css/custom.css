@@ -49,7 +49,9 @@ body {
   color: #414141;
 
 }
-
+.docs-version-v2\.2\.3 .theme-doc-markdown h2::before, .docs-version-v2\.2\.3 .theme-doc-markdown h3::before, .docs-version-v2\.2\.3 .theme-doc-markdown h4::before{
+  content: "";
+}
 .theme-doc-markdown {
   counter-reset: h2counter;
 }

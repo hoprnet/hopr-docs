@@ -57,38 +57,33 @@ import { NoCounter } from '@site/src/components/Counter';
 
     The redemption process works as follows: once the unredeemed value reaches **2.5 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
 
-11. Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Peer ID**. If your node appears, it indicates that it is reachable by network nodes.
+11. Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Node address**. If your node appears, it indicates that it is reachable by network nodes.
 
 12. To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
 
     #### Cover Traffic node 1 
     ```
-    PeerID: 12D3KooWQtu46V9N8qoMYsovhwc7NuoDveFFZ8fUpTmkp1HGBktf
-    Eth address: 0x5927c321Ca2a925d17EdCf9c58343E24337D18BA
+    Node address: 0x5927c321Ca2a925d17EdCf9c58343E24337D18BA
     ```
 
     #### Cover Traffic node 2
     ```
-    PeerID: 12D3KooWCd3LKkrxfYmnUk5D58wNBvwS3sEFdqzp8w3NASYTgrA4
-    Eth address: 0x0543aa9d1DAfA9Cc49bF87Ce5ea1E18277b3ae0f
+    Node address: 0x0543aa9d1DAfA9Cc49bF87Ce5ea1E18277b3ae0f
     ```
 
     #### Cover Traffic node 3 
     ```
-    PeerID: 12D3KooWGeKvur7uKKj1qN1tZk5kNvCvX3JJo2Gd2xMXABZvsETg
-    Eth address: 0x29D61dDbc682f272fc7F0DFb203938e211471826
+    Node address: 0x29D61dDbc682f272fc7F0DFb203938e211471826
     ```
 
     #### Cover Traffic node 4 
     ```
-    PeerID: 12D3KooWFXwabMyeDh3MY2cznj4kb2GG3FHrv1dJsDv5zLNtwhKn
-    Eth address: 0x8Fd1766b4215944f2Eb21F03e6820Bc3c75d936c
+    Node address: 0x8Fd1766b4215944f2Eb21F03e6820Bc3c75d936c
     ```
 
     #### Cover Traffic node 5 
     ```
-    PeerID: 12D3KooWDYfvNbHeNs8vB94rmFbZASrHoHAEUEFRZyRR4yqyJFMF
-    Eth address: 0x633382b748e34432dF1dBDFDd234833454B3D768
+    Node address: 0x633382b748e34432dF1dBDFDd234833454B3D768
     ```
 
     :::note

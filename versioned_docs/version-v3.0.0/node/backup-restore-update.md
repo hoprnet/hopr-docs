@@ -21,9 +21,9 @@ The identity file is automatically created and stored on your machine.
 
 1. **Back Up Your Identity File**
 
-    The identity file `hopr.id` is located at:  
+    The identity file `.hopr-id-dufour` is located at:  
     ```
-    /<computer username>/hoprd/conf/
+    /<computer username>/hoprd/
     ```
 
 2. **Write Down Your Database Password**
@@ -37,7 +37,7 @@ The identity file is automatically created and stored on your machine.
 
 3. **Store Your Backup Safely**
 
-    Save both the `hopr.id` file and your password in a secure location.
+    Save both the `.hopr-id-dufour` file and your password in a secure location.
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
@@ -110,18 +110,18 @@ Please select platform to restore your node identity:
 
     Before restoring your node identity, make sure you have already [backed up your HOPR node identity](./backup-restore-update?backup_identity=docker#backup-your-node-identity).  
     
-    You will need the identity file `hopr.id` and the corresponding database password.
+    You will need the identity file `.hopr-id-dufour` and the corresponding database password.
 
 2. **Restore the Identity File**
 
-    Copy your backed-up `hopr.id` file into the following folder:  
+    Copy your backed-up `.hopr-id-dufour` file into the following folder:  
     ```
-    /hoprd/conf/
+    /hoprd/
     ```
 
 3. **Set the Password Flag**
 
-    Update the `--password` tag in your Docker command to match the database password used for your previous node.
+    Update the `--password` tag in your Docker command to match the database password used for your previous node. Default password: `open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0`
 
 4. **Configure Your Docker Command**
 
@@ -208,7 +208,7 @@ Please select platform to restore your node identity:
 
 ## Update your node
 
-When migrating from `v2.2.x` to `v3.0.0`, there's no need to re-sync your node — the process is automated. Simply follow the steps below.
+When migrating from `v2.2.x` to `v3.0.0`, there's no need to re-sync your node manually — the re-syncing process is automated. Simply follow the steps below.
 
 Please select your platform to update your HOPRd node:
 
@@ -245,46 +245,7 @@ Please select your platform to update your HOPRd node:
         docker rm -f 8baa38408847
         ```
 
-3. **(Optional) Update HOPRd Node Folder Structure**
-
-    Starting with HOPRd v3.0.0, we’ve introduced unified paths for the database, identity, and configuration files to improve consistency and maintainability.
-
-    Your existing paths will still work, but starting with version 3.0.0, we recommend updating to these new standards for long-term compatibility.
-
-    **Path Changes Overview**
-
-    | Old Path | New Path | Description |
-    |----------|----------|-------------|
-    | `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` | `-v $HOME/hoprd/:/app/data` | Mount path for the database directory |
-    | `--identity /app/hoprd-db/.hopr-id-dufour` | `--identity /app/conf/hopr.id` | Path to the identity file |
-    | `--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'` | `--configurationFilePath '/app/conf/hoprd.cfg.yaml'` | Path to the configuration file |
-
-    1. **Rename the Existing Node Folder**
-
-        If your current folder is named `.hoprd-db-dufour`, rename it to `hoprd`:
-        ```
-        mv .hoprd-db-dufour hoprd
-        ```
-
-        :::note 
-        If running multiple nodes, use names like `hoprd-2`, `hoprd-3`, etc.*
-        :::
-
-    2. **Move db into a New Data Folder**
-
-        Navigate into the `hoprd` folder, create a `data` directory, and move the `db` folder into it:
-        ```
-        mkdir data && mv db data
-        ```
-
-    3. **Organize Identity and Config Files**
-
-        Inside the `hoprd` folder, create a `conf` directory and move the identity and configuration files:
-        ```
-        mkdir conf && mv .hopr-id-dufour conf/hopr.id && mv hoprd-docker.cfg.yaml conf
-        ```
-
-4. **Update Your Configuration File**
+3. **Update Your Configuration File**
 
     Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md?config=docker#create-and-apply-configuration-file-to-your-node).
 

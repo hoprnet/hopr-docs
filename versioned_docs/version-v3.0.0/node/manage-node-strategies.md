@@ -36,12 +36,42 @@ Please select your platform:
 
     1. After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
 
-    2. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'** to link your configuration file to your current docker command.
+    2. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'** to link your configuration file to your current docker command.
 
         **Docker command:**
 
-        ```md
-        docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/hoprd/:/app/data --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/data/hopr.id --data /app/data/ --apiHost '0.0.0.0' --apiToken '<SECRET_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER> --configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'
+        ```bash
+        docker run \
+        --pull always \
+        -d --restart on-failure \
+        -m 2g \
+        --security-opt seccomp=unconfined \
+        --platform linux/x86_64 \
+        --log-driver json-file \
+        --log-opt max-size=100M \
+        --log-opt max-file=5 \
+        -ti \
+        -v $HOME/.hoprd-db-dufour/:/app/hoprd-db \
+        --name hoprd \
+        -p 9091:9091/tcp \
+        -p 9091:9091/udp \
+        -p 3001:3001 \
+        -e RUST_LOG=info \
+        europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
+        --network dufour \
+        --init \
+        --api \
+        --announce \
+        --identity /app/hoprd-db/.hopr-id-dufour \
+        --data /app/hoprd-db \
+        --apiHost '0.0.0.0' \
+        --apiToken '<YOUR_API_TOKEN>' \
+        --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' \
+        --safeAddress '<SAFE_WALLET_ADDRESS>' \
+        --moduleAddress '<MODULE_ADDRESS>' \
+        --host '<YOUR_PUBLIC_IP>:9091' \
+        --provider '<CUSTOM_RPC_PROVIDER>' \
+        --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
         ```
 
         :::note
