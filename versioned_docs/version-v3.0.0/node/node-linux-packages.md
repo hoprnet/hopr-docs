@@ -73,19 +73,19 @@ Before proceeding, select Linux distribution:
       ```
 
 </TabItem>
-<TabItem value="redhat_fedora_centos" label="Red Hat / Fedora / CentOS">
+<TabItem value="redhat_fedora_centos" label="RHEL / Fedora / CentOS">
 
-1. **Download `.rem` package**
+1. **Download `.rpm` package**
 
    1. Go to the [Releases page](https://github.com/hoprnet/hoprnet/releases/latest) and expand the **Assets** section to view all files.
-   2. Use the machine identifier from a previous step and locate the appropriate Debian/Ubuntu package (**.rem format**).
+   2. Use the machine identifier from a previous step and locate the appropriate Debian/Ubuntu package (**.rpm format**).
    3. Download the HOPRd package using:
 
       ```
-      curl -o hoprd.rem -L <HOPRd_package_link>
+      curl -o hoprd.rpm -L <HOPRd_package_link>
       ```
 
-      Replace `<HOPRd_package_link>` with the actual URL from the Releases page. Example: `https://github.com/hoprnet/hoprnet/releases/download/v3.0.0/hoprd_3.0.0_aarch64.rem`. It will download the contents of the HOPRd package and write them into the file: `hoprd.rem`.
+      Replace `<HOPRd_package_link>` with the actual URL from the Releases page. Example: `https://github.com/hoprnet/hoprnet/releases/download/v3.0.0/hoprd_3.0.0_aarch64.rpm`. It will download the contents of the HOPRd package and write them into the file: `hoprd.rpm`.
 
 2. **Export variables**
    
@@ -167,6 +167,8 @@ Before proceeding, select Linux distribution:
 ## Configure hoprd node (optional)
 
 By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
+
+Configuration file is located at: `/etc/hoprd/hoprd.cfg.yaml`
 
 ---
 
