@@ -37,6 +37,7 @@ The minimum requirements for running **HOPRd** on your device are:
 
 The easiest way to run a single HOPRd node is by installing the HOPRd package on Dappnode.
 Dappnode is an open-source platform that simplifies running blockchain nodes and decentralized apps (dApps) on your own hardware—no advanced technical skills needed.
+
 Learn more at [https://dappnode.com](https://dappnode.com).
 
 ---
@@ -52,6 +53,42 @@ For a list of recommended VPS providers, see [this section](frequently-asked-que
 ### Personal Computer
 
 If you're using the Linux or macOS operating system, you can run a HOPRd node directly on your own computer. To earn continuously distributed rewards, your HOPRd node must remain online 24/7.
+
+---
+
+## What are the installation methods to run HOPRd node?
+
+
+### Docker
+
+Run HOPRd inside a lightweight container. Easy to set up, highly portable, and ideal for testing or deployment on any machine with Docker installed. Offers simplicity and isolation.
+
+See the [Docker installation guide](./node-docker.md) for detailed instructions.
+
+---
+
+### Docker Compose
+
+Use a docker-compose.yml file to define and orchestrate HOPRd alongside supporting services (e.g., databases, monitoring tools). Great for multi‑container setups or managing multiple nodes in one environment.
+
+Refer to the [Docker Compose setup guide](./node-docker-compose.md) for configuration details.
+
+---
+
+### Binary
+
+Download and run the precompiled HOPRd executable directly from releases. No dependencies beyond the binary itself—ideal for minimal, manual setups without container tooling.
+
+Follow the [binary installation guide](./node-binary.md) to get started.
+
+---
+
+### HOPRd package for specific Operating system
+
+Install via native package managers tailored to your operating system. Enables seamless integration with system services and simplifies updates.
+
+- For Linux systems, see the [Linux package guide](./node-linux-packages.md).
+- For macOS, refer to the [macOS package guide](./node-macos.md).
 
 ---
 
