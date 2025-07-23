@@ -76,9 +76,9 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
 
       You can find a full list of supported environment variables in the [HOPRNET github repository](https://github.com/hoprnet/hoprnet?tab=readme-ov-file#usage).
 
-   2. **Adjust node strategy settings (optional)**
+   2. **Adjust node configuration properties (optional)**
 
-      By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
+      By default, the configuration file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
 
       Edit the configuration file by running this command:
 
