@@ -1,60 +1,23 @@
 ---
 id: node-operations
-title: Stop and Start Your Node
+title: Managing Node Service
+toc_max_heading_level: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { NoCounter } from '@site/src/components/Counter';
 
-<NoCounter>
-
-## Stop your HOPR node
-
-Please select a platform to stop your HOPR node:
-
-<Tabs queryString="stop_node">
-<TabItem value="docker" label="Docker">
-
-To stop your current HOPR node, we will perform the HOPR Docker container removal procedure.
-
-1. Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label **europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable** and note the **container ID**.
-
-2. Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace `<Your_Container_ID>` with your container ID.
-
-Example: 
-
-```md
-docker rm -f 4951b2990936
-```
-
-</TabItem>
-<TabItem value="docker-compose" label="Docker Compose">
-
-1. Go to your **compose** folder.
-
-2. Use the profiles feature to stop only the **hoprd** profile associated with the hopr node. 
-
-    Run the following command: `COMPOSE_PROFILES=hoprd docker compose down`
-
-</TabItem>
-<TabItem value="dappnode" label="Dappnode">
-
-1. Connect to your Dappnode dashboard.
-
-2. Go to **Packages**, click [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), click on **Pause** icon to stop HOPR package.
-
-</TabItem>
-</Tabs>
+This section explains how to start, stop, and restart your HOPRd node, as well as where to find important files such as the database, log files, identity key, and configuration.
 
 ---
 
-## Start your HOPR node
-
-Please select platform to start your HOPR node:
-
-<Tabs queryString="start_node">
+Select the platform where your HOPRd node is running to view the relevant service management instructions and file paths:
+<NoCounter>
+<Tabs queryString="node_service">
 <TabItem value="docker" label="Docker">
+
+### Start the HOPRd node
 
 1. Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
 
@@ -64,23 +27,161 @@ Please select platform to start your HOPR node:
 
 3. Run your configured HOPR command by pasting it into the terminal.
 
+---
+
+### Stop the HOPRd node
+
+To stop your current HOPR node, we will perform the HOPR Docker container removal procedure.
+
+1. Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label **europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable** and note the **container ID**.
+
+2. Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace `<Your_Container_ID>` with your container ID.
+
+    Example: 
+
+    ```md
+    docker rm -f 4951b2990936
+    ```
+
 </TabItem>
-<TabItem value="docker-compose" label="Docker Compose">
+<TabItem value="docker_compose" label="Docker Compose">
+
+### Start the HOPRd node
 
 1. Go to your **compose** folder.
 
 2. Use the profiles feature to start only the **hoprd** profile associated with the hopr node. 
 
-    Run the following command: `COMPOSE_PROFILES=hoprd docker compose up -d`
+    Run the following command: 
+    
+    ```
+    COMPOSE_PROFILES=hoprd docker compose up -d
+    ```
+
+---
+
+### Stop the HOPRd node
+
+1. Go to your **compose** folder.
+
+2. Use the profiles feature to stop only the **hoprd** profile associated with the hopr node. 
+
+    Run the following command: 
+    
+    ```
+    COMPOSE_PROFILES=hoprd docker compose down
+    ```
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
+### Start the HOPRd node
+
 1. Connect to your Dappnode dashboard.
+
 2. Start your HOPR node based on your current needs:
 
     - To resume an existing HOPR package, navigate to **Packages**, select the [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), and click the **Play** icon to activate it.
     - To set up a new HOPR package, please refer to this [guide](node-dappnode.md#install-the-hopr-package).
+
+---
+
+### Stop the HOPRd node
+
+1. Connect to your Dappnode dashboard.
+
+2. Go to **Packages**, click [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), click on **Pause** icon to stop HOPR package.
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+After installing the HOPRd package, the following directories and files are created:
+
+| **Purpose**         | **Path**         | **Description**                                                    |
+| ------------------- | ---------------- | ------------------------------------------------------------------ |
+| Configuration files | `/etc/hoprd`     | Contains configuration files like `hoprd.cfg.yaml` and `hoprd.env` |
+| Data directory      | `/var/lib/hoprd` | Stores the node’s database and runtime data                        |
+| Log files           | `/var/log/hoprd` | Runtime logs generated by the node                                 |
+
+The HOPRd package sets up a `systemd` service named `hoprd`, which you can manage using `systemctl`.
+
+1. **Start the HOPRd node**
+
+   Starts the node if it’s not already running:
+
+   ```
+   sudo systemctl start hoprd
+   ```
+
+2. **Stop the HOPRd node**
+
+   Stops the running node:
+
+   ```
+   sudo systemctl stop hoprd
+   ```
+
+3. **Restart the HOPRd node**
+
+   Stops and then restarts the node:
+
+   ```
+   sudo systemctl restart hoprd
+   ```
+
+4. **Check the Node Status**
+
+   Displays the current status, including whether it's active and recent log output:
+
+   ```
+   sudo systemctl status hoprd
+   ```
+
+</TabItem>
+<TabItem value="macos" label="macOS">
+
+After installing the HOPRd package, the following directories and files are created:
+
+| **Purpose**         | **Path**                      | **Description**                             |
+| ------------------- | ----------------------------- | ------------------------------------------- |
+| Configuration files | `$(brew --prefix)/etc/hoprd`     | Contains `hoprd.cfg.yaml` and `hoprd.env`   |
+| Data directory      | `$(brew --prefix)/var/lib/hoprd` | Stores the node’s runtime data and database |
+| Log files           | `$(brew --prefix)/var/log/hoprd` | Logs generated by the node                  |
+
+During installation via Homebrew on macOS, HOPRd is registered as a background service using macOS's `launchd` system through the brew services interface.  
+
+1. **Start the HOPRd node**
+
+   Starts the node if it’s not already running:
+
+   ```
+   brew services start hoprd
+   ```
+
+2. **Stop the HOPRd node**
+
+   Stops the running node:
+
+   ```
+   brew services stop hoprd
+   ```
+
+3. **Restart the HOPRd node**
+
+   Stops and then restarts the node:
+
+   ```
+   brew services restart hoprd
+   ```
+
+4. **Check the Node Status**
+
+   Displays the current status, including whether it's active and recent log output:
+
+   ```
+   brew services status hoprd
+   ```
+
 </TabItem>
 </Tabs>
 
