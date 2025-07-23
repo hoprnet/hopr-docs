@@ -6,6 +6,12 @@ title: macOS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+
+Please note that you must start the onboarding process before setting up your node. To start, visit the [Overview](./run-a-node-overview.md) page.
+
+:::
+
 This guide explains how to install and run the HOPRd node natively on macOS using [Homebrew](https://brew.sh), the macOS package manager. Installing HOPRd as a native package means it integrates with your system in a standard, macOS-friendly way—no containers or virtualization needed.
 
 ---
@@ -54,7 +60,7 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
 
       | Flag                                                        | Description                              |
       | ----------------------------------------------------------- | ---------------------------------------- |
-      | `HOPRD_HOST`                            | Your public libp2p endpoint (Default port is `9091`)  |
+      | `HOPRD_HOST`                            | Your public libp2p endpoint `<YOUR_PUBLIC_IP>:<LIBP2P_PORT>` (Default libp2p port is `9091`)  |
       | `HOPRD_PASSWORD`                           | Passphrase to encrypt your identity file. Write this down, as you'll need it to restore your node in the future. |
       | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
       | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
@@ -67,6 +73,8 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
       ```
       sudo vim $(brew --prefix)/etc/hoprd/hoprd.env
       ```
+
+      You can find a full list of supported environment variables in the [HOPRNET github repository](https://github.com/hoprnet/hoprnet?tab=readme-ov-file#usage).
 
    2. **Adjust node strategy settings (optional)**
 

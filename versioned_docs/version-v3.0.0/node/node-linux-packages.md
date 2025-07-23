@@ -6,6 +6,12 @@ title: Linux
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+
+Please note that you must start the onboarding process before setting up your node. To start, visit the [Overview](./run-a-node-overview.md) page.
+
+:::
+
 When installing HOPRd via native packages on Linux (e.g., `.deb` or `.rpm`), the node integrates directly into the Linux file system using standard conventions.
 
 ---
@@ -176,7 +182,7 @@ Before proceeding, select Linux distribution:
 
    | Flag                                                        | Description                              |
    | ----------------------------------------------------------- | ---------------------------------------- |
-   | `HOPRD_HOST`                            | Your public libp2p endpoint (Default port is `9091`)  |
+   | `HOPRD_HOST`                            | Your public libp2p endpoint `<YOUR_PUBLIC_IP>:<LIBP2P_PORT>` (Default libp2p port is `9091`)  |
    | `HOPRD_PASSWORD`                           | Passphrase to encrypt your identity file. Write this down, as you'll need it to restore your node in the future. |
    | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
    | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
@@ -186,6 +192,8 @@ Before proceeding, select Linux distribution:
 
 
    These environment variables are stored in: `/etc/hoprd/hoprd.env`
+
+   You can find a full list of supported environment variables in the [HOPRNET github repository](https://github.com/hoprnet/hoprnet?tab=readme-ov-file#usage).
 
 2. **Adjust node strategy settings (optional)**
 
