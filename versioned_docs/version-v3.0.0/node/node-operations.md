@@ -1,7 +1,7 @@
 ---
 id: node-operations
 title: Managing Node Service
-toc_max_heading_level: 2
+hide_table_of_contents: true
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,7 +19,7 @@ Select the platform where your HOPRd node is running to view the relevant servic
 
 ### Start the HOPRd node
 
-1. Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
+1. Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md).
 
 2. Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#configure-hoprd-command). 
 
@@ -105,37 +105,53 @@ After installing the HOPRd package, the following directories and files are crea
 
 The HOPRd package sets up a `systemd` service named `hoprd`, which you can manage using `systemctl`.
 
-1. **Start the HOPRd node**
+---
 
-   Starts the node if it’s not already running:
+### Start the HOPRd node
+
+1. Open **Terminal** application
+
+2. Run the following command to start HOPRd node: 
 
    ```
    sudo systemctl start hoprd
    ```
+---
 
-2. **Stop the HOPRd node**
+### Stop the HOPRd node
 
-   Stops the running node:
+1. Open **Terminal** application
+
+2. Run the following command to stop HOPRd node: 
 
    ```
    sudo systemctl stop hoprd
    ```
+---
 
-3. **Restart the HOPRd node**
+### Restart the HOPRd node
 
-   Stops and then restarts the node:
+1. Open **Terminal** application
+
+2. Run the following command to restart HOPRd node: 
 
    ```
    sudo systemctl restart hoprd
    ```
 
-4. **Check the Node Status**
+---
 
-   Displays the current status, including whether it's active and recent log output:
+### Check the HOPRd node status
 
-   ```
-   sudo systemctl status hoprd
-   ```
+   Displays the current status, including whether it's active and recent log output.
+
+   1. Open **Terminal** application
+
+   2. Run the following command to check HOPRd node status: 
+
+      ```
+      sudo systemctl status hoprd
+      ```
 
 </TabItem>
 <TabItem value="macos" label="macOS">
@@ -150,37 +166,53 @@ After installing the HOPRd package, the following directories and files are crea
 
 During installation via Homebrew on macOS, HOPRd is registered as a background service using macOS's `launchd` system through the brew services interface.  
 
-1. **Start the HOPRd node**
+---
 
-   Starts the node if it’s not already running:
+### Start the HOPRd node
+
+1. Open **Terminal** application
+
+2. Run the following command to start HOPRd node: 
 
    ```
    brew services start hoprd
    ```
+---
 
-2. **Stop the HOPRd node**
+### Stop the HOPRd node
 
-   Stops the running node:
+1. Open **Terminal** application
+
+2. Run the following command to stop HOPRd node: 
 
    ```
    brew services stop hoprd
    ```
+---
 
-3. **Restart the HOPRd node**
+### Restart the HOPRd node
 
-   Stops and then restarts the node:
+1. Open **Terminal** application
+
+2. Run the following command to restart HOPRd node: 
 
    ```
    brew services restart hoprd
    ```
 
-4. **Check the Node Status**
+---
 
-   Displays the current status, including whether it's active and recent log output:
+### Check the HOPRd node status
 
-   ```
-   brew services status hoprd
-   ```
+   Displays the current status, including whether it's active and recent log output.
+
+   1. Open **Terminal** application
+
+   2. Run the following command to check HOPRd node status: 
+
+      ```
+      brew services status hoprd
+      ```
 
 </TabItem>
 </Tabs>
