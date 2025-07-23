@@ -86,7 +86,7 @@ Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
 | `--safeAddress '<SAFE_WALLET_ADDRESS>'`                     | Your staking Safe wallet address         |
 | `--moduleAddress '<MODULE_ADDRESS>'`                        | Your staking Module contract address     |
 | `--host '<YOUR_PUBLIC_IP>:9091'`                            | Your public libp2p endpoint (port 9091)  |
-| `--provider '<CUSTOM_RPC_PROVIDER>'`                        | Gnosis Chain RPC URL                     |
+| `--provider '<CUSTOM_RPC_PROVIDER>'`                        | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).                    |
 | `--configurationFilePath '/app/conf/hoprd-docker.cfg.yaml'` | Path to your custom strategy YAML file   |
 
 

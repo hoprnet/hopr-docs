@@ -46,15 +46,38 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
 
       Once you finished, save file.
 
-2. **Configure hoprd node (optional)**
-
-   By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
-
-   Edit the configuration file by running this command:
+2. **Configure hoprd node**
    
-   ```
-   $(brew --prefix)/etc/hoprd/hoprd.cfg.yaml
-   ```
+   1. **Adjust environment variables**
+
+      Below is a quick reference of all the necessary environment variables you may need to configure:
+
+      | Flag                                                        | Description                              |
+      | ----------------------------------------------------------- | ---------------------------------------- |
+      | `HOPRD_HOST`                            | Your public libp2p endpoint (Default port is `9091`)  |
+      | `HOPRD_PASSWORD`                           | Passphrase to encrypt your identity file. Write this down, as you'll need it to restore your node in the future. |
+      | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
+      | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
+      | `HOPRD_MODULE_ADDRESS`                        | Your staking Module contract address     |
+      | `HOPRD_PROVIDER`                        | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)). |
+      | `HOPRD_API_PORT` | REST API port to access via Admin UI (Default port is `3001`)   |
+
+      Edit the environment variables file by running this command:
+
+      ```
+      sudo vim $(brew --prefix)/etc/hoprd/hoprd.env
+      ```
+
+   2. **Adjust node strategy settings (optional)**
+
+      By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
+
+      Edit the configuration file by running this command:
+
+      ```
+      sudo vim $(brew --prefix)/etc/hoprd/hoprd.cfg.yaml
+      ```
+---
 
 ## Link your node to your HOPR Safe wallet
 
