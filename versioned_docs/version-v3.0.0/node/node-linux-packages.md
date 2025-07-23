@@ -183,7 +183,7 @@ Before proceeding, select Linux distribution:
    | Flag                                                        | Description                              |
    | ----------------------------------------------------------- | ---------------------------------------- |
    | `HOPRD_HOST`                            | Your public libp2p endpoint `<YOUR_PUBLIC_IP>:<LIBP2P_PORT>` (Default libp2p port is `9091`)  |
-   | `HOPRD_PASSWORD`                           | Passphrase to encrypt your identity file. Write this down, as you'll need it to restore your node in the future. |
+   | `HOPRD_PASSWORD`                           | Passphrase used to encrypt your identity file. Make sure to **write it down**, as you'll need it to restore your node in the future. If the `HOPRD_PASSWORD` environment variable is not set during installation, a new password will be generated automatically. |
    | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
    | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
    | `HOPRD_MODULE_ADDRESS`                        | Your staking Module contract address     |
@@ -197,7 +197,7 @@ Before proceeding, select Linux distribution:
 
 2. **Adjust node configuration properties (optional)**
 
-   By default, the strategy settings file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
+   By default, the configuration file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
 
    The configuration file is located at: `/etc/hoprd/hoprd.cfg.yaml`
 
@@ -207,11 +207,8 @@ Before proceeding, select Linux distribution:
 
 1. **Retrieve HOPRd node address**
 
-   Retrieve HOPRd node blockchain address (**0x...**) from the logs executing command:
-
-   ```
-   grep "blockchain_address" /var/log/hoprd/hoprd.log | head -n 1
-   ```
+   1. Once you've completed the HOPRd installation, the terminal will output the HOPRd configuration.
+   2. In the configuration output, locate the **Node Address**.
 
 2. **Register node address on the HOPR Staking Hub**
 

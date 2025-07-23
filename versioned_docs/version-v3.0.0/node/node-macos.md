@@ -61,7 +61,7 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
       | Flag                                                        | Description                              |
       | ----------------------------------------------------------- | ---------------------------------------- |
       | `HOPRD_HOST`                            | Your public libp2p endpoint `<YOUR_PUBLIC_IP>:<LIBP2P_PORT>` (Default libp2p port is `9091`)  |
-      | `HOPRD_PASSWORD`                           | Passphrase to encrypt your identity file. Write this down, as you'll need it to restore your node in the future. |
+      | `HOPRD_PASSWORD`                           | Passphrase used to encrypt your identity file. Make sure to **write it down**, as you'll need it to restore your node in the future. If the `HOPRD_PASSWORD` environment variable is not set during installation, a new password will be generated automatically. |
       | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
       | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
       | `HOPRD_MODULE_ADDRESS`                        | Your staking Module contract address     |
