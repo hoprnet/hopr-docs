@@ -127,22 +127,30 @@ Once you've completed the onboarding process, ensure your node is fully synced (
 
 To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
 
-1. Once the onboarding process is completed, start your node by running command:
+1. **Start the HOPRd node**
+
+   After completing the onboarding process, start your node by running the command:
 
    ```
    brew services start hoprd
    ```
 
-2. Install HOPR Admin UI and Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
+2. **Install the HOPR Admin UI** 
 
-3. On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
+   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
+
+3. **Check if the node is 100% synced**
+
+   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
    If it’s not fully synced yet, you’ll need to wait until the process is complete.
 
-4. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
+4. **Open outgoing channel and verify**
+
+   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
    Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
    You’ll receive a notification once the channel has been opened.
-
-5. Navigate to the `CHANNELS: OUT` page to verify the outgoing payment channel has been successfully opened.
+   
+   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened.
 
 ---
 
