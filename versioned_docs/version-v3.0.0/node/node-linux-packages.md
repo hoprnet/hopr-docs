@@ -167,7 +167,7 @@ Before proceeding, select Linux distribution:
 
       ```
       sudo pacman -Syu
-      sudo pacman --noconfirm -U ./hoprd.pkg.tar.zst
+      sudo -E pacman --noconfirm -U ./hoprd.pkg.tar.zst
       ```
 </TabItem>
 </Tabs>

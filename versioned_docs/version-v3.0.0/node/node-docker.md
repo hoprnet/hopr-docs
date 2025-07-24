@@ -82,7 +82,7 @@ Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
 | Flag                                                        | Description                              |
 | ----------------------------------------------------------- | ---------------------------------------- |
 | `--apiToken '<YOUR_API_TOKEN>'`                             | Your Admin UI API token                  |
-| `--password '<YOUR_DB_PASSWORD>'`                           | Passphrase to encrypt your identity file. write down this password, as you will need it if you ever need to restore your node in the future. |
+| `--password '<YOUR_DB_PASSWORD>'`                           | Passphrase to encrypt your identity file. Write down this password, as you will need it if you ever need to restore your node in the future. |
 | `--safeAddress '<SAFE_WALLET_ADDRESS>'`                     | Your staking Safe wallet address         |
 | `--moduleAddress '<MODULE_ADDRESS>'`                        | Your staking Module contract address     |
 | `--host '<YOUR_PUBLIC_IP>:9091'`                            | Your public libp2p endpoint (port 9091)  |
