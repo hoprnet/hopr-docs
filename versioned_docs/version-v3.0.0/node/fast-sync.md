@@ -17,7 +17,13 @@ There are two methods for using Fast Sync:
 
 - **Manual Fast Sync:** This method requires you to use your own pre-synced database files to initiate the fast sync process. To use this, you must have already fully synced your node at least once.
 
-- **Automatic Fast Sync:** This method uses pre-synced database files provided by HOPR, which are automatically downloaded and used to proceed with the fast sync.
+- **Automatic Fast Sync:** This method uses pre-synced database files provided by HOPR, which are automatically downloaded and used to proceed with the fast sync. 
+
+:::note Disclaimer
+
+By selecting the **Automatic Fast Sync** method, you acknowledge and agree to trust the integrity and accuracy of the pre-synced database files **provided by HOPR**. You assume all responsibility for using these files with your node and do so at your own risk. 
+
+:::
 
 Please select method to implement Fast Sync feature:
 
