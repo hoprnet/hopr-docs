@@ -21,7 +21,7 @@ There are two methods for using Fast Sync:
 
 :::note Disclaimer
 
-By selecting the **Automatic Fast Sync** method, you acknowledge and agree to trust the integrity and accuracy of the pre-synced database files **provided by HOPR**. You assume all responsibility for using these files with your node and do so at your own risk. 
+By implementing the **Automatic Fast Sync** method, you acknowledge and agree to trust the integrity and accuracy of the pre-synced database files **provided by HOPR**. You assume all responsibility for using these files with your node and do so at your own risk. 
 
 :::
 
@@ -68,9 +68,9 @@ Please select platform to configure Fast Sync feature:
 <Tabs queryString="fs_config">
 <TabItem value="docker" label="Docker">
 
-1. Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
+1. Locate the database log files that you previously gathered from this [guide](fast-sync.md?fs_config=docker#preparing-for-manual-fast-sync).
 
-2. Ensure that you have stopped the HOPRd node Docker container. You can find more details [here](node-operations.md#stop-your-hopr-node).
+2. Ensure that you have stopped the HOPRd node Docker container. You can find more details [here](node-operations.md?node_service=docker#stop-the-hoprd-node).
 
 3. On your machine, navigate to the **.hoprd-db-dufour** folder. Inside, locate the **db** folder and delete all files in it.
 
@@ -80,14 +80,14 @@ Please select platform to configure Fast Sync feature:
 
 6. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `keep_logs: true` and `fast_sync: true`. Save the changes to the configuration file.
 
-7. Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
+7. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-1. Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
+1. Locate the database log files that you previously gathered from this [guide](fast-sync.md?fs_config=docker-compose#preparing-for-manual-fast-sync).
 
-2. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
+2. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker-compose#stop-the-hoprd-node).
 
 3. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `keep_logs: true` and `fast_sync: true`. Save the changes to the configuration file.
 
@@ -95,12 +95,12 @@ Please select platform to configure Fast Sync feature:
 
 5. Locate the previously backed-up files: **hopr_logs.db**, **hopr_logs.db-shm**, and **hopr_logs.db-wal**. Copy all three files into the destination **db** folder.
 
-6. Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
+6. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker-compose#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-1. Locate the database log files that you previously gathered from this [guide](#preparing-for-fast-sync).
+1. Locate the database log files that you previously gathered from this [guide](fast-sync.md?fs_config=dappnode#preparing-for-manual-fast-sync).
 
 2. Connect to your DAppNode dashboard.
 
@@ -152,20 +152,20 @@ Please select platform to configure Fast Sync feature:
 <Tabs queryString="auto_fast_sync">
 <TabItem value="docker" label="Docker">
 
-1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
+1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker#stop-the-hoprd-node).
 
 2. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
-3. Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
+3. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
+1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker-compose#stop-the-hoprd-node).
 
 2. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
-3. Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
+3. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker-compose#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">

@@ -34,7 +34,7 @@ Please select your platform:
 
 4. **Launch HOPRd node**
 
-    1. After uploading the configuration file, [stop your current node](./node-operations.md#stop-your-hopr-node).
+    1. After uploading the configuration file, [stop your current node](node-operations.md?node_service=docker#stop-the-hoprd-node).
 
     2. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'** to link your configuration file to your current docker command.
 

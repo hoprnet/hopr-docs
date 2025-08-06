@@ -185,7 +185,7 @@ Please select platform to re-sync node:
 <Tabs queryString="resync">
 <TabItem value="docker" label="Docker">
 
-1. **Stop your node**: follow this [guide](./node-operations.md#stop-your-hopr-node) to stop your HOPR node.
+1. **Stop your node**: follow this [guide](node-operations.md?node_service=docker#stop-the-hoprd-node) to stop your HOPR node.
 
 2. **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
 
@@ -195,9 +195,9 @@ Please select platform to re-sync node:
 
     3.2 Locate the **db** folder and remove **all** files inside it.
 
-4. **Start your node**: once the cleanup is done, start your node again by following this [guide](./node-operations.md#start-your-hopr-node).
+4. **Start your node**: once the cleanup is done, start your node again by following this [guide](node-operations.md?node_service=docker#start-the-hoprd-node).
 
-5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
+5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md).
 
 </TabItem>
 <TabItem value="docker_compose" label="Docker Compose">
@@ -218,7 +218,7 @@ Please select platform to re-sync node:
     COMPOSE_PROFILES=hoprd docker compose up -d
     ```
 
-5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
+5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md).
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
@@ -231,7 +231,7 @@ Please select platform to re-sync node:
 
 4. **Restore your node identity**: Follow this guide to [restore your node identity](backup-restore-update.md#restore-your-node-identity).
 
-5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md#preparing-for-fast-sync).
+5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md).
 
 6. **Verify the restore process**: Go to the [Logs tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs). In the logs, you should see syncing process lines, indicating the restore was successful and the re-sync process is underway. Wait for the node to fully sync to 100%.
 
