@@ -244,8 +244,13 @@ Please select your platform to update your HOPRd node:
         ```
         docker rm -f 8baa38408847
         ```
+3. **Enable Fast Sync (Optional)**
 
-3. **Update Your Configuration File**
+    Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
+
+4. **Update Your Configuration File**
+
+    **Note:**  If you followed the third step to enable Fast Sync, you can skip this step.
 
     Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md?config=docker#create-and-apply-configuration-file-to-your-node).
 
@@ -289,7 +294,7 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
         mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
         ```
 
-3. **Update Your Configuration File**
+3. **Adjust Your Configuration File**
 
     1. **Locate configuration file**
     
@@ -298,7 +303,7 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
         /hoprd/conf/hoprd.cfg.yaml
         ```
 
-    3.2. **Edit hoprd.cfg.yaml file**
+    2. **Edit hoprd.cfg.yaml file**
 
         - Find the `strategy.strategies` section.
         - Under the `!AutoRedeeming` strategy, replace the existing 18-decimal value for `minimum_redeem_ticket_value` with:
@@ -306,6 +311,7 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
             ```
             minimum_redeem_ticket_value = '2.5 wxHOPR'
             ```
+        - **(Optional step)** Enable Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
 
 4. **Start hoprd Services**
 
@@ -333,7 +339,13 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
 
     During the update process, all data fields should be pre-filled. Click `Submit` to complete the HOPRd node update process.
 
-5. **Apply the Latest Configuration File**
+5. **Enable Fast Sync (Optional)**
+
+    Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
+
+6. **Update Your Configuration File**
+
+    **Note:**  If you followed the third step to enable Fast Sync, you can skip this step.
 
     Ensure your configuration file is current by applying the [latest configuration file](manage-node-strategies.md?config=dappnode#create-and-apply-configuration-file-to-your-node).
  

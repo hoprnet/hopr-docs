@@ -11,9 +11,20 @@ import { NoCounter } from '@site/src/components/Counter';
 
 ## What is Fast Sync?
 
-The Fast Sync feature, introduced in HOPRd version 2.2.0, speeds up node synchronization by using HOPR logs database files. These files store logs from a previous sync performed via an RPC provider, allowing your node to read on-chain data efficiently. With Fast Sync, your node can complete synchronization in just 10 to 20 minutes, even without a local RPC provider. However, the exact duration may vary based on your hardware specifications.
+Fast Sync, a feature introduced in HOPRd version 2.2.0, significantly accelerates node synchronization by leveraging HOPR logs database files. These files store logs from a previous synchronization performed via an RPC provider, allowing your node to read on-chain data with enhanced efficiency. With Fast Sync, you can complete synchronization in just 10 to 20 minutes, even without a local RPC provider. Please note that the exact duration may vary depending on your hardware specifications.
 
-## Preparing for Fast Sync
+There are two methods for using Fast Sync:
+
+- **Manual Fast Sync:** This method requires you to use your own pre-synced database files to initiate the fast sync process. To use this, you must have already fully synced your node at least once.
+
+- **Automatic Fast Sync:** This method uses pre-synced database files provided by HOPR, which are automatically downloaded and used to proceed with the fast sync.
+
+Please select method to implement Fast Sync feature:
+
+<Tabs queryString="fast_sync_method">
+<TabItem value="manual" label="Manual Fast Sync">
+
+## Preparing for Manual Fast Sync
 
 1. First, you must upgrade your node to the latest version. To update your node, follow this [guide](backup-restore-update.md#update-your-node).
 
@@ -121,6 +132,76 @@ Please select platform to configure Fast Sync feature:
 9. **Restore the modified backup file**: Go to the [Backup tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/backup), click **Restore**, and select the modified archive **hopr.public.dappnode.eth_backup_resync.tar.xz**. On the **Restoring backup** popup, click **Restore**. Once you receive the notification message "Restored backup for HOPR", the process has been completed successfully.
 
 10. **Verify the restore process**: Go to the [Logs tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs). In the logs, you should see syncing process lines, indicating the restore was successful and the re-sync process is underway. Wait for the node to fully sync to 100%.
+
+</TabItem>
+</Tabs> 
+
+</TabItem>
+<TabItem value="automatic" label="Automatic Fast Sync">
+
+## Enabling Fast Sync on your node
+
+Please select platform to configure Fast Sync feature:
+
+<Tabs queryString="auto_fast_sync">
+<TabItem value="docker" label="Docker">
+
+1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
+
+2. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+
+3. Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
+
+</TabItem>
+<TabItem value="docker-compose" label="Docker Compose">
+
+1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md#stop-your-hopr-node).
+
+2. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+
+3. Start your HOPRd node. More details can be found [here](node-operations.md#start-your-hopr-node).
+
+</TabItem>
+<TabItem value="dappnode" label="Dappnode">
+
+1. **Backup your node**
+
+    Before proceeding with Fast sync process, ensure you back up your node:
+
+    1. Connect to your DAppNode dashboard.
+
+    1. Go to the [HOPR package Backup page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/backup).
+
+    2. Click **Backup now** and download the archived file **hopr.public.dappnode.eth_backup.tar.xz** to your computer. Make an additional copy and store it securely on your computer.
+
+2. **Adjust Your Configuration File**
+
+    1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+    2. Inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+
+3. **Upload Configuration File**
+
+    1. After adjusting the configuration file, connect to your Dappnode dashboard, locate the **HOPR** package, and navigate to the **File Manager** tab.
+
+        ![File Manager](/img/node/dappnode-file-manager.png)
+
+    2. In the **Upload file** section, click the **Browse** button next to the **Choose file** field, then select your newly created configuration file. Ensure that the configuration file is named **hoprd.cfg.yaml**.
+
+    3. In the text field under the **Upload file** section, enter the path **`/app/hoprd/conf/`**.
+
+        ![Dappnode file upload path](/img/node/dappnode-prefilled-config-data.png)
+
+    4. Click the **Upload** button and wait for the upload to finish.
+
+4. **Restart HOPRd package**
+
+    1. Go to the **Info** page within your HOPR package, and click the **Restart** button to restart your node.
+
+    2. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
+
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

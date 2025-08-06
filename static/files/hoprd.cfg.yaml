@@ -33,8 +33,3 @@ api:
   host:
     address: !IPv4 0.0.0.0
     port: 3001
-inbox:
-  capacity: 512
-  max_age: 900
-  excluded_tags:
-    - 0
