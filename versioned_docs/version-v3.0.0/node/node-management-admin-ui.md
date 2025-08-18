@@ -16,7 +16,7 @@ The HOPR Admin UI provides a graphical interface that you can use to interact wi
 Open your terminal and paste the following Docker command to start HOPR Admin UI:
 
 ```bash
-docker run --pull always -d -p 4677:4677 --name hopr-admin --platform linux/amd64/v8 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+docker run -d --pull=always -p 4677:4677 --name hopr-admin-for-3.0 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:3.0.0
 ```
 
 That's it! HOPR Admin UI should be running, and you can now [access it through your browser](./node-management-admin-ui.md#access-the-hopr-admin-ui).
