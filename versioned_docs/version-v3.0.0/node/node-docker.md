@@ -54,18 +54,20 @@ docker run \
   --log-opt max-size=100M \
   --log-opt max-file=5 \
   -ti \
-  -v $HOME/.hoprd-db-dufour/:/app/hoprd-db \
+  -v $HOME/.hoprd-rotsee/:/app/hoprd-db \
   --name hoprd \
   -p 9091:9091/tcp \
   -p 9091:9091/udp \
   -p 3001:3001 \
+  -p 1422:1422/udp \
+  -p 1422:1422/tcp \
   -e RUST_LOG=info \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
-  --network dufour \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:kaunas-latest \
+  --network rotsee \
   --init \
   --api \
   --announce \
-  --identity /app/hoprd-db/.hopr-id-dufour \
+  --identity /app/hoprd-db/.hopr-id-rotsee \
   --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
   --apiToken '<YOUR_API_TOKEN>' \
