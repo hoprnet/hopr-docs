@@ -55,7 +55,7 @@ docker run \
   --log-opt max-file=5 \
   -ti \
   -v $HOME/.hoprd-rotsee/:/app/hoprd-db \
-  --name hoprd \
+  --name hoprd-rotsee \
   -p 9091:9091/tcp \
   -p 9091:9091/udp \
   -p 3001:3001 \
