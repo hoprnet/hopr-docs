@@ -336,7 +336,29 @@ Please select your platform to update your HOPRd node:
 
 1. **Back Up Your Identity File**
 
-    Follow the instructions [here](./backup-restore-update?backup_identity=dappnode#backup-your-node-identity) to back up your identity file.
+    1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+
+    2. In the `Download file` section, enter the following path and click `Download` to retrieve the identity file:
+    
+        ```
+        /app/hoprd-db/.hopr-identity
+        ```
+
+        :::important
+        If you're using a browser like Brave, the identity file may not download automatically. Click `Keep` in the browser's downloads section to confirm. Ensure the file is fully downloaded, or you risk losing your node identity.
+        :::
+
+    3. Retrieve your database password by going to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).  
+        
+        Under Identity file password, click the eye icon to unhide the database password and write it down.
+
+        Default password:
+        ```
+        "open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0"
+        ```
+        (Including the double quotes)
+
+    4. Store both the downloaded `hopr-identity.tar` file and your database password in a secure location for future recovery.
 
 2. **Open the Dappstore**
 
