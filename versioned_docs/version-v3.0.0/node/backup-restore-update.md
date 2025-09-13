@@ -215,11 +215,21 @@ Please select your platform to update your HOPRd node:
 <Tabs queryString="update_node">
 <TabItem value="docker" label="Docker">
 
-1. **Back Up Your Identity File**
+1. **Redeem manually tickets and close incoming channels**
+
+    :::info
+    Before redeeming tickets, note that the `minimum_redeem_ticket_value` configuration setting determines the minimum channel balance. If the balance falls below this value, it represents the amount of HOPR tokens you’re willing to lose. You can always lower this amount before redeeming all tickets.
+    :::
+
+    1. Connect to your node via the `Admin UI`, navigate to the `Tickets` page, and click the **Redeem All Tickets** icon. Wait until the **unredeemed tickets** value decreases and approaches 0.
+
+    2. Navigate to the `CHANNELS: IN` page and close all incoming channels by clicking the **Close Incoming Channel** button next to each channel.
+
+2. **Back Up Your Identity File**
 
     Follow the instructions in this [guide](./backup-restore-update?backup_identity=docker#backup-your-node-identity).
 
-2. **Remove current running HOPRd container**
+3. **Remove current running HOPRd container**
 
     1. Enter the following command in your terminal to check running docker containers:
         
@@ -244,78 +254,79 @@ Please select your platform to update your HOPRd node:
         ```
         docker rm -f 8baa38408847
         ```
-3. **Enable Fast Sync (Optional)**
+3. **Remove Database Files**
 
-    Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
+    1. Navigate to your HOPRd node folder, which is named `.hoprd-db-dufour` by default.
+
+    2. Execute the following command to delete all database files:
+
+        ```
+        rm -rf db && rm -f tbf
+        ```
 
 4. **Update Your Configuration File**
 
-    **Note:**  If you followed the third step to enable Fast Sync, you can skip this step.
+    Ensure your configuration file is up to date by applying the [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml).
 
-    Ensure your configuration file is up to date by applying the [latest configuration file](manage-node-strategies.md?config=docker#create-and-apply-configuration-file-to-your-node).
+5. **Enable Fast Sync (Optional)**
+
+    Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
+
+6. **Start Your Node**
+
+    To start your node, use the command you previously executed or refer to the [Docker command](node-docker.md#configure-hoprd-command).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
-The update process occurs when you stop and restart the `hoprd` services, ensuring the latest version is applied.
+1. **Redeem manually tickets and close incoming channels**
 
-1. **Stop hoprd Services**
+    :::info
+    Before redeeming tickets, note that the `minimum_redeem_ticket_value` configuration setting determines the minimum channel balance. If the balance falls below this value, it represents the amount of HOPR tokens you’re willing to lose. You can always lower this amount before redeeming all tickets.
+    :::
+
+    1. Connect to your node via the `Admin UI`, navigate to the `Tickets` page, and click the **Redeem All Tickets** icon. Wait until the **unredeemed tickets** value decreases and approaches 0.
+
+    2. Navigate to the `CHANNELS: IN` page and close all incoming channels by clicking the **Close Incoming Channel** button next to each channel.
+
+2. **Back Up Your HOPRd node**
+
+    1. Connect to your machine via ssh.
+    
+    2. Backup whole HOPRd node `compose` folder by executing this command:
+
+        ``` 
+        cp -r compose compose_backup
+        ``` 
+
+3. **Stop hoprd Services**
 
     Navigate to the `compose` folder and stop the `hoprd` services by running:
+   
     ```
     COMPOSE_PROFILES=hoprd docker compose down
     ```
 
-2. **(Optional) Update HOPRd Node Folder Structure**
+4. **Update compose folder and complete configuration using previous version**
 
-    Starting with HOPRd v3.0.0, unified paths have been introduced for the database, identity, and configuration files across all platforms.  
-    Your existing paths still work, but it's strongly recommended to adopt the new structure for long-term compatibility.
+    The following command assumes your HOPRd node folder is named `compose`. It downloads the latest compose folder, merges its files with your current `compose` folder, and updates the new configuration file with required fields from the previous configuration file.
 
-    **Path Changes Overview**
+    Exit the `compose` folder and execute the following command:
 
-    | Old Path                          | New Path                    | Description                                |
-    |----------------------------------|-----------------------------|--------------------------------------------|
-    | `/compose/hoprd_data/hoprd/`     | `/compose/hoprd/data`       | Mount path for the database directory      |
-    | `/compose/hoprd_data/hopr.id`    | `/compose/hoprd/conf/hopr.id` | Path to the identity file (now in `conf`)  |
-    | `/compose/hoprd_data/hoprd.cfg.yaml` | `/compose/hoprd/conf/hoprd.cfg.yaml` | Path to the configuration file (now in `conf`) |
+    ```
+    wget https://github.com/hoprnet/hoprnet/archive/refs/heads/master.zip && unzip master.zip "hoprnet-master/deploy/compose/*" -d extracted_files && rsync -a --remove-source-files extracted_files/hoprnet-master/deploy/compose/ ./compose/ && rm -rf extracted_files/hoprnet-master/deploy/compose && rm -rf master.zip extracted_files && address=$(yq e '.hopr.host.address' compose/hoprd_data/hoprd.cfg.yaml | sed 's/!IPv4 //') && port=$(yq e '.hopr.host.port' compose/hoprd_data/hoprd.cfg.yaml) && safe_address=$(yq e '.hopr.safe_module.safe_address' compose/hoprd_data/hoprd.cfg.yaml) && module_address=$(yq e '.hopr.safe_module.module_address' compose/hoprd_data/hoprd.cfg.yaml) && yq e -i '.hopr.host.address = "!IPv4 '"$address"'"' compose/hoprd/conf/hoprd.cfg.yaml && yq e -i '.hopr.host.port = '"$port"'' compose/hoprd/conf/hoprd.cfg.yaml && yq e -i '.hopr.safe_module.safe_address = "'"$safe_address"'"' compose/hoprd/conf/hoprd.cfg.yaml && yq e -i '.hopr.safe_module.module_address = "'"$module_address"'"' compose/hoprd/conf/hoprd.cfg.yaml
+    ```
 
-    1. **Rename the Existing Node and Database Folders**
+5. **Enable automatic Fast Sync (Optional)**
 
-        From the `compose` directory, run:
-        ```
-        mv hoprd_data hoprd && mv hoprd/hoprd hoprd/data
-        ```
-
-    2. **Organize Identity and Config Files**
-
-        Still inside the `compose` folder, create a `conf` directory and move the identity and config files:
-
-        ```
-        mkdir hoprd/conf && mv hoprd/hopr.id hoprd/conf/hopr.id && mv hoprd/hoprd.cfg.yaml hoprd/conf/hoprd.cfg.yaml
-        ```
-
-3. **Adjust Your Configuration File**
-
-    1. **Locate configuration file**
+    Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
     
-        Inside the `compose` folder, locate the config file at:
-        ```
-        /hoprd/conf/hoprd.cfg.yaml
-        ```
+    To enable automatic Fast Sync, follow [this guide](fast-sync.md?fast_sync_method=automatic).
 
-    2. **Edit hoprd.cfg.yaml file**
+6. **Start hoprd Services**
 
-        - Find the `strategy.strategies` section.
-        - Under the `!AutoRedeeming` strategy, replace the existing 18-decimal value for `minimum_redeem_ticket_value` with:
-            
-            ```
-            minimum_redeem_ticket_value = '2.5 wxHOPR'
-            ```
-        - **(Optional step)** Enable Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
+    Navigate to `compose` folder and start `hoprd` services to start re-syncing process:
 
-4. **Start hoprd Services**
-
-    To apply the latest version, restart the `hoprd` services:
     ```
     COMPOSE_PROFILES=hoprd docker compose up -d
     ```
@@ -339,15 +350,11 @@ The update process occurs when you stop and restart the `hoprd` services, ensuri
 
     During the update process, all data fields should be pre-filled. Click `Submit` to complete the HOPRd node update process.
 
-5. **Enable Fast Sync (Optional)**
+5. **Enable automatic Fast Sync (Optional)**
 
-    Fast Sync significantly accelerates node synchronization. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. To enable fast sync, follow [this guide](./fast-sync.md).
-
-6. **Update Your Configuration File**
-
-    **Note:**  If you followed the third step to enable Fast Sync, you can skip this step.
-
-    Ensure your configuration file is current by applying the [latest configuration file](manage-node-strategies.md?config=dappnode#create-and-apply-configuration-file-to-your-node).
+    Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
+    
+    To enable automatic Fast Sync, follow [this guide](fast-sync.md?fast_sync_method=automatic).
  
 </TabItem>
 </Tabs>

@@ -4,7 +4,7 @@ hopr:
     allow_recursive: true
     strategies:
       - !AutoRedeeming
-        redeem_only_aggregated: true
+        redeem_only_aggregated: false
         minimum_redeem_ticket_value: "0.0000000000000001 wxHOPR"
       - !ClosureFinalizer
         max_closure_overdue: 300
