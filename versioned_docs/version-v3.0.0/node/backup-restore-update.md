@@ -372,6 +372,48 @@ Please select your platform to update your HOPRd node:
 
     During the update process, all data fields should be pre-filled. Click `Submit` to complete the HOPRd node update process.
 
+5. **Restore your node identity**
+
+    1. **Enable Viewing Hidden Files**
+
+        - **For Windows:**  
+            Open the File Manager app, and under `View → Show`, ensure that hidden files is checked.
+
+            ![Hidden Files](/img/node/Hidden_files_windows.png)
+
+        - **For Mac:**  
+            With the Finder app open, press the key combination:  
+            `Command + Shift + . (Dot)`  
+            You will need to repeat this whenever you upload the identity file.
+
+    2. **Unarchive and rename identity file**
+
+        Unarchive the recently backed-up `hopr-identity.tar` file to extract the hidden `.hopr-identity` file. Ensure your file explorer is set to display hidden files. Then, rename the `.hopr-identity` file to `hopr.id`.
+
+    3. **Pause the HOPR Package**
+
+        Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Pause` icon to stop the HOPR package.
+
+    4. **Upload the Identity File**
+
+        1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+
+        2. Under the `Upload file` section, fill in the following:
+
+            - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
+            - In the **Defaults to $WORKDIR/** field, enter:
+
+                ```
+                /app/hoprd/conf/
+                ```
+
+        3. Click the `Upload` button to upload the identity file.
+
+    5. **Restart the HOPR Package**
+
+        Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
+
+
 5. **Enable automatic Fast Sync (Optional)**
 
     Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
