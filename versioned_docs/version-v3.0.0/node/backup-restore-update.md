@@ -276,6 +276,10 @@ Please select your platform to update your HOPRd node:
 
     To start your node, use the command you previously executed or refer to the [Docker command](node-docker.md#configure-hoprd-command).
 
+7. **What's next?**
+
+    After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
+
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
@@ -330,6 +334,10 @@ Please select your platform to update your HOPRd node:
     ```
     COMPOSE_PROFILES=hoprd docker compose up -d
     ```
+
+7. **What's next?**
+
+    After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
@@ -424,6 +432,10 @@ Please select your platform to update your HOPRd node:
     Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
     
     To enable automatic Fast Sync, follow [this guide](fast-sync.md?fast_sync_method=automatic).
+
+6. **What's next?**
+
+    After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
  
 </TabItem>
 </Tabs>

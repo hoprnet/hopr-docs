@@ -13,6 +13,29 @@ import { NoCounter } from '@site/src/components/Counter';
 
 <details>
 <summary> 
+
+### How to check if the migration from HOPRd v2 to HOPRd v3 was successful?
+</summary>
+
+1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, please refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
+
+2. Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
+
+    - You can check your current HOPRd node version on the **INFO** page under the **Node** section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
+
+    - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
+
+3. On the **INFO** page, navigate to the **Network** section:
+
+    - If the Eligible status displays **Yes**, your node has successfully joined the HOPRd network.  
+    - If it displays **No**, and your node was recently created, it must reach **100%** sync before becoming eligible.
+
+4. On the **TICKETS** page, ensure that there are no **Neglected** or **Rejected** tickets and that you have already received some **Unredeemed** or **Redeemed** tickets.
+
+</details>
+
+<details>
+<summary> 
   
 ### How to check if my node is performing normally?  
 </summary>
