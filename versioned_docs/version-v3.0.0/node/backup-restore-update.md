@@ -409,10 +409,15 @@ Please select your platform to update your HOPRd node:
 
         3. Click the `Upload` button to upload the identity file.
 
-    5. **Restart the HOPR Package**
+    5. **Change configuration file path**
+
+        1. Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), scroll to the bottom and click on `SHOW ADVANCED EDITOR`. 
+        
+        2. Next to `HOPRD_CONFIGURATION_FILE_PATH` change value to `/app/hoprd/conf/hoprd.cfg.yaml` and click `Update`.
+
+    6. **Restart the HOPR Package**
 
         Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
-
 
 5. **Enable automatic Fast Sync (Optional)**
 
