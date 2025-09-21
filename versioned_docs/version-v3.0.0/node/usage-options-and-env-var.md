@@ -53,7 +53,7 @@ Options:
       --provider <PROVIDER>
           A custom RPC provider to be used for the node to connect to blockchain [env: HOPRD_PROVIDER=]
       --init...
-          initialize a database if it doesn't already exist [env: HOPRD_INIT=]
+          initialize a database if it doesn\'t already exist [env: HOPRD_INIT=]
       --forceInit...
           initialize a database, even if it already exists [env: HOPRD_FORCE_INIT=]
       --probeRecheckThreshold <SECONDS>
@@ -150,7 +150,3 @@ hoprd
 ```
 
 Special care needs to be given to the `network` argument, which defines the specific network `hoprd` node should join. Only nodes within the same network can communicate using the HOPR protocol.
-
-### Using Docker Compose with extended HOPR node monitoring
-
-Please follow the documentation for [`docker compose` based deployment](./deploy/compose/README.md).
