@@ -90,7 +90,8 @@
         "node/manage-node-strategies",
         "node/custom-rpc-provider",
         "node/fast-sync",
-        "node/ac-migration-from-legacy"
+        "node/ac-migration-from-legacy",
+        "node/usage-options-and-env-var"
       ]
     },
     {
