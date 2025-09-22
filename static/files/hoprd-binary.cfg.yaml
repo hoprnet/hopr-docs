@@ -12,7 +12,7 @@ hopr:
     strategies: 
       - !AutoRedeeming
         redeem_only_aggregated: false
-        minimum_redeem_ticket_value: "2.5 wxHOPR"
+        minimum_redeem_ticket_value: "1 wxHOPR"
       - !ClosureFinalizer
         max_closure_overdue: 300
   chain:

@@ -261,10 +261,12 @@ hopr:
         heartbeat:
             timeout: 6
     chain:
-        provider: https://gnosis-rpc.publicnode.com
         announce: true
-        check_unrealized_balance: true
         network: dufour
+        provider: https://gnosis-rpc.publicnode.com
+        keep_logs: true
+        fast_sync: true
+        enable_logs_snapshot: false
     safe_module:
         safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net
     transport:
@@ -397,18 +399,19 @@ Blockchain specific configuration.
 
 ```md
 chain:
-    provider: https://rpc.gnosischain.com
+    provider: https://gnosis-rpc.publicnode.com
     announce: true
     network: dufour
-    check_unrealized_balance: true
 ```
 
 | Settings | Description |
 | --- | --- |
-| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.|
 | `chain.announce` | Indicates whether the node should announce itself on-chain. |
 | `chain.network` | Which blockchain network should be used by the node. |
-| `chain.check_unrealized_balance` | Indicates whether the node should check channel unrealized balance when validating acknowledged tickets. We are strongly recommended to leave this enabled. |
+| `chain.provider` | RPC provider URL to use. You should add your own provider for better performance. Additional information can be found [here](./custom-rpc-provider.md). If you're using a local RPC endpoint, ensure the URL includes the **http://** prefix followed by the IP address or localhost.|
+| `chain.keep_logs` | Configures the node to retain RPC logs after processing, using more disk space but enabling future chain-node state reconciliation. |
+| `chain.fast_sync` | Configures whether to use fast synchronization during node startup. This process can take anywhere from 10 to 20 minutes, depending on your hardware specifications. |
+| `chain.enable_logs_snapshot` | Specifies the URL for downloading a publicly accessible tar.xz file containing SQLite logs database files. |
 
 ### hopr.safe_module
 
