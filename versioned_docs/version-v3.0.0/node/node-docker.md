@@ -54,20 +54,20 @@ docker run \
   --log-opt max-size=100M \
   --log-opt max-file=5 \
   -ti \
-  -v $HOME/.hoprd-rotsee/:/app/hoprd-db \
-  --name hoprd-rotsee \
+  -v $HOME/.hoprd-dufour/:/app/hoprd-db \
+  --name hoprd \
   -p 9091:9091/tcp \
   -p 9091:9091/udp \
   -p 3001:3001 \
   -p 1422:1422/udp \
   -p 1422:1422/tcp \
   -e RUST_LOG=info \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:kaunas-latest \
-  --network rotsee \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
+  --network dufour \
   --init \
   --api \
   --announce \
-  --identity /app/hoprd-db/.hopr-id-rotsee \
+  --identity /app/hoprd-db/.hopr-id-dufour \
   --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
   --apiToken '<YOUR_API_TOKEN>' \
@@ -206,7 +206,7 @@ Once you have [configured your Docker command](node-docker.md#configure-hoprd-co
 HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
 
 ```md
-docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+docker run -d --pull=always -p 4677:4677 --name hopr-admin europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
 ---

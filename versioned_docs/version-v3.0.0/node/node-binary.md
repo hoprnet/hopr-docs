@@ -15,28 +15,23 @@ Please note that you must start the onboarding process before setting up your no
    
    Visit the [HOPRd v3.0.0 release page](https://github.com/hoprnet/hoprnet/releases/tag/v3.0.0).
 
-2. **Find the Right File**  
+2. **Find the right file**  
    
-   In the **Assets** section, download the binary file that matches your operating system and architecture.  
+   1. In the **Assets** section, download the binary file that matches your operating system and architecture.  
    Look for a file named:
 
-   ```
-   hoprd-<architecture>-<platform>.zip
-   ```
+      ```
+      hoprd-<architecture>-<platform>
+      ```
 
-   **Examples:**
+      **Examples:**
 
-   - `hoprd-x86_64-linux.zip` – for most 64-bit Linux systems  
-   - `hoprd-aarch64-linux.zip` – for ARM-based Linux (Raspberry Pi 4/5, ARM servers)  
-   - `hoprd-x86_64-darwin.zip` – for macOS on Intel  
-   - `hoprd-aarch64-darwin.zip` – for macOS on M1/M2
+      - `hoprd-x86_64-linux` – for most 64-bit Linux systems  
+      - `hoprd-aarch64-linux` – for ARM-based Linux (Raspberry Pi 4/5, ARM servers)  
+      - `hoprd-x86_64-darwin` – for macOS on Intel  
+      - `hoprd-aarch64-darwin` – for macOS on M1/M2
 
-3. **Extract the Archive**  
-   
-   Create a folder named `hoprd`, move the downloaded `.zip` file into it, and extract it. After extraction, you should see the following files inside:
-   - `hoprd`  
-   - `hoprd-api-schema`  
-   - `hoprd-cfg`
+   2. Create a folder named `hoprd`, move the downloaded binary file into it.
 
 ---
 
@@ -165,9 +160,7 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
 
 HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
 
-```md
-docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
-```
+Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
 
 ---
 

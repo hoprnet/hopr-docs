@@ -34,17 +34,81 @@ For example, the second node should implement the following changes:
 
 These changes would result in the following configuration:
 
-![New Node Comparison](/img/node/new-node-comparison.png)
+![New Node Comparison](/img/node/multi-nodes-comparison.png)
 
 Here, the first node's command (on the left in the image above) is:
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour:/app/hoprd-db --name hoprd -p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9091 --provider <CUSTOM_RPC_PROVIDER>
+docker run \
+  --pull always \
+  -d --restart on-failure \
+  -m 2g \
+  --security-opt seccomp=unconfined \
+  --platform linux/x86_64 \
+  --log-driver json-file \
+  --log-opt max-size=100M \
+  --log-opt max-file=5 \
+  -ti \
+  -v $HOME/.hoprd-dufour/:/app/hoprd-db \
+  --name hoprd \
+  -p 9091:9091/tcp \
+  -p 9091:9091/udp \
+  -p 3001:3001 \
+  -p 1422:1422/udp \
+  -p 1422:1422/tcp \
+  -e RUST_LOG=info \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
+  --network dufour \
+  --init \
+  --api \
+  --announce \
+  --identity /app/hoprd-db/.hopr-id-dufour \
+  --data /app/hoprd-db \
+  --apiHost '0.0.0.0' \
+  --apiToken '<YOUR_API_TOKEN>' \
+  --password '<YOUR_DB_PASSWORD>' \
+  --safeAddress '<SAFE_WALLET_ADDRESS>' \
+  --moduleAddress '<MODULE_ADDRESS>' \
+  --host '<YOUR_PUBLIC_IP>:9091' \
+  --provider '<CUSTOM_RPC_PROVIDER>' \
+  --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 And the second node's command (on the right in the image above) is:
 
 ```md
-docker run --pull always -d --restart on-failure -m 2g --security-opt seccomp=unconfined --platform linux/x86_64 --log-driver json-file --log-opt max-size=100M --log-opt max-file=5 -ti -v $HOME/.hoprd-db-dufour-2:/app/hoprd-db --name hoprd-2 -p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002 -e RUST_LOG=info europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable --network dufour --init --api --announce --identity /app/hoprd-db/.hopr-id-dufour --data /app/hoprd-db --apiHost '0.0.0.0' --apiPort 3002 --apiToken '<YOUR_SECURITY_TOKEN>' --password 'open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0' --safeAddress <SAFE_WALLET_ADDRESS> --moduleAddress <MODULE_ADDRESS> --host <YOUR_PUBLIC_IP>:9092 --provider <CUSTOM_RPC_PROVIDER>
+docker run \
+  --pull always \
+  -d --restart on-failure \
+  -m 2g \
+  --security-opt seccomp=unconfined \
+  --platform linux/x86_64 \
+  --log-driver json-file \
+  --log-opt max-size=100M \
+  --log-opt max-file=5 \
+  -ti \
+  -v $HOME/.hoprd-dufour-2/:/app/hoprd-db \
+  --name hoprd-2 \
+  -p 9092:9092/tcp \
+  -p 9092:9092/udp \
+  -p 3002:3002 \
+  -p 1423:1423/udp \
+  -p 1423:1423/tcp \
+  -e RUST_LOG=info \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
+  --network dufour \
+  --init \
+  --api \
+  --announce \
+  --identity /app/hoprd-db/.hopr-id-dufour \
+  --data /app/hoprd-db \
+  --apiHost '0.0.0.0' \
+  --apiToken '<YOUR_API_TOKEN>' \
+  --password '<YOUR_DB_PASSWORD>' \
+  --safeAddress '<SAFE_WALLET_ADDRESS>' \
+  --moduleAddress '<MODULE_ADDRESS>' \
+  --host '<YOUR_PUBLIC_IP>:9092' \
+  --provider '<CUSTOM_RPC_PROVIDER>' \
+  --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 
 </TabItem>
