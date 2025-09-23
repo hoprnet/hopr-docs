@@ -87,7 +87,6 @@ const sidebars = {
       "items": [
         "node/staking-hub",
         "node/node-management-admin-ui",
-        "node/interaction-with-node",
         "node/node-operations",
         "node/backup-restore-update",
         "node/port-forwarding"
