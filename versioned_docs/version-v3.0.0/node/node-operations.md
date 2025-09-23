@@ -99,7 +99,7 @@ After installing the HOPRd package via DAppNode, the following directories and f
 
 | **Purpose**         | **Path**         | **Description**                                                    |
 | ------------------- | ---------------- | ------------------------------------------------------------------ |
-| Configuration files | `/app/hoprd/conf` | Contains configuration files like `hoprd.cfg.yaml` and `hoprd.id`. |
+| Configuration files | `/app/hoprd/conf` | Contains configuration files like `hoprd.cfg.yaml` and `hopr.id`. |
 | Data directory      | `/app/hoprd/data` | Stores the node’s database and runtime data.                       |
 
 The HOPRd package operates within a managed containerized environment, managed by DAppNode using Docker Compose to ensure reliable and autonomous background execution.
