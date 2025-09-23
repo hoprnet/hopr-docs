@@ -160,7 +160,9 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
 
 HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
 
-Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
+```md
+docker run -d --pull=always -p 4677:4677 --name hopr-admin europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+```
 
 ---
 
