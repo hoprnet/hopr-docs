@@ -154,18 +154,36 @@ Please select platform to configure Fast Sync feature:
 
 1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker#stop-the-hoprd-node).
 
-2. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+2. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
-3. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker#start-the-hoprd-node).
+3. In your docker run command add additional variable:
+
+    ```
+    -e HOPRD_ENABLE_LOGS_SNAPSHOT=1
+    ```
+
+    Example of how it should look in the docker run command: 
+
+    ```
+    -e DEBUG="hopr*" -e HOPRD_ENABLE_LOGS_SNAPSHOT=1 -e RUST_LOG=info
+    ```
+
+4. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">
 
 1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker-compose#stop-the-hoprd-node).
 
-2. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+2. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
-3. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker-compose#start-the-hoprd-node).
+3. Navigate back to **compose** folder, find `.env` file and add additional variable bellow section **#### HOPRD Configuration ####**:
+
+    ```
+    HOPRD_ENABLE_LOGS_SNAPSHOT=1
+    ```
+
+4. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker-compose#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
@@ -183,7 +201,7 @@ Please select platform to configure Fast Sync feature:
 2. **Adjust Your Configuration File**
 
     1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
-    2. Inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+    2. Inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
 3. **Upload Configuration File**
 
@@ -199,12 +217,17 @@ Please select platform to configure Fast Sync feature:
 
     4. Click the **Upload** button and wait for the upload to finish.
 
-4. **Restart HOPRd package**
+4. **Update Package configuration**
+
+    - Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), scroll to the bottom and click on `SHOW ADVANCED EDITOR`. 
+        
+    - Next to `ADDITIONAL_CMDLINE_ARGS` change value to `--enableLogsSnapshot` and click `Update`.
+
+5. **Restart HOPRd package**
 
     1. Go to the **Info** page within your HOPR package, and click the **Restart** button to restart your node.
 
     2. Wait for about 5 minutes, then [connect to your node](./node-management-admin-ui#connecting-your-node) via the HOPR Admin UI. Navigate to the **CONFIGURATION** page to verify that the strategy settings have been updated. If the changes aren't visible, try performing a hard refresh of the HOPR Admin UI page.
-
 
 </TabItem>
 </Tabs>
