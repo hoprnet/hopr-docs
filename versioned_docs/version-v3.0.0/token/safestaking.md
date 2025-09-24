@@ -1,6 +1,7 @@
 ---
 id: safestaking
 title: SafeStaking
+group: h-no-count
 ---
 
 SafeStaking refers to HOPR's design for on-protocol staking. The long-term plan for the protocol has always been a fully incentivized and decentralized privacy mixnet, where the incentive mechanism functions directly through the HOPR protocol. It is similar to a PoS setup, but with an additional layer of security to protect node runner funds from compromised nodes.

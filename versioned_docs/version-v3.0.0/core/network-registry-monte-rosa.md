@@ -1,6 +1,7 @@
 ---
 id: network-registry-monte-rosa
 title: Network Registry
+group: h-no-count
 ---
 
 ## What is the Network Registry?

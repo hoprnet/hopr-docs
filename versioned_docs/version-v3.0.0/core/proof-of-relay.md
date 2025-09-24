@@ -1,6 +1,7 @@
 ---
 id: proof-of-relay
 title: Proof of Relay
+group: h-no-count
 ---
 
 There’s a paradox at the heart of building an incentivized mixnet: how do you ensure that nodes properly perform their task of relaying data, rather than just taking the incentive and doing none of the work?

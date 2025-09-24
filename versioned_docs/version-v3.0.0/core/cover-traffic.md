@@ -1,6 +1,7 @@
 ---
 id: cover-traffic
 title: Cover Traffic
+group: h-no-count
 ---
 
 All the effort to make data packets indistinguishable is only truly effective when there is sufficient traffic. It’s really just a matter of scale: a leaf in the forest is practically invisible, while a leaf in the middle of an otherwise empty floor is going to stand out.

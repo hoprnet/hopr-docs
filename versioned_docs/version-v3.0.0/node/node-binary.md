@@ -1,6 +1,6 @@
 ---
 id: node-binary
-title: For Binary
+title: Binary
 ---
 
 :::info
@@ -9,38 +9,33 @@ Please note that you must start the onboarding process before setting up your no
 
 :::
 
-## 1. Download HOPRd binary file
+## Download HOPRd binary file
 
 1. **Go to the Release Page**  
    
    Visit the [HOPRd v3.0.0 release page](https://github.com/hoprnet/hoprnet/releases/tag/v3.0.0).
 
-2. **Find the Right File**  
+2. **Find the right file**  
    
-   In the **Assets** section, download the binary file that matches your operating system and architecture.  
+   1. In the **Assets** section, download the binary file that matches your operating system and architecture.  
    Look for a file named:
 
-   ```
-   hoprd-<architecture>-<platform>.zip
-   ```
+      ```
+      hoprd-<architecture>-<platform>
+      ```
 
-   **Examples:**
+      **Examples:**
 
-   - `hoprd-x86_64-linux.zip` – for most 64-bit Linux systems  
-   - `hoprd-aarch64-linux.zip` – for ARM-based Linux (Raspberry Pi 4/5, ARM servers)  
-   - `hoprd-x86_64-darwin.zip` – for macOS on Intel  
-   - `hoprd-aarch64-darwin.zip` – for macOS on M1/M2
+      - `hoprd-x86_64-linux` – for most 64-bit Linux systems  
+      - `hoprd-aarch64-linux` – for ARM-based Linux (Raspberry Pi 4/5, ARM servers)  
+      - `hoprd-x86_64-darwin` – for macOS on Intel  
+      - `hoprd-aarch64-darwin` – for macOS on M1/M2
 
-3. **Extract the Archive**  
-   
-   Create a folder named `hoprd`, move the downloaded `.zip` file into it, and extract it. After extraction, you should see the following files inside:
-   - `hoprd`  
-   - `hoprd-api-schema`  
-   - `hoprd-cfg`
+   2. Create a folder named `hoprd`, move the downloaded binary file into it.
 
 ---
 
-## 2. Implement configuration file
+## Implement configuration file
 
 1. **Create the Configuration Directory**  
    
@@ -48,7 +43,7 @@ Please note that you must start the onboarding process before setting up your no
 
 2. **Download the Example Config File**  
    
-   Get the example configuration file specifically for the Native Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/hoprd-binary.cfg.yaml)
+   Get the example configuration file specifically for the Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/hoprd-binary.cfg.yaml)
 
 3. **Adjust Configuration Values**  
    
@@ -56,7 +51,7 @@ Please note that you must start the onboarding process before setting up your no
 
 ---
 
-## 3. Configure systemd for native binary
+## Configure systemd for binary
 
 Systemd allows you to create a service that runs your application in the background.
 
@@ -110,7 +105,7 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
    | **Environment**      | Sets environment variables required by the HOPRd process. |
    | **WorkingDirectory** | Sets the working directory where relative paths will resolve. |
 
-After making changes, save **hoprd.service** file.
+   After making changes, save **hoprd.service** file.
 
 3. **Reload systemd**  
 
@@ -161,17 +156,17 @@ After making changes, save **hoprd.service** file.
 
 ---
 
-## 4. Start HOPR Admin UI
+## Start HOPR Admin UI
 
 HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
 
 ```md
-docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform linux/amd64 europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
+docker run -d --pull=always -p 4677:4677 --name hopr-admin europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
 ```
 
 ---
 
-## 5. Link your node to your HOPR Safe wallet
+## Link your node to your HOPR Safe wallet
 
 1. **Access the HOPR Admin UI**  
    
@@ -188,13 +183,9 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
    
    Click **CONNECT TO NODE** in the top-right corner. In the **Node credentials** popup:
 
-   - **API endpoint**:  
-     
-     Default is `http://localhost:3001`. Replace `localhost` with your VPS IP if applicable. Adjust the port if you changed it.
+   - **API endpoint**: Default is `http://localhost:3001`. Replace `localhost` with your VPS IP if applicable. Adjust the port if you changed it.
 
-   - **API token**:  
-     
-     Enter your [custom security token](./node-docker.md#a-adjust-apitoken-setting) from setup.
+   - **API token**: Enter the custom security token you created during the [initial HOPRd setup](#implement-configuration-file).
 
 3. **Copy your node address**  
    
@@ -208,24 +199,28 @@ docker run -d -p 4677:4677 --pull always --name hopr-admin-for-3.0 --platform li
 
 ---
 
-## 6. What's next?
+## What's next?
 
 Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
 
-These are the requirements for Cover Traffic, which allows your node to start earning rewards.
+To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
 
-Follow these steps:
+1. **Install the HOPR Admin UI** 
 
-1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
 
-2. On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
+2. **Check if the node is 100% synced**
+
+   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
    If it’s not fully synced yet, you’ll need to wait until the process is complete.
 
-3. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
+3. **Open outgoing channel and verify**
+
+   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
    Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
    You’ll receive a notification once the channel has been opened.
-
-4. Navigate to the `CHANNELS: OUT` page to verify the outgoing payment channel has been successfully opened.
+   
+   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
 
 ---
 

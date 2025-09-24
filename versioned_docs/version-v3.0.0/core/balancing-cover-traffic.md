@@ -1,6 +1,7 @@
 ---
 id: balancing-cover-traffic
 title: Balancing Cover Traffic
+group: h-no-count
 ---
 
 Cover Traffic both provides a blanket of data that ensures all users can use the HOPR network privately, and also serves to provide an income to people who stake HOPR tokens, over and above the fees they earn from relaying packets from actual users.

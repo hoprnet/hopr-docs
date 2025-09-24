@@ -1,6 +1,7 @@
 ---
 id: run-a-node-overview
 title: Overview
+group: h-no-count
 ---
 
 HOPRd nodes play a crucial role in our decentralized network, operated by members of the HOPR community. Before setting up your own HOPRd node, we strongly recommend reviewing this overview page, which outlines all necessary details and requirements.
@@ -17,11 +18,11 @@ The diagram below illustrates the relationship between key components involved i
 
 ![Running node overview](/img/node/HOPR-Node-Running-Overview.png)
 
-### Requirements for participating in the HOPR network
+## Requirements for participating in the HOPR network
 
 To operate your node in the HOPR network, you must stake HOPR tokens. The minimum stake required is **30,000 wxHOPR**. However, if you participated in the testnets and possess a **Network Registry NFT**, your minimum stake requirement is reduced to **10,000 wxHOPR**. 
 
-### Node system requirements
+## Node system requirements
 
 The minimum requirements for running **HOPRd** on your device are:
 
@@ -30,25 +31,67 @@ The minimum requirements for running **HOPRd** on your device are:
 - 2GB of RAM
 - at least 5GB of disk space
 
-### Where can you run a HOPRd node?
+## Where can you run a HOPRd node?
 
-#### Dappnode
+### Dappnode
 
 The easiest way to run a single HOPRd node is by installing the HOPRd package on Dappnode.
 Dappnode is an open-source platform that simplifies running blockchain nodes and decentralized apps (dApps) on your own hardware—no advanced technical skills needed.
+
 Learn more at [https://dappnode.com](https://dappnode.com).
 
-#### VPS
+---
+
+### VPS
 
 You can rent an inexpensive Virtual Private Server (VPS) to run one or even multiple HOPRd nodes.
 Setting up a node on a VPS requires only basic Unix command-line knowledge.
 For a list of recommended VPS providers, see [this section](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps) of our FAQ.
 
-#### Personal Computer
+---
+
+### Personal Computer
 
 If you're using the Linux or macOS operating system, you can run a HOPRd node directly on your own computer. To earn continuously distributed rewards, your HOPRd node must remain online 24/7.
 
+---
 
-### Ready to run your node?
+## What are the installation methods to run HOPRd node?
+
+
+### Docker
+
+Run HOPRd inside a lightweight container. Easy to set up, highly portable, and ideal for testing or deployment on any machine with Docker installed. Offers simplicity and isolation.
+
+See the [Docker installation guide](./node-docker.md) for detailed instructions.
+
+---
+
+### Docker Compose
+
+Use a docker-compose.yml file to define and orchestrate HOPRd alongside supporting services (e.g., databases, monitoring tools). Great for multi‑container setups or managing multiple nodes in one environment.
+
+Refer to the [Docker Compose setup guide](./node-docker-compose.md) for configuration details.
+
+---
+
+### Binary
+
+Download and run the precompiled HOPRd executable directly from releases. No dependencies beyond the binary itself—ideal for minimal, manual setups without container tooling.
+
+Follow the [binary installation guide](./node-binary.md) to get started.
+
+---
+
+### HOPRd package for specific Operating system
+
+Install via native package managers tailored to your operating system. Enables seamless integration with system services and simplifies updates.
+
+- For Linux systems, see the [Linux package guide](./node-linux-packages.md).
+- For macOS, refer to the [macOS package guide](./node-macos.md).
+
+---
+
+## Ready to run your node?
 
 If you have carefully read the requirements above and you meet them, please proceed with the onboarding process here: [https://hub.hoprnet.org](https://hub.hoprnet.org)

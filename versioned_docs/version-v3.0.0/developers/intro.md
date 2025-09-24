@@ -1,6 +1,7 @@
 ---
 id: intro
 title: Developing HOPR apps
+group: h-no-count
 ---
 
 The HOPR network is only useful if data is being transferred through it. In fact, the more data transported

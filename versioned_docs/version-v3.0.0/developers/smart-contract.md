@@ -1,6 +1,7 @@
 ---
 id: smart-contract
 title: Smart Contract Overview
+group: h-no-count
 ---
 
 **HoprChannels** is the main smart contract of the HOPR protocol. It manages the payment channel between HOPR nodes and the announcement of public nodes.

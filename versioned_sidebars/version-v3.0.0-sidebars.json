@@ -54,7 +54,7 @@
         {
           "type": "category",
           "label": "Installation Guide",
-          "items": ["node/node-docker", "node/node-docker-compose", "node/node-dappnode", "node/node-binary"]
+          "items": ["node/node-docker", "node/node-docker-compose", "node/node-dappnode", "node/node-binary", "node/node-linux-packages", "node/node-macos"]
         }
       ]
     },
@@ -70,7 +70,6 @@
       "items": [
         "node/staking-hub",
         "node/node-management-admin-ui",
-        "node/interaction-with-node",
         "node/node-operations",
         "node/backup-restore-update",
         "node/port-forwarding"

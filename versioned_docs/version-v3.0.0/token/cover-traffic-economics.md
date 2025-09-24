@@ -1,6 +1,7 @@
 ---
 id: cover-traffic-economics
 title: Cover Traffic Economics
+group: h-no-count
 ---
 
 The Cover Traffic economic model projects the expected reward of a node runner can expect given the underlying parameters.

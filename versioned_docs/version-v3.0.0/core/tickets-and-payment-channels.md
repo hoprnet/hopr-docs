@@ -1,6 +1,7 @@
 ---
 id: tickets-and-payment-channels
 title: Tickets and Payment Channels
+group: h-no-count
 ---
 
 HOPR’s **proof of relay** mechanism resolves the paradox of how to incentivize a private mixnet, by tying a node’s payment to the actions of the nodes before and after it in the relay chain. This breakthrough means we no longer need to rely on node runners’ altruism to build a privacy network: HOPR is a **trustless** system where all node runners can be relied on to cooperate because the most selfish way to behave is also the way that earns the most rewards.
