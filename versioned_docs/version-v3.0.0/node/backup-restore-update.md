@@ -195,7 +195,7 @@ Please select platform to restore your node identity:
             /app/hoprd/conf/
             ```
 
-    4.3. Click the `Upload` button to upload the identity file.
+    3. Click the `Upload` button to upload the identity file.
 
 5. **Restart the HOPR Package**
 
@@ -342,6 +342,11 @@ Please select your platform to update your HOPRd node:
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
+Select based on your HOPR Package Update Status:
+
+<Tabs queryString="auto_update">
+<TabItem value="manual" label="HOPR Package Not Updated">
+
 1. **Back Up Your Identity File**
 
     1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
@@ -404,9 +409,9 @@ Please select your platform to update your HOPRd node:
 
     4. **Upload the Identity File**
 
-        1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+        - Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
-        2. Under the `Upload file` section, fill in the following:
+        - Under the `Upload file` section, fill in the following:
 
             - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
             - In the **Defaults to $WORKDIR/** field, enter:
@@ -415,13 +420,13 @@ Please select your platform to update your HOPRd node:
                 /app/hoprd/conf/
                 ```
 
-        3. Click the `Upload` button to upload the identity file.
+        - Click the `Upload` button to upload the identity file.
 
     5. **Change configuration file path**
 
-        1. Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), scroll to the bottom and click on `SHOW ADVANCED EDITOR`. 
+        - Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), scroll to the bottom and click on `SHOW ADVANCED EDITOR`. 
         
-        2. Next to `HOPRD_CONFIGURATION_FILE_PATH` change value to `/app/hoprd/conf/hoprd.cfg.yaml` and click `Update`.
+        - Next to `HOPRD_CONFIGURATION_FILE_PATH` change value to `/app/hoprd/conf/hoprd.cfg.yaml` and click `Update`.
 
     6. **Restart the HOPR Package**
 
@@ -436,6 +441,97 @@ Please select your platform to update your HOPRd node:
 6. **What's next?**
 
     After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
+
+</TabItem>
+<TabItem value="auto" label="HOPR Package Auto-Updated">
+
+1. **Back Up Your Identity File**
+
+    1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+
+    2. In the `Download file` section, enter the following path and click `Download` to retrieve the identity file:
+    
+        ```
+        /app/hoprd-db/.hopr-identity
+        ```
+
+        :::important
+        If you're using a browser like Brave, the identity file may not download automatically. Click `Keep` in the browser's downloads section to confirm. Ensure the file is fully downloaded, or you risk losing your node identity.
+        :::
+
+    3. Retrieve your database password by going to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).  
+        
+        Under Identity file password, click the eye icon to unhide the database password and write it down.
+
+        Default password:
+        ```
+        "open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0"
+        ```
+        (Including the double quotes)
+
+    4. Store both the downloaded `hopr-identity.tar` file and your database password in a secure location for future recovery.
+
+2. **Restore your node identity**
+
+    1. **Enable Viewing Hidden Files**
+
+        - **For Windows:**  
+            Open the File Manager app, and under `View → Show`, ensure that hidden files is checked.
+
+            ![Hidden Files](/img/node/Hidden_files_windows.png)
+
+        - **For Mac:**  
+            With the Finder app open, press the key combination:  
+            `Command + Shift + . (Dot)`  
+            You will need to repeat this whenever you upload the identity file.
+
+    2. **Unarchive and rename identity file**
+
+        Unarchive the recently backed-up `hopr-identity.tar` file to extract the hidden `.hopr-identity` file. Ensure your file explorer is set to display hidden files. Then, rename the `.hopr-identity` file to `hopr.id`.
+
+    3. **Pause the HOPR Package**
+
+        Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Pause` icon to stop the HOPR package.
+
+    4. **Upload the Identity File**
+
+        - Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
+
+        - Under the `Upload file` section, fill in the following:
+
+            - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
+            - In the **Defaults to $WORKDIR/** field, enter:
+
+                ```
+                /app/hoprd/conf/
+                ```
+
+        - Click the `Upload` button to upload the identity file.
+
+    5. **Change configuration file path**
+
+        - Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), scroll to the bottom and click on `SHOW ADVANCED EDITOR`. 
+        
+        - Next to `HOPRD_CONFIGURATION_FILE_PATH` change value to `/app/hoprd/conf/hoprd.cfg.yaml` and click `Update`.
+
+    6. **Restart the HOPR Package**
+
+        Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
+
+3. **Enable automatic Fast Sync (Optional)**
+
+    Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
+    
+    To enable automatic Fast Sync, follow [this guide](fast-sync.md?fast_sync_method=automatic).
+
+4. **What's next?**
+
+    After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
+
+</TabItem>
+</Tabs>
+
+
  
 </TabItem>
 </Tabs>

@@ -154,7 +154,7 @@ Please select platform to configure Fast Sync feature:
 
 1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker#stop-the-hoprd-node).
 
-2. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+2. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
 3. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker#start-the-hoprd-node).
 
@@ -163,7 +163,7 @@ Please select platform to configure Fast Sync feature:
 
 1. Ensure that you have stopped the HOPRd node. You can find more details [here](node-operations.md?node_service=docker-compose#stop-the-hoprd-node).
 
-2. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+2. On your machine, navigate to the **compose** folder. Navigate to **hoprd_data** find configuration file **hoprd.cfg.yaml** inside it locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
 3. Start your HOPRd node. More details can be found [here](node-operations.md?node_service=docker-compose#start-the-hoprd-node).
 
@@ -183,7 +183,7 @@ Please select platform to configure Fast Sync feature:
 2. **Adjust Your Configuration File**
 
     1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
-    2. Inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots-rotsee.hoprnet.org/rotsee-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
+    2. Inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
 3. **Upload Configuration File**
 
