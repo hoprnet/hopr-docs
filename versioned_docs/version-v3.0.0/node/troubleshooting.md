@@ -17,7 +17,7 @@ import { NoCounter } from '@site/src/components/Counter';
 ### How to check if the migration from HOPRd v2 to HOPRd v3 was successful?
 </summary>
 
-1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, please refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
+1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while connecting to your node, first try a hard refresh of the Admin UI (macOS: **Cmd + Shift + R**, Windows: **Ctrl + Shift + R**). If that doesn’t resolve the issue, refer to the [error codes](#troubleshooting-hopr-admin-ui-issues) for further troubleshooting.
 
 2. Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
 
