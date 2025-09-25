@@ -40,73 +40,87 @@ import { NoCounter } from '@site/src/components/Counter';
 ### How to check if my node is performing normally?  
 </summary>
 
-1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, please refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
+1. **Verify successful HOPR Admin UI connection to your node**
 
-2. Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
+    Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, please refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
 
-    - You can check your current HOPRd node version on the **INFO** page under the **Node** section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
+2. **Check for latest HOPRd & HOPR Admin UI versions**
 
-    - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
+    Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
 
-3. On the **INFO** page, navigate to the **Network** section:
+        - You can check your current HOPRd node version on the **INFO** page under the **Node** section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
 
-    - If the Eligible status displays **Yes**, your node has successfully joined the HOPRd network.  
-    - If it displays **No**, and your node was recently created, it must reach **100%** sync before becoming eligible.
+        - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
 
-4. On the **INFO** page, under the **Network** section, verify that the **Sync process** is at **100%**.
+3. **Check node health**
 
-5. On the **INFO** page, check the **Balances** section and confirm that the **xDai: Node** balance is at least **0.03 xDai**.
+    1. On the **INFO** page, navigate to the **Network** section:
 
-6. On the **INFO** page, scroll to the **Nodes on the network** section and ensure the **Announced** node count exceeds **1000** and the **Connected** node count is above **300**.
+        - If the Eligible status displays **Yes**, your node has successfully joined the HOPRd network.  
+        - If it displays **No**, and your node was recently created, it must reach **100%** sync before becoming eligible.
 
-7. On the **CONFIGURATION** page, under the **Strategies** section check the following:
+    2. On the **INFO** page, under the **Network** section, verify that the **Sync process** is at **100%**.
 
-    - The **aggregation_threshold** value does not exceed **450**.
-    - The **minimum_redeem_ticket_value** value does not exceed **25000000000000000000" // = 25 wxHOPR**
+    3. On the **INFO** page, check the **Balances** section and confirm that the **xDai: Node** balance is at least **0.03 xDai**.
 
-8. On the **TICKETS** page, ensure that there are no **Neglected** or **Rejected** tickets.
+    4. On the **INFO** page, scroll to the **Nodes on the network** section and ensure the **Announced** node count exceeds **1061** and the **Connected** node count is above **50**.
 
-9. On the **PEERS** page, ensure that most of your peers have **100%** quality (assuming your node has been running for at least 1 hour).
+4. **Check node configuration**
 
-    For DAppNode users, if the peer quality is **below 100%**, follow these steps:
+    On the **CONFIGURATION** page, under the **Strategies** section check if the **minimum_redeem_ticket_value** value is between **1 wxHOPR** and **10 wxHOPR**
 
-    - Connect to your DAppNode and navigate to the [HOPR package Config tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
+5. **Check your node connectivity quality**
+
+    On the **PEERS** page, ensure that most of your peers have **100%** quality (assuming your node has been running for at least 1 hour).
+
+6. **Verify rewards**
+
+    With an **APR of 10%**, a node staked at the **maximum cap of 75,000 wxHOPR** should earn approximately **20 wxHOPR per day**. For nodes with a lower stake, you can estimate your expected rewards using the following formula:
+
+    ```
+    <Your staking amount> * 10% = <Yearly reward> wxHOPR/year
+    <Yearly reward> / 365 = <Daily reward> wxHOPR/day
+    ```
+
+    Due to recent changes in ticket pricing and win probability, ticket aggregation has been discontinued. Each winning ticket is now valued at **10 wxHOPR**. If your staking amount is below the maximum cap, you may receive one winning ticket every two days or longer, depending on your staked amount.
+
+    **Note:** These calculations assume optimal node performance and no issues with the RPC provider or other dependencies.
+
+7. **Verify tickets status**
     
-    - In the bottom-right corner, click **SHOW ADVANCED EDITOR**.
+    On the **TICKETS** page, ensure that there are no **Neglected** or **Rejected** tickets.
 
-    - Check the values for **HOPRD_HEARTBEAT_INTERVAL** and ensure it is set to the default value of **20**. Similarly, confirm that **HOPRD_HEARTBEAT_THRESHOLD** is set to its default value of **60**.
+8. **Verify your node's status on the Network Dashboard**
 
-10. On the **CHANNELS: IN** page, review the **Unredeemed** column for each incoming payment channel. Ensure that the values do not exceed **20%** above the threshold (the default threshold for ticket redemption is **2.5 wxHOPR**). If you’ve set a custom threshold, make sure the unredeemed value remains within **20%** of your custom setting.
+    Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Node address**. If your node appears, it indicates that it is reachable by network nodes.
 
-    The redemption process works as follows: once the unredeemed value reaches **2.5 wxHOPR** (or your custom threshold), the system will automatically trigger a redemption in the next ticket distribution cycle. To ensure optimal performance, it’s recommended that unredeemed values stay within **20%** of the threshold to prevent delays in the redemption process.
+9. **Verify Connectivity to Cover Traffic Nodes**
 
-11. Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Node address**. If your node appears, it indicates that it is reachable by network nodes.
-
-12. To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
+    To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
 
     #### Cover Traffic node 1 
     ```
-    Node address: 0x5927c321Ca2a925d17EdCf9c58343E24337D18BA
+    Node address: 0xac3c2d1f751d9c763be29aabb20cf31295f3ea27
     ```
 
     #### Cover Traffic node 2
     ```
-    Node address: 0x0543aa9d1DAfA9Cc49bF87Ce5ea1E18277b3ae0f
+    Node address: 0x154a32241dacd34c55ca65c2dfdef173d6d9e7f3
     ```
 
     #### Cover Traffic node 3 
     ```
-    Node address: 0x29D61dDbc682f272fc7F0DFb203938e211471826
+    Node address: 0x7673daf47ae218d7d9b2fa0e8fc397c2a6940bc1
     ```
 
     #### Cover Traffic node 4 
     ```
-    Node address: 0x8Fd1766b4215944f2Eb21F03e6820Bc3c75d936c
+    Node address: 0xc2421cc4e9b3eeaefea2d87d2ee3dde9cc772e8a
     ```
 
     #### Cover Traffic node 5 
     ```
-    Node address: 0x633382b748e34432dF1dBDFDd234833454B3D768
+    Node address: 0x4b306f6a7fee6cbfdab11645b81337cbaab59900
     ```
 
     :::note
