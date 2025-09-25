@@ -75,14 +75,14 @@ import { NoCounter } from '@site/src/components/Counter';
 
 6. **Verify rewards**
 
-    With a maximum APR of 10%, a node staked at the maximum cap of 75,000 wxHOPR should earn approximately 20 wxHOPR per day. For nodes with a lower staking amount, you can estimate your expected rewards using the following formula:
+    With an **APR of 10%**, a node staked at the **maximum cap of 75,000 wxHOPR** should earn approximately **20 wxHOPR per day**. For nodes with a lower stake, you can estimate your expected rewards using the following formula:
 
     ```
     <Your staking amount> * 10% = <Yearly reward> wxHOPR/year
     <Yearly reward> / 365 = <Daily reward> wxHOPR/day
     ```
 
-    Due to recent changes in ticket pricing and win probability, ticket aggregation has been discontinued. Each winning ticket is now valued at 10 wxHOPR. If your staking amount is below the maximum cap, you may receive one winning ticket every two days or longer, depending on your staked amount.
+    Due to recent changes in ticket pricing and win probability, ticket aggregation has been discontinued. Each winning ticket is now valued at **10 wxHOPR**. If your staking amount is below the maximum cap, you may receive one winning ticket every two days or longer, depending on your staked amount.
 
     **Note:** These calculations assume optimal node performance and no issues with the RPC provider or other dependencies.
 
