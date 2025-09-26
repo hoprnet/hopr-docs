@@ -100,27 +100,27 @@ import { NoCounter } from '@site/src/components/Counter';
 
     #### Cover Traffic node 1 
     ```
-    Node address: 0xac3c2d1f751d9c763be29aabb20cf31295f3ea27
+    Node address: 0xd30f8f6e5865d7ec947e101b1d6a183e9776ba40
     ```
 
     #### Cover Traffic node 2
     ```
-    Node address: 0x154a32241dacd34c55ca65c2dfdef173d6d9e7f3
+    Node address: 0x5a5bf3d3ce59cd304f198b86c1a78adfadf31f83
     ```
 
     #### Cover Traffic node 3 
     ```
-    Node address: 0x7673daf47ae218d7d9b2fa0e8fc397c2a6940bc1
+    Node address: 0xa4642c066c1f8927db9d34abab599af784a2cff0
     ```
 
     #### Cover Traffic node 4 
     ```
-    Node address: 0xc2421cc4e9b3eeaefea2d87d2ee3dde9cc772e8a
+    Node address: 0xcbe8726c80cc0d7751b9545dd5a4b5b0e53e383d
     ```
 
     #### Cover Traffic node 5 
     ```
-    Node address: 0x4b306f6a7fee6cbfdab11645b81337cbaab59900
+    Node address: 0x764d3162a4024c5cba8817446ef563b27aa57598
     ```
 
     :::note
