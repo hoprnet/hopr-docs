@@ -54,7 +54,7 @@ docker run \
   --log-opt max-size=100M \
   --log-opt max-file=5 \
   -ti \
-  -v $HOME/.hoprd-dufour/:/app/hoprd-db \
+  -v $HOME/.hoprd-db-dufour/:/app/hoprd-db \
   --name hoprd \
   -p 9091:9091/tcp \
   -p 9091:9091/udp \
