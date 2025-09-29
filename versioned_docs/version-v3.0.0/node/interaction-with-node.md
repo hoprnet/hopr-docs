@@ -209,7 +209,7 @@ To close a payment channel, two actions are required: the first step is to initi
 
 2. After receiving the message indicating the closure is pending, wait for the **5-minute grace period**. The grace period allows the counterparty node time to redeem tickets.
 
-3. Once the **5-minute grace period** has passed, you will need to manually click the **CLOSE outgoing channel** icon again to finalize the closure. By default, the finalization must be triggered manually. Learn how to [set up node strategies](./manage-node-strategies.md#understanding-configuration-file-settings), which allow you to automate the payment channel finalization process.
+3. Once the **5-minute grace period** has passed, you will need to manually click the **CLOSE outgoing channel** icon again to finalize the closure. By default, the finalization must be triggered manually. Learn how to [set up node strategies](./manage-node-configuration.md#understanding-configuration-file-settings), which allow you to automate the payment channel finalization process.
 
 ### Close incoming channel
 

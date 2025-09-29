@@ -32,7 +32,7 @@ When using Docker, your HOPRd node runs inside a container in the background.
 
 2. Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#configure-hoprd-command). 
 
-    If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node) and select **Docker**," then review **Step 6** for specific instructions.
+    If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-configuration.md#create-and-apply-configuration-file-to-your-node) and select **Docker**," then review **Step 6** for specific instructions.
 
 3. Run your configured HOPR command by pasting it into the terminal.
 

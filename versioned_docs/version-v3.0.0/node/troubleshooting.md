@@ -61,19 +61,60 @@ import { NoCounter } from '@site/src/components/Counter';
 
     2. On the **INFO** page, under the **Network** section, verify that the **Sync process** is at **100%**.
 
-    3. On the **INFO** page, check the **Balances** section and confirm that the **xDai: Node** balance is at least **0.03 xDai**.
+    3. On the **INFO** page, under the **Network** section, verify that no **Faulty RPC** message appears next to the **Provider Address**.
 
-    4. On the **INFO** page, scroll to the **Nodes on the network** section and ensure the **Announced** node count exceeds **1061** and the **Connected** node count is above **50**.
+    4. On the **INFO** page, check the **Balances** section and confirm that the **xDai: Node** balance is at least **0.03 xDai**.
+
+    5. On the **INFO** page, scroll to the **Nodes on the network** section and ensure the **Announced** node count exceeds **1061** and the **Connected** node count is above **100**.
 
 4. **Check node configuration**
 
-    On the **CONFIGURATION** page, under the **Strategies** section check if the **minimum_redeem_ticket_value** value is between **1 wxHOPR** and **10 wxHOPR**
+    On the **Configuration** page, under the **Strategies** section, verify the following:
+
+    - The **!Aggregating** setting is not enabled.
+    - The **minimum_redeem_ticket_value** is set between **1 wxHOPR** and **10 wxHOPR**.
+    - The **redeem_only_aggregated** setting is set to **false**.
 
 5. **Check your node connectivity quality**
 
     On the **PEERS** page, ensure that most of your peers have **100%** quality (assuming your node has been running for at least 1 hour).
 
-6. **Verify rewards**
+6. **Verify tickets status**
+    
+    On the **TICKETS** page, ensure that there are no **Neglected** or **Rejected** tickets.
+
+7. **Verify your node's status on the Network Dashboard**
+
+    Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Node address**. If your node appears, it indicates that it is reachable by network nodes.
+
+    :::note
+    If one of above mentioned steps doesn't meet requirements, please refer to the topics on this troubleshooting page. If you are still unable to find a solution, feel free to reach out to the Ambassadors via Telegram or Discord channels for further assistance.
+    :::
+</details>
+
+<details>
+<summary> 
+  
+### How can I verify if Cover Traffic is being relayed through my node(s) and if I'm receiving rewards?
+</summary>
+
+1. **Ensure your node is performing normally**
+
+    Ensure your node is functioning correctly by following the steps outlined in the [troubleshooting guide](#how-to-check-if-my-node-is-performing-normally).
+
+2. **Check incoming channels**
+
+    Once connected to your node via the **Admin UI**, navigate to the **CHANNELS: IN** page, ensure you have at least 5 incoming payment channels from the following Cover Traffic nodes:
+
+    ```md
+    0xd30f8f6e5865d7ec947e101b1d6a183e9776ba40
+    0x5a5bf3d3ce59cd304f198b86c1a78adfadf31f83
+    0xa4642c066c1f8927db9d34abab599af784a2cff0
+    0xcbe8726c80cc0d7751b9545dd5a4b5b0e53e383d
+    0x764d3162a4024c5cba8817446ef563b27aa57598
+    ```
+
+3. **Expected rewards calculation**
 
     With an **APR of 10%**, a node staked at the **maximum cap of 75,000 wxHOPR** should earn approximately **20 wxHOPR per day**. For nodes with a lower stake, you can estimate your expected rewards using the following formula:
 
@@ -86,15 +127,7 @@ import { NoCounter } from '@site/src/components/Counter';
 
     **Note:** These calculations assume optimal node performance and no issues with the RPC provider or other dependencies.
 
-7. **Verify tickets status**
-    
-    On the **TICKETS** page, ensure that there are no **Neglected** or **Rejected** tickets.
-
-8. **Verify your node's status on the Network Dashboard**
-
-    Visit [HOPR Network Dashboard](https://network.hoprnet.org/dashboard) and search for your node by entering your **Node address**. If your node appears, it indicates that it is reachable by network nodes.
-
-9. **Verify Connectivity to Cover Traffic Nodes**
+4. **Verify Connectivity to Cover Traffic Nodes**
 
     To ensure stable connectivity and eligibility for rewards, try pinging each Cover Traffic node individually. If you can successfully ping all of them, it indicates that you have a stable connection to the Cover Traffic nodes. Below are the current addresses of the Cover Traffic nodes:
 
@@ -123,40 +156,6 @@ import { NoCounter } from '@site/src/components/Counter';
     Node address: 0x764d3162a4024c5cba8817446ef563b27aa57598
     ```
 
-    :::note
-    If one of above mentioned steps doesn't meet requirements, please refer to the topics on this troubleshooting page. If you are still unable to find a solution, feel free to reach out to the Ambassadors via Telegram or Discord channels for further assistance.
-    :::
-</details>
-
-<details>
-<summary> 
-  
-### How can I verify if Cover Traffic is being relayed through my node(s) and if I'm receiving rewards?
-</summary>
-
-1. Ensure your node is functioning correctly by following the steps outlined in the [troubleshooting guide](#how-to-check-if-my-node-is-performing-normally).
- 
-2. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
-
-3. On the **CHANNELS: IN** page, ensure you have at least 5 incoming payment channels from the following Cover Traffic nodes:
-
-    ```md
-    0xd30f8f6e5865d7ec947e101b1d6a183e9776ba40
-    0x5a5bf3d3ce59cd304f198b86c1a78adfadf31f83
-    0xa4642c066c1f8927db9d34abab599af784a2cff0
-    0xcbe8726c80cc0d7751b9545dd5a4b5b0e53e383d
-    0x764d3162a4024c5cba8817446ef563b27aa57598
-    ```
-
-4. Under the **Unredeemed** column, you should see an increasing number of unredeemed tickets. By default, once a channel accumulates **2.5 wxHOPR** in unredeemed tickets, it will automatically aggregate and redeem them. After a successful redemption, the funds will be sent to your Safe address.
-
-    If you notice that your node is not redeeming tickets or is consistently receiving rejected tickets, ensure the following settings are correctly configured:
-
-    Go to the **CONFIGURATION** page and check the **Strategies** section:
-
-    - Ensure the **aggregation_threshold** is set to **250**.
-    - Ensure the **minimum_redeem_ticket_value** is set to **2500000000000000000 HOPR**. We recommend keeping this value low to avoid losing larger amounts of earned HOPR tokens in case the node underperforms.
-
 </details>
 
 <details>
@@ -173,25 +172,11 @@ Follow these steps to troubleshoot the issue:
 
 1. Connect to your node [via the HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
-2. Navigate to the **CHANNELS: IN** page. Under the **Unredeemed** column, perform one of the following:
+2. Navigate to the **Info** page, under the **Network** section, and verify that no **Faulty RPC** message appears next to the **Provider Address**. If a **Faulty RPC** message is displayed, you must change your RPC provider and resync your node. Follow the [guide to resync your node](#how-to-re-sync-my-hoprd-node) for detailed instructions.
 
-    :::info  
-    We assume you haven't customized your node strategies, so the hardcoded minimum redeem ticket value is **2.5 wxHOPR**. If you’ve changed this, please refer to your customized **minimum_redeem_ticket_value**.  
-    :::
+3. If no **Faulty RPC** message appears next to the **Provider Address**, navigate to the **Channels: In** page. Close all incoming payment channels by clicking the **Close Incoming Channel** icon next to each channel.
 
-    - Check if there is a payment channel with **more than 34 - 35 wxHOPR** in unredeemed tokens. If so, close this specific payment channel to prevent receiving further rejected tickets.
-
-    - If no payment channels have **more than 34 - 35 wxHOPR** in unredeemed tokens, close all incoming payment channels. Follow the guideline on how to do this [here](./interaction-with-node.md#close-incoming-channel). Please note that closing an incoming payment channel will result in the loss of unredeemed ticket value, which will be marked as neglected tickets because they were not redeemed.
-
-3. After completing either step **(a)** or **(b)** from **step 2**, go to the **TICKETS** page and monitor the **Rejected value**. If the value continues to increase, take one of the following actions:
-
-    - If you performed action **(a)** in **step 2**, close all incoming payment channels. Follow the guideline on how to do this [here](./interaction-with-node.md#close-incoming-channel). Please note that closing an incoming payment channel will result in the loss of unredeemed ticket value, which will be marked as neglected tickets because they were not redeemed. 
-
-    If the **Rejected value** continues to increase after closing all channels, you will need to [re-sync your node](#how-to-re-sync-my-hoprd-node).
-
-    - If you performed action **(b)** in **step 2**, proceed directly to [re-syncing your node](#how-to-re-sync-my-hoprd-node).
-
-4. If you continue receiving rejected tickets after re-syncing your node, please contact the HOPR Ambassadors via Telegram or Discord for further assistance.
+4. Wait several days and monitor whether you receive rejected tickets again. If you do, contact the ambassadors on the Telegram channel or Discord server for assistance.
 </details>
 
 <details>
@@ -203,7 +188,7 @@ There might be several causes on why your node received neglected tickets:
 
 - Tickets are marked as neglected when you close an incoming payment channel with unredeemed value. Since the tickets were not redeemed during the closure, they will be labeled as neglected tickets. This typically occurs when your node experiences issues, such as rejected tickets. To prevent continuous loss of rewards, it’s important to address the underlying issue.
 
-- When a payment channel is closed and the node's strategy value for **minimum_redeem_ticket_value** is set higher than the value of the channel’s individual tickets, those tickets will be marked as neglected. This happens because the ticket value does not meet the minimum threshold specified by the strategy. In this case, you need to customize your node strategies by following this [guide](./manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+- When a payment channel is closed and the node's strategy value for **minimum_redeem_ticket_value** is set higher than the value of the channel’s individual tickets, those tickets will be marked as neglected. This happens because the ticket value does not meet the minimum threshold specified by the strategy. In this case, you need to customize your node strategies by following this [guide](./manage-node-configuration.md#create-and-apply-configuration-file-to-your-node).
 </details>
 
 
