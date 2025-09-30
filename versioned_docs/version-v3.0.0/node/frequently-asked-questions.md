@@ -27,9 +27,9 @@ import { NoCounter } from '@site/src/components/Counter';
 <TabItem value="vps" label="For VPS users">
 VPS users should be able to find their IP address from their provider. It will also be your VPS IP, so it should be easy to find.
 </TabItem>
-<TabItem value="dappnode" label="For DappNode users">
+<TabItem value="dappnode" label="For Dappnode users">
 
-1. Connect to your DappNode dashboard.
+1. Connect to your Dappnode dashboard.
 
 2. On the top right corner, click on the avatar and write down **public IP**.
 

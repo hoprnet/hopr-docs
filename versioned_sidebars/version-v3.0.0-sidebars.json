@@ -86,6 +86,7 @@
       "collapsed": false,
       "items": [
         "node/multiple-nodes",
+        "node/manage-node-configuration",
         "node/manage-node-strategies",
         "node/custom-rpc-provider",
         "node/fast-sync",

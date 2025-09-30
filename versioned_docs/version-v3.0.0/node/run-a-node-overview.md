@@ -75,6 +75,14 @@ Refer to the [Docker Compose setup guide](./node-docker-compose.md) for configur
 
 ---
 
+### Dappnode package
+
+Install HOPRd as a package on a Dappnode, a user-friendly platform for running decentralized applications. Simplifies node management with a web interface and supports seamless integration with other Dappnode services.
+
+Follow the [HOPR package installation guide](./node-dappnode.md) for Dappnode.
+
+---
+
 ### Binary
 
 Download and run the precompiled HOPRd executable directly from releases. No dependencies beyond the binary itself—ideal for minimal, manual setups without container tooling.

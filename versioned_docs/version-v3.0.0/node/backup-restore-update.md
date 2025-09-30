@@ -62,7 +62,7 @@ For Docker compose, the identity file is automatically created and stored on you
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-The identity file is automatically created and stored on the DappNode machine.
+The identity file is automatically created and stored on the Dappnode machine.
 
 1. **Access the File Manager**
 
@@ -266,7 +266,7 @@ Please select your platform to update your HOPRd node:
 
 4. **Update Your Configuration File**
 
-    Ensure your configuration file is up to date by applying the [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml).
+    Ensure your configuration file is up to date. To replace your current configuration file with a new one, follow [this guide](manage-node-configuration.md#create-and-apply-configuration-file-to-your-node).
 
 5. **Enable Fast Sync (Optional)**
 

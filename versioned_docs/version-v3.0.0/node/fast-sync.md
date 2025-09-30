@@ -76,7 +76,7 @@ Please select platform to configure Fast Sync feature:
 
 4. Locate the previously backed-up files: **hopr_logs.db**, **hopr_logs.db-shm**, and **hopr_logs.db-wal**. Copy all three files into the destination **db** folder.
 
-5. Configure your node by creating and applying a configuration file. Follow this [guide](manage-node-strategies.md#create-and-apply-configuration-file-to-your-node).
+5. Configure your node by creating and applying a configuration file. Follow this [guide](manage-node-configuration.md#create-and-apply-configuration-file-to-your-node).
 
 6. Update your configuration file, inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `keep_logs: true` and `fast_sync: true`. Save the changes to the configuration file.
 

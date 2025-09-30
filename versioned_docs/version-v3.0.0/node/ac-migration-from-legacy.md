@@ -57,7 +57,7 @@ To complete the transition, you will need the following:
 
 5. Remove the USB stick, power the Avado device back on, and **wait 5 minutes**.
 
-6. **After 5 minutes**, check if "**DappNodeWifi**" appears in your computer's Wi-Fi list. The default Wi-Fi password for DappNode is `dappnode`.
+6. **After 5 minutes**, check if "**DappnodeWifi**" appears in your computer's Wi-Fi list. The default Wi-Fi password for Dappnode is `dappnode`.
 
 ## Start your HOPR node
 
