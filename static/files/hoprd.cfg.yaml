@@ -1,9 +1,9 @@
 hopr:
   db:
-    data: /app/data/db
+    data: /app/hoprd/data
     initialize: true
     force_initialize: false
-  strategy: # NOTE: make adjusments to your needs
+  strategy:
     on_fail_continue: true
     allow_recursive: true
     strategies:
@@ -18,7 +18,7 @@ hopr:
     keep_logs: true
     fast_sync: true
   safe_module:
-    safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net/
+    safe_transaction_service_provider: https://safe-transaction.prod.hoprnet.link/
   transport:
     announce_local_addresses: false
     prefer_local_addresses: false
@@ -29,3 +29,5 @@ api:
   host:
     address: !IPv4 0.0.0.0
     port: 3001
+session_ip_forwarding:
+  target_allow_list: []
