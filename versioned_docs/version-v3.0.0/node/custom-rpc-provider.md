@@ -88,7 +88,7 @@ We recommend using [Sedge](https://docs.sedge.nethermind.io/) for an easy node s
    <iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/nQw6n-MGYB0" frameborder="0" allow="rel=0; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
 
 </TabItem>
-<TabItem value="RPC_dappnode" label="DappNode">
+<TabItem value="RPC_dappnode" label="Dappnode">
 
 1. Go to the Stakers section: [http://my.dappnode/stakers/gnosis](http://my.dappnode/stakers/gnosis)
 2. Select **Nethermind xDai** for the Execution Layer and **Lighthouse Gnosis** for the Consensus Layer. Ensure **Use checksync** is enabled, then click **Apply Changes**.

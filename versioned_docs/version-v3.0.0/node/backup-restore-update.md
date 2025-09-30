@@ -62,7 +62,7 @@ For Docker compose, the identity file is automatically created and stored on you
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-The identity file is automatically created and stored on the DappNode machine.
+The identity file is automatically created and stored on the Dappnode machine.
 
 1. **Access the File Manager**
 

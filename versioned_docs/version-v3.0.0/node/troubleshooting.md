@@ -376,7 +376,7 @@ Address: 0xa6512ad...657730b0313
 <details>
 <summary>
 
-### What should I do if "DappNodeWifi" and my Avado Wi-Fi network don't appear in my computer's Wi-Fi list?
+### What should I do if "DappnodeWifi" and my Avado Wi-Fi network don't appear in my computer's Wi-Fi list?
 </summary>
 
 Please select connection method to your Avado device:
@@ -438,7 +438,7 @@ Please select connection method to your Avado device:
         sudo reboot
         ```
 
-    5. Please wait 5 minutes, then check if **DappNodeWifi** appears in your computer's Wi-Fi list. The default Wi-Fi password for DappNode is `dappnode`.
+    5. Please wait 5 minutes, then check if **DappnodeWifi** appears in your computer's Wi-Fi list. The default Wi-Fi password for Dappnode is `dappnode`.
 </TabItem>
 <TabItem value="peripherals" label="Connect using external monitor and keyboard">
 
@@ -494,7 +494,7 @@ Please select connection method to your Avado device:
         sudo reboot
         ```
 
-    5. Please wait 5 minutes, then check if **DappNodeWifi** appears in your computer's Wi-Fi list. The default Wi-Fi password for DappNode is `dappnode`.
+    5. Please wait 5 minutes, then check if **DappnodeWifi** appears in your computer's Wi-Fi list. The default Wi-Fi password for Dappnode is `dappnode`.
 
 </TabItem>
 </Tabs>
@@ -504,7 +504,7 @@ Please select connection method to your Avado device:
 <details>
 <summary>
 
-### What should I do if only my Avado Wi-Fi appears but "DappNodeWifi" is missing from my computer's Wi-Fi list?
+### What should I do if only my Avado Wi-Fi appears but "DappnodeWifi" is missing from my computer's Wi-Fi list?
 </summary>
 
 If the Avado Wi-Fi appears on your computer's Wi-Fi list, it suggests a problem with the USB's boot settings, as the device did not attempt to initiate the installation process. Please select connection method to your Avado device:
@@ -546,7 +546,7 @@ If the Avado Wi-Fi appears on your computer's Wi-Fi list, it suggests a problem 
 
     5. Remove the USB stick and power on the device again.
 
-    6. Wait for **5 minutes** and check if **DappNodeWifi** has appeared in your computer's wifi list. The default Wi-Fi password for DappNode is `dappnode`.
+    6. Wait for **5 minutes** and check if **DappnodeWifi** has appeared in your computer's wifi list. The default Wi-Fi password for Dappnode is `dappnode`.
 </TabItem>
 <TabItem value="peripherals" label="Connect using external monitor and keyboard">
 
@@ -586,10 +586,10 @@ If the Avado Wi-Fi appears on your computer's Wi-Fi list, it suggests a problem 
 <details>
 <summary>
 
-### What should I do if my DappNode isn't reachable via Wi-Fi and I've forgotten the SSH password?
+### What should I do if my Dappnode isn't reachable via Wi-Fi and I've forgotten the SSH password?
 </summary>
 
-If you've forgotten the SSH password and cannot access your DappNode, you will need to physically connect to the device and perform a reinstall of the DappNode software.
+If you've forgotten the SSH password and cannot access your Dappnode, you will need to physically connect to the device and perform a reinstall of the Dappnode software.
 
 1. **Prerequisites for connection to your Avado device**
 
