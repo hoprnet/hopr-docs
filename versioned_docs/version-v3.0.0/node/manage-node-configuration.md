@@ -316,7 +316,7 @@ db:
 
 | Settings | Description |
 | --- | --- |
-| `db.data` | Specifies the path to the database directory. For Docker users, the path is **/app/hoprd-db**. For Dappnode users, the path is **/app/hoprd-db/db**. |
+| `db.data` | Specifies the path to the database directory. For Docker users, the path is **/app/hoprd-db**. For Dappnode users, the path is **/app/hoprd/data**. |
 | `db.initialize` | Defaults to **true**, meaning the database will be created if it doesn't already exist. If set to **false** and the database is missing, the node will not start. |
 | `db.force_initialize` | Defaults to **false**. If set to **true**, any existing database in the specified directory will be overwritten and re-initialized. |
 
