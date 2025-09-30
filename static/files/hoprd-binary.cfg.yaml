@@ -22,7 +22,7 @@ hopr:
     keep_logs: true
     fast_sync: true
   safe_module:
-    safe_transaction_service_provider: https://safe-transaction.prod.hoprtech.net/
+    safe_transaction_service_provider: https://safe-transaction.prod.hoprnet.link/
     safe_address: # TODO: fill in
     module_address: # TODO: fill in
 identity:
