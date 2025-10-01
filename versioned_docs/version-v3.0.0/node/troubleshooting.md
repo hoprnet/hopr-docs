@@ -72,7 +72,7 @@ import { NoCounter } from '@site/src/components/Counter';
     On the **Configuration** page, under the **Strategies** section, verify the following:
 
     - The **!Aggregating** setting is not enabled.
-    - The **minimum_redeem_ticket_value** is set between **1 wxHOPR** and **10 wxHOPR**.
+    - The **minimum_redeem_ticket_value** is set between **1 wxHOPR** and **9 wxHOPR**.
     - The **redeem_only_aggregated** setting is set to **false**.
 
 5. **Check your node connectivity quality**
@@ -116,14 +116,30 @@ import { NoCounter } from '@site/src/components/Counter';
 
 3. **Expected rewards calculation**
 
+    Due to recent changes in ticket pricing and win probability, ticket aggregation has been discontinued. The current ticket price on the network is **0.00005 wxHOPR**. Due to this low value, redeeming tickets frequently could quickly drain your xDai. To address this, the Cover Traffic Node now issues winning tickets valued at **10 wxHOPR each**.
+
     With an **APR of 10%**, a node staked at the **maximum cap of 75,000 wxHOPR** should earn approximately **20 wxHOPR per day**. For nodes with a lower stake, you can estimate your expected rewards using the following formula:
 
     ```
-    <Your staking amount> * 10% = <Yearly reward> wxHOPR/year
-    <Yearly reward> / 365 = <Daily reward> wxHOPR/day
+    Yearly Reward = (Your staking amount per node) × 10% (wxHOPR/year)
+    Daily Reward = (Yearly Reward) ÷ 365 (wxHOPR/day)
     ```
 
-    Due to recent changes in ticket pricing and win probability, ticket aggregation has been discontinued. Each winning ticket is now valued at **10 wxHOPR**. If your staking amount is below the maximum cap, you may receive one winning ticket every two days or longer, depending on your staked amount.
+    **Note:** If you run multiple nodes, divide your total staking amount by the number of nodes to determine the staking amount per node.
+
+    **Examples:**
+
+    **75,000 wxHOPR per node:** 
+    Yearly Reward = 75,000 × 10% = 7,500 wxHOPR/year
+    Daily Reward = 7,500 ÷ 365 ≈ 20.55 wxHOPR/day (approximately 2 tickets/day)
+
+    **30,000 wxHOPR per node:**
+    Yearly Reward = 30,000 × 10% = 3,000 wxHOPR/year
+    Daily Reward = 3,000 ÷ 365 ≈ 8.22 wxHOPR/day (approximately 1 ticket every 2 days)
+
+    **10,000 wxHOPR per node:**
+    Yearly Reward = 10,000 × 10% = 1,000 wxHOPR/year
+    Daily Reward = 1,000 ÷ 365 ≈ 2.74 wxHOPR/day (approximately 1 ticket every 4 days)
 
     **Note:** These calculations assume optimal node performance and no issues with the RPC provider or other dependencies.
 

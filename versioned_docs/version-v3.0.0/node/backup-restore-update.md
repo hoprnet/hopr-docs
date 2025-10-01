@@ -347,7 +347,17 @@ Select based on your HOPR Package Update Status:
 <Tabs queryString="auto_update">
 <TabItem value="manual" label="HOPR Package Not Updated">
 
-1. **Back Up Your Identity File**
+1. **Redeem manually tickets and close incoming channels**
+
+    :::info
+    Before redeeming tickets, note that the `minimum_redeem_ticket_value` configuration setting determines the minimum channel balance. If the balance falls below this value, it represents the amount of HOPR tokens you’re willing to lose. You can always lower this amount before redeeming all tickets.
+    :::
+
+    1. Connect to your node via the `Admin UI`, navigate to the `Tickets` page, and click the **Redeem All Tickets** icon. Wait until the **unredeemed tickets** value decreases and approaches 0.
+
+    2. Navigate to the `CHANNELS: IN` page and close all incoming channels by clicking the **Close Incoming Channel** button next to each channel.
+
+2. **Back Up Your Identity File**
 
     1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
@@ -373,19 +383,19 @@ Select based on your HOPR Package Update Status:
 
     4. Store both the downloaded `hopr-identity.tar` file and your database password in a secure location for future recovery.
 
-2. **Open the Dappstore**
+3. **Open the Dappstore**
 
     Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
 
-3. **Find and Select the HOPR Package**
+4. **Find and Select the HOPR Package**
 
     Search for the HOPR package, access its details, and click `UPDATE`.
 
-4. **Submit the Update**
+5. **Submit the Update**
 
     During the update process, all data fields should be pre-filled. Click `Submit` to complete the HOPRd node update process.
 
-5. **Restore your node identity**
+6. **Restore your node identity**
 
     1. **Enable Viewing Hidden Files**
 
@@ -432,20 +442,30 @@ Select based on your HOPR Package Update Status:
 
         Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
 
-5. **Enable automatic Fast Sync (Optional)**
+7. **Enable automatic Fast Sync (Optional)**
 
     Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
     
     To enable automatic Fast Sync, follow [this guide](fast-sync.md?fast_sync_method=automatic).
 
-6. **What's next?**
+8. **What's next?**
 
     After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
 
 </TabItem>
 <TabItem value="auto" label="HOPR Package Auto-Updated">
 
-1. **Back Up Your Identity File**
+1. **Redeem manually tickets and close incoming channels**
+
+    :::info
+    Before redeeming tickets, note that the `minimum_redeem_ticket_value` configuration setting determines the minimum channel balance. If the balance falls below this value, it represents the amount of HOPR tokens you’re willing to lose. You can always lower this amount before redeeming all tickets.
+    :::
+
+    1. Connect to your node via the `Admin UI`, navigate to the `Tickets` page, and click the **Redeem All Tickets** icon. Wait until the **unredeemed tickets** value decreases and approaches 0.
+
+    2. Navigate to the `CHANNELS: IN` page and close all incoming channels by clicking the **Close Incoming Channel** button next to each channel.
+
+2. **Back Up Your Identity File**
 
     1. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager).
 
@@ -471,7 +491,7 @@ Select based on your HOPR Package Update Status:
 
     4. Store both the downloaded `hopr-identity.tar` file and your database password in a secure location for future recovery.
 
-2. **Restore your node identity**
+3. **Restore your node identity**
 
     1. **Enable Viewing Hidden Files**
 
@@ -518,13 +538,13 @@ Select based on your HOPR Package Update Status:
 
         Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
 
-3. **Enable automatic Fast Sync (Optional)**
+4. **Enable automatic Fast Sync (Optional)**
 
     Fast Sync significantly speeds up node synchronization, taking 10–20 minutes depending on hardware. Due to the HOPRd v2 to v3 migration, Fast Sync requires the automatic method (see disclaimer in the guide below).
     
     To enable automatic Fast Sync, follow [this guide](fast-sync.md?fast_sync_method=automatic).
 
-4. **What's next?**
+5. **What's next?**
 
     After migrating from HOPRd v2 to HOPRd v3, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v2-to-hoprd-v3-was-successful).
 
