@@ -81,7 +81,7 @@ import { NoCounter } from '@site/src/components/Counter';
 
 6. **Verify tickets status**
     
-    On the **TICKETS** page, ensure that there are no **Neglected** or **Rejected** tickets.
+    On the **TICKETS** page, ensure that there are no **Unredeemed**, **Neglected** or **Rejected** tickets. 
 
 7. **Verify your node's status on the Network Dashboard**
 
@@ -177,7 +177,7 @@ import { NoCounter } from '@site/src/components/Counter';
 <details>
 <summary> 
   
-### What should I do if my node is receiving rejected tickets?
+### What should I do if my node is receiving unredeemed, neglected, rejected tickets?
 </summary>
 If your node is receiving rejected tickets, several issues could be causing this, such as:
 
@@ -190,7 +190,10 @@ Follow these steps to troubleshoot the issue:
 
 2. Navigate to the **Info** page, under the **Network** section, and verify that no **Faulty RPC** message appears next to the **Provider Address**. If a **Faulty RPC** message is displayed, you must change your RPC provider and resync your node. Follow the [guide to resync your node](#how-to-re-sync-my-hoprd-node) for detailed instructions.
 
-3. If no **Faulty RPC** message appears next to the **Provider Address**, navigate to the **Channels: In** page. Close all incoming payment channels by clicking the **Close Incoming Channel** icon next to each channel.
+3. If no **Faulty RPC** message appears next to the **Provider Address**, do the following:
+
+- Navigate to the **Channels: In** page. Close all incoming payment channels by clicking the **Close Incoming Channel** icon next to each channel.
+- If you have outgoing payment channels to [Cover Traffic nodes](#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards), close the payment channels with Cover Traffic nodes and re-open at least one payment channel with a random peer from the connected peers list.
 
 4. Wait several days and monitor whether you receive rejected tickets again. If you do, contact the ambassadors on the Telegram channel or Discord server for assistance.
 </details>
