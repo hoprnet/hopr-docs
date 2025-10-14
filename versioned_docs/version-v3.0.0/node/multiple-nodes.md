@@ -24,11 +24,17 @@ Please select Docker method to run multiple nodes:
 
 To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Each node must have different ports, and they should not match between the nodes you are running on the same device or VPS.
 
-For example, the second node should implement the following changes:
+For example:
+
+The first node should implement the following changes:
+
+- Add `--apiPort 3001`
+
+The second node should implement the following changes:
 
 - Change `-p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002`
 - Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
-- Add `--apiPort 3002` (where first defaults to 3001)
+- Add `--apiPort 3002`
 - Ensure you suffix your IP address with the new port, which in this example would now be `9092` instead of `9091`.
 - Assign a different name to your second node by changing `--name hoprd` to `--name hoprd-2`
 
@@ -65,6 +71,7 @@ docker run \
   --identity /app/hoprd-db/.hopr-id-dufour \
   --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
+  --apiPort 3001 \
   --apiToken '<YOUR_API_TOKEN>' \
   --password '<YOUR_DB_PASSWORD>' \
   --safeAddress '<SAFE_WALLET_ADDRESS>' \
@@ -102,6 +109,7 @@ docker run \
   --identity /app/hoprd-db/.hopr-id-dufour \
   --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
+  --apiPort 3002 \
   --apiToken '<YOUR_API_TOKEN>' \
   --password '<YOUR_DB_PASSWORD>' \
   --safeAddress '<SAFE_WALLET_ADDRESS>' \
