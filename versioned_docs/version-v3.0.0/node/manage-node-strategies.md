@@ -28,38 +28,29 @@ strategy:
     strategies:
         
         - !Promiscuous
-        max_channels: 10
-        network_quality_threshold: 0.5
-        new_channel_stake: "1000000000000000000 HOPR"
-        minimum_node_balance: "1000000000000000000 HOPR"
+        max_channels: 20
+        network_quality_open_threshold: 0.9
+        network_quality_close_threshold: 0.2
+        minimum_peer_pings: 50
+        new_channel_stake: "10 wxHOPR"
+        minimum_safe_balance: "10000 wxHOPR"
         min_network_size_samples: 20
         enforce_max_channels: true
-        minimum_peer_version: ">=2.1.0"    
+        minimum_peer_version: ">=2.2.3"    
         
         - !AutoFunding
-        funding_amount: "1000000000000000000 HOPR"
-        min_stake_threshold: "1000000000000000000 HOPR"
-        
-        - !Aggregating
-        aggregation_threshold: 1000
-        unrealized_balance_ratio: 0.9
-        aggregate_on_channel_close: true
+        funding_amount: "10 wxHOPR"
+        min_stake_threshold: "1 wxHOPR"
         
         - !AutoRedeeming
-        redeem_only_aggregated: true
-        minimum_redeem_ticket_value: "2500000000000000000 HOPR"
+        redeem_only_aggregated: false
+        minimum_redeem_ticket_value: "1 wxHOPR"
         
         - !Passive    
         
         - !ClosureFinalizer
         max_closure_overdue: 300
 ```
-
-:::info
-
-HOPR token amounts are measured with **18 decimal places**. When setting a custom value, be sure to **add 18 zeros to the integer value**. For example, **1 HOPR Token** should be entered as **1000000000000000000 HOPR**.
-
-:::
 
 #### strategy.on_fail_continue
 
