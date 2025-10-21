@@ -43,7 +43,7 @@ We recommend using [Sedge](https://docs.sedge.nethermind.io/) for an easy node s
    ./sedge deps install
    ```
 
-3. Generate a full node setup by specifying the custom execution client as **Nethermind** and the consensus client as **Nimbus** (without MEV-Boost).
+3. Generate a full node setup by specifying the custom execution client as **Nethermind** and the consensus client as **Nimbus** (without MEV-Boost). Ensure your Nethermind version is **1.34.1 or higher**.
 
    - If you only need an RPC endpoint on the Gnosis chain, please select the **No Validator** method.  
    - If you want to become a Gnosis validator and have at least **1 GNO** token, please select the **With Validator** installation method.
@@ -63,7 +63,7 @@ We recommend using [Sedge](https://docs.sedge.nethermind.io/) for an easy node s
       </TabItem>
       </Tabs>
 
-4. Configure log size limitations (**Nethermind client > v1.27.x**):
+4. Configure log size limitations:
    
    - Navigate to the **sedge-data** folder and open the **.env** file.
 
@@ -92,7 +92,7 @@ We recommend using [Sedge](https://docs.sedge.nethermind.io/) for an easy node s
 
 1. Go to the Stakers section: [http://my.dappnode/stakers/gnosis](http://my.dappnode/stakers/gnosis)
 2. Select **Nethermind xDai** for the Execution Layer and **Lighthouse Gnosis** for the Consensus Layer. Ensure **Use checksync** is enabled, then click **Apply Changes**.
-3. Configure log size limitations (**Nethermind client v1.27.x**):
+3. Configure log size limitations:
    - Go to: [http://my.dappnode/packages/my/nethermind-xdai.dnp.dappnode.eth/config](http://my.dappnode/packages/my/nethermind-xdai.dnp.dappnode.eth/config)
    - Add: `--JsonRpc.MaxLogsPerResponse 300000` to the **ENV VALUE** field next to **EXTRA_OPTS**.
    - Click **Update** to apply the changes.
@@ -110,15 +110,9 @@ Watch this video tutorial for step-by-step guidance:
 
 ### Use third-party RPC providers (Moderately stable)
 
-We recommend using a third-party RPC provider that runs on the Nethermind execution client. These options are typically free and reliable enough for running your node:
+We recommend using only the following third-party RPC providers, which run on the Nethermind execution client. These options are free and reliable enough for running your node:
 
+- [RPC provider by HOPR](https://rpc-provider.hoprnet.org)
 - [Public Node](https://gnosis.publicnode.com)
-- [DRPC](https://drpc.org/chainlist/gnosis) (**Note:** Ensure the URL includes an API key)
-
----
-
-### Use public RPC endpoints from Chainlist (Least reliable)
-
-You can find public RPC endpoints from [Chainlist.org](https://chainlist.org/?search=gnosis), but note that these are often unstable due to heavy usage. We recommend caution when using these endpoints as they might go offline or rate-limit your HOPRd node.
 
 </ReCounter>
