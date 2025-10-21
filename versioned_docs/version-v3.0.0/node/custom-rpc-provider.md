@@ -112,7 +112,7 @@ Watch this video tutorial for step-by-step guidance:
 
 We recommend using only the following third-party RPC providers, which run on the Nethermind execution client. These options are free and reliable enough for running your node:
 
-- [RPC provider by HOPR](https://rpc-provider.hoprnet.org)
+- [https://rpc-provider.hoprnet.org](https://rpc-provider.hoprnet.org)(RPC provider by HOPR)
 - [Public Node](https://gnosis.publicnode.com)
 
 </ReCounter>
