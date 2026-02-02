@@ -114,15 +114,6 @@ We recommend using only the following third-party RPC providers, which run on th
 
 <details>
 <summary> 
-Public Node
-</summary>
-
-To use the Public Node RPC provider on the Gnosis network, go to [https://gnosis.publicnode.com](https://gnosis.publicnode.com)
-
-</details>
-
-<details>
-<summary> 
 Gnosis RPC
 </summary>
 
@@ -173,6 +164,15 @@ To use the Gnosis RPC provider, follow the steps below:
          version_range: '>=2.0.0, <4.0.0'
    ```
 5. Start your node.
+</details>
+
+<details>
+<summary> 
+Public Node
+</summary>
+
+To use the Public Node RPC provider on the Gnosis network, go to [https://gnosis.publicnode.com](https://gnosis.publicnode.com)
+
 </details>
 
 </ReCounter>
