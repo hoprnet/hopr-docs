@@ -112,7 +112,7 @@ Watch this video tutorial for step-by-step guidance:
 
 We recommend using only the following third-party RPC providers, which run on the Tenderly and Nethermind execution client. These options are free and reliable enough for running your node:
 
-- [Gnosis RPC](https://rpc.gnosischain.com)
-- [Public Node](https://gnosis.publicnode.com)
+- [https://rpc.gnosischain.com](https://rpc.gnosischain.com)
+- [https://gnosis.publicnode.com](https://gnosis.publicnode.com)
 
 </ReCounter>
