@@ -110,69 +110,9 @@ Watch this video tutorial for step-by-step guidance:
 
 ### Use third-party RPC providers (Moderately stable)
 
-We recommend using only the following third-party RPC providers, which run on the Nethermind execution client. These options are free and reliable enough for running your node.
+We recommend using only the following third-party RPC providers, which run on the Tenderly and Nethermind execution client. These options are free and reliable enough for running your node:
 
-<details>
-<summary> 
-Gnosis RPC
-</summary>
-
-To use the Gnosis RPC provider, follow the steps below:
-
-1. Replace the RPC provider `https://rpc.gnosis.gateway.fm` with your current RPC provider.
-2. If you haven’t set up a configuration file yet, follow
-   [this guide](manage-node-configuration.md#create-and-apply-configuration-file-to-your-node).
-3. Create a backup of your existing configuration file.
-4. Add the following configuration section **directly after** `fast_sync: true`. **Indentation is critical** — incorrect spacing will prevent your node from starting.
-
-   ```yaml
-   protocols:
-     chains:
-       xdai:
-         block_time: 5000
-         chain_id: 100
-         default_provider: 'https://gnosis-provider.rpch.tech'
-         description: >-
-           The xDai chain is a stable payments EVM (Ethereum Virtual Machine)
-           blockchain designed for fast and inexpensive transactions
-         hopr_token_name: wxHOPR
-         live: true
-         max_fee_per_gas: 10 gwei
-         max_priority_fee_per_gas: 2 gwei
-         native_token_name: xDAI
-     networks:
-       dufour:
-         addresses:
-           announcements: '0x619eabE23FD0E2291B50a507719aa633fE6069b8'
-           channels: '0x693Bac5ce61c720dDC68533991Ceb41199D8F8ae'
-           module_implementation: '0xB7397C218766eBe6A1A634df523A1a7e412e67eA'
-           network_registry: '0x582b4b586168621dAf83bEb2AeADb5fb20F8d50d'
-           network_registry_proxy: '0x2bc6b78B0aA892e97714F0e3b1c74487f92C5884'
-           node_safe_registry: '0xe15C24a0910311c83aC78B5930d771089E93077b'
-           node_stake_v2_factory: '0x098B275485c406573D042848D66eb9d63fca311C'
-           ticket_price_oracle: '0xcA5656Fe6F2d847ACA32cf5f38E51D2054cA1273'
-           winning_probability_oracle: '0x7Eb8d762fe794A108e568aD2097562cc5D3A1359'
-           token: '0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1'
-         chain: xdai
-         confirmations: 8
-         environment_type: production
-         indexer_start_block_number: 29706814
-         max_block_range: 150
-         tags:
-           - etherscan
-         tx_polling_interval: 3000
-         version_range: '>=2.0.0, <4.0.0'
-   ```
-5. Start your node.
-</details>
-
-<details>
-<summary> 
-Public Node
-</summary>
-
-To use the Public Node RPC provider on the Gnosis network, go to [https://gnosis.publicnode.com](https://gnosis.publicnode.com)
-
-</details>
+- [Gnosis RPC](https://rpc.gnosischain.com)
+- [Public Node](https://gnosis.publicnode.com)
 
 </ReCounter>
