@@ -1,13 +1,9 @@
-hopr:
-  strategy:
-    on_fail_continue: true
-    allow_recursive: true
-    strategies:
-      - !AutoRedeeming
-        redeem_only_aggregated: false
-        minimum_redeem_ticket_value: "1 wxHOPR"
-      - !ClosureFinalizer
-        max_closure_overdue: 300
-  chain:
-    keep_logs: true
-    fast_sync: true
+strategy:
+  on_fail_continue: true
+  allow_recursive: true
+  strategies:
+    - !AutoRedeeming
+      redeem_only_aggregated: false
+      minimum_redeem_ticket_value: "1 wxHOPR"
+    - !ClosureFinalizer
+      max_closure_overdue: 300s
