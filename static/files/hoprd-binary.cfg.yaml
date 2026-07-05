@@ -1,36 +1,33 @@
-hopr:
-  host:
-    address: !IPv4 127.0.0.1 #TODO: replace with your external IP
-    port: 9001
-  db:
-    data: /app/db
-    initialize: true
-    force_initialize: false
-  strategy:
-    on_fail_continue: true
-    allow_recursive: true
-    strategies: 
-      - !AutoRedeeming
-        redeem_only_aggregated: false
-        minimum_redeem_ticket_value: "1 wxHOPR"
-      - !ClosureFinalizer
-        max_closure_overdue: 300
-  chain:
-    provider: # TODO: fill in
-    announce: true
-    network: dufour
-    keep_logs: true
-    fast_sync: true
-  safe_module:
-    safe_transaction_service_provider: https://safe-transaction.prod.hoprnet.link/
-    safe_address: # TODO: fill in
-    module_address: # TODO: fill in
+blokli_url: https://blokli.rotsee.hoprnet.link
 identity:
-  file:  path/to/hopr.id # TODO: full path to your hopr.id file
+  file: "/app/hoprd/conf/hopr.id"
   password: '' # TODO: password to your ID file
+db:
+  data: /app/hoprd/data
 api:
   enable: true
-  auth: !Token  # TODO: fill in your API token
   host:
-    address: !IPv4 0.0.0.0
+    address:
+      IPv4: 0.0.0.0
     port: 3001
+  auth: # TODO: fill in your API token
+strategy:
+  allow_recursive: false
+  execution_interval: 15s
+  strategies:
+    - AutoRedeeming:
+        minimum_redeem_ticket_value: "1 wxHOPR"
+        redeem_all_on_close: true
+        redeem_on_winning: true
+    - ClosureFinalizer:
+        max_closure_overdue: 5m
+hopr:
+  host:
+    address:
+      IPv4: 127.0.0.1 # NOTE: adapt this to reflect your public IP
+    port: 9001 # NOTE: adapt this to reflect your public PORT - the value set in HOPRD_P2P_PORT
+  safe_module:
+    safe_address: # NOTE: fill in value
+    module_address: # NOTE: fill in value
+session_ip_forwarding:
+  use_target_allow_list: false

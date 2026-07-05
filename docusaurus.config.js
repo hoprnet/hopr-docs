@@ -26,7 +26,11 @@ const config = {
   url: DOCS_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn', // <--- Move it here
+    },
+  },
   favicon: '/img/hopr_icon.svg',
   organizationName: 'hoprnet',
   projectName: 'hopr-docs',
@@ -54,8 +58,8 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
-          lastVersion: 'v3.0.0',
-          onlyIncludeVersions: ['v2.2.3', 'v3.0.0'],
+          lastVersion: 'v4.0.0',
+          onlyIncludeVersions: ['v3.0.0', 'v4.0.0'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')
