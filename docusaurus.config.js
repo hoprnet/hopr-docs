@@ -26,11 +26,10 @@ const config = {
   url: DOCS_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  markdown: {
-    hooks: {
-      onBrokenMarkdownLinks: 'warn',
-    },
-  },
+  // Top-level form, compatible with the 3.8.1 pinned in yarn.lock (which Vercel
+  // installs). Docusaurus 3.9+ prefers markdown.hooks.onBrokenMarkdownLinks and
+  // will require it in v4, so move this once the lockfiles agree on 3.9+.
+  onBrokenMarkdownLinks: 'warn',
   favicon: '/img/hopr_icon.svg',
   organizationName: 'hoprnet',
   projectName: 'hopr-docs',
