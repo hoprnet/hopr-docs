@@ -26,9 +26,9 @@ const config = {
   url: DOCS_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  // Top-level form: accepted by both Docusaurus 3.8.x and 3.9+. Once the Vercel
-  // build is confirmed to install from pnpm-lock.yaml (3.10.2), move this to
-  // markdown.hooks.onBrokenMarkdownLinks — the top-level option goes away in v4.
+  // Required form for the Docusaurus 3.8.1 pinned in yarn.lock, which is what
+  // Vercel installs. markdown.hooks.onBrokenMarkdownLinks exists only in 3.9+
+  // and fails config validation on 3.8.1, so don't migrate before bumping the pin.
   onBrokenMarkdownLinks: 'warn',
   favicon: '/img/hopr_icon.svg',
   organizationName: 'hoprnet',
