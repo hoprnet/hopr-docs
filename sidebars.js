@@ -135,22 +135,6 @@ const sidebars = {
         "node/troubleshooting"
       ]
     }
-  ],
-  "tutorialSidebar": [
-    {
-      "type": "category",
-      "label": "Developers",
-      "link": {
-        "type": "doc",
-        "id": "developers/intro"
-      },
-      "items": [
-        "developers/starting-local-cluster",
-        "developers/rest-api",
-        "developers/smart-contract",
-        "developers/snippets"
-      ]
-    }
   ]
 
 }

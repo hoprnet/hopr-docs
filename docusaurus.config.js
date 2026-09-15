@@ -26,6 +26,9 @@ const config = {
   url: DOCS_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
+  // Required form for the Docusaurus 3.8.1 pinned in yarn.lock, which is what
+  // Vercel installs. markdown.hooks.onBrokenMarkdownLinks exists only in 3.9+
+  // and fails config validation on 3.8.1, so don't migrate before bumping the pin.
   onBrokenMarkdownLinks: 'warn',
   favicon: '/img/hopr_icon.svg',
   organizationName: 'hoprnet',
@@ -56,6 +59,18 @@ const config = {
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
           lastVersion: 'v3.0.0',
           onlyIncludeVersions: ['v2.2.3', 'v3.0.0'],
+          // The Developers section is disabled. Files are kept in versioned_docs/
+          // so it can be re-enabled by dropping the 'developers/**' entry below and
+          // restoring the tutorialSidebar entries in the sidebar files.
+          // NOTE: specifying `exclude` replaces Docusaurus' defaults rather than
+          // extending them, so the default patterns are repeated here.
+          exclude: [
+            '**/_*.{js,jsx,ts,tsx,md,mdx}',
+            '**/_*/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/__tests__/**',
+            'developers/**'
+          ],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css')

@@ -21,12 +21,6 @@ const FeatureList = [
     docName: 'node/run-a-node-overview'
   },
   {
-    title: 'For Developers',
-    Svg: <img class="svg_icon" src={'/img/front_icons/hopr-development.svg'} />,
-    description: <>Learn how to build apps on top of the HOPR network.</>,
-    docName: 'developers/intro'
-  },
-  {
     title: 'Token Economics',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-staking.svg'} />,
     description: <>Learn the principles of token value, utility and operations.</>,
