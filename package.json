@@ -34,7 +34,7 @@
     "use-immer": "0.6.0"
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=24.0"
   },
   "browserslist": {
     "production": [
