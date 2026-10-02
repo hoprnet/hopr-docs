@@ -259,7 +259,7 @@ Please select your platform to update your HOPRd node:
 
 5. **Migrate node from Dufour to Piz Palu network**
 
-    Do this step on the computer where you keep your Safe owner wallet, not on your node server. The command asks for that wallet's private key, so never run it on a server.
+    Do this step on your own computer, not on your node server. The command asks for a private key, so never run it on a server.
 
     1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.  
 
@@ -271,11 +271,11 @@ Please select your platform to update your HOPRd node:
         | `<SAFE_OWNER>` | The address of the wallet that owns your current Safe. It will also own the new Safe. | Your wallet app, for example MetaMask. |
         | `<NODE1,NODE2,NODE3>` | The addresses of the nodes you ran on v3.0.x, separated by commas with no spaces | The [Staking Hub](https://hub.hoprnet.org/staking/dashboard#node) or the [Admin UI](node-management-admin-ui.md#access-the-hopr-admin-ui). |
 
-        :::note
-        Your Safe owner wallet pays the transaction fees, so it needs a small amount of xDai.
-        :::
-
     3. This command creates a new Safe and node module, and adds the nodes you ran on v3.0.x to them.
+
+        :::important
+        Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+        :::
     
         - Replace every value in `<...>` with your own from the previous step and keep the quotes. Then run the command for your system. Only the line-continuation character differs.
 
@@ -305,7 +305,7 @@ Please select your platform to update your HOPRd node:
         --allowance 15000000000000000000000
         ```
 
-        - At the **Enter private key:** prompt, paste the private key of your Safe owner wallet and press Enter. Nothing appears on screen while you paste, which is expected.
+        - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
         - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Write both down, because you need them in the next step. Example:
 
             ```
@@ -376,7 +376,7 @@ Please select your platform to update your HOPRd node:
 
 4. **Migrate node from Dufour to Piz Palu network**
 
-    Do this step on the computer where you keep your Safe owner wallet, not on your node server. The command asks for that wallet's private key, so never run it on a server.
+    Do this step on your own computer, not on your node server. The command asks for a private key, so never run it on a server.
 
     1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.  
 
@@ -387,12 +387,12 @@ Please select your platform to update your HOPRd node:
         | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
         | `<SAFE_OWNER>` | The address of the wallet that owns your current Safe. It will also own the new Safe. | Your wallet app, for example MetaMask. |
         | `<NODE1,NODE2,NODE3>` | The addresses of the nodes you ran on v3.0.x, separated by commas with no spaces | The [Staking Hub](https://hub.hoprnet.org/staking/dashboard#node) or the [Admin UI](node-management-admin-ui.md#access-the-hopr-admin-ui). |
-        
-        :::note
-        Your Safe owner wallet pays the transaction fees, so it needs a small amount of xDai.
-        :::
 
     3. This command creates a new Safe and node module, and adds the nodes you ran on v3.0.x to them.
+
+        :::important
+        Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+        :::
     
         - Replace every value in `<...>` with your own from the previous step and keep the quotes. Then run the command for your system. Only the line-continuation character differs.
 
@@ -422,7 +422,7 @@ Please select your platform to update your HOPRd node:
         --allowance 15000000000000000000000
         ```
 
-        - At the **Enter private key:** prompt, paste the private key of your Safe owner wallet and press Enter. Nothing appears on screen while you paste, which is expected.
+        - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
         - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Write both down, because you need them in the next step. Example:
 
             ```
