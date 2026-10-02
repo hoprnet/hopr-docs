@@ -21,7 +21,7 @@ Setting up a HOPR node with Docker Compose is intended for advanced users. It pr
 Start by downloading the `compose` folder from the HOPR repository to your local machine:
 
 ```bash
-curl -fL -o main.zip https://github.com/hoprnet/hoprd/archive/refs/heads/main.zip && unzip main.zip "hoprd-main/deploy/compose/*" -d extracted_files && mv extracted_files/hoprd-main/deploy/compose . && rm -rf main.zip extracted_files.
+curl -fL -o v5.0.0-rc.1.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0-rc.1.zip && unzip v5.0.0-rc.1.zip "hoprd-5.0.0-rc.1/deploy/compose/*" -d extracted_files && mv extracted_files/hoprd-5.0.0-rc.1/deploy/compose . && rm -rf v5.0.0-rc.1.zip extracted_files
 ```
 
 ---
