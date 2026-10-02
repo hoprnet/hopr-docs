@@ -63,7 +63,6 @@ docker run \
   -p 1422:1422/tcp \
   -e RUST_LOG=info \
   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.1 \
-  --network piz-palu-prod \
   --init \
   --api \
   --announce \
