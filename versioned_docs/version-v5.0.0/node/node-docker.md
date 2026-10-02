@@ -62,7 +62,7 @@ docker run \
   -p 1422:1422/udp \
   -p 1422:1422/tcp \
   -e RUST_LOG=info \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.1 \
   --network piz-palu-prod \
   --init \
   --api \
@@ -75,7 +75,6 @@ docker run \
   --safeAddress '<SAFE_WALLET_ADDRESS>' \
   --moduleAddress '<MODULE_ADDRESS>' \
   --host '<YOUR_PUBLIC_IP>:9091' \
-  --provider '<CUSTOM_RPC_PROVIDER>' \
   --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
 ```
 
@@ -88,7 +87,6 @@ Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
 | `--safeAddress '<SAFE_ADDRESS>'`                     | Your staking Safe wallet address         |
 | `--moduleAddress '<MODULE_ADDRESS>'`                        | Your staking Module contract address     |
 | `--host '<YOUR_PUBLIC_IP>:9091'`                            | Your public libp2p endpoint (port 9091)  |
-| `--provider '<CUSTOM_RPC_PROVIDER>'`                        | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).                    |
 | `--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'` | Path to your custom strategy YAML file   |
 
 
@@ -160,19 +158,7 @@ The following settings need to be adjusted in the current Docker command:
    
    3. Replace `<YOUR_PUBLIC_IP>` with your IP (e.g., `1.2.3.4:9091`).
 
-5. **Adjust `provider` setting**
-
-   1. Obtain a Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).
-   
-   2. Replace `<CUSTOM_RPC_PROVIDER>` in the Docker command above.
-
-   **Example:**
-
-   ```md
-   --provider https://gnosis-rpc.publicnode.com
-   ```
-
-6. **Implement configuration file** 
+5. **Implement configuration file** 
 
    1. Download the example file for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml).
    
@@ -201,72 +187,12 @@ Once you have [configured your Docker command](node-docker.md#configure-hoprd-co
 
 ---
 
-## Start HOPR Admin UI
+## Fund your Safe wallet**
 
-HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
+For the node to operate in the network, you need to fund your Safe wallet with at least 1 wxHOPR and your node address with at least 0.01 xDai.
 
-```md
-docker run -d --pull=always -p 4677:4677 --name hopr-admin europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
-```
+[Funding steps]
 
 ---
 
-## Link your node to your HOPR Safe wallet
-
-1. **Access the HOPR Admin UI**  
-   
-   If you're using the default configuration, open the Admin UI in your browser:
-
-   ```
-   http://localhost:4677
-   ```
-
-   - Replace `localhost` with your **server IP address** if running on a VPS.
-   - Ensure the port `4677` is correctly mapped during setup.
-
-2. **Connect to your node**  
-   
-   Click **CONNECT TO NODE** in the top-right corner. In the **Node credentials** popup:
-
-   - **API endpoint**: Default is `http://localhost:3001`. Replace `localhost` with your VPS IP if applicable. Adjust the port if you changed it.
-
-   - **API token**: Enter the custom security token you created during the [initial HOPRd setup](#configure-hoprd-command).
-
-3. **Copy your node address**  
-   
-   After clicking **Connect to the node**, your node address (starting with `0x`) will appear. Copy it for use during onboarding.
-
-4. **Return to the HOPR Staking Hub**
-   
-   There's no need to manually fund your node with xDai tokens. Funding will happen during onboarding via the HOPR Staking Hub.
-
-   Visit the [HOPR Staking Hub](https://hub.hoprnet.org) to: Register for the waitlist, or complete onboarding if you’ve been approved.
-
----
-
-## What's next?
-
-Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
-
-To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
-
-1. **Install the HOPR Admin UI** 
-
-   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
-
-2. **Check if the node is 100% synced**
-
-   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
-   If it’s not fully synced yet, you’ll need to wait until the process is complete.
-
-3. **Open outgoing channel and verify**
-
-   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-   You’ll receive a notification once the channel has been opened.
-   
-   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
-
----
-
-**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+**Congratulations!** Your node should now be fully operational. To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
