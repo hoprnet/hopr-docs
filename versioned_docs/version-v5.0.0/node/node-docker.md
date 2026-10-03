@@ -70,7 +70,7 @@ docker run \
   --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
   --apiToken '<YOUR_API_TOKEN>' \
-  --password '<YOUR_DB_PASSWORD>' \
+  --password '<YOUR_IDENTITY_PASSWORD>' \
   --safeAddress '<SAFE_WALLET_ADDRESS>' \
   --moduleAddress '<MODULE_ADDRESS>' \
   --host '<YOUR_PUBLIC_IP>:9091' \
@@ -82,7 +82,7 @@ Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
 | Flag                                                        | Description                              |
 | ----------------------------------------------------------- | ---------------------------------------- |
 | `--apiToken '<YOUR_API_TOKEN>'`                             | Your Admin UI API token                  |
-| `--password '<YOUR_DB_PASSWORD>'`                           | Passphrase to encrypt your identity file. Write down this password, as you will need it if you ever need to restore your node in the future. |
+| `--password '<YOUR_IDENTITY_PASSWORD>'`                           | Passphrase to encrypt your identity file. Write down this password, as you will need it if you ever need to restore your node in the future. |
 | `--safeAddress '<SAFE_ADDRESS>'`                     | Your staking Safe wallet address         |
 | `--moduleAddress '<MODULE_ADDRESS>'`                        | Your staking Module contract address     |
 | `--host '<YOUR_PUBLIC_IP>:9091'`                            | Your public libp2p endpoint (port 9091)  |
@@ -109,11 +109,130 @@ The following settings need to be adjusted in the current Docker command:
         Make sure to make a note of the API token you created. You will need it to connect to your node via the HOPR Admin UI.
         :::
 
-2. **Adjust `password` setting**
+2. **Adjust `safeAddress` and `moduleAddress` and `identity`**
 
-   1. Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)).
-    
-   2. Replace `<YOUR_DB_PASSWORD>` in the Docker command above.
+   :::tip Already Have Safe and node module addresses and identity?
+   If you are migrating from earlier releases. You can skip to **Step 2.4**.
+   :::
+
+   Do these steps on your own computer, not on your node server. The command asks for a private key, so never run it on a server.
+
+   1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.  
+   
+   2. Create a temporary folder called `hopr-identity` in your home directory.
+
+      **Linux / macOS** (Terminal):
+
+      ```bash
+      mkdir -p ~/hopr-identity
+      ```
+
+      **Windows** (PowerShell):
+
+      ```powershell
+      New-Item -ItemType Directory -Force -Path "$HOME\hopr-identity"
+      ```   
+
+   3. Gather the values you need for node identity creation. You'll paste these into the command.
+   
+      | Placeholder | What it is | Where to find it |
+      |---|---|---|
+      | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)). |
+      | `<NUMBER>` | Number of identities to be generated, you can create as much identities as you need, one identity per node. | Provide the number of identites. |
+   
+      Create node identity, you can create as much identities as you need, one identity per node. The folder path is written differently on each system.  
+
+      **Linux / macOS** (Terminal):
+
+        ```bash
+        docker run --rm -it --pull always \
+        -v ~/hopr-identity:/data \
+        -e IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD> \
+        europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+        identity create \
+        --identity-directory /data \
+        --identity-prefix hopr \
+        --number <NUMBER> \
+        ```
+
+      **Windows** (PowerShell):
+
+      ```powershell
+            docker run --rm -it --pull always `
+            -v "$HOME\hopr-identity:/data" `
+            -e IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD> `
+            europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+            identity create `
+            --identity-directory /data `
+            --identity-prefix hopr `
+            --number <NUMBER>
+      ```
+   
+      Once you execute the command it will create an identity for example: `hopr0.id` in the `hopr-identity` folder.
+
+   4. Gather the values you need for Safe and node module creation. You'll paste these into the command.
+   
+      | Placeholder | What it is | Where to find it |
+      |---|---|---|
+      | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | The password you set in previous step during node identity creation. |
+      | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
+      | `<SAFE_OWNER>` | The address of the wallet that owns your Safe wallet. | Your wallet app, for example Rabby wallet, MetaMask. |
+
+      :::important
+      Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+      :::
+
+      Create Safe and node module addresses also linking recently created node identity. The folder path is written differently on each system.
+
+      **Linux / macOS** (Terminal):
+
+      ```bash
+      docker run --rm -it --pull always \
+      -v ~/hopr-identity:/data \
+      -e IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD> \
+      europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+      safe-module create \
+      --network piz-palu-prod \
+      --provider-url <YOUR_RPC_PROVIDER_URL> \
+      --admin-address <SAFE_OWNER> \
+      --identity-directory /data \
+      --allowance 15000000000000000000000
+      ```
+
+      **Windows** (PowerShell):
+
+      ```powershell
+      docker run --rm -it --pull always `
+      -v "$HOME\hopr-identity:/data" `
+      -e IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD> `
+      europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+      safe-module create `
+      --network piz-palu-prod `
+      --provider-url <YOUR_RPC_PROVIDER_URL> `
+      --admin-address <SAFE_OWNER> `
+      --identity-directory /data `
+      --allowance 15000000000000000000000
+      ```
+
+      - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+      - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Write both down, because you need them in the next step. Example:
+
+         ```
+         safe 0xAbC0000000000000000000000000000000000123
+         node_module 0xAbC0000000000000000000000000000000000123
+         ```
+   
+   5. Replace `<SAFE_ADDRESS>` and `<MODULE_ADDRESS>` in the Docker command above with the addresses of the Safe and node module you just created.
+   
+   6. Move the identity file you just created to the machine where you will run your HOPRd node.
+
+      - Create a folder named `hoprd` on the machine where you will run your HOPRd node.
+      - In the temporary `hopr-identity` folder, rename the identity file `hopr0.id` to `hopr.id`, then move it to the `hoprd` folder.
+      - Once `hopr.id` is in the `hoprd` folder, delete the temporary `hopr-identity` folder.
+
+3. **Adjust `password` setting**
+
+   Replace `<YOUR_IDENTITY_PASSWORD>` in the Docker command above with the one you created node identity.
 
         **Example:**
 
@@ -124,26 +243,6 @@ The following settings need to be adjusted in the current Docker command:
         :::note
         Make sure to write down this password, as you will need it if you ever need to restore your node in the future.
         :::
-
-3. **Adjust `safeAddress` and `moduleAddress`**
-
-   :::tip Already Have These Addresses?
-   If you copied the Docker command from the **HOPR Staking Hub** during onboarding, the Safe and Module addresses are already included. You can skip to **Step 2.4**.
-   :::
-
-   1. Go to the [Staking Hub dashboard](https://hub.hoprnet.org/staking/dashboard).
-   
-   2. Copy your Safe and Module addresses (see screenshot below):
-      ![Module and Safe address](/img/node/updated-module-and-safe-address.png)
-   
-   3. Replace `<SAFE_ADDRESS>` and `<MODULE_ADDRESS>` in the Docker command above.
-      
-      **Example:**
-
-      ```bash
-      --safeAddress 0xEe8D810feAb42313Cc6E2F9DC2D9E2e55d2eb6f9
-      --moduleAddress 0x0cE0dD1532e58C09bd60bb2a50fad9BB03c541B2
-      ```
 
 4. **Adjust `host` setting**
 
@@ -163,7 +262,7 @@ The following settings need to be adjusted in the current Docker command:
    
    2. Customize your strategy (see [Understanding node strategies](./manage-node-strategies.md?config=docker#understanding-node-strategies)).
    
-   3. Create a `hoprd` folder and place the `hoprd-docker.cfg.yaml` configuration file inside it.
+   3. Place the `hoprd-docker.cfg.yaml` configuration file inside `hoprd` folder.
 
 </ReCounter2nd>
 
@@ -186,11 +285,17 @@ Once you have [configured your Docker command](node-docker.md#configure-hoprd-co
 
 ---
 
-## Fund your Safe wallet**
+## Fund your Safe wallet and node**
 
-For the node to operate in the network, you need to fund your Safe wallet with at least 1 wxHOPR and your node address with at least 0.01 xDai.
+   1. Your node needs at least `1 wxHOPR` to start, which covers the fee for announcing it on the network.
 
-[Funding steps]
+   2. Make sure your node has at least `0.01 xDai`. To find out your node address, on your machine where you run HOPRd node, execute this command:
+   
+      ```
+      docker logs -t hoprd | grep "blockchain_address"
+      ```
+
+      The output should contain `blockchain_address` which means this is your node address.
 
 ---
 
