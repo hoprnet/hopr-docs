@@ -8,17 +8,134 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import { NoCounter } from '@site/src/components/Counter';
 
-:::info
+Setting up a HOPR node with Docker Compose is intended for advanced users. It provides a sophisticated setup, allowing the use of a configuration file and node monitoring tools to enhance the node management experience.
 
-Please note that you must complete the onboarding process before setting up your node. To begin, visit the [Overview](./run-a-node-overview.md) page. Once you have your Safe and Module addresses, you can proceed here.
+---
 
+## Create your node identity, Safe and node module
+
+:::tip Migrating from v3.0.x?
+If you came here from the [migration guide](./backup-restore-update.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download compose folder](#download-compose-folder).
 :::
 
-Setting up a HOPR node with Docker Compose is intended for advanced users. It provides a sophisticated setup, allowing the use of a configuration file and node monitoring tools to enhance the node management experience.
+Do these steps on your own computer, not on your node server. The command in step 4 asks for a private key, so never run it on a server.
+
+1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.  
+   
+2. Create a temporary folder called `hopr-identity` in your home directory.
+
+  **Linux / macOS** (Terminal):
+
+  ```bash
+  mkdir -p ~/hopr-identity
+  ```
+
+  **Windows** (PowerShell):
+
+  ```powershell
+  New-Item -ItemType Directory -Force -Path "$HOME\hopr-identity"
+  ```   
+
+3. Gather the values you need for node identity creation. You'll paste these into the command.
+   
+  | Placeholder | What it is | Where to find it |
+  |---|---|---|
+  | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)). |
+  | `<NUMBER>` | How many node identities to create, one per node | Use `1` unless you run several nodes (see [Multiple nodes](./multiple-nodes.md)). |
+
+  Create your node identity. The folder path is written differently on each system.
+   
+  Create node identity, you can create as much identities as you need, one identity per node. The folder path is written differently on each system.  
+
+  **Linux / macOS** (Terminal):
+
+  ```bash
+  docker run --rm -it --pull always \
+  -v ~/hopr-identity:/data \
+  -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+  identity create \
+  --identity-directory /data \
+  --identity-prefix hopr \
+  --number <NUMBER>
+  ```
+
+  **Windows** (PowerShell):
+
+  ```powershell
+  docker run --rm -it --pull always `
+  -v "$HOME\hopr-identity:/data" `
+  -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+  identity create `
+  --identity-directory /data `
+  --identity-prefix hopr `
+  --number <NUMBER>
+  ```
+   
+  The command creates one file per identity in the `hopr-identity` folder: `hopr0.id`, `hopr1.id`, and so on.
+
+4. Gather the values you need for Safe and node module creation. You'll paste these into the command.
+   
+  | Placeholder | What it is | Where to find it |
+  |---|---|---|
+  | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | The password you set in previous step during node identity creation. |
+  | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
+  | `<SAFE_OWNER>` | The address of the wallet that owns your Safe wallet. | Your wallet app, for example Rabby wallet, MetaMask. |
+
+  :::important
+  Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+  :::
+
+  Create your Safe and node module, and add the node identity you just created to them. The folder path is written differently on each system.
+
+  **Linux / macOS** (Terminal):
+
+  ```bash
+  docker run --rm -it --pull always \
+  -v ~/hopr-identity:/data \
+  -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+  safe-module create \
+  --network piz-palu-prod \
+  --provider-url <YOUR_RPC_PROVIDER_URL> \
+  --admin-address <SAFE_OWNER> \
+  --identity-directory /data \
+  --allowance 15000000000000000000000
+  ```
+
+  **Windows** (PowerShell):
+
+  ```powershell
+  docker run --rm -it --pull always `
+  -v "$HOME\hopr-identity:/data" `
+  -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+  safe-module create `
+  --network piz-palu-prod `
+  --provider-url <YOUR_RPC_PROVIDER_URL> `
+  --admin-address <SAFE_OWNER> `
+  --identity-directory /data `
+  --allowance 15000000000000000000000
+  ```
+
+  - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+  - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Example:
+
+    ```text
+    safe 0xAbC0000000000000000000000000000000000123
+    node_module 0xDeF0000000000000000000000000000000000456
+    ```
+
+5. Write down the `safe` and `node_module` addresses. You will enter them in [Configure your node](#configure-your-node).
+
+6. Keep the `hopr0.id` file and its password. You will copy the file to your node machine in [Manage the identity file](#manage-the-identity-file), and enter the password in [Set up secrets environment variables](#set-up-secrets-environment-variables).
+
+---
 
 ## Download compose folder
 
-Start by downloading the `compose` folder from the HOPR repository to your local machine:
+Start by downloading the `compose` folder from the HOPR repository to the machine where you will run your node:
 
 ```bash
 curl -fL -o v5.0.0-rc.1.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0-rc.1.zip && unzip v5.0.0-rc.1.zip "hoprd-5.0.0-rc.1/deploy/compose/*" -d extracted_files && mv extracted_files/hoprd-5.0.0-rc.1/deploy/compose . && rm -rf v5.0.0-rc.1.zip extracted_files
@@ -59,26 +176,38 @@ mv .env-secrets.sample .env-secrets
 Adjust the following secrets environment variables in the `.env-secrets` file:
 
 - `HOPRD_PASSWORD`:  
-  Replace the placeholder value `YOUR_HOPRD_IDENTITY_PASSWORD` with the database password, which is required to encrypt your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on how to create a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
+  Enter the password you set when you created your node identity. If you are migrating, use the same password you used on v3.0.x. Make sure to write it down, as you will need it if you ever need to restore your node in the future.
 
 - `HOPRD_API_TOKEN`:  
-  Replace the placeholder `YOUR_HOPRD_API_TOKEN` within your docker command with your own security token which is required to connect to your node via HOPR Admin UI or REST API. For guidance on how to create a secure secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
+  Enter your own secret token. You need it to connect to your node via the HOPR Admin UI or REST API. For guidance on how to create a secure token, see this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
 
 ---
 
-## Configure node strategies
+## Configure your node
 
-Inside the `compose` folder, navigate to the `hoprd/conf` subfolder and open the `hoprd.cfg.yaml` file.
+Inside the `compose` folder, navigate to the `hoprd/conf` subfolder and open the `hoprd.cfg.yaml` file. Set these values:
 
-Make adjustments according to these [configuration guidelines](./manage-node-configuration?config=docker-compose) under the **Docker Compose** section.
+- `host.address.IPv4`: your public IP address (replace `127.0.0.1`).
+- `host.port`: the value of `HOPRD_P2P_PORT` (default `9091`).
+- `safe_module.safe_address`: the `safe` address you created.
+- `safe_module.module_address`: the `node_module` address you created.
+
+For details, see the [configuration guidelines](./manage-node-configuration?config=docker-compose) under the **Docker Compose** section.
 
 ---
 
 ## Manage the identity file
 
-If you've previously run a node, move your identity file into the `compose/hoprd/conf` folder and rename it to `hopr.id`.
+Copy your identity file into the `compose/hoprd/conf` folder on your node machine and rename it to `hopr.id`:
 
-If this is your first time running a node, the `hopr.id` file will be generated automatically when the HOPRd node is launched.
+- **New node:** the `hopr0.id` file from the `hopr-identity` folder. After copying, keep a backup of `hopr.id` somewhere safe outside the node folder, then delete the temporary `hopr-identity` folder.
+- **Migrating from v3.0.x:** your backed-up `hopr.id`.
+
+---
+
+## Fund your Safe wallet
+
+Send at least `1 wxHOPR` to your Safe wallet: the `safe` address you created in [Create your node identity, Safe and node module](#create-your-node-identity-safe-and-node-module), or your new Safe from the migration guide if you are migrating from v3.0.x. Your node uses it to pay the fee for announcing itself on the network when it starts.
 
 ---
 
@@ -106,37 +235,36 @@ COMPOSE_PROFILES=admin-ui docker compose up -d
 COMPOSE_PROFILES=hoprd,admin-ui docker compose up -d
 ```
 
-### To launch the HOPRd node, Admin UI, and metrics (if you completed Step 5): {#no-counter}
-
-```bash
-COMPOSE_PROFILES=hoprd,admin-ui,metrics,metrics-vis docker compose up -d
-```
 </NoCounter>
----
-
-## What's next?
-
-Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
-
-To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
-
-1. **Install the HOPR Admin UI** 
-
-   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
-
-2. **Check if the node is 100% synced**
-
-   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
-   If it’s not fully synced yet, you’ll need to wait until the process is complete.
-
-3. **Open outgoing channel and verify**
-
-   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-   You’ll receive a notification once the channel has been opened.
-   
-   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
 
 ---
 
-**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+## Fund your node with xDai
+
+When the node starts, it shows its address and waits until it has xDai.
+
+1. Find your node address. On the machine where you run your node, execute:
+
+    ```bash
+    docker logs hoprd 2>&1 | grep "blockchain_address"
+    ```
+
+    The value of `blockchain_address` is your node address.
+
+2. Send at least `0.01 xDai` to your node address. The node checks its balance regularly and finishes starting once the funds arrive.
+
+3. Check the logs to confirm the node started:
+
+    ```bash
+    docker logs -f hoprd
+    ```
+
+    Look for `node announced successfully` or `node already announced on chain`. Press `Ctrl+C` to stop following the logs. The node keeps running.
+
+:::note
+Until both the Safe and the node are funded, the node may stop and restart a few times. This is expected and stops once the funds arrive.
+:::
+
+---
+
+**Congratulations!** Your node should now be fully operational. To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).

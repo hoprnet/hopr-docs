@@ -145,8 +145,6 @@ The following settings need to be adjusted in the current Docker command:
       | `<NUMBER>` | How many node identities to create, one per node | Use `1` unless you run several nodes (see [Multiple nodes](./multiple-nodes.md)). |
 
       Create your node identity. The folder path is written differently on each system.
-   
-      Create node identity, you can create as much identities as you need, one identity per node. The folder path is written differently on each system.  
 
       **Linux / macOS** (Terminal):
 
@@ -223,7 +221,7 @@ The following settings need to be adjusted in the current Docker command:
       - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
       - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Write both down, because you need them in the next step. Example:
 
-         ```
+         ```text
          safe 0xAbC0000000000000000000000000000000000123
          node_module 0xDeF0000000000000000000000000000000000456
          ```
