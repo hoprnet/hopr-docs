@@ -310,7 +310,7 @@ Please select your platform to update your HOPRd node:
 
             ```
             safe 0xAbC0000000000000000000000000000000000123
-            node_module 0xAbC0000000000000000000000000000000000123
+            node_module 0xDeF0000000000000000000000000000000000456
             ```
 
 6. **Start your node**
@@ -326,7 +326,7 @@ Please select your platform to update your HOPRd node:
 7. **Move your funds to the new Safe**
 
     :::important
-    Before moving funds, make sure you own the new Safe. Go to [Safe\{Wallet\}](https://app.safe.global), connect your Safe owner wallet on **Gnosis Chain**, and check that the new `safe` address from step 4 appears in your list of Safes. If it isn't there, don't move any funds. Instead, check that you used the right `<SAFE_OWNER>` address in step 4.
+    Before moving funds, make sure you own the new Safe. Go to [Safe\{Wallet\}](https://app.safe.global), connect your Safe owner wallet on **Gnosis Chain**, and check that the new `safe` address from step 4 appears in your list of Safes. If it isn't there, don't move any funds. Instead, check that you used the right `<SAFE_OWNER>` address in step 5.
     :::
 
     1. Go to the [Staking Hub](https://hub.hoprnet.org/staking/dashboard#staking), connect your Safe owner wallet, and withdraw your `wxHOPR` from your old Safe to the new `safe` address from step 4. Your node needs at least **1 wxHOPR** to start, which covers the fee for announcing it on the network.
@@ -427,7 +427,7 @@ Please select your platform to update your HOPRd node:
 
             ```
             safe 0xAbC0000000000000000000000000000000000123
-            node_module 0xAbC0000000000000000000000000000000000123
+            node_module 0xDeF0000000000000000000000000000000000456
             ```
 
 5. **Set up your node**
