@@ -1,0 +1,142 @@
+---
+id: node-macos
+title: macOS
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::info
+
+Please note that you must start the onboarding process before setting up your node. To start, visit the [Overview](./run-a-node-overview.md) page.
+
+:::
+
+This guide explains how to install and run the HOPRd node natively on macOS using [Homebrew](https://brew.sh), the macOS package manager. Installing HOPRd as a native package means it integrates with your system in a standard, macOS-friendly way—no containers or virtualization needed.
+
+---
+
+## Install HOPRd node
+
+1. **Install Homebrew**
+
+   1. Open the **Terminal** application on your macOS.
+   2. Install Homebrew follow this guide: [https://brew.sh](https://brew.sh/).
+
+2. **Install HOPRd using homebrew**
+
+   Install the HOPRd package on your macOS using Homebrew:
+
+   ```
+   brew tap hoprnet/hoprd
+   brew install hoprd@3.0.0
+   ```
+
+## Configure HOPRd node 
+
+1. **Edit environment variables**
+
+   1. Open the **Terminal** application and edit the `hoprd.env` file by running command:
+   
+      ```
+      sudo vim $(brew --prefix)/etc/hoprd/hoprd.env
+      ```
+
+   2. Below is a quick reference for all the variables you’ll need to adjust:
+      
+      | Variable                     | Description                              |
+      | ---------------------------- | ---------------------------------------- |
+      | `HOPRD_PROVIDER`      | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).          |
+      | `HOPRD_SAFE_ADDRESS`           | Your staking Safe wallet address     |
+      | `HOPRD_MODULE_ADDRESS`      | Your staking Module contract address |
+
+      Once you finished, save file.
+
+2. **Configure hoprd node**
+   
+   1. **Adjust environment variables**
+
+      Below is a quick reference of all the necessary environment variables you may need to configure:
+
+      | Flag                                                        | Description                              |
+      | ----------------------------------------------------------- | ---------------------------------------- |
+      | `HOPRD_HOST`                            | Your public libp2p endpoint `<YOUR_PUBLIC_IP>:<LIBP2P_PORT>` (Default libp2p port is `9091`)  |
+      | `HOPRD_PASSWORD`                           | Passphrase used to encrypt your identity file. Make sure to **write it down**, as you'll need it to restore your node in the future. If the `HOPRD_PASSWORD` environment variable is not set during installation, a new password will be generated automatically. |
+      | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
+      | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
+      | `HOPRD_MODULE_ADDRESS`                        | Your staking Module contract address     |
+      | `HOPRD_PROVIDER`                        | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)). |
+      | `HOPRD_API_PORT` | REST API port to access via Admin UI (Default port is `3001`)   |
+
+      Edit the environment variables file by running this command:
+
+      ```
+      sudo vim $(brew --prefix)/etc/hoprd/hoprd.env
+      ```
+
+      You can find a full list of supported environment variables in the [HOPRNET github repository](https://github.com/hoprnet/hoprnet?tab=readme-ov-file#usage).
+
+   2. **Adjust node configuration properties (optional)**
+
+      By default, the configuration file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
+
+      Edit the configuration file by running this command:
+
+      ```
+      sudo vim $(brew --prefix)/etc/hoprd/hoprd.cfg.yaml
+      ```
+---
+
+## Link your node to your HOPR Safe wallet
+
+1. **Retrieve HOPRd node address**
+
+   1. Once you completed HOPRd installation it outputs HOPRd configuration.
+   2. In the HOPRd configuration locate **Node Address**.
+
+2. **Register node address on the HOPR Staking Hub**
+
+   Go to [HOPR Staking Hub](https://hub.hoprnet.org) and register for the waitlist, or complete onboarding if you’ve been approved.
+
+   :::info
+
+   There's no need to manually fund your node with xDai tokens. Funding will happen during onboarding via the HOPR Staking Hub.
+
+   :::
+
+---
+
+## What's next?
+
+Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
+
+To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
+
+1. **Start the HOPRd node**
+
+   After completing the onboarding process, start your node by running the command:
+
+   ```
+   brew services start hoprd
+   ```
+
+2. **Install the HOPR Admin UI** 
+
+   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
+
+3. **Check if the node is 100% synced**
+
+   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
+   If it’s not fully synced yet, you’ll need to wait until the process is complete.
+
+4. **Open outgoing channel and verify**
+
+   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
+   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
+   You’ll receive a notification once the channel has been opened.
+   
+   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened.
+
+---
+
+**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
