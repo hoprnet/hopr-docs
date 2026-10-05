@@ -253,7 +253,7 @@ Please select your platform to update your HOPRd node:
     ```bash
     rm -rf ~/.hoprd-db-dufour
     mkdir -p ~/hoprd
-    curl -o ~/hoprd/hoprd-docker.cfg.yaml https://docs.hoprnet.org/files/hoprd-docker.cfg.yaml
+    curl -o ~/hoprd/hoprd.cfg.yaml https://docs.hoprnet.org/files/hoprd.cfg.yaml
     ```
 
     - Then copy your backed-up `hopr.id` into `~/hoprd`.

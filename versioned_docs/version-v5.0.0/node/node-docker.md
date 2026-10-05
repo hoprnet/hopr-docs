@@ -70,6 +70,7 @@ docker run \
   --init \
   --api \
   --announce \
+  --blokliUrl https://blokli-piz-palu.prod.hoprnet.link \
   --identity /app/hoprd-db/hopr.id \
   --data /app/hoprd-db \
   --apiHost '0.0.0.0' \
@@ -78,7 +79,7 @@ docker run \
   --safeAddress '<SAFE_ADDRESS>' \
   --moduleAddress '<MODULE_ADDRESS>' \
   --host '<YOUR_PUBLIC_IP>:9091' \
-  --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
+  --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
 ```
 
 Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
@@ -90,7 +91,7 @@ Below is a quick reference of all the `hoprd` CLI flags you’ll need to adjust:
 | `--safeAddress '<SAFE_ADDRESS>'`                     | Your staking Safe wallet address         |
 | `--moduleAddress '<MODULE_ADDRESS>'`                        | Your staking Module contract address     |
 | `--host '<YOUR_PUBLIC_IP>:9091'`                            | Your public libp2p endpoint (port 9091)  |
-| `--configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'` | Path to your custom strategy YAML file   |
+| `--configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'` | Path to your custom strategy YAML file   |
 
 
 The following settings need to be adjusted in the current Docker command:
@@ -261,11 +262,11 @@ The following settings need to be adjusted in the current Docker command:
 
 5. **Add the configuration file** 
 
-   1. Download the example file for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml).
+   1. Download the example file for Docker: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml).
    
    2. Customize your strategy (see [Understanding node strategies](./manage-node-strategies.md?config=docker#understanding-node-strategies)).
    
-   3. Place the `hoprd-docker.cfg.yaml` file inside your `~/hoprd` folder.
+   3. Place the `hoprd.cfg.yaml` file inside your `~/hoprd` folder.
 
 </ReCounter2nd>
 
