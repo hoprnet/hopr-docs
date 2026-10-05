@@ -208,8 +208,11 @@ Please select platform to restore your node identity:
 :::info
 Running a HOPRd node is supported on **Linux and macOS** only. Windows commands are included
 in the Safe migration step because that step runs a one-off tool, not the node. You can run
-it from a Windows machine if that's where your Safe owner key is, but the node itself must run
-on Linux or macOS.
+it from a Windows computer, but the node itself must run on Linux or macOS.
+:::
+
+:::tip
+If you run several nodes under one Safe, for example a Dappnode and a Docker node, create the new Safe and node module only once, with all your node addresses. Then use the same new addresses for every node.
 :::
 
 Please select your platform to update your HOPRd node:
@@ -463,7 +466,7 @@ Please select your platform to update your HOPRd node:
 1. **Manually redeem tickets and close incoming channels**
 
     :::info
-    Before redeeming tickets, note that the `minimum_redeem_ticket_value` configuration setting determines the minimum channel balance. If the balance falls below this value, it represents the amount of HOPR tokens you’re willing to lose. You can always lower this amount before redeeming all tickets.
+    Your node only redeems tickets worth at least `minimum_redeem_ticket_value`. Any ticket you don't redeem before closing your channels is lost. You can always lower this value before redeeming all tickets.
     :::
 
     1. Connect to your node via the `Admin UI`, navigate to the `Tickets` page, and click the **Redeem All Tickets** icon. Wait until the **unredeemed tickets** value decreases and approaches 0.
@@ -472,115 +475,88 @@ Please select your platform to update your HOPRd node:
 
 2. **Back up your identity file and write down your identity password**
 
-    Follow the instructions in this [guide](backup-restore-update.md?backup_identity=dappnode#backup-your-node-identity). You will use the downloaded `hopr.id` file and the password in the next steps.
+    Follow the instructions in this [guide](./backup-restore-update.md?backup_identity=dappnode#backup-your-node-identity). You will upload the `hopr.id` file again in step 6.
 
-3. **Migrate node from Dufour to Piz Palu network**
+3. **Create your new Safe and node module**
 
-    On your computer where you don't run the node, follow the steps to migrate your node from Dufour to Piz Palu network.
+    Do this step on your own computer, not on your Dappnode. The command asks for a private key, so never run it on your Dappnode.
 
-    1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.  
-    2. Create a temporary folder called `hopr-identity` in your home directory.
+    1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.
 
-        **Linux / macOS** (Terminal):
-        
-        ```bash
-        mkdir -p ~/hopr-identity
-        ```
-
-        **Windows** (PowerShell):
-        
-        ```powershell
-        New-Item -ItemType Directory -Force -Path "$HOME\hopr-identity"
-        ```
-    3. Copy your backed-up identity file `hopr.id` into the `hopr-identity` folder.
-
-        :::warning
-        If you have multiple nodes under the same Safe address, copy the identity file of each node and give every copy a different name, for example `hopr.id` and `hopr-2.id`. Otherwise the files overwrite each other.
-        :::
-
-        :::note
-        The different names are only needed for the migration. Each node keeps using its own `hopr.id` when you set it up in step 5.
-        :::
-
-    4. Gather the values you need. You'll paste these into the command in the next step:
+    2. Gather the values you need. You'll paste these into the command in the next step:
 
         | Placeholder | What it is | Where to find it |
         |---|---|---|
-        | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | On the [config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), click the eye icon next to **Identity file password** and copy the value. |
-        | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint, used only for this migration | The value next to **RPC Provider URL** on the [config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config), or any Gnosis Chain RPC endpoint. See the [Custom RPC provider guide](./custom-rpc-provider.md). |
-        | `<SAFE_ADDRESS>` | Your staking Safe address | The value next to **Staking safe address** on the [config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). |
-        | `<OLD_MODULE_ADDRESS>` | The module your node uses today | The value next to **Staking safe module address** on the [config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). |
-        | `<DEPLOYMENT_NONCE>` | Transaction nonce | Provide a random number from 1 to 9 |
-        | `<PRIVATE_KEY_OF_YOUR_SAFE_OWNER>` | The private key of the wallet that owns your Safe | Your wallet. Never share it. |
+        | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint, used only for this migration. Your node doesn't need it. | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
+        | `<SAFE_OWNER>` | The address of the wallet that owns your current Safe. It will also own the new Safe. | Your wallet app, for example MetaMask. |
+        | `<NODE_ADDRESS>` | The address of the node you ran on v3.0.x | The [Staking Hub](https://hub.hoprnet.org/staking/dashboard#node) or the [Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). |
 
-    5. This command will migrate your current nodes to the different network. Replace every value in `<...>` with your own from the previous step, then run the command for your system. The folder path is written differently on each system.
+    3. This command creates a new Safe and node module, and adds the node you ran on v3.0.x to them.
+
+        :::important
+        Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+        :::
+
+        - Replace every value in `<...>` with your own from the previous step. Then run the command for your system. Only the line-continuation character differs.
 
         **Linux / macOS** (Terminal):
 
         ```bash
-        docker run --rm -it \
-        -v ~/hopr-identity:/data \
-        -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+        docker run --rm -it --pull always \
         europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
-        safe-module replace \
+        safe-module create \
         --network piz-palu-prod \
-        --provider-url '<YOUR_RPC_PROVIDER_URL>' \
-        --safe-address '<SAFE_ADDRESS>' \
-        --old-module-address '<OLD_MODULE_ADDRESS>' \
-        --identity-directory /data \
-        --deployment-nonce <DEPLOYMENT_NONCE> \
-        --private-key '<PRIVATE_KEY_OF_YOUR_SAFE_OWNER>'
+        --provider-url <YOUR_RPC_PROVIDER_URL> \
+        --admin-address <SAFE_OWNER> \
+        --node-address <NODE_ADDRESS>
         ```
 
         **Windows** (PowerShell):
 
         ```powershell
-        docker run --rm -it `
-        -v "${HOME}\hopr-identity:/data" `
-        -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' `
+        docker run --rm -it --pull always `
         europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
-        safe-module replace `
+        safe-module create `
         --network piz-palu-prod `
-        --provider-url '<YOUR_RPC_PROVIDER_URL>' `
-        --safe-address '<SAFE_ADDRESS>' `
-        --old-module-address '<OLD_MODULE_ADDRESS>' `
-        --identity-directory /data `
-        --deployment-nonce <DEPLOYMENT_NONCE> `
-        --private-key '<PRIVATE_KEY_OF_YOUR_SAFE_OWNER>'
-        ```
-    
-    6. Find the address of the new module that the `safe-module replace` command created for your Safe on the Piz Palu network. Replace the values in `<...>` with your own, then run this command to look it up. The first run downloads a small Docker image, so it may take a moment:
-
-        ```bash
-        docker run --rm ghcr.io/foundry-rs/foundry:latest "cast call <SAFE_ADDRESS> 'getModulesPaginated(address,uint256)(address[],address)' 0x0000000000000000000000000000000000000001 10 --rpc-url <YOUR_RPC_PROVIDER_URL>"
+        --provider-url <YOUR_RPC_PROVIDER_URL> `
+        --admin-address <SAFE_OWNER> `
+        --node-address <NODE_ADDRESS>
         ```
 
-        The first line of the output, in brackets, is your **new module address**. The second line is only a list marker, so ignore it. For example (your address will be different):
+        - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+        - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Write both down, because you need them in the next steps. Example:
 
-        ```
-        [0xAbC0000000000000000000000000000000000123]
-        0x0000000000000000000000000000000000000001
-        ```
+            ```text
+            safe 0xAbC0000000000000000000000000000000000123
+            node_module 0xDeF0000000000000000000000000000000000456
+            ```
 
-        Copy this address. You'll paste it into the **Staking safe module address** field on the Dappnode HOPR package config page.
+4. **Move your funds to the new Safe**
 
-        :::note
-        If the output shows `[]`, the module wasn't created. Go back to the previous step and check for errors.
-        :::
+    :::important
+    Before moving funds, make sure you own the new Safe. Go to [Safe\{Wallet\}](https://app.safe.global), connect your Safe owner wallet on **Gnosis Chain**, and check that the new `safe` address from step 3 appears in your list of Safes. If it isn't there, don't move any funds. Instead, check that you used the right `<SAFE_OWNER>` address in step 3.
+    :::
 
-4. **Update Dappnode HOPR package**
+    1. Go to the [Staking Hub](https://hub.hoprnet.org/staking/dashboard#staking), connect your Safe owner wallet, and withdraw your `wxHOPR` from your old Safe to the new `safe` address from step 3. Your node needs at least **1 wxHOPR** to start, which covers the fee for announcing it on the network.
+
+    2. Make sure your node has at least `0.01` xDai. Your node address stays the same, so any xDai it already has carries over.
+
+5. **Update the Dappnode HOPR package**
 
     1. Go to the [Dappnode dappstore](http://my.dappnode/installer/dnp).
     2. Search for the HOPR package, access its details, and click `UPDATE`.
-    3. The form is pre-filled with your current settings. In the **Staking safe module address** field, replace the old module address with the new module address you copied in the previous step.
+    3. The form is pre-filled with your current settings. Replace both addresses with the new ones from step 3:
+
+        - **Staking safe address**: the new `safe` address.
+        - **Staking safe module address**: the new `node_module` address.
 
         :::warning
-        Do not skip this step. The pre-filled value is your old Dufour module, and the node will not work on the Piz Palu network with it. If you have already submitted the update, correct the field on the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config) and click `Update`.
+        Do not skip this step. The pre-filled values are your old Dufour Safe and module, and the node will not work on the Piz Palu network with them. If you have already submitted the update, correct both fields on the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config) and click `Update`.
         :::
 
-    4. Click `Submit` to complete the HOPRd node update process.
+    4. Click `Submit` to complete the update.
 
-5. **Restore your node identity**
+6. **Restore your node identity**
 
     1. **Pause the HOPR Package**
 
@@ -595,7 +571,7 @@ Please select your platform to update your HOPRd node:
             - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
             - In the **Defaults to $WORKDIR/** field, enter:
 
-                ```
+                ```text
                 /app/hoprd/conf/
                 ```
 
@@ -603,15 +579,15 @@ Please select your platform to update your HOPRd node:
 
     3. **Update the configuration file**
 
-        Follow this [guide](manage-node-configuration.md?config=dappnode#create-and-apply-configuration-file-to-your-node) to update with the latest configuration file.
+        Follow this [guide](./manage-node-configuration.md?config=dappnode#create-and-apply-configuration-file-to-your-node) to update with the latest configuration file.
 
     4. **Restart the HOPR Package**
 
         Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` or `Restart` icon to start the HOPR package.
 
-6. **What's next?**
+7. **What's next?**
 
-    After migrating from HOPRd v3.0.x to HOPRd v5.0.0, verify that your migration was successful by following [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
+    After migrating from HOPRd v3.0.x to HOPRd v5.0.0, verify that your migration was successful by following [this guide](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
 
 </TabItem>
 </Tabs>

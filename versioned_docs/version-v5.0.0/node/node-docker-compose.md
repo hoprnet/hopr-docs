@@ -43,9 +43,7 @@ Do these steps on your own computer, not on your node server. The command in ste
   | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)). |
   | `<NUMBER>` | How many node identities to create, one per node | Use `1` unless you run several nodes (see [Multiple nodes](./multiple-nodes.md)). |
 
-  Create your node identity. The folder path is written differently on each system.
-   
-  Create node identity, you can create as much identities as you need, one identity per node. The folder path is written differently on each system.  
+  Create your node identity. The folder path is written differently on each system. 
 
   **Linux / macOS** (Terminal):
 

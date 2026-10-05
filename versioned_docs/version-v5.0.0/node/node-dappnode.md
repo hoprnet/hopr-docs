@@ -3,11 +3,124 @@ id: node-dappnode
 title: Dappnode
 ---
 
-:::info
+## Create your node identity, Safe and node module
 
-Please note that you must start the onboarding process before setting up your node. To start, visit the [Overview](./run-a-node-overview.md) page.
-
+:::tip Migrating from v3.0.x?
+If you came here from the [migration guide](./backup-restore-update.md), you already have your identity file and your new Safe and node module addresses. Skip to [Install the HOPR Package](#install-the-hopr-package).
 :::
+
+Do these steps on your own computer, not on your Dappnode. The command in step 4 asks for a private key, so never run it on your Dappnode.
+
+1. Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.  
+   
+2. Create a temporary folder called `hopr-identity` in your home directory.
+
+   **Linux / macOS** (Terminal):
+
+   ```bash
+   mkdir -p ~/hopr-identity
+   ```
+
+   **Windows** (PowerShell):
+
+   ```powershell
+   New-Item -ItemType Directory -Force -Path "$HOME\hopr-identity"
+   ```   
+   
+3. Gather the values you need for node identity creation. You'll paste these into the command.
+   
+   | Placeholder | What it is | Where to find it |
+   |---|---|---|
+   | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)). |
+   | `<NUMBER>` | How many node identities to create | Use `1`. A Dappnode runs one HOPR node. |
+
+   Create your node identity. The folder path is written differently on each system.
+
+   **Linux / macOS** (Terminal):
+
+   ```bash
+   docker run --rm -it --pull always \
+   -v ~/hopr-identity:/data \
+   -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+   identity create \
+   --identity-directory /data \
+   --identity-prefix hopr \
+   --number <NUMBER>
+   ```
+
+   **Windows** (PowerShell):
+
+   ```powershell
+   docker run --rm -it --pull always `
+   -v "$HOME\hopr-identity:/data" `
+   -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+   identity create `
+   --identity-directory /data `
+   --identity-prefix hopr `
+   --number <NUMBER>
+   ```
+   
+   The command creates the identity file `hopr0.id` in the `hopr-identity` folder.
+
+4. Gather the values you need for Safe and node module creation. You'll paste these into the command.
+   
+   | Placeholder | What it is | Where to find it |
+   |---|---|---|
+   | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | The password you set in previous step during node identity creation. |
+   | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
+   | `<SAFE_OWNER>` | The address of the wallet that owns your Safe wallet. | Your wallet app, for example Rabby wallet, MetaMask. |
+
+   :::important
+   Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+   :::
+
+   Create your Safe and node module, and add the node identity you just created to them. The folder path is written differently on each system.
+
+   **Linux / macOS** (Terminal):
+
+   ```bash
+   docker run --rm -it --pull always \
+   -v ~/hopr-identity:/data \
+   -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+   safe-module create \
+   --network piz-palu-prod \
+   --provider-url <YOUR_RPC_PROVIDER_URL> \
+   --admin-address <SAFE_OWNER> \
+   --identity-directory /data \
+   --allowance 15000000000000000000000
+   ```
+
+   **Windows** (PowerShell):
+
+   ```powershell
+   docker run --rm -it --pull always `
+   -v "$HOME\hopr-identity:/data" `
+   -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+   safe-module create `
+   --network piz-palu-prod `
+   --provider-url <YOUR_RPC_PROVIDER_URL> `
+   --admin-address <SAFE_OWNER> `
+   --identity-directory /data `
+   --allowance 15000000000000000000000
+   ```
+
+   - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+   - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Example:
+
+      ```text
+      safe 0xAbC0000000000000000000000000000000000123
+      node_module 0xDeF0000000000000000000000000000000000456
+      ```
+
+5. Write down the `safe` and `node_module` addresses. You will enter them in the setup wizard.
+
+6. Keep the `hopr0.id` file and its password. You will upload the file to your Dappnode after installing the package.
+
+---
 
 ## Install the HOPR Package
 
@@ -35,112 +148,98 @@ Please note that you must start the onboarding process before setting up your no
 
 ---
 
-## Obtain Safe & Module addresses to complete node setup
+## Complete the setup wizard
 
-1. **Copy Your Safe and Module Addresses**
+Fill in the fields of the setup wizard:
 
-   Go to the [onboarding page](https://hub.hoprnet.org/staking/onboarding) and copy both your **Safe address** and **Module address**.
+1. **Identity file password**  
 
-   ![dappnode env variable](/img/node/dappnode-env-variables-3.png)
+   In the **Identity file password** field, enter the password you set when you created your node identity.
 
-   :::tip
-   If you're re-installing an existing node (not onboarding), you can find your addresses in the  
-   [Staking Dashboard](https://hub.hoprnet.org/staking/dashboard), at the top of the staking section.
-   :::
+   Make sure to write down this password, as you will need it if you ever need to restore your node in the future.
 
-2. **Complete installing HOPR package**
+2. **REST API Token**  
 
-   1. **Identity file password**  
-
-      In the **Identity file password** field, enter the database password, which is required to encrypt your identity file.  
-      Make sure to write down this password, as you will need it if you ever need to restore your node in the future.
-
-      For guidance on creating a secure database password, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
-
-   2. **REST API Token**  
-
-      In the **REST API Token** field, enter the **secret token**, which will be used to securely connect to your node.  
+   In the **REST API Token** field, enter the **secret token**, which will be used to securely connect to your node.  
       This ensures that unauthorized users on the same network cannot access your node.
 
-      For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
+   For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password).
 
-   3. **RPC Provider URL**  
+3. **Staking Safe Address**  
 
-      In the **RPC Provider URL** field, enter your custom RPC provider. There are several methods to get an RPC provider on the Gnosis chain, please follow this [guideline](./custom-rpc-provider.md). 
+   In the **Staking safe address** field, enter the `safe` address you created.
+
+4. **Staking Module Address**  
+
+   In the **Staking safe module address** field, enter the `node_module` address you created.
+
+5. **Public Host IP and Port**  
+
+   In the **Public host IP and port** field, enter your public IP suffixed with the port `:9091`.
+
+   - Locate your external IP address by referring to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address).
+   - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
+   - Expose port `9091` (TCP and UDP) to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
+
+6. **Submit to install package**  
       
-      If you're using a local RPC endpoint, ensure the URL includes the `http://` prefix followed by the IP address or `localhost`.
+   Click **Submit**. On the next screen, accept the disclaimer, and your HOPR package should start installing immediately.
 
-   4. **Staking Safe Address**  
-
-      In the **Staking safe address** field, enter the recently copied Safe address.
-
-   5. **Staking Module Address**  
-
-      In the **Staking safe module address** field, enter the recently copied Module address.
-
-   6. **Public Host IP and Port**  
-
-      In the **Public host IP and port** field, enter your public IP suffixed with the port `:9091`.
-
-      - Locate your external IP address by referring to our [FAQ here](./frequently-asked-questions.md#how-to-find-the-external-ip-address).
-      - Refer to the [FAQ guide](./frequently-asked-questions#what-are-the-requirements-for-an-ip-address-to-run-a-hoprd-node) to determine if your IP address meets the requirements.
-      - Expose port `9091` to the public so that other nodes on the HOPR network can connect to your node. For instructions, see our [port forwarding guide](port-forwarding.md#how-to-configure-port-forwarding).
-
-   7. **Submit to install package**  
-      
-      Click **Submit**. On the next screen, accept the disclaimer, and your HOPR package should start installing immediately.
-
-      ![dappnode setup wizard](/img/node/dappnode-hopr-package-install-phase.jpg)
+   ![dappnode setup wizard](/img/node/dappnode-hopr-package-install-phase.jpg)
 
 ---
 
-## Link your node to your HOPR Safe wallet
+## Upload your identity file
 
-1. **Access the Admin UI**  
-   
-   Once installed, go to **Packages** and click on **HOPR**. Inside the HOPR package, click **Ui** to open the HOPR Admin UI.
+The HOPR package creates its own identity file when it is installed. Replace it with the identity file you created, so your node uses the identity that is linked to your Safe.
 
-2. **Connect to the Node**  
-   
-   Click **CONNECT TO NODE** in the top-right corner. In the popup under **Node credentials**, do the following:
-   - In the **API endpoint** field, the default value should be: `http://node.hopr.public.dappnode:3001`
-   - In the **API token** field, it will be empty by default. If you entered one during setup, enter it here.
+1. Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Pause` icon to stop the HOPR package.
 
-3. **Copy Your Node Address**  
-   
-   Click the **Connect to the node** button. A popup will appear showing your node address, which starts with `0x`. Copy this address for the next step.
+2. On your computer, rename `hopr0.id` in the `hopr-identity` folder to `hopr.id`.
 
-4. **Node Funding Note**  
-   
-   You don’t need to manually fund your node with **xDai** tokens. Your node will be funded automatically through the HOPR Staking Hub during onboarding.
+3. Go to the [HOPR package file manager page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/file-manager). Under the `Upload file` section:
 
-   Visit the [HOPR Staking Hub](https://hub.hoprnet.org) to register for the waitlist or complete your onboarding if already approved.
+   - In the **Choose file** field, click `Browse` and select the `hopr.id` file.
+   - In the **Defaults to $WORKDIR/** field, enter:
 
----
+      ```text
+      /app/hoprd/conf/
+      ```
 
-## What's next?
+   Click `Upload`.
 
-Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
-
-To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
-
-1. **Install the HOPR Admin UI** 
-
-   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
-
-2. **Check if the node is 100% synced**
-
-   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
-   If it’s not fully synced yet, you’ll need to wait until the process is complete.
-
-3. **Open outgoing channel and verify**
-
-   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-   You’ll receive a notification once the channel has been opened.
-   
-   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
+4. Keep a backup of `hopr.id` somewhere safe, then delete the temporary `hopr-identity` folder.
 
 ---
 
-**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+## Fund your Safe wallet
+
+1. Send at least `1 wxHOPR` to your Safe wallet (the `safe` address you created). Your node uses it to pay the fee for announcing itself on the network when it starts.
+
+2. Go to the [HOPR package info page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info) and click the `Play` icon to start the HOPR package.
+
+---
+
+## Fund your node with xDai
+
+When the HOPR package starts, the node shows its address and waits until it has xDai.
+
+1. **Find your node address**
+
+   Go to the [HOPR package logs page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs) and search for `blockchain_address`. Its value, starting with `0x`, is your node address.
+
+2. **Send xDai to your node**
+
+   Send at least `0.01 xDai` to your node address. The node checks its balance regularly and finishes starting once the funds arrive.
+
+3. **Check that your node started**
+
+   On the same logs page, search for `announced`. When you see `node announced successfully` or `node already announced on chain`, your node is running on the network.
+
+:::note
+Until both the Safe and the node are funded, the node may stop and restart a few times. This is expected and stops once the funds arrive.
+:::
+
+---
+
+**Congratulations!** Your node should now be fully operational. To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
