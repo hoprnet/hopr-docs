@@ -18,7 +18,7 @@ Please note that you must start the onboarding process before setting up your no
 2. **Find the right file**  
    
    1. In the **Assets** section, download the binary file that matches your operating system and architecture.  
-   Look for a file named:
+      Look for a file named:
 
       ```
       hoprd-<architecture>-<platform>
@@ -43,11 +43,11 @@ Please note that you must start the onboarding process before setting up your no
 
 2. **Download the Example Config File**  
    
-   Get the example configuration file specifically for the Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/hoprd-binary.cfg.yaml)
+   Get the example configuration file specifically for the Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/v5/hoprd-binary.cfg.yaml)
 
 3. **Adjust Configuration Values**  
    
-   Make necessary edits to the configuration file based on these [guidelines](./manage-node-strategies.md?config=native-binary).
+   Make necessary edits to the configuration file based on these [guidelines](./manage-node-configuration.md?config=native-binary#create-and-apply-configuration-file-to-your-node).
 
 ---
 
@@ -86,7 +86,6 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
 
    Environment="HOPRD_DATA=/root/hoprd/data/"
    Environment="HOPRD_CONFIGURATION_FILE_PATH=/root/hoprd/conf/hoprd-binary.cfg.yaml"
-   Environment="HOPR_INTERNAL_LIBP2P_MSG_ACK_MAX_TOTAL_STREAMS=1000"
 
    WorkingDirectory=/root/hoprd/
    StandardOutput=journal
@@ -144,15 +143,15 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
    ![HOPRd service status](/img/node/hoprd-service-status.png)
 
 
-    :::note
-    If `hoprd.service` is **not active**, generate logs before asking for help:
+   :::note
+   If `hoprd.service` is **not active**, generate logs before asking for help:
 
-    ```bash
-    journalctl -u hoprd >> "hoprd_$(date +%F).log"
-    ```
+   ```bash
+   journalctl -u hoprd >> "hoprd_$(date +%F).log"
+   ```
 
-    Then share the log file with the Ambassadors or Moderators for assistance.
-    :::
+   Then share the log file with the Ambassadors or Moderators for assistance.
+   :::
 
 ---
 
@@ -217,11 +216,13 @@ To start earning rewards through Cover Traffic, follow these steps to meet the n
 3. **Open outgoing channel and verify**
 
    1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-   You’ll receive a notification once the channel has been opened.
+      Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
+      You’ll receive a notification once the channel has been opened.
    
    2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
 
 ---
 
-**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+:::tip Your node is running
+Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+:::

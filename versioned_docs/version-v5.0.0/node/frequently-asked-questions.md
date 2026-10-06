@@ -16,13 +16,20 @@ import { NoCounter } from '@site/src/components/Counter';
 <Tabs queryString="external_ip">
 <TabItem value="linux_macos" label="For Linux or macOS users">
 
-1. Open the terminal
-2. Copy, paste and execute the following command: 
+1. **Open the terminal**
 
-    ```bash
-    curl ifconfig.me
-    ```
-3. Note your public IP address from the output
+2. **Run the command**
+
+   Copy, paste and execute the following command:
+
+   ```bash
+   curl ifconfig.me
+   ```
+
+3. **Note your public IP address**
+
+   Note your public IP address from the output
+
 </TabItem>
 <TabItem value="vps" label="For VPS users">
 VPS users should be able to find their IP address from their provider. It will also be your VPS IP, so it should be easy to find.
@@ -81,37 +88,9 @@ Your node's IP address is **crucial** for its performance. If it is **misconfigu
 
     <Tabs queryString="ip_type">
     <TabItem value="non-public" label="Is NOT Public">
-    If your **external IP address is not public**, you will need to add additional variable, select HOPRd node method:
+    If your **external IP address is not public**, other nodes may not be able to connect to your node, and it may not earn rewards. HOPRd v5.0.0 no longer has the `HOPRD_NAT` setting from earlier versions, so we recommend running your node with a public IP address.
 
-    <Tabs queryString="NAT_variable">
-    <TabItem value="docker" label="For Docker">
-    Add additional variable **-e HOPRD_NAT=true** to your docker command after **-e RUST_LOG=info**:
-
-    ```md
-    ... -e RUST_LOG=info -e HOPRD_NAT=true ...
-    ```
-    </TabItem>
-    <TabItem value="docker-compose" label="For Docker compose">
-
-    1. Inside **compose** folder, edit **.env** file.
-
-    2. Add additional variable **HOPRD_NAT=true** and save file.
-
-    </TabItem>
-    <TabItem value="dappnode" label="For Dappnode">
-
-    1. Go to the [HOPR package config page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/config).
-
-    2. Scroll to the bottom and make sure under **Enable NAT mode** it is set to **true**.
-
-    </TabItem>
-    </Tabs>
-
-    :::warning Note
-    Adding this variable doesn’t guarantee your node will function normally or receive rewards. It enables TCP connections under NAT, allowing your node to connect to publicly available nodes on the network, including **cover traffic nodes**.
-
-    We recommend monitoring your node — if it stops earning rewards, you will need a public IP. One option is to **rent a low-cost cloud VPS**. More info [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
-    :::
+    One option is to **rent a low-cost cloud VPS**. More info [here](frequently-asked-questions.md#from-a-costefficiency-perspective-which-option-should-i-choose-running-a-node-on-physical-hardware-or-using-a-vps).
 
     </TabItem>
     <TabItem value="public-dynamic" label="Is Public and Dynamic">
@@ -159,13 +138,17 @@ To run the HOPRd node, you need a static or public IP so other peers can reach y
   <TabItem value="dappnode" label="For Dappnode">
   If you're running the HOPRd node on Dappnode, it supports DynDNS. Here's what to do:
 
-  1. Connect to the Dappnode dashboard.
+  1. **Connect to the Dappnode dashboard**
 
-  2. Click the colorful icon in the top right corner and find "DAppNode Identity". Look for a DynDNS URL like **hiuhu234hiu.dyndns.dappnode.io**.
+  2. **Find your DynDNS URL**
 
-  3. Go to HOPR package configuration (http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under **Public host IP and port**, replace the IP address with the DynDNS URL including the port number.
+     Click the colorful icon in the top right corner and find "DAppNode Identity". Look for a DynDNS URL like **hiuhu234hiu.dyndns.dappnode.io**.
 
-      **Example:** `hiuhu234hiu.dyndns.dappnode.io:9091`
+  3. **Update the HOPR package configuration**
+
+     Go to HOPR package configuration (http://my.dappnode/packages/my/hopr.public.dappnode.eth/config). Under **Public host IP and port**, replace the IP address with the DynDNS URL including the port number.
+
+     **Example:** `hiuhu234hiu.dyndns.dappnode.io:9091`
   </TabItem>
 </Tabs>
 </details>
@@ -412,11 +395,17 @@ To facilitate a controlled and smooth scaling of the HOPR network during the ini
 
 To join the waitlist:
 
-1. Visit the [HOPR Staking Hub](https://hub.hoprnet.org), start the onboarding process, and create a HOPR Safe.
+1. **Create a HOPR Safe**
 
-2. During the onboarding process, you will be guided on how to start your HOPR Node.
+   Visit the [HOPR Staking Hub](https://hub.hoprnet.org), start the onboarding process, and create a HOPR Safe.
 
-3. You will then need to register both your newly created Safe address and your active HOPRd node address on the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ).
+2. **Start your HOPR node**
+
+   During the onboarding process, you will be guided on how to start your HOPR Node.
+
+3. **Register on the waitlist**
+
+   You will then need to register both your newly created Safe address and your active HOPRd node address on the [waitlist form](https://cryptpad.fr/form/#/2/form/view/7TwSgsF+CnW-aw24uyPlE4Gej3DX-jjeYmyk9-Q-6RQ).
 
 This allows your participation in the scaling process and ensures you're queued for network access as new slots become available.
 </details>

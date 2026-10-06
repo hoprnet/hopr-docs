@@ -9,115 +9,121 @@ title: Running Multiple Nodes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Add a node to your Safe
+
+Each additional node needs its own identity file, added to your existing Safe and node module. There is no waitlist: once the node is added, you can run it.
+
+Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because step 1.4 asks for a private key.
+
+1. **Create the identity**
+
+    Create an empty `hopr-identity` folder and create one identity in it, as described in [Create your node identity](./node-docker.md#create-your-node-identity-safe-and-node-module) (steps 2.2 and 2.3). Use `--number 1`. The folder must contain only the new identity file, `hopr0.id`, so the next step shows only its address.
+
+2. **Read the new node's address**
+
+    **Linux / macOS** (Terminal):
+
+    ```bash
+    docker run --rm -it --pull always \
+    -v ~/hopr-identity:/data \
+    -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+    identity read \
+    --identity-directory /data
+    ```
+
+    **Windows** (PowerShell):
+
+    ```powershell
+    docker run --rm -it --pull always `
+    -v "$HOME\hopr-identity:/data" `
+    -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+    identity read `
+    --identity-directory /data
+    ```
+
+    The output shows the node address in square brackets. Write it down without the brackets. Example:
+
+    ```text
+    Identity addresses: [0x24046f39f0a4ef55dbe975e70ea0c6ac9a2d970e]
+    ```
+
+3. **Gather the values for adding the node**
+
+    | Placeholder | What it is | Where to find it |
+    |---|---|---|
+    | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint, used only for this command. Your node doesn't need it. | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
+    | `<SAFE_ADDRESS>` | Your existing Safe | The `--safeAddress` value of your first node, or `hopr.safe_module.safe_address` in its `hoprd.cfg.yaml` for Docker Compose. |
+    | `<MODULE_ADDRESS>` | Your existing node module | The `--moduleAddress` value of your first node, or `hopr.safe_module.module_address` in its `hoprd.cfg.yaml` for Docker Compose. |
+    | `<NODE_ADDRESS>` | The address of the new node | The address from step 1.2. |
+
+4. **Add the node to your Safe and node module**
+
+    :::important
+    Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees, so you never need to paste your Safe owner's private key.
+    :::
+
+    Replace every value in `<...>` with your own from the previous step. Then run the command for your system. Only the line-continuation character differs.
+
+    **Linux / macOS** (Terminal):
+
+    ```bash
+    docker run --rm -it --pull always \
+    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+    safe-module add-node \
+    --network piz-palu-prod \
+    --provider-url <YOUR_RPC_PROVIDER_URL> \
+    --safe-address <SAFE_ADDRESS> \
+    --module-address <MODULE_ADDRESS> \
+    --node-address <NODE_ADDRESS>
+    ```
+
+    **Windows** (PowerShell):
+
+    ```powershell
+    docker run --rm -it --pull always `
+    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+    safe-module add-node `
+    --network piz-palu-prod `
+    --provider-url <YOUR_RPC_PROVIDER_URL> `
+    --safe-address <SAFE_ADDRESS> `
+    --module-address <MODULE_ADDRESS> `
+    --node-address <NODE_ADDRESS>
+    ```
+
+    At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+
+5. **Move the identity file to your node machine**
+
+    - In the `hopr-identity` folder, rename `hopr0.id` to `hopr.id`.
+    - Copy it into the second node's folder: `~/hoprd-2` for Docker, or `hoprd/conf` inside the **HOPRd-node-2** folder for Docker Compose.
+    - Keep a backup of `hopr.id` and its password somewhere safe outside the node folder, then delete the temporary `hopr-identity` folder.
+
+---
+
 ## Select method to run additional node
-
-:::info important
-
-When running multiple nodes with third-party RPC providers, you must assign a different RPC provider to each node to avoid potential conflicts and ensure optimal performance, as third-party RPC providers have limitations. This requirement does not apply if you are using a local RPC provider. For more details about RPC providers, you can find information [here](./custom-rpc-provider.md).
-
-:::
 
 Please select Docker method to run multiple nodes:
 
 <Tabs queryString="multi_nodes">
 <TabItem value="docker" label="Docker">
 
-To run multiple nodes on the same device or VPS, change the ports associated with your node and the location of your node database. Each node must have different ports, and they should not match between the nodes you are running on the same device or VPS.
+To run several nodes on the same machine, give each node its own folder, container name and ports. Ports must not overlap between nodes on the same machine.
 
-For example:
+Start from the [Docker command](./node-docker.md#configure-hoprd-command) and change these values for the second node:
 
-The first node should implement the following changes:
+| Setting | First node | Second node |
+|---|---|---|
+| Node folder | `-v $HOME/hoprd/:/app/hoprd-db` | `-v $HOME/hoprd-2/:/app/hoprd-db` |
+| Container name | `--name hoprd` | `--name hoprd-2` |
+| P2P port | `-p 9091:9091/tcp -p 9091:9091/udp` | `-p 9092:9092/tcp -p 9092:9092/udp` |
+| API port | `-p 3001:3001` and `--apiPort 3001` | `-p 3002:3002` and `--apiPort 3002` |
+| Session port | `-p 1422:1422/udp -p 1422:1422/tcp` and `--defaultSessionListenHost 'auto:1422'` | `-p 1423:1423/udp -p 1423:1423/tcp` and `--defaultSessionListenHost 'auto:1423'` |
+| Public host | `--host '<YOUR_PUBLIC_IP>:9091'` | `--host '<YOUR_PUBLIC_IP>:9092'` |
+| Identity file | `~/hoprd/hopr.id` | `~/hoprd-2/hopr.id`, the second node's own file |
 
-- Add `--apiPort 3001`
-
-The second node should implement the following changes:
-
-- Change `-p 9091:9091/tcp -p 9091:9091/udp -p 3001:3001` to `-p 9092:9092/tcp -p 9092:9092/udp -p 3002:3002`
-- Change `-v $HOME/.hoprd-db-dufour:/app/hoprd-db` to `-v $HOME/.hoprd-db-dufour-2:/app/hoprd-db`
-- Add `--apiPort 3002`
-- Ensure you suffix your IP address with the new port, which in this example would now be `9092` instead of `9091`.
-- Assign a different name to your second node by changing `--name hoprd` to `--name hoprd-2`
-
-These changes would result in the following configuration:
-
-![New Node Comparison](/img/node/multi-nodes-comparison.png)
-
-Here, the first node's command (on the left in the image above) is:
-
-```md
-docker run \
-  --pull always \
-  -d --restart on-failure \
-  -m 2g \
-  --security-opt seccomp=unconfined \
-  --platform linux/x86_64 \
-  --log-driver json-file \
-  --log-opt max-size=100M \
-  --log-opt max-file=5 \
-  -ti \
-  -v $HOME/.hoprd-dufour/:/app/hoprd-db \
-  --name hoprd \
-  -p 9091:9091/tcp \
-  -p 9091:9091/udp \
-  -p 3001:3001 \
-  -p 1422:1422/udp \
-  -p 1422:1422/tcp \
-  -e RUST_LOG=info \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
-  --network dufour \
-  --init \
-  --api \
-  --announce \
-  --identity /app/hoprd-db/.hopr-id-dufour \
-  --data /app/hoprd-db \
-  --apiHost '0.0.0.0' \
-  --apiPort 3001 \
-  --apiToken '<YOUR_API_TOKEN>' \
-  --password '<YOUR_DB_PASSWORD>' \
-  --safeAddress '<SAFE_WALLET_ADDRESS>' \
-  --moduleAddress '<MODULE_ADDRESS>' \
-  --host '<YOUR_PUBLIC_IP>:9091' \
-  --provider '<CUSTOM_RPC_PROVIDER>' \
-  --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
-```
-And the second node's command (on the right in the image above) is:
-
-```md
-docker run \
-  --pull always \
-  -d --restart on-failure \
-  -m 2g \
-  --security-opt seccomp=unconfined \
-  --platform linux/x86_64 \
-  --log-driver json-file \
-  --log-opt max-size=100M \
-  --log-opt max-file=5 \
-  -ti \
-  -v $HOME/.hoprd-dufour-2/:/app/hoprd-db \
-  --name hoprd-2 \
-  -p 9092:9092/tcp \
-  -p 9092:9092/udp \
-  -p 3002:3002 \
-  -p 1423:1423/udp \
-  -p 1423:1423/tcp \
-  -e RUST_LOG=info \
-  europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
-  --network dufour \
-  --init \
-  --api \
-  --announce \
-  --identity /app/hoprd-db/.hopr-id-dufour \
-  --data /app/hoprd-db \
-  --apiHost '0.0.0.0' \
-  --apiPort 3002 \
-  --apiToken '<YOUR_API_TOKEN>' \
-  --password '<YOUR_DB_PASSWORD>' \
-  --safeAddress '<SAFE_WALLET_ADDRESS>' \
-  --moduleAddress '<MODULE_ADDRESS>' \
-  --host '<YOUR_PUBLIC_IP>:9092' \
-  --provider '<CUSTOM_RPC_PROVIDER>' \
-  --configurationFilePath '/app/hoprd-db/hoprd-docker.cfg.yaml'
-```
+Copy your `hoprd.cfg.yaml` into `~/hoprd-2` as well.
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker compose">
@@ -130,28 +136,42 @@ Metrics setup is not supported when running multiple nodes on the same machine.
 
 To operate multiple nodes on the same device or VPS, you must use distinct "compose" folders for each node and ensure that their assigned ports do not overlap. To set up an additional node, follow these steps to avoid conflicts and ensure proper operation:
 
-1. Change the folder name of your first node from **compose** to **HOPRd-node-1**.
+1. **Change the folder name**
 
-2. Make a copy of a first node folder **HOPRd-node-1** and rename to **HOPRd-node-2** to differentiate this node's environment.
+    Change the folder name of your first node from **compose** to **HOPRd-node-1**.
 
-3. Modify the environment variables. Make adjustments in the **.env** file within your new **HOPRd-node-2** folder, assuming you are using the default ports:
+2. **Copy the first node folder**
+
+    Make a copy of a first node folder **HOPRd-node-1** and rename to **HOPRd-node-2** to differentiate this node's environment.
+
+3. **Modify the environment variables**
+
+    Make adjustments in the **.env** file within your new **HOPRd-node-2** folder, assuming you are using the default ports:
     
     - Change the **HOPRD_API_PORT** from `3001` to `3002`.
     - Adjust the **HOPRD_P2P_PORT** from `9091` to `9092`.
 
-4. Modify secret environment variables, make adjustments if needed under **.env-secrets** file within your new **HOPRd-node-2** folder.
+4. **Modify secret environment variables**
 
-5. Modify the docker compose file. Make adjustments in the **docker-compose.yml** file within your new **HOPRd-node-2** folder:
+    Modify secret environment variables, make adjustments if needed under **.env-secrets** file within your new **HOPRd-node-2** folder.
+
+5. **Modify the docker compose file**
+
+    Make adjustments in the **docker-compose.yml** file within your new **HOPRd-node-2** folder:
 
     Under **services.hoprd**, change the **container_name** from `hoprd` to `hoprd-2`.
 
-6. Configure node strategies, inside **HOPRd-node-2** folder, navigate to **hoprd_data** folder and edit **hoprd.cfg.yaml** file, assuming you are using the same safe wallet:
+6. **Configure your node**
 
-    Find **port** and Change port from `9091` to `9092`.
+    Inside the **HOPRd-node-2** folder, open `hoprd/conf/hoprd.cfg.yaml` and change `hopr.host.port` from `9091` to `9092`.
 
-7. Manage the identity file. If you have previously run a second node, transfer the identity file to the **hoprd_data** folder inside the **HOPRd-node-2** folder, and rename it to `hopr.id`. If this is your first time running a second node, the **hopr.id** file will be automatically generated when the HOPRd node is launched.
+7. **Copy the identity file**
 
-8. Launch Docker Compose. When running multiple nodes, for the second node, you only need to use the **hoprd** profile. Ensure you are in the **HOPRd-node-2** folder when executing the command:
+    Copy the second node's identity file from [Add a node to your Safe](#add-a-node-to-your-safe) into `hoprd/conf` inside the **HOPRd-node-2** folder and name it `hopr.id`.
+
+8. **Launch Docker Compose**
+
+    When running multiple nodes, for the second node, you only need to use the **hoprd** profile. Ensure you are in the **HOPRd-node-2** folder when executing the command:
 
     ```md
     COMPOSE_PROFILES=hoprd docker compose up -d
@@ -162,29 +182,6 @@ These changes ensure that each node operates independently without interference,
 </TabItem>
 </Tabs>
 
-## Register your node
+## Fund your node with xDai
 
-Once you have started your additional node, you have to link your node with your current HOPR Safe.
-
-1. Access the recently launched HOPR Admin UI. Assuming you used the default port numbers, you should be able to access the HOPR Admin UI at [http://localhost:4677](http://localhost:4677) (replace **localhost** with your **server IP address** if you are using a VPS).
-
-    **Example:** 
-
-    ```md
-    http://127.0.0.1:4677
-    ```
-
-2. Click **CONNECT TO NODE** in the top right corner.  In the popup under **Node credentials:**, do the following: 
-
-    - In the **API endpoint** field, the default API endpoint should be set to `http://localhost:3001`. However, you may need to replace `localhost` with your server's IP address if you used a VPS, and adjust the port if you changed the mapping during installation.
-    - In the **API token** field, enter the custom security token you created during the [initial HOPRd setup](./node-docker.md#configure-hoprd-command).
-
-3. Click the button **Connect to the node** where popup should appear with your node address which starts with **0x**. Copy your node address.
-
-    :::note
-    You don’t need to manually fund your node with **xDai** tokens. You will fund your node through the HOPR Staking Hub during the short onboarding process for the additional nodes. 
-    :::
-
-    Go to the [Nodes tab on the Staking Hub](https://hub.hoprnet.org/staking/dashboard#node), click the **Add New Node** button to register on the waitlist, and wait for approval, which occurs on a tri-weekly basis.
-
-4. Once your node is granted access to the HOPR network, go to the [Nodes tab on the Staking Hub](https://hub.hoprnet.org/staking/dashboard#node), where you will find your recently approved node address. Click the **train** icon to complete the short onboarding process.
+When the second node starts, it shows its address and waits until it has xDai. Find the address with `docker logs hoprd-2 2>&1 | grep "blockchain_address"` and send at least `0.01 xDai` to it. Look for `node announced successfully` in `docker logs -f hoprd-2`.

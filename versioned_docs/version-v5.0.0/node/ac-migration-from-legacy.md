@@ -21,43 +21,69 @@ To complete the transition, you will need the following:
 
 ## Prepare bootable USB stick
  
-1. Download [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.94/DAppNode-v0.2.94-debian-bookworm-amd64-unattended.iso)
+1. **Download the Dappnode ISO file**
 
-2. Download [Etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
+   Download [Dappnode ISO file](https://github.com/dappnode/DAppNode/releases/download/v0.2.94/DAppNode-v0.2.94-debian-bookworm-amd64-unattended.iso)
 
-    ![Download Etcher](/img/node/download-etcher.png)
+2. **Download Etcher**
 
-3. Plug your USB stick into your computer and open Etcher software.
+   Download [Etcher](https://etcher.balena.io/#download-etcher) to create a bootable USB, as it will ensure a smooth migration process.
 
-    ![Open Etcher](/img/node/etcher-wizard-1.png)
+   ![Download Etcher](/img/node/download-etcher.png)
 
-4. Click the "**Flash from file**" button and choose the Dappnode ISO file you recently downloaded when prompted.
+3. **Plug in your USB stick**
 
-5. Click "**Select target**" and choose your USB stick. Ensure you have backed up any important data, as all contents on the USB stick will be erased!
+   Plug your USB stick into your computer and open Etcher software.
 
-6. Then press "**Flash!**" and wait for the process to complete.
+   ![Open Etcher](/img/node/etcher-wizard-1.png)
 
-    ![Loading Flash](/img/node/etcher-wizard-2.png)
+4. **Choose the Dappnode ISO file**
 
-7. Once the flashing process is complete, you can remove the USB stick and use it to upgrade your Avado node's software.
+   Click the "**Flash from file**" button and choose the Dappnode ISO file you recently downloaded when prompted.
 
-    :::note
-    Your USB stick may not be recognized by your machine due to its different file system. This is expected, and you should proceed with the migration process as planned.
-    :::
+5. **Select your USB stick**
+
+   Click "**Select target**" and choose your USB stick. Ensure you have backed up any important data, as all contents on the USB stick will be erased!
+
+6. **Flash the USB stick**
+
+   Then press "**Flash!**" and wait for the process to complete.
+
+   ![Loading Flash](/img/node/etcher-wizard-2.png)
+
+7. **Remove the USB stick**
+
+   Once the flashing process is complete, you can remove the USB stick and use it to upgrade your Avado node's software.
+
+   :::note
+   Your USB stick may not be recognized by your machine due to its different file system. This is expected, and you should proceed with the migration process as planned.
+   :::
 
 ## Finalise migration process
 
-1. Turn off your Avado device by pressing and holding the power button on the front for **10 seconds**.
+1. **Turn off your Avado device**
 
-2. Attach the **bootable USB stick containing the Dappnode software** to any Avado USB port and connect an **Ethernet cable** to provide internet to the Avado device.
+   Turn off your Avado device by pressing and holding the power button on the front for **10 seconds**.
 
-3. Turn on the Avado device and **wait 15 minutes**.
+2. **Attach the USB stick and Ethernet cable**
 
-4. **After 15 minutes**, turn off the Avado device by holding the power button and waiting until the red light goes off.
+   Attach the **bootable USB stick containing the Dappnode software** to any Avado USB port and connect an **Ethernet cable** to provide internet to the Avado device.
 
-5. Remove the USB stick, power the Avado device back on, and **wait 5 minutes**.
+3. **Turn on and wait 15 minutes**
 
-6. **After 5 minutes**, check if "**DappnodeWifi**" appears in your computer's Wi-Fi list. The default Wi-Fi password for Dappnode is `dappnode`.
+   Turn on the Avado device and **wait 15 minutes**.
+
+4. **Turn off the Avado device again**
+
+   **After 15 minutes**, turn off the Avado device by holding the power button and waiting until the red light goes off.
+
+5. **Remove the USB stick and restart**
+
+   Remove the USB stick, power the Avado device back on, and **wait 5 minutes**.
+
+6. **Check for DappnodeWifi**
+
+   **After 5 minutes**, check if "**DappnodeWifi**" appears in your computer's Wi-Fi list. The default Wi-Fi password for Dappnode is `dappnode`.
 
 ## Start your HOPR node
 

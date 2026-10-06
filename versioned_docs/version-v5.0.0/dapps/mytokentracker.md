@@ -10,19 +10,25 @@ MyTokenTracker which is built on the top of the HOPR protocol shows how Ethereum
 
 ## How to use MyTokenTracker?
 
-1. Visit the MyTokenTracker website: [https://mytokentracker.xyz](https://mytokentracker.xyz).
+1. **Visit MyTokenTracker**
 
-2. Enter an Ethereum address that holds assets and click "**Tracker Search**."
+   Visit the MyTokenTracker website: [https://mytokentracker.xyz](https://mytokentracker.xyz).
 
-The tool will display all the assets linked to the entered address on the left side of the screen. As these assets load, it also loads specific asset icons, which can reveal your IP address. This information is displayed on the right side of the screen, exposing a metadata leak.
+2. **Enter an Ethereum address**
 
-For example, if you use a DEX like Uniswap, asset logos are loaded by making a request from your computer, making it easy to link your Ethereum address and IP address.
+   Enter an Ethereum address that holds assets and click "**Tracker Search**."
 
-![MyTokenTracker shows data leak](/img/dapps/mytokentracker-leaked-info.png)
+   The tool will display all the assets linked to the entered address on the left side of the screen. As these assets load, it also loads specific asset icons, which can reveal your IP address. This information is displayed on the right side of the screen, exposing a metadata leak.
 
-3. To prevent your IP address from being exposed, use the HOPR mixnet. Click "**I'm feeling private**" to see how this works. On the right side of the screen, you'll notice that your IP address is no longer visible in the logs.
+   For example, if you use a DEX like Uniswap, asset logos are loaded by making a request from your computer, making it easy to link your Ethereum address and IP address.
 
-![MyTokenTracker using HOPR mixnet prevents data leakage](/img/dapps/mytokentracker-no-leak.png)
+   ![MyTokenTracker shows data leak](/img/dapps/mytokentracker-leaked-info.png)
+
+3. **Use the HOPR mixnet**
+
+   To prevent your IP address from being exposed, use the HOPR mixnet. Click "**I'm feeling private**" to see how this works. On the right side of the screen, you'll notice that your IP address is no longer visible in the logs.
+
+   ![MyTokenTracker using HOPR mixnet prevents data leakage](/img/dapps/mytokentracker-no-leak.png)
 
 
 

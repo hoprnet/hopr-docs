@@ -43,20 +43,26 @@ http://127.0.0.1:4677
 
 The HOPR Admin UI already comes with the HOPR package on Dappnode:
 
-1. Go to **Packages** and click on **HOPR**.
-  
-    ![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
+1. **Open the HOPR package**
 
-2. Once inside, click **Ui** to open the HOPR Admin UI.
+   Go to **Packages** and click on **HOPR**.
 
-3. Connect your node as suggested [here](./node-management-admin-ui.md#connecting-your-node).
+   ![Dappnode HOPR package](/img/node/dappnode-hopr-package.png)
+
+2. **Open the HOPR Admin UI**
+
+   Once inside, click **Ui** to open the HOPR Admin UI.
+
+3. **Connect your node**
+
+   Connect your node as suggested [here](./node-management-admin-ui.md#connecting-your-node).
 
 </TabItem>
 </Tabs>
 
 ---
 
-## Connecting Your Node
+## Connecting your node {#connecting-your-node}
 
 To use the HOPR Admin UI, you first need to connect to your HOPR node.
 
@@ -287,16 +293,34 @@ services:
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-1. Connect to your Dappnode.
-2. Navigate to the **HOPR package**.
-3. Go to the Network tab and locate the **Public Port Mapping** section.
-4. Add a new port entry by clicking on **New port +**.
-5. Configure the following settings:
-- HOST PORT: **1422**
-- PACKAGE PORT NUMBER: **1422**
-- PROTOCOL: Select **UDP**
-6. Click **Update Port Mappings** to save your changes.
-7. Repeat step 4, but this time select the **TCP** protocol instead.
+1. **Connect to your Dappnode**
+
+2. **Navigate to the HOPR package**
+
+3. **Open Public Port Mapping**
+
+   Go to the Network tab and locate the **Public Port Mapping** section.
+
+4. **Add a new port entry**
+
+   Add a new port entry by clicking on **New port +**.
+
+5. **Configure the port settings**
+
+   Configure the following settings:
+
+   - HOST PORT: **1422**
+   - PACKAGE PORT NUMBER: **1422**
+   - PROTOCOL: Select **UDP**
+
+6. **Save your changes**
+
+   Click **Update Port Mappings** to save your changes.
+
+7. **Repeat for TCP**
+
+   Repeat step 4, but this time select the **TCP** protocol instead.
+
 </TabItem>
 </Tabs>
 

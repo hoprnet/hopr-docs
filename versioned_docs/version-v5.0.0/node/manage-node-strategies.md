@@ -15,98 +15,120 @@ Node strategies offer advanced users detailed control over their node's behavior
 
 ## Understanding node strategies
 
-Node strategies should be in the configuration file!
+Node strategies are set in the `strategy` section of the configuration file.
 
-### hopr.strategy
+### strategy
 
-In this section, you can configure various strategies for your node, enabling you to optimize its performance and behavior to meet your specific requirements. Explore the available strategies below:
+In this section, you can configure various strategies for your node, enabling you to optimize its performance and behavior to meet your specific requirements. Each strategy is a list item whose name is followed by a colon, with its settings indented below it:
 
-```md
+```yaml
 strategy:
-    on_fail_continue: true
-    allow_recursive: false
-    strategies:
-        
-        - !Promiscuous
-        max_channels: 20
-        network_quality_open_threshold: 0.9
-        network_quality_close_threshold: 0.2
-        minimum_peer_pings: 50
-        new_channel_stake: "10 wxHOPR"
-        minimum_safe_balance: "10000 wxHOPR"
-        min_network_size_samples: 20
-        enforce_max_channels: true
-        minimum_peer_version: ">=2.2.3"    
-        
-        - !AutoFunding
-        funding_amount: "10 wxHOPR"
-        min_stake_threshold: "1 wxHOPR"
-        
-        - !AutoRedeeming
-        redeem_only_aggregated: false
+  allow_recursive: false
+  execution_interval: 60s
+  strategies:
+    - AutoRedeeming:
+        redeem_all_on_close: true
         minimum_redeem_ticket_value: "1 wxHOPR"
-        
-        - !Passive    
-        
-        - !ClosureFinalizer
-        max_closure_overdue: 300
+        redeem_on_winning: true
+    - ChannelLifecycle:
+        population:
+          min_open_channels: 5
+          target_open_channels: 8
+        funding:
+          sizing_mode:
+            probabilistic:
+              success_probability: 0.99
+          initial_capacity: "1 GiB"
+          topup_capacity: "512 MiB"
+          lower_capacity_threshold: "512 MiB"
 ```
 
-#### strategy.on_fail_continue
+Every setting has a default, so you only need to list the settings you want to change. To use a strategy with all its defaults, write `- ChannelLifecycle: {}`. Unknown settings are rejected and stop the node from starting.
 
-When set to **true**, the system will continue executing subsequent strategies even if previous ones fail.
+If you leave the whole `strategy` section out of your configuration file, the node uses `AutoRedeeming` (with `redeem_on_winning: true`) and `ChannelLifecycle` (with `success_probability: 0.99`). If you add a `strategy` section, only the strategies you list are active.
 
-#### strategy.allow_recursive
-
-Allows nesting strategies through **!MultiStrategy**.
+| Settings | Default value | Description |
+| --- | --- | --- |
+| `strategy.allow_recursive` | `true` | Allows nesting strategies through **Multi**. Nesting is limited to one level. |
+| `strategy.execution_interval` | `60s` | How often the strategies run their periodic checks. The minimum is `10s`. `ChannelLifecycle` uses its own `tick_interval` instead. |
+| `strategy.strategies` | | The list of strategies to run. If the list is empty, the node behaves as **Passive**. |
 
 ---
 
-#### strategy.strategies
+#### strategy.strategies: AutoRedeeming
 
-Contains a sequence of strategies to execute in the specified order. If left empty, the node will default to using only the **!Passive** strategy.
-
-##### strategy.strategies: !Promiscuous
-
-Defines a promiscuous strategy that automatically manages HOPR channels based on certain measured qualities of other HOPR nodes in the network.
-
-| Settings | Description |
-| --- | --- |
-| `max_channels` | The maximum number of opened channels the strategy should maintain. |
-| `network_quality_threshold` | A quality threshold between 0 and 1 used to determine whether the strategy should open a channel with the peer. Only nodes above this threshold will be chosen for channels. |
-| `new_channel_stake` | The stake of tokens that should be allocated to a channel opened by the strategy. |
-| `minimum_node_balance` | The minimum token balance of the node. When reached, the strategy will not open any new channels. |
-| `min_network_size_samples` | The minimum number of network quality samples before the strategy can start making decisions. |
-| `enforce_max_channels` | When set to **true**, the strategy will forcefully close channels, even with peers that exceed the **network_quality_threshold**, if the total number of opened outgoing channels (whether opened by the strategy or manually) surpasses the maximum limit. |
-| `minimum_peer_version` | Specifies minimum node version of the peer the strategy should open a channel to. Accepts semver syntax. |
-
-##### strategy.strategies: !AutoFunding
-
-Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold.
-
-| Settings | Description |
-| --- | --- |
-| `funding_amount` | The amount to automatically fund a channel when its stake drops below the threshold. |
-| `min_stake_threshold` | The minimum stake value at which the channel will be automatically funded. |
-
-##### strategy.strategies: !AutoRedeeming
-
-Automatically aggregates tickets when the number of unredeemed tickets in a channel exceeds the specified threshold.
+Automatically redeems winning tickets.
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `redeem_only_aggregated` | `false` | Due to changes in ticket price and winning probability, the aggregation feature has been removed. Ensure the `redeem_only_aggregated` setting is set to `false`.|
-| `minimum_redeem_ticket_value` | `1 wxHOPR` | The strategy will only redeem an acknowledged winning ticket if its value is at least this specified amount of HOPR. If the value is set to 0, the strategy will redeem tickets regardless of their value.
+| `redeem_all_on_close` | `true` | Redeem all tickets in a channel (above `minimum_redeem_ticket_value`) when the channel starts closing. |
+| `minimum_redeem_ticket_value` | `1 wxHOPR` | The strategy only redeems a winning ticket if it's worth at least this amount. If set to `0`, tickets are redeemed regardless of their value. |
+| `redeem_on_winning` | `false` | Redeem each winning ticket as soon as it arrives. Otherwise, tickets are redeemed periodically. Set it to `true` when winning tickets are rare (winning probability below 1%). |
 
-##### strategy.strategies: !Passive
+#### strategy.strategies: ChannelLifecycle
 
-A strategy that does nothing. This is equivalent to leaving the strategies array empty.
-
-##### strategy.strategiesc: !ClosureFinalizer
-
-Monitors channels in the **PendingToClose** state whose channel closure grace period has elapsed, and issues a channel close transaction on these channels to finalize the closure.
+Automatically opens, funds, tops up, closes and finalizes your outgoing payment channels based on peer connectivity and quality. Channel stakes are set as data capacity (for example `"1 GiB"`) and converted to wxHOPR by the node.
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `max_closure_overdue` | `300` | It won't attempt to finalize the closure of channels that have been overdue for more than provided amount of seconds. |
+| `tick_interval` | `60s` | Time between full evaluation passes. |
+| `jitter` | `5s` | Maximum random offset added to `tick_interval`. |
+| `population.min_open_channels` | `5` | Minimum number of open outgoing channels. Closures are paused when the count would drop below this. |
+| `population.target_open_channels` | `8` | Target number of open outgoing channels. New channels are opened until this target is reached. |
+| `population.peer_reopen_cooldown` | `15m` | How long a peer is ineligible for a new channel after its previous channel closed. |
+| `eligibility.require_currently_connected` | `true` | Only open channels to peers that are currently connected. |
+| `eligibility.min_peer_quality_score` | `0.5` | Minimum peer quality score (0 to 1) for opening a channel. |
+| `eligibility.peer_quality_weight` | `0.6` | Weight of the peer quality score in the combined peer score. |
+| `eligibility.ticket_activity_weight` | `0.4` | Weight of ticket activity in the combined peer score. |
+| `eligibility.require_observed_since_start` | `true` | Only close a channel if the peer has been observed since the node started. Prevents closing channels right after a restart. |
+| `eligibility.allowlist` | `~` (none) | If set, only open channels to these node addresses. |
+| `eligibility.blocklist` | `[]` | Never open channels to these node addresses. |
+| `eligibility.demote_non_forwarding_peers` | `true` | Prefer peers that fund their own outgoing channels, so they can relay traffic further. |
+| `eligibility.minimum_peer_outgoing_channels` | `1` | Funded outgoing channels a peer needs to count as able to relay. |
+| `funding.initial_capacity` | `1 GiB` | Data volume a new channel's stake should be able to carry. |
+| `funding.topup_capacity` | `1 GiB` | Data volume added when a channel is topped up. |
+| `funding.lower_capacity_threshold` | `256 MiB` | Remaining capacity below which a channel is topped up. |
+| `funding.sizing_mode` | `deterministic` | How capacity is converted to a wxHOPR stake. `deterministic` funds the expected usage. `probabilistic` with `success_probability` (between 0.5 and 1, default `0.999`) adds a safety buffer so the channel rarely runs out before a top-up. |
+| `proactive_funding.enabled` | `true` | Top up channels early based on how fast they are being used. |
+| `proactive_funding.safety_margin` | `1.5` | Multiplier applied to the projected usage when deciding to top up. |
+| `proactive_funding.balance_drain_weight` | `1.0` | Weight of balance decreases in the usage estimate. |
+| `proactive_funding.ticket_index_drain_weight` | `1.0` | Weight of ticket activity in the usage estimate. |
+| `closure.close_when_peer_unseen_for` | `24h` | Close a channel after the peer has been absent for this long. |
+| `closure.close_below_quality_score` | `0.3` | Close channels to peers whose quality score dropped below this. |
+| `closure.close_when_drained_below` | `0 wxHOPR` | Close channels whose balance dropped below this amount. |
+| `closure.close_max_concurrent` | `2` | Maximum number of closures started per pass. |
+| `closure.close_after_disconnected_ticks` | `3` | Passes in a row a peer must be disconnected before its channel is closed. |
+| `finalizer.enabled` | `true` | Finalize channel closures automatically once the closure period has passed. |
+| `finalizer.max_closure_overdue` | `15m` | Extra time to wait after the closure period before finalizing. |
+| `finalizer.finalize_max_concurrent` | `4` | Maximum number of finalizations started per pass. |
+| `restart.startup_observation_period` | `1m` | No channel is closed for this long after the node starts. |
+| `restart.startup_close_grace_period` | `5m` | Channels to connected peers are protected from closure for this long after the node starts. |
+| `concurrency.max_concurrent_actions` | `4` | Maximum number of channel transactions (open, fund, close, finalize) in progress at once. |
+| `selector` | `default` | How peers are chosen for opening and closing: `default`, `low_latency`, `balanced`, `dispersed` or `economical`. |
+
+#### strategy.strategies: AutoFunding
+
+Automatically funds channels with a specified amount if the stake on any channel falls below the defined threshold. `ChannelLifecycle` already tops up channels, so you don't need this strategy when you use it.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| `funding_amount` | `10 wxHOPR` | The amount to fund a channel with when its stake drops below the threshold. Must be greater than zero. |
+| `min_stake_threshold` | `1 wxHOPR` | The stake below which a channel is funded. |
+
+#### strategy.strategies: ClosureFinalizer
+
+Finalizes channels in the **PendingToClose** state once their closure period has elapsed. `ChannelLifecycle` already does this through its `finalizer` settings.
+
+| Settings | Default value | Description |
+| --- | --- | --- |
+| `max_closure_overdue` | `300s` | Channels that have been overdue for longer than this are not finalized. Write the value with a unit, for example `300s`. |
+
+#### strategy.strategies: Multi
+
+Groups several strategies. It takes the same settings as the `strategy` section: `allow_recursive`, `execution_interval` and `strategies`.
+
+#### strategy.strategies: Passive
+
+A strategy that does nothing. This is equivalent to leaving the strategies list empty. Write it as `- Passive`.
+
 </NoCounter>

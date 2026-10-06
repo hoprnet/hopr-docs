@@ -5,6 +5,7 @@ const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const math = require('remark-math')
 const katex = require('rehype-katex')
+const steps = require('./src/remark/steps')
 const { DOCS_URL } = require('./consts')
 const { DOCS_ALGOLIA_APP_ID, DOCS_ALGOLIA_API_KEY } = process.env
 
@@ -43,7 +44,7 @@ const config = {
       crossorigin: 'anonymous'
     },
     'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap',
-    'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap',
+    'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&display=swap',
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css',
     'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
   ],
@@ -53,7 +54,7 @@ const config = {
       '@docusaurus/preset-classic',
       ({
         docs: {
-          remarkPlugins: [math],
+          remarkPlugins: [math, steps],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',

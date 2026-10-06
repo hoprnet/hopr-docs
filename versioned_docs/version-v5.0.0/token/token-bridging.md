@@ -67,7 +67,7 @@ The HOPR token can be bridged between the **Ethereum** and **Gnosis** chains. Pl
 
 ## 9. Verify completion & import tokens 
    
-    Once the bridging process is 100% complete, your HOPR tokens will be successfully transferred to the Gnosis chain. You can now import the bridged HOPR token (**xHOPR**) into your wallet using the correct smart contract address, which can be found [here](./acquiring-hopr-tokens.md#hopr-tokens-on-different-chains).
+   Once the bridging process is 100% complete, your HOPR tokens will be successfully transferred to the Gnosis chain. You can now import the bridged HOPR token (**xHOPR**) into your wallet using the correct smart contract address, which can be found [here](./acquiring-hopr-tokens.md#hopr-tokens-on-different-chains).
 
    ![Bridging HOPR tokens](/img/token/token-bridging-7.jpg)
 
@@ -104,13 +104,13 @@ Before initiating the bridging process from Gnosis to the Ethereum chain, please
 
    ![Bridging HOPR tokens](/img/token/token-bridging-to-mainnet-1.jpg)
 
-## 4. Start the Bridge Transaction
+## 4. Start the bridge transaction {#4-start-the-bridge-transaction}
 
    Click the "**Bridge**" button to begin transferring your HOPR tokens to the Ethereum chain.
 
    ![Bridging HOPR tokens](/img/token/token-bridging-to-mainnet-2.jpg)
 
-## 5. Wait for Transaction Completion
+## 5. Wait for transaction completion {#5-wait-for-transaction-completion}
 
    Once the bridge transaction starts, you'll see a "**Bridge initiated**" screen. Wait until the required block confirmations reach 100%.
 
@@ -122,13 +122,13 @@ Before initiating the bridging process from Gnosis to the Ethereum chain, please
 
    ![Bridging HOPR tokens](/img/token/token-bridging-to-mainnet-4.jpg)
 
-## 7. Claim HOPR Tokens on Ethereum
+## 7. Claim HOPR tokens on Ethereum {#7-claim-hopr-tokens-on-ethereum}
    
    Find your recent transaction and click the "**Claim**" button. You’ll need to pay gas fees on the Ethereum chain to complete the claim.
 
    ![Bridging HOPR tokens](/img/token/token-bridging-to-mainnet-5.jpg)
 
-## 8. Verify Completion & Import Tokens
+## 8. Verify completion & import tokens {#8-verify-completion--import-tokens}
    
    After clicking "**Claim**", confirm the transaction in your wallet and wait for it to be executed. Once the transaction is complete, you can now import the bridged HOPR token (**HOPR**) into your wallet using the correct smart contract address, which can be found [here](./acquiring-hopr-tokens.md#hopr-tokens-on-different-chains).
 

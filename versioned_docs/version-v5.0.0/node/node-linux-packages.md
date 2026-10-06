@@ -57,30 +57,28 @@ Before proceeding, select Linux distribution:
    
    Export the necessary variables before proceeding to install the HOPRd package:
 
-      ```
-      export HOPRD_SAFE_ADDRESS=<SAFE_WALLET_ADDRESS>
-      export HOPRD_MODULE_ADDRESS=<MODULE_ADDRESS>
-      export HOPRD_PROVIDER=<CUSTOM_RPC_PROVIDER>
-      ```
+   ```
+   export HOPRD_SAFE_ADDRESS=<SAFE_WALLET_ADDRESS>
+   export HOPRD_MODULE_ADDRESS=<MODULE_ADDRESS>
+   ```
 
-      Below is a quick reference for all the variables you’ll need to adjust:
+   Below is a quick reference for all the variables you’ll need to adjust:
 
-      | Variable                     | Description                              |
-      | ---------------------------- | ---------------------------------------- |
-      | `<SAFE_WALLET_ADDRESS>`      | Your staking Safe wallet address         |
-      | `<MODULE_ADDRESS>`           | Your staking Module contract address     |
-      | `<CUSTOM_RPC_PROVIDER>`      | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).  |
+   | Variable                     | Description                              |
+   | ---------------------------- | ---------------------------------------- |
+   | `<SAFE_WALLET_ADDRESS>`      | Your staking Safe wallet address         |
+   | `<MODULE_ADDRESS>`           | Your staking Module contract address     |
 
-      Once you have adjusted the values, execute the command to export variables.
+   Once you have adjusted the values, execute the command to export variables.
 
 3. **Install and launch HOPRd package**
  
    Install HOPRd package using commands below:
 
-      ```
-      sudo apt-get update
-      sudo -E apt -y install ./hoprd.deb
-      ```
+   ```
+   sudo apt-get update
+   sudo -E apt -y install ./hoprd.deb
+   ```
 
 </TabItem>
 <TabItem value="redhat_fedora_centos" label="RHEL / Fedora / CentOS">
@@ -101,30 +99,28 @@ Before proceeding, select Linux distribution:
    
    Export the necessary variables before proceeding to install the HOPRd package:
 
-      ```
-      export HOPRD_SAFE_ADDRESS=<SAFE_WALLET_ADDRESS>
-      export HOPRD_MODULE_ADDRESS=<MODULE_ADDRESS>
-      export HOPRD_PROVIDER=<CUSTOM_RPC_PROVIDER>
-      ```
+   ```
+   export HOPRD_SAFE_ADDRESS=<SAFE_WALLET_ADDRESS>
+   export HOPRD_MODULE_ADDRESS=<MODULE_ADDRESS>
+   ```
 
-      Below is a quick reference for all the variables you’ll need to adjust:
+   Below is a quick reference for all the variables you’ll need to adjust:
 
-      | Variable                     | Description                              |
-      | ---------------------------- | ---------------------------------------- |
-      | `<SAFE_WALLET_ADDRESS>`      | Your staking Safe wallet address         |
-      | `<MODULE_ADDRESS>`           | Your staking Module contract address     |
-      | `<CUSTOM_RPC_PROVIDER>`      | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)). |
+   | Variable                     | Description                              |
+   | ---------------------------- | ---------------------------------------- |
+   | `<SAFE_WALLET_ADDRESS>`      | Your staking Safe wallet address         |
+   | `<MODULE_ADDRESS>`           | Your staking Module contract address     |
 
-      Once you have adjusted the values, execute the command to export variables.
+   Once you have adjusted the values, execute the command to export variables.
 
 3. **Install and launch HOPRd package**
  
    Install HOPRd package using commands below:
 
-      ```
-      sudo dnf update -y
-      sudo -E dnf install -y ./hoprd.rpm
-      ```
+   ```
+   sudo dnf update -y
+   sudo -E dnf install -y ./hoprd.rpm
+   ```
 
 </TabItem>
 <TabItem value="archlinux" label="Arch Linux">
@@ -145,30 +141,28 @@ Before proceeding, select Linux distribution:
    
    Export the necessary variables before proceeding to install the HOPRd package:
 
-      ```
-      export HOPRD_SAFE_ADDRESS=<SAFE_WALLET_ADDRESS>
-      export HOPRD_MODULE_ADDRESS=<MODULE_ADDRESS>
-      export HOPRD_PROVIDER=<CUSTOM_RPC_PROVIDER>
-      ```
+   ```
+   export HOPRD_SAFE_ADDRESS=<SAFE_WALLET_ADDRESS>
+   export HOPRD_MODULE_ADDRESS=<MODULE_ADDRESS>
+   ```
 
-      Below is a quick reference for all the variables you’ll need to adjust:
+   Below is a quick reference for all the variables you’ll need to adjust:
 
-      | Variable                     | Description                              |
-      | ---------------------------- | ---------------------------------------- |
-      | `<SAFE_WALLET_ADDRESS>`      | Your staking Safe wallet address         |
-      | `<MODULE_ADDRESS>`           | Your staking Module contract address     |
-      | `<CUSTOM_RPC_PROVIDER>`      | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)). |
+   | Variable                     | Description                              |
+   | ---------------------------- | ---------------------------------------- |
+   | `<SAFE_WALLET_ADDRESS>`      | Your staking Safe wallet address         |
+   | `<MODULE_ADDRESS>`           | Your staking Module contract address     |
 
-      Once you have adjusted the values, execute the command to export variables.
+   Once you have adjusted the values, execute the command to export variables.
 
 3. **Install and launch HOPRd package**
  
    Install HOPRd package using commands below:
 
-      ```
-      sudo pacman -Syu
-      sudo -E pacman --noconfirm -U ./hoprd.pkg.tar.zst
-      ```
+   ```
+   sudo pacman -Syu
+   sudo -E pacman --noconfirm -U ./hoprd.pkg.tar.zst
+   ```
 </TabItem>
 </Tabs>
 
@@ -187,15 +181,28 @@ Before proceeding, select Linux distribution:
    | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
    | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
    | `HOPRD_MODULE_ADDRESS`                        | Your staking Module contract address     |
-   | `HOPRD_PROVIDER`                        | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)). |
    | `HOPRD_API_PORT` | REST API port to access via Admin UI (Default port is `3001`)   |
 
 
    These environment variables are stored in: `/etc/hoprd/hoprd.env`
 
-   You can find a full list of supported environment variables in the [HOPRNET github repository](https://github.com/hoprnet/hoprnet?tab=readme-ov-file#usage).
+   You can find a full list of supported environment variables in the [HOPRd GitHub repository](https://github.com/hoprnet/hoprd/blob/v5.0.0-rc.1/hoprd/src/cli.rs), or by running `hoprd --help`.
 
-2. **Adjust node configuration properties (optional)**
+2. **Set the Blokli URL**
+
+   Open `/etc/hoprd/hoprd.cfg.yaml` and change `blokli_url` from `https://blokli.prod.hoprnet.link` to `https://blokli-piz-palu.prod.hoprnet.link`:
+
+   ```bash
+   sudo vim /etc/hoprd/hoprd.cfg.yaml
+   ```
+
+   Then restart the node:
+
+   ```bash
+   sudo systemctl restart hoprd
+   ```
+
+3. **Adjust node configuration properties (optional)**
 
    By default, the configuration file is pre-configured and works well as is. However, if you have a clear understanding of the settings and their implications, you can customize them to better align with your specific needs. For detailed instructions, please refer to the section: [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies). 
 
@@ -240,11 +247,13 @@ To start earning rewards through Cover Traffic, follow these steps to meet the n
 3. **Open outgoing channel and verify**
 
    1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-   You’ll receive a notification once the channel has been opened.
+      Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
+      You’ll receive a notification once the channel has been opened.
    
    2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
 
 ---
 
-**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+:::tip Your node is running
+Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+:::

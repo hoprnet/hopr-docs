@@ -46,7 +46,6 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
       
       | Variable                     | Description                              |
       | ---------------------------- | ---------------------------------------- |
-      | `HOPRD_PROVIDER`      | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)).          |
       | `HOPRD_SAFE_ADDRESS`           | Your staking Safe wallet address     |
       | `HOPRD_MODULE_ADDRESS`      | Your staking Module contract address |
 
@@ -65,7 +64,6 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
       | `HOPRD_API_TOKEN`                             | Your Admin UI API token                  |
       | `HOPRD_SAFE_ADDRESS`                     | Your staking Safe wallet address         |
       | `HOPRD_MODULE_ADDRESS`                        | Your staking Module contract address     |
-      | `HOPRD_PROVIDER`                        | Gnosis Chain RPC URL (see [Custom RPC provider guide](./custom-rpc-provider.md)). |
       | `HOPRD_API_PORT` | REST API port to access via Admin UI (Default port is `3001`)   |
 
       Edit the environment variables file by running this command:
@@ -74,7 +72,7 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
       sudo vim $(brew --prefix)/etc/hoprd/hoprd.env
       ```
 
-      You can find a full list of supported environment variables in the [HOPRNET github repository](https://github.com/hoprnet/hoprnet?tab=readme-ov-file#usage).
+      You can find a full list of supported environment variables in the [HOPRd GitHub repository](https://github.com/hoprnet/hoprd/blob/v5.0.0-rc.1/hoprd/src/cli.rs), or by running `hoprd --help`.
 
    2. **Adjust node configuration properties (optional)**
 
@@ -85,6 +83,7 @@ This guide explains how to install and run the HOPRd node natively on macOS usin
       ```
       sudo vim $(brew --prefix)/etc/hoprd/hoprd.cfg.yaml
       ```
+
 ---
 
 ## Link your node to your HOPR Safe wallet
@@ -132,11 +131,13 @@ To start earning rewards through Cover Traffic, follow these steps to meet the n
 4. **Open outgoing channel and verify**
 
    1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-   Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-   You’ll receive a notification once the channel has been opened.
+      Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
+      You’ll receive a notification once the channel has been opened.
    
    2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened.
 
 ---
 
-**Congratulations!** Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+:::tip Your node is running
+Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+:::

@@ -10,6 +10,10 @@ import { NoCounter } from '@site/src/components/Counter';
 
 This section explains how to start, stop, and restart your HOPRd node, as well as where to find important files such as the database, log files, identity key, and configuration.
 
+:::warning
+Winning tickets that haven't been redeemed are lost when you stop or restart your node. Before a planned stop, follow [Unredeemed tickets and restarts](./manage-node-configuration.md#unredeemed-tickets-and-restarts).
+:::
+
 ---
 
 Select the platform where your HOPRd node is running to view the relevant service management instructions and file paths:
@@ -21,20 +25,27 @@ After installing the HOPRd node using Docker, the following directories and file
 
 | **Purpose**         | **Path**         | **Description**                                                    |
 | ------------------- | ---------------- | ------------------------------------------------------------------ |
-| Identity file  | `$HOME/.hoprd-db-dufour/.hopr-id-dufour` | Stores the node’s identity. |
-| Data directory | `$HOME/.hoprd-db-dufour/` | Contains the node’s database (`db` folder) and runtime data such as the `tbr` file. |
+| Identity file  | `$HOME/hoprd/hopr.id` | Stores the node’s identity. |
+| Configuration file | `$HOME/hoprd/hoprd.cfg.yaml` | Stores the node’s configuration. |
+| Data directory | `$HOME/hoprd/` | Contains the node’s database. Mounted inside the container at `/app/hoprd-db`. |
 
 When using Docker, your HOPRd node runs inside a container in the background.
 
 ### Start the HOPRd node
 
-1. Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md).
+1. **Remove the old container**
 
-2. Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#configure-hoprd-command). 
+   Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md).
 
-    If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-configuration.md#create-and-apply-configuration-file-to-your-node) and select **Docker**," then review **Step 6** for specific instructions.
+2. **Ensure your Docker command is configured**
 
-3. Run your configured HOPR command by pasting it into the terminal.
+   Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#configure-hoprd-command). 
+
+   If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-configuration.md#create-and-apply-configuration-file-to-your-node) and select **Docker**," then review **Step 4** for specific instructions.
+
+3. **Run your HOPR command**
+
+   Run your configured HOPR command by pasting it into the terminal.
 
 ---
 
@@ -42,15 +53,19 @@ When using Docker, your HOPRd node runs inside a container in the background.
 
 To stop your current HOPR node, we will perform the HOPR Docker container removal procedure.
 
-1. Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label **europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable** and note the **container ID**.
+1. **Find the container ID**
 
-2. Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace `<Your_Container_ID>` with your container ID.
+   Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label **europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable** and note the **container ID**.
 
-    Example: 
+2. **Remove the container**
 
-    ```md
-    docker rm -f 4951b2990936
-    ```
+   Remove the container using the following command: `docker rm -f <Your_Container_ID>`. Replace `<Your_Container_ID>` with your container ID.
+
+   Example: 
+
+   ```md
+   docker rm -f 4951b2990936
+   ```
 
 </TabItem>
 <TabItem value="docker_compose" label="Docker Compose">
@@ -68,29 +83,33 @@ When using Docker Compose, your HOPRd node runs in a managed container environme
 
 ### Start the HOPRd node
 
-1. Go to your **compose** folder.
+1. **Go to your compose folder**
 
-2. Use the profiles feature to start only the **hoprd** profile associated with the hopr node. 
+2. **Start the hoprd profile**
 
-    Run the following command: 
-    
-    ```
-    COMPOSE_PROFILES=hoprd docker compose up -d
-    ```
+   Use the profiles feature to start only the **hoprd** profile associated with the hopr node. 
+
+   Run the following command: 
+
+   ```
+   COMPOSE_PROFILES=hoprd docker compose up -d
+   ```
 
 ---
 
 ### Stop the HOPRd node
 
-1. Go to your **compose** folder.
+1. **Go to your compose folder**
 
-2. Use the profiles feature to stop only the **hoprd** profile associated with the hopr node. 
+2. **Stop the hoprd profile**
 
-    Run the following command: 
-    
-    ```
-    COMPOSE_PROFILES=hoprd docker compose down
-    ```
+   Use the profiles feature to stop only the **hoprd** profile associated with the hopr node. 
+
+   Run the following command: 
+
+   ```
+   COMPOSE_PROFILES=hoprd docker compose down
+   ```
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
@@ -106,20 +125,24 @@ The HOPRd package operates within a managed containerized environment, managed b
 
 ### Start the HOPRd node
 
-1. Connect to your Dappnode dashboard.
+1. **Connect to your Dappnode dashboard**
 
-2. Start your HOPR node based on your current needs:
+2. **Start your HOPR node**
 
-    - To resume an existing HOPR package, navigate to **Packages**, select the [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), and click the **Play** icon to activate it.
-    - To set up a new HOPR package, please refer to this [guide](node-dappnode.md#install-the-hopr-package).
+   Start your HOPR node based on your current needs:
+
+   - To resume an existing HOPR package, navigate to **Packages**, select the [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), and click the **Play** icon to activate it.
+   - To set up a new HOPR package, please refer to this [guide](node-dappnode.md#install-the-hopr-package).
 
 ---
 
 ### Stop the HOPRd node
 
-1. Connect to your Dappnode dashboard.
+1. **Connect to your Dappnode dashboard**
 
-2. Go to **Packages**, click [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), click on **Pause** icon to stop HOPR package.
+2. **Pause the HOPR package**
+
+   Go to **Packages**, click [HOPR package](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info), click on **Pause** icon to stop HOPR package.
 
 </TabItem>
 <TabItem value="linux" label="Linux">
@@ -138,9 +161,11 @@ The HOPRd package sets up a `systemd` service named `hoprd`, which you can manag
 
 ### Start the HOPRd node
 
-1. Open **Terminal** application
+1. **Open Terminal application**
 
-2. Run the following command to start HOPRd node: 
+2. **Run the start command**
+
+   Run the following command to start HOPRd node: 
 
    ```
    sudo systemctl start hoprd
@@ -149,9 +174,11 @@ The HOPRd package sets up a `systemd` service named `hoprd`, which you can manag
 
 ### Stop the HOPRd node
 
-1. Open **Terminal** application
+1. **Open Terminal application**
 
-2. Run the following command to stop HOPRd node: 
+2. **Run the stop command**
+
+   Run the following command to stop HOPRd node: 
 
    ```
    sudo systemctl stop hoprd
@@ -160,9 +187,11 @@ The HOPRd package sets up a `systemd` service named `hoprd`, which you can manag
 
 ### Restart the HOPRd node
 
-1. Open **Terminal** application
+1. **Open Terminal application**
 
-2. Run the following command to restart HOPRd node: 
+2. **Run the restart command**
+
+   Run the following command to restart HOPRd node: 
 
    ```
    sudo systemctl restart hoprd
@@ -172,15 +201,17 @@ The HOPRd package sets up a `systemd` service named `hoprd`, which you can manag
 
 ### Check the HOPRd node status
 
-   Displays the current status, including whether it's active and recent log output.
+Displays the current status, including whether it's active and recent log output.
 
-   1. Open **Terminal** application
+1. **Open Terminal application**
 
-   2. Run the following command to check HOPRd node status: 
+2. **Run the status command**
 
-      ```
-      sudo systemctl status hoprd
-      ```
+   Run the following command to check HOPRd node status: 
+
+   ```
+   sudo systemctl status hoprd
+   ```
 
 </TabItem>
 <TabItem value="macos" label="macOS">
@@ -199,9 +230,11 @@ During installation via Homebrew on macOS, HOPRd is registered as a background s
 
 ### Start the HOPRd node
 
-1. Open **Terminal** application
+1. **Open Terminal application**
 
-2. Run the following command to start HOPRd node: 
+2. **Run the start command**
+
+   Run the following command to start HOPRd node: 
 
    ```
    brew services start hoprd
@@ -210,9 +243,11 @@ During installation via Homebrew on macOS, HOPRd is registered as a background s
 
 ### Stop the HOPRd node
 
-1. Open **Terminal** application
+1. **Open Terminal application**
 
-2. Run the following command to stop HOPRd node: 
+2. **Run the stop command**
+
+   Run the following command to stop HOPRd node: 
 
    ```
    brew services stop hoprd
@@ -221,9 +256,11 @@ During installation via Homebrew on macOS, HOPRd is registered as a background s
 
 ### Restart the HOPRd node
 
-1. Open **Terminal** application
+1. **Open Terminal application**
 
-2. Run the following command to restart HOPRd node: 
+2. **Run the restart command**
+
+   Run the following command to restart HOPRd node: 
 
    ```
    brew services restart hoprd
@@ -233,15 +270,17 @@ During installation via Homebrew on macOS, HOPRd is registered as a background s
 
 ### Check the HOPRd node status
 
-   Displays the current status, including whether it's active and recent log output.
+Displays the current status, including whether it's active and recent log output.
 
-   1. Open **Terminal** application
+1. **Open Terminal application**
 
-   2. Run the following command to check HOPRd node status: 
+2. **Run the status command**
 
-      ```
-      brew services status hoprd
-      ```
+   Run the following command to check HOPRd node status: 
+
+   ```
+   brew services status hoprd
+   ```
 
 </TabItem>
 </Tabs>

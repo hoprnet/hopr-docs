@@ -50,7 +50,7 @@ For a list of recommended VPS providers, see [this section](frequently-asked-que
 
 ---
 
-### Personal Computer
+### Personal computer {#personal-computer}
 
 If you're using the Linux or macOS operating system, you can run a HOPRd node directly on your own computer. To earn continuously distributed rewards, your HOPRd node must remain online 24/7.
 
@@ -91,7 +91,7 @@ Follow the [binary installation guide](./node-binary.md) to get started.
 
 ---
 
-### HOPRd package for specific Operating system
+### HOPRd package for specific operating system {#hoprd-package-for-specific-operating-system}
 
 Install via native package managers tailored to your operating system. Enables seamless integration with system services and simplifies updates.
 

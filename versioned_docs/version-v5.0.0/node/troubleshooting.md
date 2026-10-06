@@ -86,9 +86,9 @@ Every HOPRd node comes with the **Node API Swagger UI**, a web page where you ca
 
     Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
 
-        - You can check your current HOPRd node version on the **INFO** page under the **Node** section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
+    - You can check your current HOPRd node version on the **INFO** page under the **Node** section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
 
-        - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
+    - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
 
 3. **Check node health**
 
@@ -109,9 +109,7 @@ Every HOPRd node comes with the **Node API Swagger UI**, a web page where you ca
 
     On the **Configuration** page, under the **Strategies** section, verify the following:
 
-    - The **!Aggregating** setting is not enabled.
     - The **minimum_redeem_ticket_value** is set between **1 wxHOPR** and **9 wxHOPR**.
-    - The **redeem_only_aggregated** setting is set to **false**.
 
 5. **Check your node connectivity quality**
 
@@ -224,16 +222,25 @@ If your node is receiving rejected tickets, several issues could be causing this
 
 Follow these steps to troubleshoot the issue:
 
-1. Connect to your node [via the HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
+1. **Connect to your node**
 
-2. Navigate to the **Info** page, under the **Network** section, and verify that no **Faulty RPC** message appears next to the **Provider Address**. If a **Faulty RPC** message is displayed, you must change your RPC provider and resync your node. Follow the [guide to resync your node](#how-to-re-sync-my-hoprd-node) for detailed instructions.
+   Connect to your node [via the HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
-3. If no **Faulty RPC** message appears next to the **Provider Address**, do the following:
+2. **Check for a Faulty RPC message**
 
-- Navigate to the **Channels: In** page. Close all incoming payment channels by clicking the **Close Incoming Channel** icon next to each channel.
-- If you have outgoing payment channels to [Cover Traffic nodes](#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards), close the payment channels with Cover Traffic nodes and re-open at least one payment channel with a random peer from the connected peers list.
+   Navigate to the **Info** page, under the **Network** section, and verify that no **Faulty RPC** message appears next to the **Provider Address**. If a **Faulty RPC** message is displayed, you must change your RPC provider and resync your node. Follow the [guide to resync your node](#how-to-re-sync-my-hoprd-node) for detailed instructions.
 
-4. Wait several days and monitor whether you receive rejected tickets again. If you do, contact the ambassadors on the Telegram channel or Discord server for assistance.
+3. **Close your payment channels**
+
+   If no **Faulty RPC** message appears next to the **Provider Address**, do the following:
+
+   - Navigate to the **Channels: In** page. Close all incoming payment channels by clicking the **Close Incoming Channel** icon next to each channel.
+   - If you have outgoing payment channels to [Cover Traffic nodes](#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards), close the payment channels with Cover Traffic nodes and re-open at least one payment channel with a random peer from the connected peers list.
+
+4. **Monitor for rejected tickets**
+
+   Wait several days and monitor whether you receive rejected tickets again. If you do, contact the ambassadors on the Telegram channel or Discord server for assistance.
+
 </details>
 
 <details>
@@ -264,61 +271,80 @@ Please select platform to re-sync node:
 <Tabs queryString="resync">
 <TabItem value="docker" label="Docker">
 
-1. **Stop your node**: follow this [guide](node-operations.md?node_service=docker#stop-the-hoprd-node) to stop your HOPR node.
+1. **Stop your node**
 
-2. **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
+   Follow this [guide](node-operations.md?node_service=docker#stop-the-hoprd-node) to stop your HOPR node.
 
-3. **Delete the necessary files:** On your machine, navigate to the **.hoprd-db-dufour** folder and perform the following steps:
+2. **Backup your node**
 
-    3.1 Delete the **tbf** file.  
+   Ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
 
-    3.2 Locate the **db** folder and remove **all** files inside it.
+3. **Delete the necessary files**
 
-4. **Start your node**: once the cleanup is done, start your node again by following this [guide](node-operations.md?node_service=docker#start-the-hoprd-node).
+   On your machine, navigate to the **hoprd** folder and perform the following steps:
 
-5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md).
+   1. Delete the **tbf** file.
+
+   2. Locate the **db** folder and remove **all** files inside it.
+
+4. **Start your node**
+
+   Once the cleanup is done, start your node again by following this [guide](node-operations.md?node_service=docker#start-the-hoprd-node).
 
 </TabItem>
 <TabItem value="docker_compose" label="Docker Compose">
 
-1. Navigate to the **compose** folder and stop the **hoprd** services by running the following command:
+1. **Stop the hoprd services**
 
-    ```md
-    COMPOSE_PROFILES=hoprd docker compose down
-    ```
+   Navigate to the **compose** folder and stop the **hoprd** services by running the following command:
 
-2. **Backup your node**: ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
+   ```md
+   COMPOSE_PROFILES=hoprd docker compose down
+   ```
 
-3. Within the **compose** directory, go to **hoprd_data**, then **hoprd**, delete the **tbf** file. Then locate the **db** folder. Remove **all** files inside **db** folder.
+2. **Backup your node**
 
-4. Return to the main **compose** folder and restart the **hoprd** services by running the following command:
+   Ensure you back up your node before proceeding. Refer to this guide for detailed backup instructions follow this [guide](./backup-restore-update.md#backup-your-node-identity).
 
-    ```md
-    COMPOSE_PROFILES=hoprd docker compose up -d
-    ```
+3. **Delete the necessary files**
 
-5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md).
+   Within the **compose** directory, go to **hoprd_data**, then **hoprd**, delete the **tbf** file. Then locate the **db** folder. Remove **all** files inside **db** folder.
+
+4. **Restart the hoprd services**
+
+   Return to the main **compose** folder and restart the **hoprd** services by running the following command:
+
+   ```md
+   COMPOSE_PROFILES=hoprd docker compose up -d
+   ```
 
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-1. **Connect to your DAppNode dashboard**.
+1. **Connect to your DAppNode dashboard**
 
-2. **Backup your node identity**: Before proceeding with the re-sync process, ensure you back up your node identity by follwing this [guide](backup-restore-update.md#backup-your-node-identity).
+2. **Backup your node identity**
 
-3. **Remove the volume for the HOPR package**: Go to the [Info tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info). Under the **All volumes** section, locate the volume size and click the **trash can** icon to remove the package volume. This will delete the package storage, including all databases.
+   Before proceeding with the re-sync process, ensure you back up your node identity by follwing this [guide](backup-restore-update.md#backup-your-node-identity).
 
-4. **Restore your node identity**: Follow this guide to [restore your node identity](backup-restore-update.md#restore-your-node-identity).
+3. **Remove the volume for the HOPR package**
 
-5. (**Optional**) If you want to use the [fast synchronization feature](fast-sync.md#what-is-fast-sync) during the re-sync process, follow the [fast-sync guide](fast-sync.md).
+   Go to the [Info tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/info). Under the **All volumes** section, locate the volume size and click the **trash can** icon to remove the package volume. This will delete the package storage, including all databases.
 
-6. **Verify the restore process**: Go to the [Logs tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs). In the logs, you should see syncing process lines, indicating the restore was successful and the re-sync process is underway. Wait for the node to fully sync to 100%.
+4. **Restore your node identity**
 
-    Example log:
+   Follow this guide to [restore your node identity](backup-restore-update.md#restore-your-node-identity).
 
-    ```md
-    2025-01-14T14:11:51.005595Z  INFO ThreadId(04) chain_indexer::block: Sync progress to last known head indexer="rpc" progress=97.97430830039525 block=38036660 head=38038341
-    ```
+5. **Verify the restore process**
+
+   Go to the [Logs tab](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs). In the logs, you should see syncing process lines, indicating the restore was successful and the re-sync process is underway. Wait for the node to fully sync to 100%.
+
+   Example log:
+
+   ```md
+   2025-01-14T14:11:51.005595Z  INFO ThreadId(04) chain_indexer::block: Sync progress to last known head indexer="rpc" progress=97.97430830039525 block=38036660 head=38038341
+   ```
+
 </TabItem>
 </Tabs>
 </details>
@@ -332,23 +358,32 @@ Please select platform to re-sync node:
 <Tabs queryString="retrieve-logs">
 <TabItem value="docker" label="Docker">
 
-1. Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label **europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable** and note the **container ID**.
+1. **Find your container ID**
 
-2. Get the logs from the docker container using the following command: `docker logs -t <Your_Container_ID> >> <File_name.log>`. Replace **\<Your_Container_ID\>** with your docker container ID. Replace **\<File_name.log\>** with your container ID and **\<File_name.log\>** with your chosen file name. After executing the command, wait until it finishes writing the logs to the file.
+   Connect to your machine and execute the command `docker ps`. This will provide you with a list of Docker containers you are currently running. Among them, locate the container with the label **europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable** and note the **container ID**.
 
-    **Example:**
+2. **Get the logs**
 
-    ```md
-    docker logs -t 4951b2990936 >> logs_from_hopr_node.log
-    ```
+   Get the logs from the docker container using the following command: `docker logs -t <Your_Container_ID> >> <File_name.log>`. Replace **\<Your_Container_ID\>** with your docker container ID. Replace **\<File_name.log\>** with your container ID and **\<File_name.log\>** with your chosen file name. After executing the command, wait until it finishes writing the logs to the file.
+
+   **Example:**
+
+   ```md
+   docker logs -t 4951b2990936 >> logs_from_hopr_node.log
+   ```
+
 </TabItem>
 <TabItem value="dappnode" label="Dappnode">
 
-1. Connect to your Dappnode dashboard.
+1. **Connect to your Dappnode dashboard**
 
-2. Go to the [HOPR package logs page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs).
+2. **Open the HOPR package logs page**
 
-3. On the right side, click the **Download all** button to download HOPR node logs.
+   Go to the [HOPR package logs page](http://my.dappnode/packages/my/hopr.public.dappnode.eth/logs).
+
+3. **Download the logs**
+
+   On the right side, click the **Download all** button to download HOPR node logs.
 
 </TabItem>
 </Tabs>
@@ -690,11 +725,18 @@ If you've forgotten the SSH password and cannot access your Dappnode, you will n
 </summary>
 To ensure your RPC provider uses the Nethermind execution client:
 
-1. Visit [Etherflow](https://etherflow.quiknode.io) and enter your RPC endpoint.
+1. **Open Etherflow**
 
-2. Select **web3_clientVersion** and send the request.
+   Visit [Etherflow](https://etherflow.quiknode.io) and enter your RPC endpoint.
 
-3. Verify that the response indicates the use of the Nethermind execution client.
+2. **Send the request**
+
+   Select **web3_clientVersion** and send the request.
+
+3. **Verify the execution client**
+
+   Verify that the response indicates the use of the Nethermind execution client.
+
 </details>
 
 </NoCounter>

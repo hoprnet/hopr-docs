@@ -1,0 +1,38 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "design-demo",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4400",
+        "--directory",
+        "/private/tmp/claude-501/-Users-andrius-Git-hopr-docs/b7ba0ca9-2c1b-4b1f-8d03-f855fca0de9c/scratchpad/demo"
+      ],
+      "port": 4400
+    },
+    {
+      "name": "docs-verify",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "docusaurus",
+        "start",
+        "--port",
+        "3001",
+        "--no-open"
+      ],
+      "port": 3001
+    },
+    {
+      "name": "docker-demo",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /private/tmp/claude-501/-Users-andrius-Git-hopr-docs/b7ba0ca9-2c1b-4b1f-8d03-f855fca0de9c/scratchpad/demo-site && npx docusaurus start --port 3002 --no-open"
+      ],
+      "port": 3002
+    }
+  ]
+}

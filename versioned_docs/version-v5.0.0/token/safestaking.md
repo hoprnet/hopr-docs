@@ -36,7 +36,7 @@ SafeStaking is the process of onboarding users to stake and operate a node. For 
 
 [Safe](https://safe.global/) (previously known as Gnosis Safe) is a smart account wallet that provides a secure and customizable solution for storing funds.
 
-### Signing Account vs. Smart Account
+### Signing account vs. smart account {#signing-account-vs-smart-account}
 
 When you think of a crypto wallet, you usually think of a standard signing account, like MetaMask. Your account is generated using a private key, which you keep safe and use to sign transactions and approve the movement of funds from your account.
 
@@ -44,7 +44,7 @@ The main problem with these wallets is that if you ever lose your private key, y
 
 Smart accounts solve these issues by creating fully customizable accounts controlled by code rather than a private key.
 
-### What is a Smart Account?
+### What is a smart account? {#what-is-a-smart-account}
 
 A smart account (AKA a smart contract account) is, as the name suggests, an account that is controlled by a smart contract. This means you can program in any set of rules you want for your account. Common examples include:
 
@@ -55,7 +55,7 @@ A smart account (AKA a smart contract account) is, as the name suggests, an acco
 - Transaction batching
 - Recovery mechanisms 
 
-### Why Does HOPR Need a Smart Contract Wallet?
+### Why does HOPR need a smart contract wallet? {#why-does-hopr-need-a-smart-contract-wallet}
 
 To move staking directly onto the protocol, HOPR needed a secure solution for storing node runners' funds. In web3, nodes are not as secure as people might think. Although HOPR makes every effort to maximize your security, we also want node runners to interact easily with their nodes.
 
@@ -63,7 +63,7 @@ HOPR nodes are designed to be accessed remotely, sometimes by multiple people, a
 
 A setup like this will never be as secure as a cold wallet only touched by you, whose private key you take every precaution to secure. So, to offer the highest level of security while providing all the features and customizability HOPR wants to offer its node runners, we needed to compartmentalize node runner funds from their nodes. To achieve this, we needed a top-quality smart contract wallet.
 
-### Why Does HOPR Use Safe?
+### Why does HOPR use Safe? {#why-does-hopr-use-safe}
 
 [Safe](https://safe.global/) (previously known as Gnosis Safe) is the most secure smart contract wallet setup on the market. It already secures billions of assets with complete security and offers all the tooling developers need to create customizable solutions for their project. 
 
