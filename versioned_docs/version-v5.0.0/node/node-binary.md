@@ -4,73 +4,250 @@ title: Binary
 ---
 
 :::info
-
-Please note that you must start the onboarding process before setting up your node. To start, visit the [Overview](./run-a-node-overview.md) page.
-
+The HOPRd v5.0.0 binary is available for **Linux** only (`x86_64` and `aarch64`). On macOS, use [Docker](./node-docker.md) or [Docker Compose](./node-docker-compose.md).
 :::
 
-## Download HOPRd binary file
+This guide installs the HOPRd binary in `/root/hoprd` and runs it as a systemd service. When you finish, the folder looks like this:
 
-1. **Go to the Release Page**  
-   
-   Visit the [HOPRd v3.0.0 release page](https://github.com/hoprnet/hoprnet/releases/tag/v3.0.0).
-
-2. **Find the right file**  
-   
-   1. In the **Assets** section, download the binary file that matches your operating system and architecture.  
-      Look for a file named:
-
-      ```
-      hoprd-<architecture>-<platform>
-      ```
-
-      **Examples:**
-
-      - `hoprd-x86_64-linux` – for most 64-bit Linux systems  
-      - `hoprd-aarch64-linux` – for ARM-based Linux (Raspberry Pi 4/5, ARM servers)  
-      - `hoprd-x86_64-darwin` – for macOS on Intel  
-      - `hoprd-aarch64-darwin` – for macOS on M1/M2
-
-   2. Create a folder named `hoprd`, move the downloaded binary file into it.
+| Path | What it is |
+|---|---|
+| `/root/hoprd/hoprd` | The HOPRd binary |
+| `/root/hoprd/conf/hoprd-binary.cfg.yaml` | Your node configuration |
+| `/root/hoprd/conf/hopr.id` | Your node identity file |
+| `/root/hoprd/data` | Your node database |
 
 ---
 
-## Implement configuration file
+## Create your node identity, Safe and node module
 
-1. **Create the Configuration Directory**  
-   
-   Inside the newly created `hoprd` folder, create a subfolder named `conf`.
+:::tip Migrating from v3.0.x?
+If you came here from the [migration guide](./backup-restore-update.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download the HOPRd binary](#download-the-hoprd-binary). In step 3.2, use your backed-up `hopr.id` and the identity password you used on v3.0.x.
+:::
 
-2. **Download the Example Config File**  
-   
-   Get the example configuration file specifically for the Binary: [**hoprd-binary.cfg.yaml**](pathname:///files/v5/hoprd-binary.cfg.yaml)
+Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because the command in step 1.4 asks for a private key.
 
-3. **Adjust Configuration Values**  
-   
-   Make necessary edits to the configuration file based on these [guidelines](./manage-node-configuration.md?config=native-binary#create-and-apply-configuration-file-to-your-node).
+1. **Start Docker Desktop**
+
+   Download and start [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your computer.
+
+2. **Create a temporary folder**
+
+   Create a temporary folder called `hopr-identity` in your home directory.
+
+   **Linux / macOS** (Terminal):
+
+   ```bash
+   mkdir -p ~/hopr-identity
+   ```
+
+   **Windows** (PowerShell):
+
+   ```powershell
+   New-Item -ItemType Directory -Force -Path "$HOME\hopr-identity"
+   ```
+
+3. **Create your node identity**
+
+   Gather the values you need for node identity creation. You'll paste these into the command.
+
+   | Placeholder | What it is | Where to find it |
+   |---|---|---|
+   | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | Create a strong passphrase (refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password)). |
+   | `<NUMBER>` | How many node identities to create, one per node | Use `1` unless you run several nodes (see [Multiple nodes](./multiple-nodes.md)). |
+
+   Create your node identity. The folder path is written differently on each system.
+
+   **Linux / macOS** (Terminal):
+
+   ```bash
+   docker run --rm -it --pull always \
+   -v ~/hopr-identity:/data \
+   -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+   identity create \
+   --identity-directory /data \
+   --identity-prefix hopr \
+   --number <NUMBER>
+   ```
+
+   **Windows** (PowerShell):
+
+   ```powershell
+   docker run --rm -it --pull always `
+   -v "$HOME\hopr-identity:/data" `
+   -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+   identity create `
+   --identity-directory /data `
+   --identity-prefix hopr `
+   --number <NUMBER>
+   ```
+
+   The command creates one file per identity in the `hopr-identity` folder: `hopr0.id`, `hopr1.id`, and so on.
+
+4. **Create your Safe and node module**
+
+   Gather the values you need for Safe and node module creation. You'll paste these into the command.
+
+   | Placeholder | What it is | Where to find it |
+   |---|---|---|
+   | `<YOUR_IDENTITY_PASSWORD>` | The password that protects your node identity file | The password you set in previous step during node identity creation. |
+   | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
+   | `<SAFE_OWNER>` | The address of the wallet that owns your Safe wallet. | Your wallet app, for example Rabby wallet, MetaMask. |
+
+   :::important
+   Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
+   :::
+
+   Create your Safe and node module, and add the node identity you just created to them. The folder path is written differently on each system.
+
+   **Linux / macOS** (Terminal):
+
+   ```bash
+   docker run --rm -it --pull always \
+   -v ~/hopr-identity:/data \
+   -e IDENTITY_PASSWORD='<YOUR_IDENTITY_PASSWORD>' \
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
+   safe-module create \
+   --network piz-palu-prod \
+   --provider-url <YOUR_RPC_PROVIDER_URL> \
+   --admin-address <SAFE_OWNER> \
+   --identity-directory /data \
+   --allowance 15000000000000000000000
+   ```
+
+   **Windows** (PowerShell):
+
+   ```powershell
+   docker run --rm -it --pull always `
+   -v "$HOME\hopr-identity:/data" `
+   -e 'IDENTITY_PASSWORD=<YOUR_IDENTITY_PASSWORD>' `
+   europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
+   safe-module create `
+   --network piz-palu-prod `
+   --provider-url <YOUR_RPC_PROVIDER_URL> `
+   --admin-address <SAFE_OWNER> `
+   --identity-directory /data `
+   --allowance 15000000000000000000000
+   ```
+
+   - At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+   - `hopli` sends the transactions. When it finishes, the last two lines show your new `safe` and `node_module` addresses. Write both down, because you need them in step 3.2. Example:
+
+      ```text
+      safe 0xAbC0000000000000000000000000000000000123
+      node_module 0xDeF0000000000000000000000000000000000456
+      ```
+
+5. **Move the identity file to your node machine**
+
+   On your node machine, create the node folder:
+
+   ```bash
+   sudo mkdir -p /root/hoprd/conf
+   ```
+
+   - In the temporary `hopr-identity` folder, rename the identity file `hopr0.id` to `hopr.id`, then move it to `/root/hoprd/conf/` on your node machine.
+   - Once `hopr.id` is in `/root/hoprd/conf/`, keep a backup copy of it somewhere safe outside the node folder, then delete the temporary `hopr-identity` folder.
 
 ---
 
-## Configure systemd for binary
+## Download the HOPRd binary
 
-Systemd allows you to create a service that runs your application in the background.
+1. **Find your machine architecture**
+
+   On your node machine, run:
+
+   ```bash
+   uname -m
+   ```
+
+   | Output | File to download |
+   |---|---|
+   | `x86_64` | `hoprd-x86_64-linux` |
+   | `aarch64` or `arm64` | `hoprd-aarch64-linux` |
+
+2. **Download the binary and check it**
+
+   Replace `<ARCH>` with `x86_64` or `aarch64` from the previous step:
+
+   ```bash
+   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.1/hoprd-<ARCH>-linux
+   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.1/hoprd-<ARCH>-linux.sha256
+   sha256sum hoprd-<ARCH>-linux
+   cat hoprd-<ARCH>-linux.sha256
+   ```
+
+   The two checksums must match. If they don't, delete the file and download it again.
+
+   All files are on the [HOPRd v5.0.0-rc.1 release page](https://github.com/hoprnet/hoprd/releases/tag/v5.0.0-rc.1).
+
+3. **Install the binary**
+
+   Move the binary into the node folder, name it `hoprd` and make it executable:
+
+   ```bash
+   sudo mv hoprd-<ARCH>-linux /root/hoprd/hoprd
+   sudo chmod +x /root/hoprd/hoprd
+   ```
+
+---
+
+## Configure your node
+
+1. **Download the configuration file**
+
+   ```bash
+   sudo curl -fL -o /root/hoprd/conf/hoprd-binary.cfg.yaml https://docs.hoprnet.org/files/v5/hoprd-binary.cfg.yaml
+   ```
+
+2. **Fill in your values**
+
+   Open the file:
+
+   ```bash
+   sudo vim /root/hoprd/conf/hoprd-binary.cfg.yaml
+   ```
+
+   Set these values. The other settings work as they are.
+
+   | Setting | What to enter |
+   |---|---|
+   | `identity.password` | The identity password from step 1.3. |
+   | `api.auth.Token` | A secret token for the REST API, at least 8 characters. See this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+   | `hopr.host.address.IPv4` | Your public IP address. If you use a DDNS hostname, see [hopr.host](./manage-node-configuration.md#hoprhost). |
+   | `hopr.safe_module.safe_address` | The `safe` address from step 1.4. |
+   | `hopr.safe_module.module_address` | The `node_module` address from step 1.4. |
+
+   If your node runs behind a router, forward port `9091` (TCP and UDP) to it. See the [port forwarding guide](./port-forwarding.md#how-to-configure-port-forwarding). For the other settings, see [Understanding configuration file settings](./manage-node-configuration.md#understanding-configuration-file-settings).
+
+3. **Check your configuration**
+
+   Download the configuration checker for your architecture and run it:
+
+   ```bash
+   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.1/hoprd-cfg-<ARCH>-linux
+   chmod +x hoprd-cfg-<ARCH>-linux
+   sudo ./hoprd-cfg-<ARCH>-linux --validate /root/hoprd/conf/hoprd-binary.cfg.yaml
+   ```
+
+   If the command prints nothing, your configuration is valid. Otherwise it prints what to fix.
+
+---
+
+## Run HOPRd with systemd
 
 :::important
-Before setting up a systemd service for the HOPRd node, make sure you have **root** access.  
-If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/wiki/Getting-Started) instead.
+You need **root** access to set up the systemd service. If you don't have it, you can use a process manager like [tmux](https://github.com/tmux/tmux/wiki/Getting-Started) instead.
 :::
 
-1. **Create the service file**  
-   
-   Open a terminal and create the `hoprd.service` systemd file:
+1. **Create the service file**
 
    ```bash
    sudo vim /etc/systemd/system/hoprd.service
    ```
 
-2. **Paste the service configuration**
-   
-   Use the following configuration. Adjust paths and values if needed:
+   Paste this configuration and save the file:
 
    ```ini
    [Unit]
@@ -84,7 +261,6 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
    Restart=on-failure
    RestartSec=5
 
-   Environment="HOPRD_DATA=/root/hoprd/data/"
    Environment="HOPRD_CONFIGURATION_FILE_PATH=/root/hoprd/conf/hoprd-binary.cfg.yaml"
 
    WorkingDirectory=/root/hoprd/
@@ -95,134 +271,88 @@ If not, you can use a process manager like [tmux](https://github.com/tmux/tmux/w
    WantedBy=multi-user.target
    ```
 
-   **Configuration notes:**
+2. **Reload systemd**
 
-   | Setting              | Description |
-   |----------------------|-------------|
-   | **User**             | User to run the service. Default is `root`. |
-   | **ExecStart**        | Command used to start the HOPRd binary. This should be the full path to the executable file **hoprd**. Default value is `/root/hoprd/hoprd` |
-   | **Environment**      | Sets environment variables required by the HOPRd process. |
-   | **WorkingDirectory** | Sets the working directory where relative paths will resolve. |
-
-   After making changes, save **hoprd.service** file.
-
-3. **Reload systemd**  
-
-   Update **systemd** to apply the changes. You need to run this command after creating, modifying, or deleting a unit file (such as a `hoprd.service` file). It refreshes systemd’s internal state so it can recognize the updated service configuration.
+   Run this after you create or change the service file:
 
    ```bash
    sudo systemctl daemon-reload
    ```
 
-4. **Enable the `hoprd.service` service on boot**  
-   
-   Enable the service to launch automatically at system boot:
+3. **Start HOPRd on boot**
 
    ```bash
    sudo systemctl enable hoprd
    ```
 
-5. **Start the `hoprd.service` service**  
-   
-   Start the HOPRd node:
+4. **Start HOPRd**
 
    ```bash
    sudo systemctl start hoprd
    ```
 
-6. **Verify the `hoprd.service` service status**  
-   
-   Confirm that the service started successfully:
+5. **Check the service status**
 
    ```bash
    sudo systemctl status hoprd
    ```
 
-   Example output:
+   The status should show `active (running)`. If it doesn't, see [View logs](./node-operations.md?node_service=binary#view-logs).
 
-   ![HOPRd service status](/img/node/hoprd-service-status.png)
+---
 
+## Fund your node
 
-   :::note
-   If `hoprd.service` is **not active**, generate logs before asking for help:
+1. **Fund your Safe wallet**
 
-   ```bash
-   journalctl -u hoprd >> "hoprd_$(date +%F).log"
-   ```
-
-   Then share the log file with the Ambassadors or Moderators for assistance.
+   :::tip Migrating from v3.0.x?
+   Skip this step. You moved your wxHOPR to your new Safe in the migration guide.
    :::
 
----
+   Send at least `1 wxHOPR` to your Safe wallet: the `safe` address from step 1.4. Your node uses it to pay the fee for announcing itself on the network when it starts.
 
-## Start HOPR Admin UI
+2. **Fund your node with xDai**
 
-HOPR Admin UI is an application that helps you connect to and manage your HOPRd node. Copy the command below and execute it in your terminal window:
+   When the node starts, it shows its address and waits until it has xDai. To find the address, run:
 
-```md
-docker run -d --pull=always -p 4677:4677 --name hopr-admin europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopr-admin:stable
-```
-
----
-
-## Link your node to your HOPR Safe wallet
-
-1. **Access the HOPR Admin UI**  
-   
-   If you're using the default configuration, open the Admin UI in your browser:
-
-   ```
-   http://localhost:4677
+   ```bash
+   sudo journalctl -u hoprd | grep "blockchain_address"
    ```
 
-   - Replace `localhost` with your **server IP address** if running on a VPS.
-   - Ensure the port `4677` is correctly mapped during setup.
-
-2. **Connect to your node**  
-   
-   Click **CONNECT TO NODE** in the top-right corner. In the **Node credentials** popup:
-
-   - **API endpoint**: Default is `http://localhost:3001`. Replace `localhost` with your VPS IP if applicable. Adjust the port if you changed it.
-
-   - **API token**: Enter the custom security token you created during the [initial HOPRd setup](#implement-configuration-file).
-
-3. **Copy your node address**  
-   
-   After clicking **Connect to the node**, your node address (starting with `0x`) will appear. Copy it for use during onboarding.
-
-4. **Return to the HOPR Staking Hub**  
-   
-   There's no need to manually fund your node with xDai tokens. Funding will happen during onboarding via the HOPR Staking Hub.
-
-   Visit the [HOPR Staking Hub](https://hub.hoprnet.org) to: Register for the waitlist, or complete onboarding if you’ve been approved.
+   The value of `blockchain_address` is your node address. Send at least `0.01 xDai` to it. The node checks its balance regularly and finishes starting once the funds arrive.
 
 ---
 
-## What's next?
+## Check that your node is running
 
-Once you've completed the onboarding process, ensure your node is fully synced (`100%`) and that you've opened at least one outgoing payment channel with a random peer.
+1. **Check that the node announced itself**
 
-To start earning rewards through Cover Traffic, follow these steps to meet the necessary requirements:
+   ```bash
+   sudo journalctl -u hoprd -f
+   ```
 
-1. **Install the HOPR Admin UI** 
+   Look for `node announced successfully` or `node already announced on chain`. Press `Ctrl+C` to stop following the logs. The node keeps running.
 
-   Install HOPR Admin UI and connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#installing-hopr-admin-ui).
+2. **Check that the node is ready**
 
-2. **Check if the node is 100% synced**
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3001/readyz
+   ```
 
-   On the `INFO` page, under the `Network` section, confirm that the `Sync Process` is at `100%`.  
-   If it’s not fully synced yet, you’ll need to wait until the process is complete.
+   `200` means your node is running, connected to the network and to the chain. `412` means it's still starting; wait a few minutes and try again.
 
-3. **Open outgoing channel and verify**
+3. **Check your node address through the API**
 
-   1. Once synced, go to the `PEERS` page and select a random peer with a connection quality above `90%`.  
-      Click the `OPEN Outgoing Channel` icon, enter `1` as the amount (or another value), and click **Open Channel**.  
-      You’ll receive a notification once the channel has been opened.
-   
-   2. Navigate to the `CHANNELS: OUT` page to verify that the outgoing payment channel has been successfully opened. 
+   Replace `<YOUR_API_TOKEN>` with the `api.auth.Token` value from step 3.2:
 
----
+   ```bash
+   curl -s -H "X-Auth-Token: <YOUR_API_TOKEN>" http://localhost:3001/api/v4/account/addresses
+   ```
+
+   The response shows your node address, for example `{"native":"0x07eaf07d6624f741e04f4092a755a9027aaab7f6"}`.
 
 :::tip Your node is running
-Your node should now be fully operational and earning rewards. Be sure to periodically check that your [node is performing properly](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
 :::
+
+To start, stop, upgrade or uninstall your node, see [Managing Node Service](./node-operations.md?node_service=binary).

@@ -54,7 +54,7 @@
         {
           "type": "category",
           "label": "Installation Guide",
-          "items": ["node/node-docker", "node/node-docker-compose", "node/node-dappnode", "node/node-binary", "node/node-linux-packages", "node/node-macos"]
+          "items": ["node/node-docker", "node/node-docker-compose", "node/node-dappnode", "node/node-binary"]
         }
       ]
     },
@@ -89,7 +89,6 @@
         "node/manage-node-configuration",
         "node/manage-node-strategies",
         "node/custom-rpc-provider",
-        "node/fast-sync",
         "node/ac-migration-from-legacy"
       ]
     },
