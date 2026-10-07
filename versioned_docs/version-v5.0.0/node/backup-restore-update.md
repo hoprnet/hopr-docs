@@ -127,13 +127,13 @@ Please select platform to restore your node identity:
     ~/hoprd/
     ```
 
-3. **Set the Password Flag**
+3. **Set the identity password**
 
-    Update the `--password` tag in your Docker command to match the identity password used for your previous node. Default password: `open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0`
+    Set `identity.password` in `~/hoprd/hoprd-docker.cfg.yaml` to the identity password used for your previous node. Default password: `open-sesame-iTwnsPNg0hpagP+o6T0KOwiH9RQ0`
 
-4. **Configure Your Docker Command**
+4. **Configure and start your node**
 
-    Configure the Docker command with the required information, just as you did when initially setting up a new node.  
+    Fill in the rest of the configuration file and start the node, just as you did when initially setting up a new node.  
 
     For more details, see [this section](node-docker.md#configure-hoprd-command).
 
@@ -251,7 +251,7 @@ Your node keeps running during these steps.
 
 3. **Docker only: save your current settings**
 
-    Save the settings of your current container. You reuse `--apiToken` and `--host` when you start v5.0.0:
+    Save the settings of your current container. You reuse the `--apiToken` and `--host` values in your v5.0.0 configuration file:
 
     ```bash
     docker inspect --format '{{join .Args " "}}' hoprd
@@ -407,23 +407,23 @@ Repeat this step for each node. Give each node its own folder (`~/hoprd`, `~/hop
 
     ```bash
     mkdir -p ~/hoprd
-    curl -o ~/hoprd/hoprd.cfg.yaml https://docs.hoprnet.org/files/hoprd.cfg.yaml
+    curl -o ~/hoprd/hoprd-docker.cfg.yaml https://docs.hoprnet.org/files/hoprd-docker.cfg.yaml
     ```
 
     - Then copy your backed-up `hopr.id` into `~/hoprd`.
 
     (**Optional**) To adjust the strategies, see [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
-2. **Start your node**
+2. **Fill in the configuration file and start your node**
 
-    Start your node with the [Docker command](node-docker.md#configure-hoprd-command). Use these values:
+    Open `~/hoprd/hoprd-docker.cfg.yaml` and fill it in as described in [Configure your node](node-docker.md#configure-hoprd-command). Use these values:
 
-    - `--safeAddress`: the **new safe address** from [Create your new Safe](#create-your-new-safe). Do not use your old safe address, or the node will not work on the Piz Palu network.
-    - `--moduleAddress`: the **new node module address** from [Create your new Safe](#create-your-new-safe). Do not use your old module address, or the node will not work on the Piz Palu network.
-    - `--password`: the same password you used on v3.0.x.
-    - `--apiToken` and `--host`: the values you saved in [Prepare your migration](#prepare-your-migration). You can also choose a new API token.
+    - `hopr.safe_module.safe_address`: the **new safe address** from [Create your new Safe](#create-your-new-safe). Do not use your old safe address, or the node will not work on the Piz Palu network.
+    - `hopr.safe_module.module_address`: the **new node module address** from [Create your new Safe](#create-your-new-safe). Do not use your old module address, or the node will not work on the Piz Palu network.
+    - `identity.password`: the same password you used on v3.0.x.
+    - `api.auth.Token` and `hopr.host.address.IPv4`: the values you saved in [Prepare your migration](#prepare-your-migration). You can also choose a new API token.
 
-    The command already uses your new `hoprd` folder and the identity file you copied in the previous step. Run it, then follow the logs as described in [Start Your Node](node-docker.md#start-your-node). When you see `node announced successfully` or `node already announced on chain`, come back here and continue with [Verify and clean up](#verify-and-clean-up).
+    Then start your node with the [Docker command](node-docker.md#configure-hoprd-command) from step 3.4. It already uses your new `hoprd` folder and the identity file you copied in the previous step. Follow the logs as described in [Start Your Node](node-docker.md#start-your-node). When you see `node announced successfully` or `node already announced on chain`, come back here and continue with [Verify and clean up](#verify-and-clean-up).
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker Compose">

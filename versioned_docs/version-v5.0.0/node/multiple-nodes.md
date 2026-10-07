@@ -117,13 +117,11 @@ Start from the [Docker command](./node-docker.md#configure-hoprd-command) and ch
 |---|---|---|
 | Node folder | `-v $HOME/hoprd/:/app/hoprd-db` | `-v $HOME/hoprd-2/:/app/hoprd-db` |
 | Container name | `--name hoprd` | `--name hoprd-2` |
-| P2P port | `-p 9091:9091/tcp -p 9091:9091/udp` | `-p 9092:9092/tcp -p 9092:9092/udp` |
-| API port | `-p 3001:3001` and `--apiPort 3001` | `-p 3002:3002` and `--apiPort 3002` |
-| Session port | `-p 1422:1422/udp -p 1422:1422/tcp` and `--defaultSessionListenHost 'auto:1422'` | `-p 1423:1423/udp -p 1423:1423/tcp` and `--defaultSessionListenHost 'auto:1423'` |
-| Public host | `--host '<YOUR_PUBLIC_IP>:9091'` | `--host '<YOUR_PUBLIC_IP>:9092'` |
+| P2P port | `-p 9091:9091/tcp -p 9091:9091/udp` and `hopr.host.port: 9091` | `-p 9092:9092/tcp -p 9092:9092/udp` and `hopr.host.port: 9092` |
+| API port | `-p 3001:3001` | `-p 3002:3001` |
+| Session port | `-p 1422:1422/udp -p 1422:1422/tcp` | `-p 1423:1423/udp -p 1423:1423/tcp` |
+| Configuration file | `~/hoprd/hoprd-docker.cfg.yaml` | `~/hoprd-2/hoprd-docker.cfg.yaml`: a copy with `hopr.host.port: 9092` and the second node's identity password |
 | Identity file | `~/hoprd/hopr.id` | `~/hoprd-2/hopr.id`, the second node's own file |
-
-Copy your `hoprd.cfg.yaml` into `~/hoprd-2` as well.
 
 </TabItem>
 <TabItem value="docker-compose" label="Docker compose">

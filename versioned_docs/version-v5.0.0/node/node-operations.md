@@ -26,8 +26,8 @@ After installing the HOPRd node using Docker, the following directories and file
 | **Purpose**         | **Path**         | **Description**                                                    |
 | ------------------- | ---------------- | ------------------------------------------------------------------ |
 | Identity file  | `$HOME/hoprd/hopr.id` | Stores the node’s identity. |
-| Configuration file | `$HOME/hoprd/hoprd.cfg.yaml` | Stores the node’s configuration. |
-| Data directory | `$HOME/hoprd/` | Contains the node’s database. Mounted inside the container at `/app/hoprd-db`. |
+| Configuration file | `$HOME/hoprd/hoprd-docker.cfg.yaml` | Stores the node’s configuration. |
+| Data directory | `$HOME/hoprd/data` | Contains the node’s database. Mounted inside the container at `/app/hoprd-db/data`. |
 
 When using Docker, your HOPRd node runs inside a container in the background.
 
@@ -37,15 +37,13 @@ When using Docker, your HOPRd node runs inside a container in the background.
 
    Ensure that you have removed the old HOPR Docker container. You can find more details [here](node-operations.md).
 
-2. **Ensure your Docker command is configured**
+2. **Ensure your configuration file is filled in**
 
-   Ensure that your Docker command is properly configured. You can find the default Docker configuration details [here](node-docker.md#configure-hoprd-command). 
-
-   If you're using a configuration file to manage your node strategies, refer to this [page](./manage-node-configuration.md#create-and-apply-configuration-file-to-your-node) and select **Docker**," then review **Step 4** for specific instructions.
+   Ensure that your configuration file `~/hoprd/hoprd-docker.cfg.yaml` is filled in, as described in [Configure your node](node-docker.md#configure-hoprd-command).
 
 3. **Run your HOPR command**
 
-   Run your configured HOPR command by pasting it into the terminal.
+   Run the [Docker command](node-docker.md#configure-hoprd-command) by pasting it into the terminal.
 
 ---
 

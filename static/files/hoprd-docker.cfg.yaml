@@ -1,14 +1,14 @@
 ---
 blokli_url: https://blokli-piz-palu.prod.hoprnet.link
 identity:
-  file: /root/hoprd/conf/hopr.id
+  file: /app/hoprd-db/hopr.id
   password: "<YOUR_IDENTITY_PASSWORD>" # NOTE: fill in value
 db:
-  data: /root/hoprd/data
+  data: /app/hoprd-db/data
 api:
   enable: true
   auth:
-    Token: "<YOUR_API_TOKEN>" # NOTE: fill in value
+    Token: "<YOUR_API_TOKEN>" # NOTE: fill in value, at least 8 characters. Never remove: without a token the API is open
   host:
     address:
       IPv4: 0.0.0.0
@@ -16,11 +16,11 @@ api:
 hopr:
   host:
     address:
-      IPv4: 127.0.0.1 # NOTE: replace with your public IP
-    port: 9091
+      IPv4: <YOUR_PUBLIC_IP> # NOTE: fill in your public IP address
+    port: 9091 # NOTE: must match the -p 9091 lines in your Docker command
   safe_module:
-    safe_address: "0x0000000000000000000000000000000000000000" # NOTE: fill in value
-    module_address: "0x0000000000000000000000000000000000000000" # NOTE: fill in value
+    safe_address: "<SAFE_ADDRESS>" # NOTE: fill in value
+    module_address: "<MODULE_ADDRESS>" # NOTE: fill in value
   network:
     pix:
       num_ssa_parts: 4096

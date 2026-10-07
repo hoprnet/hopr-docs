@@ -44,7 +44,7 @@ Every HOPRd node comes with the **Node API Swagger UI**, a web page where you ca
     2. In the **api_token (apiKey)** field, enter your API token and click **Authorize**, then **Close**.
 
     Your API token is:
-    - **Docker**: the `--apiToken` value in your Docker command.
+    - **Docker**: `api.auth.Token` in `~/hoprd/hoprd-docker.cfg.yaml`.
     - **Docker Compose**: `HOPRD_API_TOKEN` in your `.env-secrets` file.
 
 3. **Run a request**
@@ -82,13 +82,9 @@ Every HOPRd node comes with the **Node API Swagger UI**, a web page where you ca
 
     Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui). If you encounter an error while trying to connect to your node, please refer to the [error codes](#troubleshooting-hopr-admin-ui-issues).
 
-2. **Check for latest HOPRd & HOPR Admin UI versions**
+2. **Check for latest HOPRd versions**
 
-    Ensure you are using the latest versions of both **HOPRd** and the **HOPR Admin UI**. 
-
-    - You can check your current HOPRd node version on the **INFO** page under the **Node** section. To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
-
-    - For the HOPR Admin UI version, check the bottom right corner of the interface. The most recent HOPR Admin UI version can be found [here](./releases.md#hopr-admin-ui-public-releases).
+    To find the latest HOPRd version, visit [this link](./releases.md#hoprd-node-public-releases). 
 
 3. **Check node health**
 

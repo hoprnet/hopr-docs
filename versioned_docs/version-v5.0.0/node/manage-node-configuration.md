@@ -22,7 +22,7 @@ Please select your platform:
 
 1. **Download HOPRd configuration file**
 
-    Download the example file for Docker: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+    Download the example file for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
 
 2. **(Optional) modify configuration file**
 
@@ -30,55 +30,13 @@ Please select your platform:
 
 3. **Upload configuration file**
 
-    Navigate to the `hoprd` directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named **hoprd.cfg.yaml**.
+    Navigate to the `hoprd` directory on your machine and upload the newly created configuration file there. Ensure that the configuration file is named **hoprd-docker.cfg.yaml**.
 
 4. **Launch HOPRd node**
 
     1. After uploading the configuration file, [stop your current node](node-operations.md?node_service=docker#stop-the-hoprd-node).
 
-    2. Once your node is stopped, add the additional parameter **--configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'** to link your configuration file to your current docker command.
-
-        **Docker command:**
-
-        ```bash title="hoprd command (edit the highlighted lines)" {27-31}
-        docker run \
-        --pull always \
-        -d --restart on-failure \
-        -m 2g \
-        --security-opt seccomp=unconfined \
-        --platform linux/x86_64 \
-        --log-driver json-file \
-        --log-opt max-size=100M \
-        --log-opt max-file=5 \
-        -ti \
-        -v $HOME/hoprd/:/app/hoprd-db \
-        --name hoprd \
-        -p 9091:9091/tcp \
-        -p 9091:9091/udp \
-        -p 3001:3001 \
-        -p 1422:1422/udp \
-        -p 1422:1422/tcp \
-        -e RUST_LOG=info \
-        europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2 \
-        --init \
-        --api \
-        --announce \
-        --blokliUrl https://blokli-piz-palu.prod.hoprnet.link \
-        --identity /app/hoprd-db/hopr.id \
-        --data /app/hoprd-db \
-        --apiHost '0.0.0.0' \
-        --apiToken '<YOUR_API_TOKEN>' \
-        --password '<YOUR_IDENTITY_PASSWORD>' \
-        --safeAddress '<SAFE_ADDRESS>' \
-        --moduleAddress '<MODULE_ADDRESS>' \
-        --host '<YOUR_PUBLIC_IP>:9091' \
-        --defaultSessionListenHost 'auto:1422' \
-        --configurationFilePath '/app/hoprd-db/hoprd.cfg.yaml'
-        ```
-
-        :::note
-        If you're running multiple nodes or have changed the default ports, make the necessary port adjustments accordingly.
-        :::
+    2. Start your node with the [Docker command](node-docker.md#configure-hoprd-command). It already reads `/app/hoprd-db/hoprd-docker.cfg.yaml`.
 
     3. Paste your Docker command into the terminal window and execute it.
 
@@ -224,7 +182,7 @@ identity:
   file: /app/hoprd-db/hopr.id
   password: "<YOUR_IDENTITY_PASSWORD>"
 db:
-  data: /app/hoprd-db
+  data: /app/hoprd-db/data
   initialize: true
   force_initialize: false
 api:
@@ -382,7 +340,7 @@ Specifies details for the database used by the HOPR node.
 
 ```yaml
 db:
-  data: /app/hoprd-db
+  data: /app/hoprd-db/data
   initialize: true
   force_initialize: false
 ```
@@ -434,7 +392,7 @@ api:
 
 ### Session listening host
 
-When an application opens a session through your node (for example GnosisVPN), the node listens for it on `127.0.0.1` by default, which can't be reached from outside a Docker container. To expose sessions on a port, start the node with `--defaultSessionListenHost 'auto:<PORT>'` (or the `HOPRD_DEFAULT_SESSION_LISTEN_HOST` environment variable), for example `auto:1422`. `auto` resolves to the container's own IP address. Publish the same port in your Docker command.
+When an application opens a session through your node (for example GnosisVPN), it can ask the node to listen on a specific address and port, such as `0.0.0.0:1422`. The Docker command publishes port `1422` for this. If the application doesn't ask for a port, the node picks a random one: on the address of the container itself in the Docker image, or on `127.0.0.1` elsewhere. To set a fixed default port instead, start the node with `--defaultSessionListenHost 'auto:<PORT>'` or the `HOPRD_DEFAULT_SESSION_LISTEN_HOST` environment variable, and publish the same port.
 
 ### strategy
 
