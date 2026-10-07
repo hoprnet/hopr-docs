@@ -59,7 +59,7 @@ Please select your platform:
         -p 1422:1422/udp \
         -p 1422:1422/tcp \
         -e RUST_LOG=info \
-        europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.1 \
+        europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2 \
         --init \
         --api \
         --announce \
@@ -266,12 +266,12 @@ Keep these rules in mind when you edit the file:
 - **Check the file before you start the node.** The Docker image validates the configuration at startup and prints any errors to the logs. To print a complete file with all default values, run:
 
     ```bash
-    docker run --rm europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.1 hoprd-cfg -d
+    docker run --rm europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2 hoprd-cfg -d
     ```
 
 :::note
 
-The latest sample configuration file is available in the [HOPRd GitHub repository](https://github.com/hoprnet/hoprd/blob/v5.0.0-rc.1/deploy/nfpm/hoprd-sample.cfg.yaml).
+The latest sample configuration file is available in the [HOPRd GitHub repository](https://github.com/hoprnet/hoprd/blob/v5.0.0-rc.2/deploy/nfpm/hoprd-sample.cfg.yaml).
 
 :::
 

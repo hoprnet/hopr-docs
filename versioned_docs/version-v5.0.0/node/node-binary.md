@@ -172,15 +172,15 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
    Replace `<ARCH>` with `x86_64` or `aarch64` from the previous step:
 
    ```bash
-   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.1/hoprd-<ARCH>-linux
-   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.1/hoprd-<ARCH>-linux.sha256
+   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.2/hoprd-<ARCH>-linux
+   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.2/hoprd-<ARCH>-linux.sha256
    sha256sum hoprd-<ARCH>-linux
    cat hoprd-<ARCH>-linux.sha256
    ```
 
    The two checksums must match. If they don't, delete the file and download it again.
 
-   All files are on the [HOPRd v5.0.0-rc.1 release page](https://github.com/hoprnet/hoprd/releases/tag/v5.0.0-rc.1).
+   All files are on the [HOPRd v5.0.0-rc.2 release page](https://github.com/hoprnet/hoprd/releases/tag/v5.0.0-rc.2).
 
 3. **Install the binary**
 
@@ -226,7 +226,7 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
    Download the configuration checker for your architecture and run it:
 
    ```bash
-   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.1/hoprd-cfg-<ARCH>-linux
+   curl -fLO https://github.com/hoprnet/hoprd/releases/download/v5.0.0-rc.2/hoprd-cfg-<ARCH>-linux
    chmod +x hoprd-cfg-<ARCH>-linux
    sudo ./hoprd-cfg-<ARCH>-linux --validate /root/hoprd/conf/hoprd-binary.cfg.yaml
    ```

@@ -147,10 +147,10 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
 Start by downloading the `compose` folder from the HOPR repository to the machine where you will run your node:
 
 ```bash
-curl -fL -o v5.0.0-rc.1.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0-rc.1.zip && \
-  unzip v5.0.0-rc.1.zip "hoprd-5.0.0-rc.1/deploy/compose/*" -d extracted_files && \
-  mv extracted_files/hoprd-5.0.0-rc.1/deploy/compose . && \
-  rm -rf v5.0.0-rc.1.zip extracted_files
+curl -fL -o v5.0.0-rc.2.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0-rc.2.zip && \
+  unzip v5.0.0-rc.2.zip "hoprd-5.0.0-rc.2/deploy/compose/*" -d extracted_files && \
+  mv extracted_files/hoprd-5.0.0-rc.2/deploy/compose . && \
+  rm -rf v5.0.0-rc.2.zip extracted_files
 ```
 
 ---
@@ -166,8 +166,8 @@ mv .env.sample .env
 Adjust the following environment variables in the `.env` file:
 
 - `HOPRD_IMAGE`:  
-  Sets the HOPRd Docker image. Change the tag at the end from `stable` to `5.0.0-rc.1`:  
-  `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.1`
+  Sets the HOPRd Docker image. Change the tag at the end from `stable` to `5.0.0-rc.2`:  
+  `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2`
 
 - `HOPRD_API_PORT`:  
   Sets the port on your machine that forwards to your node's REST API. Default is `3001`.  
