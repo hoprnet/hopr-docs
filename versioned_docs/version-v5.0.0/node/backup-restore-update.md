@@ -412,7 +412,7 @@ Repeat this step for each node. Give each node its own folder (`~/hoprd`, `~/hop
 
     - Then copy your backed-up `hopr.id` into `~/hoprd`.
 
-    (Optional) To adjust the configuration file, see [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
+    (**Optional**) To adjust the strategies, see [Understanding Node Strategies](./manage-node-strategies.md#understanding-node-strategies).
 
 2. **Start your node**
 
