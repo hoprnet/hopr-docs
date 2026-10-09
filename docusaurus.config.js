@@ -5,6 +5,7 @@ const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const math = require('remark-math')
 const katex = require('rehype-katex')
+const steps = require('./src/remark/steps')
 const { DOCS_URL } = require('./consts')
 const { DOCS_ALGOLIA_APP_ID, DOCS_ALGOLIA_API_KEY } = process.env
 
@@ -26,10 +27,11 @@ const config = {
   url: DOCS_URL,
   baseUrl: '/',
   onBrokenLinks: 'throw',
-  // Required form for the Docusaurus 3.8.1 pinned in yarn.lock, which is what
-  // Vercel installs. markdown.hooks.onBrokenMarkdownLinks exists only in 3.9+
-  // and fails config validation on 3.8.1, so don't migrate before bumping the pin.
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn', // keep whatever value you had
+    },
+  },
   favicon: '/img/hopr_icon.svg',
   organizationName: 'hoprnet',
   projectName: 'hopr-docs',
@@ -42,7 +44,7 @@ const config = {
       crossorigin: 'anonymous'
     },
     'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700&display=swap',
-    'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap',
+    'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700&display=swap',
     'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.css',
     'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
   ],
@@ -52,13 +54,13 @@ const config = {
       '@docusaurus/preset-classic',
       ({
         docs: {
-          remarkPlugins: [math],
+          remarkPlugins: [math, steps],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
-          lastVersion: 'v3.0.0',
-          onlyIncludeVersions: ['v2.2.3', 'v3.0.0'],
+          lastVersion: 'v5.0.0',
+          onlyIncludeVersions: ['v3.0.0', 'v5.0.0'],
           // The Developers section is disabled. Files are kept in versioned_docs/
           // so it can be re-enabled by dropping the 'developers/**' entry below and
           // restoring the tutorialSidebar entries in the sidebar files.

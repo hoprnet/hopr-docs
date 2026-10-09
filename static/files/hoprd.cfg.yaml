@@ -1,33 +1,24 @@
+---
+blokli_url: https://blokli.piz-palu.gnosisvpn.io
 hopr:
-  db:
-    data: /app/hoprd/data
-    initialize: true
-    force_initialize: false
-  strategy:
-    on_fail_continue: true
-    allow_recursive: true
-    strategies:
-      - !AutoRedeeming
-        redeem_only_aggregated: false
-        minimum_redeem_ticket_value: "1 wxHOPR"
-      - !ClosureFinalizer
-        max_closure_overdue: 300
-  chain:
-    announce: true
-    network: dufour
-    keep_logs: true
-    fast_sync: true
-  safe_module:
-    safe_transaction_service_provider: https://safe-transaction.prod.hoprnet.link/
-  transport:
-    announce_local_addresses: false
-    prefer_local_addresses: false
-identity:
-  file: /app/hoprd/conf/hopr.id
-api:
-  enable: true
-  host:
-    address: !IPv4 0.0.0.0
-    port: 3001
-session_ip_forwarding:
-  target_allow_list: []
+  network:
+    probe_interval: 30s
+    probe_recheck_threshold: 60s
+strategy:
+  allow_recursive: false
+  strategies:
+    - AutoRedeeming:
+        redeem_on_winning: true
+    - ChannelLifecycle:
+        population:
+          min_open_channels: 5
+          target_open_channels: 20
+          peer_reopen_cooldown: 30m
+        funding:
+          initial_capacity: "1 GiB"
+          topup_capacity: "512 MiB"
+          lower_capacity_threshold: "512 MiB"
+        finalizer:
+          finalize_max_concurrent: 5
+        concurrency:
+          max_concurrent_actions: 5

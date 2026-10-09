@@ -1,13 +1,43 @@
+---
+blokli_url: https://blokli.piz-palu.gnosisvpn.io
+identity:
+  file: /app/hoprd-db/hopr.id
+  password: "<YOUR_IDENTITY_PASSWORD>" # NOTE: fill in value
+db:
+  data: /app/hoprd-db/data
+api:
+  enable: true
+  auth: !Token "<YOUR_API_TOKEN>" # NOTE: fill in value, at least 8 characters. Never remove: without a token the API is open
+  host:
+    address:
+      IPv4: 0.0.0.0
+    port: 3001
 hopr:
-  strategy:
-    on_fail_continue: true
-    allow_recursive: true
-    strategies:
-      - !AutoRedeeming
-        redeem_only_aggregated: false
-        minimum_redeem_ticket_value: "1 wxHOPR"
-      - !ClosureFinalizer
-        max_closure_overdue: 300
-  chain:
-    keep_logs: true
-    fast_sync: true
+  host:
+    address:
+      IPv4: <YOUR_PUBLIC_IP> # NOTE: fill in your public IP address
+    port: 9091 # NOTE: must match the -p 9091 lines in your Docker command
+  safe_module:
+    safe_address: "<SAFE_ADDRESS>" # NOTE: fill in value
+    module_address: "<MODULE_ADDRESS>" # NOTE: fill in value
+  network:
+    probe_interval: 30s
+    probe_recheck_threshold: 60s
+strategy:
+  allow_recursive: false
+  strategies:
+    - AutoRedeeming:
+        redeem_on_winning: true
+    - ChannelLifecycle:
+        population:
+          min_open_channels: 5
+          target_open_channels: 20
+          peer_reopen_cooldown: 30m
+        funding:
+          initial_capacity: "1 GiB"
+          topup_capacity: "512 MiB"
+          lower_capacity_threshold: "512 MiB"
+        finalizer:
+          finalize_max_concurrent: 5
+        concurrency:
+          max_concurrent_actions: 5

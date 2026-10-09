@@ -561,3 +561,257 @@ span.theme-code-block-highlighted-line {
   color: #414141;
   border: 0px;
 }*/
+
+/* ==========================================================================
+   v5 page design, applied to every v5.0.0 doc page (html.docs-version-v5.0.0).
+   Ordered lists whose items all start with a bold title get class "steps" from
+   src/remark/steps.js and become a numbered step rail; other lists stay plain. Heading numbering is left to each
+   page (numbered by default, <NoCounter> turns it off).
+   Spacing scale: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64
+   ========================================================================== */
+.docs-version-v5\.0\.0 .markdown {
+  --sg-text: #2f3137;
+  --sg-muted: #5b5f6b;
+  --sg-heading: #1f2128;
+  --sg-border: #e3e5ea;
+  --sg-surface: #f6f7f9;
+  --sg-inline-code-bg: #eef0f5;
+  --sg-rail: #dcdff0;
+  --sg-badge: 32px;
+  --sg-indent: 48px;      /* everything inside a step starts here */
+  --sg-sub-indent: 36px;
+  --sg-radius: 8px;
+  /* Shades of HOPR blue instead of the template's leftover teal. */
+  --ifm-color-primary-dark: #0000a2;
+  --ifm-color-primary-darker: #000099;
+  --ifm-color-primary-darkest: #00007e;
+  --ifm-color-primary-light: #0000c6;
+  --ifm-color-primary-lighter: #0000cf;
+  --ifm-color-primary-lightest: #0000ea;
+  color: var(--sg-text);
+  font-size: 17px;
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  .docs-version-v5\.0\.0 .markdown { --sg-badge: 28px; --sg-indent: 40px; --sg-sub-indent: 32px; }
+}
+
+/* ---------- Typography ---------- */
+.docs-version-v5\.0\.0 .markdown p { margin: 0 0 16px; line-height: 1.7; }
+.docs-version-v5\.0\.0 .markdown a { text-underline-offset: 2px; }
+/* <NoCounter> pages: drop the placeholder space that shifted headings right. */
+.docs-version-v5\.0\.0 .markdown :is(.no-counter, .h-no-count) :is(h2, h3, h4)::before { content: none !important; }
+.docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > h2 {
+  font-size: 30px; line-height: 1.25; font-weight: 700; color: var(--sg-heading);
+  margin: 48px 0 16px !important;
+}
+.docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > :is(header + h2, h2:first-child, hr + h2) { margin-top: 0 !important; }
+.docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > hr {
+  height: 1px; border: 0; background-color: var(--sg-border) !important;
+  margin: 64px 0 24px;
+}
+.docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > h3 {
+  font-size: 22px !important; line-height: 1.3; font-weight: 700; color: var(--sg-heading);
+  margin: 48px 0 12px;
+}
+@media (max-width: 600px) {
+  .docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > h2 { font-size: 26px; }
+  .docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > h3 { font-size: 20px !important; }
+}
+
+.docs-version-v5\.0\.0 .markdown code {
+  font-size: 0.875em; vertical-align: baseline;
+  background-color: var(--sg-inline-code-bg) !important; color: var(--ifm-color-primary) !important;
+  padding: 0.1em 0.4em; border: 0; border-radius: 4px;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Lists ---------- */
+.docs-version-v5\.0\.0 .markdown ul { padding-left: 20px; margin: 0 0 16px; }
+.docs-version-v5\.0\.0 .markdown ul > li { margin: 0 0 8px; }
+.docs-version-v5\.0\.0 .markdown ul > li::marker { color: var(--sg-muted); }
+.docs-version-v5\.0\.0 .markdown ol { padding-left: 22px; margin: 0 0 16px; }
+.docs-version-v5\.0\.0 .markdown ol > li { margin: 0 0 8px; }
+.docs-version-v5\.0\.0 .markdown li + li { margin-top: 0; }
+.docs-version-v5\.0\.0 .markdown li > p { margin: 0 0 16px; }
+.docs-version-v5\.0\.0 .markdown .tabs-container ul { margin-top: 0 !important; }
+
+/* ---------- Steps: numbered rail ---------- */
+.docs-version-v5\.0\.0 .markdown ol.steps {
+  list-style: none; counter-reset: sg-step; padding: 0; margin: 24px 0 32px;
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li {
+  display: block; position: relative; counter-increment: sg-step;
+  margin: 0; padding: 0 0 32px var(--sg-indent);
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li::before {
+  content: counter(sg-step);
+  position: absolute; left: 0; top: 0;
+  width: var(--sg-badge); height: var(--sg-badge); border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ifm-color-primary); color: #fff;
+  font: 700 15px/1 var(--ifm-font-family-base);
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li::after {
+  content: ""; position: absolute;
+  left: calc(var(--sg-badge) / 2 - 1px); top: calc(var(--sg-badge) + 8px); bottom: 8px;
+  width: 2px; border-radius: 1px; background: var(--sg-rail);
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li:last-child { padding-bottom: 0; }
+.docs-version-v5\.0\.0 .markdown ol.steps > li:last-child::after { display: none; }
+.docs-version-v5\.0\.0 .markdown ol.steps > li > p:first-child {
+  font-size: 18px; font-weight: 700; color: var(--sg-heading);
+  line-height: var(--sg-badge); margin: 0 0 12px;
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li > p:first-child code {
+  background-color: transparent !important; padding: 0; font-size: 0.92em;
+}
+
+/* Pages with numbered headings ("2. Configure …"): steps take their section
+   number (2.1, 2.2 …) and sub-steps the full path (2.1.1). Pages without heading
+   numbers (<NoCounter>, <ReCounter>, group: h-no-count) keep 1, 2, 3 and 1.1. */
+.docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li::before {
+  content: counter(h2counter) "." counter(sg-step); font-size: 13px;
+}
+.docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li > ol > li { padding-left: 52px; }
+.docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li > ol > li::before {
+  content: counter(h2counter) "." counter(sg-step) "." counter(sg-sub);
+  width: auto; min-width: 28px; padding: 4px 6px;
+}
+@media (max-width: 600px) {
+  .docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li > ol > li { padding-left: 0; }
+}
+
+/* Sub-steps (1.1, 1.2 …) */
+.docs-version-v5\.0\.0 .markdown ol.steps > li > ol {
+  list-style: none; counter-reset: sg-sub; padding: 0; margin: 0 0 16px;
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li > ol > li {
+  display: block; position: relative; counter-increment: sg-sub; counter-reset: none;
+  margin: 0 0 16px; padding-left: var(--sg-sub-indent);
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li > ol > li::before {
+  content: counter(sg-step) "." counter(sg-sub);
+  position: absolute; left: 0; top: 5px;
+  width: 28px; padding: 4px 0; border-radius: 4px; text-align: center;
+  font: 700 12px/1 var(--ifm-font-family-monospace);
+  color: var(--ifm-color-primary); background: #eef0fb;
+}
+/* Phones: sub-steps keep their label but drop the extra indent, so their
+   text, tables and code use the full width of the step. */
+@media (max-width: 600px) {
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol > li { padding-left: 0; }
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol > li::before {
+    position: static; float: left; width: 26px; margin: 5px 8px 0 0; font-size: 11px;
+  }
+}
+
+/* ---------- Code blocks ---------- */
+.docs-version-v5\.0\.0 .markdown .theme-code-block {
+  margin: 0 0 24px; border: 1px solid var(--sg-border); border-radius: var(--sg-radius);
+  box-shadow: none; overflow: hidden;
+}
+.docs-version-v5\.0\.0 .markdown .theme-code-block pre {
+  background-color: var(--sg-surface) !important; border-radius: 0;
+}
+.docs-version-v5\.0\.0 .markdown .theme-code-block pre > code {
+  background-color: transparent !important; color: #24292f !important;
+  padding: 16px 56px 16px 16px; border-radius: 0;
+  font-size: 14px; line-height: 1.65; white-space: pre; overflow-wrap: normal;
+}
+.docs-version-v5\.0\.0 .markdown .theme-code-block [class*="buttonGroup"] button[aria-label*="Copy"] { opacity: 1 !important; }
+.docs-version-v5\.0\.0 .markdown .theme-code-block [class*="buttonGroup"] button {
+  width: 32px; height: 32px; padding: 0; justify-content: center;
+  background: #fff; color: var(--sg-muted); border: 1px solid var(--sg-border); border-radius: 6px;
+}
+.docs-version-v5\.0\.0 .markdown .theme-code-block [class*="buttonGroup"] button:hover {
+  color: var(--ifm-color-primary); border-color: #c7cbe6;
+}
+.docs-version-v5\.0\.0 .markdown .theme-code-block [class*="buttonGroup"] svg { width: 16px; height: 16px; }
+.docs-version-v5\.0\.0 .markdown .theme-code-block [class*="codeBlockTitle"] {
+  padding: 8px 16px; border-bottom: 1px solid var(--sg-border);
+  background: #eef0f5; color: var(--sg-heading); font-size: 13px; font-weight: 700;
+}
+.docs-version-v5\.0\.0 .markdown .theme-code-block .theme-code-block-highlighted-line {
+  display: block !important; background: #e6e8fb !important;
+  box-shadow: inset 3px 0 0 var(--ifm-color-primary);
+  margin: 0 -56px 0 -16px; padding: 0 56px 0 16px;
+}
+/* "Linux / macOS (Terminal):" style labels directly above a code block */
+.docs-version-v5\.0\.0 .markdown p.code-label {
+  font-size: 14px; color: var(--sg-muted); margin-bottom: 8px;
+}
+.docs-version-v5\.0\.0 .markdown p.code-label strong { color: var(--sg-heading); }
+
+/* ---------- Admonitions ---------- */
+.docs-version-v5\.0\.0 .markdown .theme-admonition.alert {
+  margin: 0 0 24px; padding: 12px 16px;
+  border: 0; border-left: 4px solid; border-radius: var(--sg-radius); box-shadow: none;
+  color: var(--sg-text); font-size: 15px; line-height: 1.65;
+}
+.docs-version-v5\.0\.0 .markdown .theme-admonition p { line-height: 1.65; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition [class*="admonitionContent"] > :last-child { margin-bottom: 0; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition a { color: var(--ifm-color-primary); }
+.docs-version-v5\.0\.0 .markdown .theme-admonition [class*="admonitionHeading"] {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+  font-size: 12px; font-weight: 900; line-height: 1.4; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.docs-version-v5\.0\.0 .markdown .theme-admonition [class*="admonitionIcon"] { margin: 0; display: inline-flex; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition [class*="admonitionIcon"] svg {
+  width: 16px; height: 16px; fill: currentColor !important;
+}
+.docs-version-v5\.0\.0 .markdown .theme-admonition-note.alert      { background: #f5f6f8; border-color: #8b909c; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-note [class*="admonitionHeading"]      { color: #4a4f5c; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-tip.alert       { background: #eef8ef; border-color: #1f8f2a; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-tip [class*="admonitionHeading"]       { color: #17701f; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-info.alert      { background: #eff0fb; border-color: var(--ifm-color-primary); }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-info [class*="admonitionHeading"]      { color: var(--ifm-color-primary); }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-important.alert { background: #ebf6fa; border-color: #2f9cc0; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-important [class*="admonitionHeading"] { color: #1d6f8a; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-warning.alert   { background: #fff7e3; border-color: #d99a00; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-warning [class*="admonitionHeading"]   { color: #8a5d00; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-caution.alert   { background: #fff7e3; border-color: #d99a00; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-caution [class*="admonitionHeading"]   { color: #8a5d00; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-danger.alert    { background: #fdeeee; border-color: #d33a3a; }
+.docs-version-v5\.0\.0 .markdown .theme-admonition-danger [class*="admonitionHeading"]    { color: #a12525; }
+
+/* ---------- Tables ---------- */
+.docs-version-v5\.0\.0 .markdown table {
+  display: table; width: 100%; margin: 0 0 24px;
+  border: 1px solid var(--sg-border); border-collapse: separate; border-spacing: 0; border-radius: var(--sg-radius);
+  font-size: 15px; line-height: 1.55;
+}
+.docs-version-v5\.0\.0 .markdown table tr { border: 0; background: transparent; }
+.docs-version-v5\.0\.0 .markdown table th,
+.docs-version-v5\.0\.0 .markdown table td {
+  border: 0; border-bottom: 1px solid var(--sg-border);
+  padding: 12px 16px; text-align: left; vertical-align: top;
+}
+.docs-version-v5\.0\.0 .markdown table th {
+  background: var(--sg-surface); color: var(--sg-heading); font-weight: 700; white-space: nowrap;
+}
+.docs-version-v5\.0\.0 .markdown table th:first-child { border-top-left-radius: var(--sg-radius); }
+.docs-version-v5\.0\.0 .markdown table th:last-child { border-top-right-radius: var(--sg-radius); }
+.docs-version-v5\.0\.0 .markdown table tr:last-child td { border-bottom: 0; }
+.docs-version-v5\.0\.0 .markdown table td code { white-space: nowrap; overflow-wrap: normal; }
+@media (max-width: 600px) {
+  .docs-version-v5\.0\.0 .markdown table { display: block; overflow-x: auto; }
+  .docs-version-v5\.0\.0 .markdown table th,
+  .docs-version-v5\.0\.0 .markdown table td { min-width: 170px; }
+}
+
+/* ---------- Tabs ---------- */
+.docs-version-v5\.0\.0 .markdown .tabs-container { margin-bottom: 24px; }
+.docs-version-v5\.0\.0 .markdown .tabs {
+  display: flex; flex-wrap: nowrap; gap: 4px; padding: 0; margin: 0 !important;
+  border-bottom: 1px solid var(--sg-border);
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: none;
+}
+.docs-version-v5\.0\.0 .markdown .tabs__item {
+  margin: 0 0 -1px; padding: 12px 16px;
+  border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none;
+  font-size: 15px; font-weight: 700; line-height: 1; white-space: nowrap; color: var(--sg-muted);
+}
+.docs-version-v5\.0\.0 .markdown .tabs__item:hover { background: none; color: var(--ifm-color-primary); }
+.docs-version-v5\.0\.0 .markdown .tabs__item--active { color: var(--ifm-color-primary); border-bottom-color: var(--ifm-color-primary); }
+.docs-version-v5\.0\.0 .markdown .tabs-container > .margin-top--md { margin-top: 24px !important; }
