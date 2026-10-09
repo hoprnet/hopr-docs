@@ -1,180 +1,127 @@
 ---
 id: staking-hub
-title: HOPR Staking Hub
+title: Manage your HOPR Safe
 ---
 
 import { NoCounter } from '@site/src/components/Counter';
 
 <NoCounter>
 
-The [HOPR Staking Hub](https://hub.hoprnet.org) is a platform for onboarding HOPR node operators. It enables you to create a [HOPR Safe](../token/safestaking.md#why-does-hopr-use-safe) for securely depositing and managing your stake. Through the Hub, you can easily add and manage multiple nodes, handle transactions, monitor your nodes with essential performance metrics, use the token wrapper to wrap or unwrap HOPR tokens, and more.
+Your HOPR Safe holds the wxHOPR your node uses for payment channels, and it receives your rewards. You manage it with [Safe\{Wallet\}](https://app.safe.global) on Gnosis Chain.
 
-<iframe class="youtube-video" width="960" height="500" src="https://www.youtube.com/embed/-zYltiDFh9I" frameborder="0" allow="rel=0; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0; fullscreen"></iframe>
-
----
-
-## Connect to the HOPR Staking Hub
-
-1. Visit the [HOPR Staking Hub](https://hub.hoprnet.org).
-
-2. Before connecting your wallet, ensure that you are on the Gnosis Chain network. In the top right corner, click **Connect Wallet**, and in the popup, select your wallet type to connect to the Staking Hub.
+:::note
+The [HOPR Staking Hub](https://hub.hoprnet.org) is used only to [wrap and unwrap HOPR tokens](../token/token-wrapping.md) and to [withdraw wxHOPR from your Safe](#withdraw-wxhopr-from-your-safe).
+:::
 
 ---
 
-## Manage and monitor your node(s) performance
+## Open your Safe
 
-1. Connect to the [HOPR Staking Hub](https://hub.hoprnet.org).
-
-2. On the left-hand side, click **Dashboard**, then select the **NODES** tab. On this page, you will see all the nodes associated with your current HOPR Safe account. Each node is accompanied by key metrics and action buttons:
-
-    |  Item | Description |
-    |-----|-----|
-    | **Node Address** | The unique address of your node. You can copy the address or view its on-chain activity on [https://gnosisscan.io](https://gnosisscan.io/). |
-    | **Onboarding** | Displays four onboarding indicators that show the current status of your node's onboarding process. Hover over each indicator for detailed information. |
-    | **Version** | Displays the currently installed version of the HOPRd node. |
-    | **Last Seen** | The last date and time your node was detected by the Network Dashboard bots. |
-    | **30-Day Availability** | Indicates your node’s uptime percentage over the past 30 days. |
-    | **Balance** | Displays the node’s native token (xDai) balance, used for on-chain activities. |
-    | **Actions** | **Train:** The Train icon becomes active when a newly added node requires a quick onboarding process to complete setup. <br /><br /> **Wallet**: Allows you to fund your node with xDai. It's important to regularly check and maintain your node's balance to ensure it can redeem tickets or perform other on-chain actions. |
-
-    ![Staking hub dashboard nodes](/img/node/staking-hub-dashboard-nodes.png)
+1. Go to [Safe\{Wallet\}](https://app.safe.global) and connect a wallet that is a signer (owner) of your Safe.
+2. Make sure you are on **Gnosis Chain**, then open your Safe: the `safe` address you got when you created it with `hopli`.
 
 ---
 
-## Add additional node
+## Monitor your node
 
-Before adding an additional node, ensure you have allocated enough stake per node. For more information, refer to the [HOPR Network participation requirements](./run-a-node-overview.md#node-system-requirements).
-
-1. **Start your additional node**
-
-   Start your additional node. You can find detailed instructions [here](./multiple-nodes.md).
-
-2. **Connect to the HOPR Staking Hub**
-
-   Connect to the [HOPR Staking Hub](https://hub.hoprnet.org).
-
-3. **Add your new node**
-
-   On the left-hand side, click **Dashboard**, then navigate to the **NODES** tab. Click **Add New Node**, which will redirect you to the waitlist form. Complete the required information for your newly started node. To find out when your node will be granted access to the network and what steps to take next, refer to the [FAQ section](./frequently-asked-questions.md#waitlist-related-faq) for further guidance.
+To check that your node is online, relaying traffic and earning tickets, see [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful) and the [HOPR Network Dashboard](https://network.hoprnet.org/dashboard).
 
 ---
 
-## Remove a node from your HOPR Safe account
+## Add another node
 
-1. **Connect to the HOPR Staking Hub**
+To add another node to your Safe, follow [Running multiple nodes](./multiple-nodes.md). You add the node to your Safe with `hopli`.
 
-   Connect to the [HOPR Staking Hub](https://hub.hoprnet.org).
+---
 
-2. **Open your Safe Module on Gnosis Scan**
+## Withdraw wxHOPR from your Safe
 
-   On the left-hand side, click **Dashboard**, locate the **Module address**, and click the second icon to be redirected to the Gnosis Scan website, where you can interact directly with your Safe Module smart contract.
+Go to the [Staking Hub](https://hub.hoprnet.org/staking/dashboard#staking), connect your Safe owner wallet, and withdraw your `wxHOPR` to the address you choose.
 
-3. **Open Write Contract as Proxy**
+Your node funds its payment channels from your Safe. If you withdraw too much, it can't keep at least 5 channels with `100 wxHOPR` each, and it stops being eligible for Cover Traffic.
+
+---
+
+## Remove a node from your Safe
+
+1. **Open your Safe module on Gnosis Scan**
+
+   Go to `https://gnosisscan.io/address/<MODULE_ADDRESS>`, replacing `<MODULE_ADDRESS>` with your `node_module` address. It is the same value as `hopr.safe_module.module_address` in your configuration file.
+
+2. **Open Write Contract as Proxy**
 
    In the middle of the page, click the **Contract** tab, then select **Write Contract as Proxy**.
 
    ![Gnosis scan write contract](/img/node/gnosis-scan-write-contract.png)
 
-4. **Connect to Web3 with WalletConnect**
+3. **Connect to Web3 with WalletConnect**
 
    Find and click **Connect to Web3**, approve the disclaimer by clicking **OK**, and in the wallet connection popup, select **WalletConnect**. Next to **Connect your wallet**, click the **Copy** icon.
 
    ![Gnosis scan write contract](/img/node/gnosis-scan-WalletConnect.png)
 
-5. **Open your Safe on safe.global**
+4. **Open your Safe on Safe\{Wallet\}**
 
-   Return to the HOPR Staking Hub, and on the left-hand side, click **Dashboard**, then select the **SAFE** tab. At the bottom of the page, click the **safe.global** button, which will redirect you and automatically connect to your Safe wallet.
+   In a new browser tab, open your Safe as described in [Open your Safe](#open-your-safe).
 
    :::note
-   If you see a **Connect** button in the top right corner and don't see your Safe owner wallet address, click **Connect** and connect with your wallet that owns the Safe.
+   If you see a **Connect Wallet** button in the top right corner and don't see your Safe owner wallet address, click **Connect Wallet** and connect with your wallet that owns the Safe.
    :::
 
    ![Gnosis scan write contract](/img/node/safe-global-connected.png)
 
-6. **Click the WalletConnect icon**
+5. **Click the WalletConnect icon**
 
    In the top right corner, just to the left of your connected wallet address, click the **WalletConnect** icon.
 
    ![Gnosis scan write contract](/img/node/safe-global-walletconnect.png)
 
-7. **Paste the pairing code**
+6. **Paste the pairing code**
 
    In the **WalletConnect** popup, paste the pairing code you previously copied from the Gnosis Scan website into the **Pairing code** field. If the connection is successful, you should see a screen similar to this:
 
    ![Gnosis scan write contract](/img/node/safe-global-walletconnect-connected.png)
 
-8. **Check the connection on Gnosis Scan**
+7. **Check the connection on Gnosis Scan**
 
    Now that your Safe wallet is connected to the Gnosis Scan website, return to the Gnosis Scan page. If the connection is successful, instead of **Connect to Web3**, you should see your Safe wallet address. It should be similar to this screenshot:
 
    ![Gnosis scan write contract](/img/node/gnosis-scan-safe-connected.png)
 
-9. **Call removeNode**
+8. **Call removeNode**
 
    Scroll down to the bottom of the page until you find and click **7. removeNode (0xb2b99ec9)**. Enter your node address and click **Write**.
 
    ![Gnosis scan write contract](/img/node/gnosis-scan-safe-connected-remove-node.png)
 
-10. **Execute the transaction**
+9. **Execute the transaction**
 
-    Return to the **Safe.global** website, where you should see the **Confirm transaction** screen. Scroll to the bottom and click **Execute**. Your wallet will prompt you to confirm the transaction.
+   Return to **Safe\{Wallet\}**, where you should see the **Confirm transaction** screen. Scroll to the bottom and click **Execute**. Your wallet will prompt you to confirm the transaction.
 
-    ![Gnosis scan write contract](/img/node/safe-wallet-confirm-tx.png)
+   ![Gnosis scan write contract](/img/node/safe-wallet-confirm-tx.png)
 
 ---
 
-## Adding an additional owner to your HOPR Safe account
+## Add or remove Safe signers
 
-1. **Connect to the HOPR Staking Hub**
+Safe\{Wallet\} calls the owners of a Safe **signers**.
 
-   Connect to the [HOPR Staking Hub](https://hub.hoprnet.org).
+1. **Open your Safe**
 
-2. **Edit your Safe owners**
+   Open your Safe as described in [Open your Safe](#open-your-safe).
 
-   On the left-hand side, click **Dashboard**, then select the **SAFE** tab. Next to **Safe Owners:**, click the **Edit** button.
+2. **Open the signer settings**
 
-3. **Add the new owner**
+   In the left menu, click **Settings**. On the **Setup** tab, under **Signers**, click **Manage signers**.
 
-   In the field next to **ADD OWNER**, enter the wallet address of the additional owner (ensure that you have full control over this new owner's wallet). Then, click **ADD**. In the popup, if you agree to proceed, click **ADD** again and confirm the transaction through your wallet.
+3. **Change your signers**
+
+   Add or remove signers, and set how many confirmations a transaction needs. Then sign and execute the transaction with your wallet.
 
    :::note Recommendation
-
-   To enhance the security and recoverability of your Safe account, we recommend configuring it with **a minimum of 3 owners**, and requiring **2 confirmations** to authorize transactions. This setup ensures that if one owner loses access, the remaining two can continue managing and executing transactions without disruption.
-
+   To enhance the security and recoverability of your Safe account, we recommend configuring it with **a minimum of 3 signers**, and requiring **2 confirmations** to authorize transactions. This setup ensures that if one signer loses access, the remaining two can continue managing and executing transactions without disruption.
    :::
 
-4. **Increase required confirmations**
-
-   Once the transaction is complete, the new owner should be visible. While optional, we recommend increasing the **Required confirmations** from `1` to `2`. This ensures that both owners must approve any on-chain actions, preventing unauthorized transactions if one wallet is compromised.
-
-   To do this, change the **Required confirmations** from `1` to `2`, click **UPDATE**, and confirm the transaction through your wallet.
-
----
-
-## Removing an additional owner from your HOPR Safe account
-
-1. **Connect to the HOPR Staking Hub**
-
-   Connect to the [HOPR Staking Hub](https://hub.hoprnet.org).
-
-2. **Lower required confirmations**
-
-   On the left-hand side, click **Dashboard**, then select the **SAFE** tab. Before removing an owner, you first need to decrease the number of required confirmations.
-
-   Next to **Required confirmations:**, lower the number (for example, if you currently have 2/2 confirmations, reduce it to 1). Click **UPDATE**, and if you agree to proceed, click **SIGN UPDATE** in the popup.
-
-3. **Execute the threshold change**
-
-   From your second owner, connect to the [HOPR Staking Hub](https://hub.hoprnet.org). If your wallet manages multiple HOPR Safe wallets, select the specific Safe wallet you want to manage from the top right corner.
-
-   On the left-hand side, click **Dashboard** and then navigate to the **TRANSACTIONS** tab. Locate the pending transaction titled **changeThreshold**, click **EXECUTE**, and approve the transaction in your wallet.
-
-4. **Edit your Safe owners**
-
-   Once the transaction is complete, click **Dashboard** on the left-hand side, then go to the **SAFE** tab. Click **Edit**.
-
-5. **Remove the owner**
-
-   Next to **Safe Owners**, select the owner you would like to remove, click the **Trash** icon, and approve the transaction in your wallet.
+   Only add wallets you fully control. To change only the number of required confirmations, click **Change** under **Required confirmations** on the same page.
 
 </NoCounter>

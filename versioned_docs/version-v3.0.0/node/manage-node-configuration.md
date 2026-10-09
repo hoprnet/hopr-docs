@@ -22,7 +22,7 @@ Please select your platform:
 
 1. **Download HOPRd configuration file**
 
-    Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml)
+    Download the example file specificaly for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml)
 
 2. **(Optional) modify configuration file**
 
@@ -128,7 +128,7 @@ By default, the strategy settings file is pre-configured and works well as is. H
 
 1. **Download HOPRd configuration file**
 
-    Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+    Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/legacy/hoprd.cfg.yaml)
 
 2. **(Optional) modify configuration file**
 

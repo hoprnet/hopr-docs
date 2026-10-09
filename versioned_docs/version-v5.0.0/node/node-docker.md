@@ -6,12 +6,6 @@ title: Docker
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info
-
-Please note that you must start the onboarding process before setting up your node. To start, visit the [Overview](./run-a-node-overview.md) page.
-
-:::
-
 ## Install Docker
 
 Before proceeding, you need to install **Docker Engine** on your machine.
@@ -193,7 +187,7 @@ Your node reads all its settings from a configuration file in your `~/hoprd` fol
    | Placeholder | Setting | What to enter |
    |---|---|---|
    | `<YOUR_IDENTITY_PASSWORD>` | `identity.password` | The password you set in step 2.3. If you are migrating, the password you used on v3.0.x. |
-   | `<YOUR_API_TOKEN>` | `api.auth.Token` | A secret token for the REST API, at least 8 characters. See this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+   | `<YOUR_API_TOKEN>` | `api.auth` | A secret token for the REST API, at least 8 characters. See this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
    | `<YOUR_PUBLIC_IP>` | `hopr.host.address.IPv4` | Your public IP address. See [How to find the external IP address](./frequently-asked-questions.md#how-to-find-the-external-ip-address). |
    | `<SAFE_ADDRESS>` | `hopr.safe_module.safe_address` | The `safe` address from step 2.4. |
    | `<MODULE_ADDRESS>` | `hopr.safe_module.module_address` | The `node_module` address from step 2.4. |

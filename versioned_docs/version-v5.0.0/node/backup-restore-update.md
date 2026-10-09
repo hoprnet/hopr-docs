@@ -421,7 +421,7 @@ Repeat this step for each node. Give each node its own folder (`~/hoprd`, `~/hop
     - `hopr.safe_module.safe_address`: the **new safe address** from [Create your new Safe](#create-your-new-safe). Do not use your old safe address, or the node will not work on the Piz Palu network.
     - `hopr.safe_module.module_address`: the **new node module address** from [Create your new Safe](#create-your-new-safe). Do not use your old module address, or the node will not work on the Piz Palu network.
     - `identity.password`: the same password you used on v3.0.x.
-    - `api.auth.Token` and `hopr.host.address.IPv4`: the values you saved in [Prepare your migration](#prepare-your-migration). You can also choose a new API token.
+    - `api.auth` and `hopr.host.address.IPv4`: the values you saved in [Prepare your migration](#prepare-your-migration). You can also choose a new API token.
 
     Then start your node with the [Docker command](node-docker.md#configure-hoprd-command) from step 3.4. It already uses your new `hoprd` folder and the identity file you copied in the previous step. Follow the logs as described in [Start Your Node](node-docker.md#start-your-node). When you see `node announced successfully` or `node already announced on chain`, come back here and continue with [Verify and clean up](#verify-and-clean-up).
 
@@ -435,7 +435,7 @@ On your node machine, in the folder that contains `compose_backup`, follow the [
     - `HOPRD_PASSWORD`: the same value as in `compose_backup/.env-secrets`. Your identity file is encrypted with this password, so the node can't start with a different one.
     - `HOPRD_API_TOKEN`: your previous token from `compose_backup/.env-secrets`, or a new one.
 - **Configure your node**: copy your previous public IP and port from `compose_backup/hoprd/conf/hoprd.cfg.yaml`, and set:
-    - `blokli_url`: change `https://blokli.prod.hoprnet.link` to `https://blokli-piz-palu.prod.hoprnet.link`.
+    - `blokli_url`: change `https://blokli.prod.hoprnet.link` to `https://blokli.piz-palu.gnosisvpn.io`.
     - `hopr.safe_module.safe_address`: the **new safe address** from [Create your new Safe](#create-your-new-safe). Do not use your old safe address, or the node will not work on the Piz Palu network.
     - `hopr.safe_module.module_address`: the **new node module address** from [Create your new Safe](#create-your-new-safe). Do not use your old node module address, or the node will not work on the Piz Palu network.
 - **Manage the identity file**: copy your backed-up `hopr.id` into `compose/hoprd/conf`. If you have multiple nodes, each node's `compose/hoprd/conf` folder needs its own identity file, named `hopr.id`.

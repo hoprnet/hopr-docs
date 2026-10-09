@@ -69,7 +69,6 @@
       "collapsed": false,
       "items": [
         "node/staking-hub",
-        "node/node-management-admin-ui",
         "node/node-operations",
         "node/backup-restore-update",
         "node/port-forwarding"

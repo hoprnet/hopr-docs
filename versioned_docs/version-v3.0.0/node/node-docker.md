@@ -174,7 +174,7 @@ The following settings need to be adjusted in the current Docker command:
 
 6. **Implement configuration file** 
 
-   1. Download the example file for Docker: [hoprd-docker.cfg.yaml](pathname:///files/hoprd-docker.cfg.yaml).
+   1. Download the example file for Docker: [hoprd-docker.cfg.yaml](pathname:///files/legacy/hoprd-docker.cfg.yaml).
    
    2. Customize your strategy (see [Understanding node strategies](./manage-node-strategies.md?config=docker#understanding-node-strategies)).
    

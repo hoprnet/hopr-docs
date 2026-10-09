@@ -13,7 +13,7 @@ Before proceeding, ensure your HOPR node is set up. If you haven’t done so yet
 
 1. Connect to your node via the [HOPR Admin UI](./node-management-admin-ui.md#access-the-hopr-admin-ui).
 
-2. Check if your node is performing normally by following this [guideline](./troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+2. Check if your node is performing normally by following this [guideline](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
 
 ---
 

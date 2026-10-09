@@ -13,6 +13,56 @@ import { NoCounter } from '@site/src/components/Counter';
 
 Node strategies offer advanced users detailed control over their node's behavior and HOPR protocol interactions. Configure settings like ticket redemption thresholds and automatic channel management to optimize performance. To modify or manage these strategies, implement the configuration file as described in the [node configuration guide](manage-node-configuration.md).
 
+## Fund your channels for Cover Traffic {#fund-your-channels-for-cover-traffic}
+
+The strategy in the hosted configuration files gets your node onto the network: it opens and funds payment channels so your node can relay traffic. To be [eligible for Cover Traffic](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards), your node also needs at least **5 open outgoing channels with at least `100 wxHOPR` each**. The default funding values don't keep that much in your channels, so change the `funding` settings of `ChannelLifecycle` in your configuration file:
+
+```yaml {12-17}
+strategy:
+  allow_recursive: false
+  strategies:
+    - AutoRedeeming:
+        redeem_on_winning: true
+    - ChannelLifecycle:
+        population:
+          min_open_channels: 5
+          target_open_channels: 20
+          peer_reopen_cooldown: 30m
+        funding:
+          sizing_mode:
+            probabilistic:
+              success_probability: 0.99
+          initial_capacity: "8964 MiB" # 150 wxHOPR
+          lower_capacity_threshold: "6148 MiB" # 112.5 wxHOPR
+          topup_capacity: "1225 MiB" # 37.5 wxHOPR
+        finalizer:
+          finalize_max_concurrent: 5
+        concurrency:
+          max_concurrent_actions: 5
+```
+
+:::caution
+Copy `sizing_mode` too. If a `funding` section leaves it out, the node uses `deterministic`, and the same capacities fund only about `90 wxHOPR` per channel, which isn't enough for Cover Traffic.
+:::
+
+With these values:
+
+- Your node opens each new channel with `150 wxHOPR`.
+- When a channel's balance drops to `112.5 wxHOPR` or less, your node tops it up with `37.5 wxHOPR`, back to `150 wxHOPR`. This keeps your channels above `100 wxHOPR` while your node relays traffic.
+
+Your node takes this wxHOPR from your Safe:
+
+- Keep at least `750 wxHOPR` in your Safe for the 5 channels (5 × `150 wxHOPR`), plus extra for top-ups.
+- Your node also uses any wxHOPR left in your Safe to open more channels, up to `target_open_channels` (`20` in the hosted configuration files, which needs `3,000 wxHOPR`). If these extra channels use up your Safe, your node can't top up your first 5 channels. If you keep less wxHOPR in your Safe, lower `target_open_channels`, for example to `5`.
+
+:::note
+Channel funding is set as data capacity, not as wxHOPR. Your node converts it using the current ticket price and winning probability, and always funds whole winning tickets. The wxHOPR amounts in the comments apply to the current network values. After your node opens its channels, check their balances with `GET …/channels`, as described in [How can I verify if Cover Traffic is being relayed through my node(s)?](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards)
+:::
+
+After you change the configuration file, restart your node as described in [Managing Node Service](./node-operations.md).
+
+---
+
 ## Understanding node strategies
 
 Node strategies are set in the `strategy` section of the configuration file.
@@ -88,7 +138,7 @@ Automatically opens, funds, tops up, closes and finalizes your outgoing payment 
 | `funding.initial_capacity` | `1 GiB` | Data volume a new channel's stake should be able to carry. |
 | `funding.topup_capacity` | `1 GiB` | Data volume added when a channel is topped up. |
 | `funding.lower_capacity_threshold` | `256 MiB` | Remaining capacity below which a channel is topped up. |
-| `funding.sizing_mode` | `deterministic` | How capacity is converted to a wxHOPR stake. `deterministic` funds the expected usage. `probabilistic` with `success_probability` (between 0.5 and 1, default `0.999`) adds a safety buffer so the channel rarely runs out before a top-up. |
+| `funding.sizing_mode` | `deterministic` | How capacity is converted to a wxHOPR stake. If you leave the whole `strategy` section out, the node uses `probabilistic` with `success_probability: 0.99` instead. `deterministic` funds the expected usage. `probabilistic` with `success_probability` (between 0.5 and 1, default `0.999`) adds a safety buffer so the channel rarely runs out before a top-up. |
 | `proactive_funding.enabled` | `true` | Top up channels early based on how fast they are being used. |
 | `proactive_funding.safety_margin` | `1.5` | Multiplier applied to the projected usage when deciding to top up. |
 | `proactive_funding.balance_drain_weight` | `1.0` | Weight of balance decreases in the usage estimate. |

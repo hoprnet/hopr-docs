@@ -198,7 +198,7 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
 1. **Download the configuration file**
 
    ```bash
-   sudo curl -fL -o /root/hoprd/conf/hoprd-binary.cfg.yaml https://docs.hoprnet.org/files/v5/hoprd-binary.cfg.yaml
+   sudo curl -fL -o /root/hoprd/conf/hoprd-binary.cfg.yaml https://docs.hoprnet.org/files/hoprd-docker.cfg.yaml
    ```
 
 2. **Fill in your values**
@@ -213,8 +213,10 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
 
    | Setting | What to enter |
    |---|---|
+   | `identity.file` | `/root/hoprd/conf/hopr.id` |
+   | `db.data` | `/root/hoprd/data` |
    | `identity.password` | The identity password from step 1.3. |
-   | `api.auth.Token` | A secret token for the REST API, at least 8 characters. See this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+   | `api.auth` | A secret token for the REST API, at least 8 characters. See this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
    | `hopr.host.address.IPv4` | Your public IP address. If you use a DDNS hostname, see [hopr.host](./manage-node-configuration.md#hoprhost). |
    | `hopr.safe_module.safe_address` | The `safe` address from step 1.4. |
    | `hopr.safe_module.module_address` | The `node_module` address from step 1.4. |
@@ -343,7 +345,7 @@ You need **root** access to set up the systemd service. If you don't have it, yo
 
 3. **Check your node address through the API**
 
-   Replace `<YOUR_API_TOKEN>` with the `api.auth.Token` value from step 3.2:
+   Replace `<YOUR_API_TOKEN>` with the `api.auth` token from step 3.2:
 
    ```bash
    curl -s -H "X-Auth-Token: <YOUR_API_TOKEN>" http://localhost:3001/api/v4/account/addresses
@@ -352,7 +354,7 @@ You need **root** access to set up the systemd service. If you don't have it, yo
    The response shows your node address, for example `{"native":"0x07eaf07d6624f741e04f4092a755a9027aaab7f6"}`.
 
 :::tip Your node is running
-To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-my-node-is-performing-normally).
+To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
 :::
 
 To start, stop, upgrade or uninstall your node, see [Managing Node Service](./node-operations.md?node_service=binary).

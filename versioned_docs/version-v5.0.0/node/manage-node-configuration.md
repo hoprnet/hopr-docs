@@ -73,7 +73,7 @@ Inside the **compose** folder, navigate to the **hoprd/conf** subfolder and make
 
 5. **Locate `blokli_url` and set the Piz Palu endpoint**
 
-    Change `https://blokli.prod.hoprnet.link` to `https://blokli-piz-palu.prod.hoprnet.link`.
+    Change `https://blokli.prod.hoprnet.link` to `https://blokli.piz-palu.gnosisvpn.io`.
 
 :::note
 
@@ -156,16 +156,15 @@ Inside the **hoprd/conf** folder, open **hoprd-binary.cfg.yaml** and update the 
 
     Enter the password that protects your identity file. Make sure to write down this password, as you will need it if you ever need to restore your node in the future. For guidance on creating a secure password, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). 
 
-7. **Locate `api.auth.Token` and specify the secret token for the REST API**
+7. **Locate `api.auth` and specify the secret token for the REST API**
 
-    Create a secret token, which is required for connecting to your node via REST API. For guidance on creating a secure secret token, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). Keep the quotes around the token.
+    Create a secret token, which is required for connecting to your node via REST API. For guidance on creating a secure secret token, refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). Keep `!Token` and the quotes around the token.
 
     **Example:**
 
     ```yaml
     api:
-      auth:
-        Token: "My#S3cur1ty#Token"
+      auth: !Token "My#S3cur1ty#Token"
     ```
 </TabItem>
 </Tabs>
@@ -177,7 +176,7 @@ Inside the **hoprd/conf** folder, open **hoprd-binary.cfg.yaml** and update the 
 The configuration file is written in YAML. Below is an example of a complete file, followed by a description of each section.
 
 ```yaml
-blokli_url: https://blokli-piz-palu.prod.hoprnet.link
+blokli_url: https://blokli.piz-palu.gnosisvpn.io
 identity:
   file: /app/hoprd-db/hopr.id
   password: "<YOUR_IDENTITY_PASSWORD>"
@@ -187,8 +186,7 @@ db:
   force_initialize: false
 api:
   enable: true
-  auth:
-    Token: "<YOUR_API_TOKEN>"
+  auth: !Token "<YOUR_API_TOKEN>"
   host:
     address:
       IPv4: 0.0.0.0
@@ -240,12 +238,12 @@ The latest sample configuration file is available in the [HOPRd GitHub repositor
 The URL of the Blokli indexer your node uses to read the blockchain. HOPRd v5 doesn't connect to an RPC provider directly.
 
 ```yaml
-blokli_url: https://blokli-piz-palu.prod.hoprnet.link
+blokli_url: https://blokli.piz-palu.gnosisvpn.io
 ```
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `blokli_url` | | **Required** in every configuration file, even when you also pass `--blokliUrl`. For the Piz Palu network, use `https://blokli-piz-palu.prod.hoprnet.link`. |
+| `blokli_url` | | **Required** in every configuration file, even when you also pass `--blokliUrl`. For the Piz Palu network, use `https://blokli.piz-palu.gnosisvpn.io`. |
 
 ### hopr.host
 
@@ -373,8 +371,7 @@ The configuration of the REST API.
 ```yaml
 api:
   enable: true
-  auth:
-    Token: "YOUR_SECURITY_TOKEN"
+  auth: !Token "<YOUR_API_TOKEN>"
   host:
     address:
       IPv4: 0.0.0.0
@@ -385,7 +382,7 @@ api:
 | Settings | Default value | Description |
 | --- | --- | --- |
 | `api.enable` | `false` | Whether the REST API is enabled. |
-| `api.auth.Token` | | The secret token for the REST API. Keep the quotes around the token. If no token is set, the API accepts requests without authentication, so always set one. You can also set it with `--apiToken` or `HOPRD_API_TOKEN`. For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
+| `api.auth` | | The secret token for the REST API, at least 8 characters, written as `!Token "<YOUR_API_TOKEN>"`. Keep `!Token` and the quotes around the token. If no token is set, the API accepts requests without authentication, so always set one. You can also set it with `--apiToken` or `HOPRD_API_TOKEN`. For guidance on creating a secret token, please refer to this [guide](./frequently-asked-questions.md#how-do-i-create-a-secure-password-for-the-secret-token-and-database-password). |
 | `api.host.address.IPv4` | `127.0.0.1` | The address of the local interface to listen on. Use `0.0.0.0` to accept connections from other machines or from outside a Docker container. |
 | `api.host.port` | `3001` | The REST API TCP listen port. |
 | `api.session_flow_control` | `robust` | Flow control for sessions your node opens through the API: `off`, `clean` or `robust`. It has no effect on relay or exit nodes. |

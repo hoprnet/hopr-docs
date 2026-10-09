@@ -11,13 +11,95 @@ Setting up a HOPR node with Docker Compose is intended for advanced users. It pr
 
 ---
 
+## Install Docker, Docker Compose and unzip
+
+Your node machine needs **Docker Engine**, the **Docker Compose** plugin, and the `curl` and `unzip` tools. Install them on the machine where you will run your node.
+
+:::tip Already running a node with Docker Compose?
+If you are migrating from v3.0.x, Docker and Docker Compose are already installed. Run the commands in the last step to check that `docker compose` and `unzip` work, then continue with [Create your node identity, Safe and node module](#create-your-node-identity-safe-and-node-module).
+:::
+
+<Tabs queryString="docker_os">
+<TabItem value="linux" label="Linux">
+
+1. **Install Docker Engine and Docker Compose**
+
+   Follow the official guide for your distribution. Each guide installs Docker Engine together with the Docker Compose plugin (`docker-compose-plugin`).
+
+   - [Install Docker on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+   - [Install Docker on Debian](https://docs.docker.com/engine/install/debian/)
+   - [Install Docker on Fedora](https://docs.docker.com/engine/install/fedora/)
+   - [Install Docker on CentOS](https://docs.docker.com/engine/install/centos/)
+
+2. **Install curl and unzip**
+
+   **Ubuntu / Debian:**
+
+   ```bash
+   sudo apt-get update && sudo apt-get install -y curl unzip
+   ```
+
+   **Fedora / CentOS:**
+
+   ```bash
+   sudo dnf install -y curl unzip
+   ```
+
+3. **Allow your user to run Docker**
+
+   The commands in this guide run `docker` without `sudo`. Add your user to the `docker` group:
+
+   ```bash
+   sudo usermod -aG docker $USER
+   ```
+
+   Log out and log back in (or reconnect via SSH) for the change to take effect. Members of the `docker` group have root-level access to the machine, so only add users you trust. If you prefer not to do this, add `sudo` in front of every `docker` command in this guide.
+
+4. **Check the installation**
+
+   Run these commands. Each one should print a version number:
+
+   ```bash
+   docker --version
+   docker compose version
+   unzip -v | head -1
+   ```
+
+   If `docker compose version` fails, the Docker Compose plugin is missing. The older `docker-compose` command (with a hyphen) is not used in this guide.
+
+</TabItem>
+<TabItem value="macos" label="macOS">
+
+1. **Install Docker Desktop**
+
+   Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/). It includes Docker Engine and Docker Compose. `curl` and `unzip` are already installed on macOS.
+
+2. **Start Docker Desktop**
+
+   Open Docker Desktop and wait until it shows that Docker is running.
+
+3. **Check the installation**
+
+   Open the **Terminal** app and run these commands. Each one should print a version number:
+
+   ```bash
+   docker --version
+   docker compose version
+   unzip -v | head -1
+   ```
+
+</TabItem>
+</Tabs>
+
+---
+
 ## Create your node identity, Safe and node module
 
 :::tip Migrating from v3.0.x?
 If you came here from the [migration guide](./backup-restore-update.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download compose folder](#download-compose-folder).
 :::
 
-Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because the command in step 1.4 asks for a private key.
+Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because the command in step 2.4 asks for a private key.
 
 1. **Start Docker Desktop**
 
@@ -144,7 +226,7 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
 
 ## Download compose folder
 
-Start by downloading the `compose` folder from the HOPR repository to the machine where you will run your node:
+Start by downloading the `compose` folder from the HOPR repository to the machine where you will run your node. Run the command in your home folder (or wherever you want the `compose` folder to live). It needs `curl` and `unzip` from [Install Docker, Docker Compose and unzip](#install-docker-docker-compose-and-unzip):
 
 ```bash
 curl -fL -o v5.0.0-rc.2.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0-rc.2.zip && \
@@ -203,7 +285,7 @@ Adjust the following secrets environment variables in the `.env-secrets` file:
 
 Inside the `compose` folder, navigate to the `hoprd/conf` subfolder and open the `hoprd.cfg.yaml` file. Set these values:
 
-- `blokli_url`: change `https://blokli.prod.hoprnet.link` to `https://blokli-piz-palu.prod.hoprnet.link`.
+- `blokli_url`: change `https://blokli.prod.hoprnet.link` to `https://blokli.piz-palu.gnosisvpn.io`.
 - `hopr.host.address.IPv4`: your public IP address (replace `127.0.0.1`).
 - `hopr.host.port`: the value of `HOPRD_P2P_PORT` (default `9091`).
 - `hopr.safe_module.safe_address`: the `safe` address you created.

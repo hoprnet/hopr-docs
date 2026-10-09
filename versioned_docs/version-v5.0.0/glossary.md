@@ -48,7 +48,7 @@ The HOPR Safe is one of the key components of the HOPR SafeStaking setup. It is 
 
 ### HOPR Staking Hub
 
-The HOPR Staking Hub is a platform for onboarding HOPR node operators. It enables you to create a HOPR Safe for securely depositing and managing your stake. Read more about the [Staking Hub](./node/staking-hub.md).
+The HOPR Staking Hub was used to create and manage HOPR Safes on the Dufour network. Now it is used only to [wrap HOPR tokens](./token/token-wrapping.md) and to withdraw wxHOPR from your Safe. On Piz Palu, you create your Safe with `hopli` and manage it in Safe\{Wallet\}; see [Manage your HOPR Safe](./node/staking-hub.md).
 
 ### HOPR Token
 

@@ -84,7 +84,7 @@ To use the HOPR Admin UI, you first need to connect to your HOPR node.
     If you want to save your node credentials for login easier in the future, tick **Save API token locally (unsafe)** and click **Save**.
     :::
 
-    By clicking the **Connect to the node** button, you should connect to your node. If your connection is unsuccessful, refer to the [Troubleshooting Issues section](./troubleshooting.md#troubleshooting-hopr-admin-ui-issues).
+    By clicking the **Connect to the node** button, you should connect to your node.
 
 ---
 

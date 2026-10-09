@@ -6,30 +6,35 @@ group: h-no-count
 
 HOPRd nodes play a crucial role in our decentralized network, operated by members of the HOPR community. Before setting up your own HOPRd node, we strongly recommend reviewing this overview page, which outlines all necessary details and requirements.
 
-Please note that the HOPR network is currently permissioned, requiring you to complete an onboarding process to gain access and participate with your node. As part of this process, you'll need to submit a waitlist form. Access is granted on a **tri-weekly** basis. Make sure to review the requirements below before proceeding with the onboarding process.
+The HOPR network is open: you don't need to apply for access or wait for a slot. Before you set up your node, make sure you meet the requirements below.
 
 The diagram below illustrates the relationship between key components involved in running and managing a HOPRd node within the HOPR network. Below is a breakdown of each component and its role:
 
-- **HOPRd Node**: The HOPRd node is connected to the HOPR Staking Hub, allowing node operators to monitor their node’s performance, fund it with native tokens for on-chain activities, manage spending limits for opening payment channels, etc.
+- **HOPRd node**: Relays traffic in the HOPR network and earns tickets for it. It needs a small amount of xDai for on-chain transactions.
 
-- **HOPR Staking Hub**: The [HOPR Staking Hub](./staking-hub.md) is a platform designed for onboarding nodes onto the HOPR network. Through the Staking Hub, node operators using [HOPR Safe](../token/safestaking.md#why-is-hopr-using-safe) can securely stake **wxHOPR** tokens, add multiple wallet owners for enhanced security, wrap HOPR tokens, monitor node performance, and earn rewards.
+- **HOPR Safe and node module**: You create them with `hopli`. Your [HOPR Safe](../token/safestaking.md#why-is-hopr-using-safe) holds the **wxHOPR** that funds your node's payment channels and receives your rewards. You manage it in [Safe\{Wallet\}](./staking-hub.md).
 
-- **HOPR Admin UI**: The [HOPR Admin UI](./node-management-admin-ui.md) is a user-friendly interface that enables operators to manage HOPRd nodes. Through the Admin UI, users can configure the node settings, monitor performance, and perform maintenance tasks, making node operation accessible even to non-technical users. The Admin UI serves as the control center for managing node-related activities.
+- **REST API and Swagger UI**: Built into your node, to check its status and manage it. See [Interact with your node](./interaction-with-node.md).
+
+- **[HOPR Network Dashboard](https://network.hoprnet.org/dashboard)**: Shows whether your node is online in the network.
+
+- **HOPR Staking Hub**: Used to [wrap HOPR tokens](../token/token-wrapping.md) and to [withdraw wxHOPR from your Safe](./staking-hub.md#withdraw-wxhopr-from-your-safe).
 
 ![Running node overview](/img/node/HOPR-Node-Running-Overview.png)
 
 ## Requirements for participating in the HOPR network
 
-To operate your node in the HOPR network, you must stake HOPR tokens. The minimum stake required is **30,000 wxHOPR**. However, if you participated in the testnets and possess a **Network Registry NFT**, your minimum stake requirement is reduced to **10,000 wxHOPR**. 
+There is no minimum stake. Your node needs at least `1 wxHOPR` in your Safe, at least `0.01 xDai` on the node, and at least 5 open outgoing channels with at least `100 wxHOPR` each to be eligible for Cover Traffic. See [Do I need a minimum stake to run a node?](./frequently-asked-questions.md#do-i-need-a-minimum-stake-to-run-a-node)
 
 ## Node system requirements
 
 The minimum requirements for running **HOPRd** on your device are:
 
-- Operating systems: Linux & macOS
-- Dual-Core CPU or 2vCPU
-- 2GB of RAM
-- at least 5GB of disk space
+- Operating systems: Linux, or macOS with Docker
+- 4 CPU cores
+- 4 GB of RAM
+- at least 5 GB of disk space
+- an uplink that handles 10 Mbit/s in both directions
 
 ## Where can you run a HOPRd node?
 
@@ -52,7 +57,7 @@ For a list of recommended VPS providers, see [this section](frequently-asked-que
 
 ### Personal computer {#personal-computer}
 
-If you're using the Linux or macOS operating system, you can run a HOPRd node directly on your own computer. To earn continuously distributed rewards, your HOPRd node must remain online 24/7.
+If you're using the Linux or macOS operating system, you can run a HOPRd node directly on your own computer. To earn rewards, your node must stay online 24/7, so Cover Traffic and other nodes can reach it.
 
 ---
 
@@ -85,21 +90,12 @@ Follow the [HOPR package installation guide](./node-dappnode.md) for Dappnode.
 
 ### Binary
 
-Download and run the precompiled HOPRd executable directly from releases. No dependencies beyond the binary itself—ideal for minimal, manual setups without container tooling.
+Download and run the precompiled HOPRd executable directly from releases. No dependencies beyond the binary itself—ideal for minimal, manual setups without container tooling. Available for Linux only.
 
 Follow the [binary installation guide](./node-binary.md) to get started.
 
 ---
 
-### HOPRd package for specific operating system {#hoprd-package-for-specific-operating-system}
-
-Install via native package managers tailored to your operating system. Enables seamless integration with system services and simplifies updates.
-
-- For Linux systems, see the [Linux package guide](./node-linux-packages.md).
-- For macOS, refer to the [macOS package guide](./node-macos.md).
-
----
-
 ## Ready to run your node?
 
-If you have carefully read the requirements above and you meet them, please proceed with the onboarding process here: [https://hub.hoprnet.org](https://hub.hoprnet.org)
+If you meet the requirements above, choose a setup and follow its guide: [Docker](./node-docker.md), [Docker Compose](./node-docker-compose.md), [Dappnode](./node-dappnode.md) or [Binary](./node-binary.md).
