@@ -24,8 +24,6 @@
       "label": "Token economics",
       "collapsed": false,
       "items": [
-        "token/safestaking",
-        "token/cover-traffic-economics",
         "token/acquiring-hopr-tokens",
         "token/token-bridging",
         "token/token-wrapping"

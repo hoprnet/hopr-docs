@@ -250,6 +250,79 @@ No. You can withdraw wxHOPR from your Safe at any time, as described in [Withdra
 <details>
 <summary>
 
+### How to check your Safe allowance and increase it? {#how-to-check-your-safe-allowance-and-increase-it}
+</summary>
+
+Your node funds its payment channels with wxHOPR from your Safe, but only up to the amount your Safe has approved for the HOPR channels contract. This approved amount is your **Safe allowance**. `hopli` set it when you created your Safe, with the `--allowance` value from the setup guide (`15,000 wxHOPR` in the [Docker guide](./node-docker.md#create-your-node-identity-safe-and-node-module)).
+
+Each time your node opens or tops up a channel, the allowance goes down by that amount. wxHOPR that returns to your Safe when a channel closes doesn't raise it again. When the allowance runs out, your node can't open or top up channels, even if your Safe still holds wxHOPR, and it can stop being eligible for Cover Traffic.
+
+#### Check your allowance
+
+1. **Open the Swagger UI and authorize**
+
+    Follow steps 1 to 3 of [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful)
+
+2. **Read your allowance**
+
+    Run `GET …/account/balances` and look at `safeHoprAllowance`. For example:
+
+    ```json
+    "safeHoprAllowance": "15000 wxHOPR"
+    ```
+
+    `safeHopr` in the same response is the wxHOPR in your Safe. Your node needs both: wxHOPR in your Safe, and an allowance that covers the wxHOPR it still has to put into channels. If the allowance is lower than that, increase it.
+
+#### Increase your allowance
+
+You change the allowance with a transaction from your Safe that calls `approve` on the wxHOPR token contract. The value you enter **replaces** your current allowance; it isn't added to it. Enter the total allowance you want.
+
+You need these values:
+
+| What | Value |
+|---|---|
+| wxHOPR token contract | `0xD4fdec44DB9D44B8f2b6d529620f9C0C7066A2c1` (see [HOPR tokens on different chains](../token/acquiring-hopr-tokens.md#hopr-tokens-on-different-chains)) |
+| Spender: the HOPR channels contract on Piz Palu | `0x75Ce59332721E3aE3064cb9652BCE35FFCE3f8E6` |
+| New allowance, in wei | The wxHOPR amount followed by 18 zeros. We recommend `100,000 wxHOPR`: `100000000000000000000000` |
+
+:::caution
+Check the spender address carefully. `approve` lets the spender take wxHOPR from your Safe, up to the allowance.
+:::
+
+1. **Open your Safe**
+
+    Open your Safe in Safe\{Wallet\} with a wallet that is a signer of your Safe, as described in [Open your Safe](./staking-hub.md#open-your-safe).
+
+2. **Open Transaction Builder**
+
+    Click **New transaction**, then **Transaction Builder**. If Safe\{Wallet\} shows a disclaimer about third-party apps, read it, select the checkbox to agree, then click **Continue**.
+
+3. **Enter the wxHOPR token contract**
+
+    In **Enter Address or ENS Name**, paste the wxHOPR token contract address. Transaction Builder loads the contract's functions.
+
+4. **Fill in the approve call**
+
+    - In **Contract Method Selector**, select `approve`.
+    - In **spender (address)**, paste the HOPR channels contract address.
+    - In **value (uint256)**, enter the new allowance in wei, for example `100000000000000000000000`.
+
+5. **Create the batch**
+
+    Click **Add new transaction**, then **Create Batch**.
+
+6. **Send the batch**
+
+    Check the transaction, click **Send Batch**, and sign and execute it with your wallet. If your Safe needs more than one confirmation, the other signers confirm the transaction in Safe\{Wallet\} before it can be executed.
+
+7. **Check the new allowance**
+
+    When the transaction is confirmed, run `GET …/account/balances` again. `safeHoprAllowance` shows the new value, for example `100000 wxHOPR`.
+</details>
+
+<details>
+<summary>
+
 ### Can I earn rewards without operating a node?
 </summary>
 No. Rewards come only from relaying traffic, so you need a running node with funded payment channels.

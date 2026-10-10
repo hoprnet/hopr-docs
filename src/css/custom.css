@@ -614,6 +614,13 @@ span.theme-code-block-highlighted-line {
   font-size: 22px !important; line-height: 1.3; font-weight: 700; color: var(--sg-heading);
   margin: 48px 0 12px;
 }
+/* Sub-headings inside an expanded FAQ answer (<details>), e.g. "Check your allowance".
+   The global `.theme-doc-markdown > details h4` rule misses them: <NoCounter> adds a wrapper div. */
+.docs-version-v5\.0\.0 .markdown details :is(h4, h5):not(summary *) {
+  font-size: 20px; line-height: 1.3; font-weight: 700; color: var(--sg-heading);
+  margin: 32px 0 12px;
+}
+.docs-version-v5\.0\.0 .markdown details :is(h4, h5):not(summary *):first-child { margin-top: 8px; }
 @media (max-width: 600px) {
   .docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > h2 { font-size: 26px; }
   .docs-version-v5\.0\.0 :is(.markdown, .markdown > div) > h3 { font-size: 20px !important; }
