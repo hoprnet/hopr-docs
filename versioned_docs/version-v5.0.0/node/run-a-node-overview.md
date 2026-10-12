@@ -20,8 +20,6 @@ The diagram below illustrates the relationship between key components involved i
 
 - **HOPR Staking Hub**: Used to [wrap HOPR tokens](../token/token-wrapping.md) and to [withdraw wxHOPR from your Safe](./staking-hub.md#withdraw-wxhopr-from-your-safe).
 
-![Running node overview](/img/node/HOPR-Node-Running-Overview.png)
-
 ## Requirements for participating in the HOPR network
 
 There is no minimum stake. Your node needs at least `1 wxHOPR` in your Safe, at least `0.01 xDai` on the node, and at least 5 open outgoing channels with at least `100 wxHOPR` each to be eligible for Cover Traffic. See [Do I need a minimum stake to run a node?](./frequently-asked-questions.md#do-i-need-a-minimum-stake-to-run-a-node)
