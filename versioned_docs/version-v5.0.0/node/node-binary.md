@@ -198,7 +198,7 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
 1. **Download the configuration file**
 
    ```bash
-   sudo curl -fL -o /root/hoprd/conf/hoprd-binary.cfg.yaml https://docs.hoprnet.org/files/hoprd-docker.cfg.yaml
+   sudo curl -fL -o /root/hoprd/conf/hoprd-binary.cfg.yaml {{DOCS_URL}}/files/hoprd-docker.cfg.yaml
    ```
 
 2. **Fill in your values**

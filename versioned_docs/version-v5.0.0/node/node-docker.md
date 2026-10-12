@@ -177,7 +177,7 @@ Your node reads all its settings from a configuration file in your `~/hoprd` fol
    On your node machine, run:
 
    ```bash
-   curl -o ~/hoprd/hoprd-docker.cfg.yaml https://docs.hoprnet.org/files/hoprd-docker.cfg.yaml
+   curl -o ~/hoprd/hoprd-docker.cfg.yaml {{DOCS_URL}}/files/hoprd-docker.cfg.yaml
    ```
 
 2. **Fill in your values**

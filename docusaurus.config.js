@@ -6,6 +6,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const math = require('remark-math')
 const katex = require('rehype-katex')
 const steps = require('./src/remark/steps')
+const docsUrl = require('./src/remark/docs-url')
 const { DOCS_URL } = require('./consts')
 const { DOCS_ALGOLIA_APP_ID, DOCS_ALGOLIA_API_KEY } = process.env
 
@@ -54,7 +55,7 @@ const config = {
       '@docusaurus/preset-classic',
       ({
         docs: {
-          remarkPlugins: [math, steps],
+          remarkPlugins: [math, steps, docsUrl],
           rehypePlugins: [katex],
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
