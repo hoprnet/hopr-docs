@@ -69,8 +69,8 @@
         "node/staking-hub",
         "node/node-operations",
         "node/backup-restore-update",
-        "node/migrate-node-from-v3",
-        "node/port-forwarding"
+        "node/port-forwarding",
+        "node/migrate-node-from-v3"
       ]
     },
     {
