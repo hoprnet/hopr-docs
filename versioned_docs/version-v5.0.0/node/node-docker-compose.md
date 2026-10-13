@@ -229,10 +229,10 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
 Start by downloading the `compose` folder from the HOPR repository to the machine where you will run your node. Run the command in your home folder (or wherever you want the `compose` folder to live). It needs `curl` and `unzip` from [Install Docker, Docker Compose and unzip](#install-docker-docker-compose-and-unzip):
 
 ```bash
-curl -fL -o v5.0.0-rc.2.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0-rc.2.zip && \
-  unzip v5.0.0-rc.2.zip "hoprd-5.0.0-rc.2/deploy/compose/*" -d extracted_files && \
-  mv extracted_files/hoprd-5.0.0-rc.2/deploy/compose . && \
-  rm -rf v5.0.0-rc.2.zip extracted_files
+curl -fL -o v5.0.0.zip https://github.com/hoprnet/hoprd/archive/refs/tags/v5.0.0.zip && \
+  unzip v5.0.0.zip "hoprd-5.0.0/deploy/compose/*" -d extracted_files && \
+  mv extracted_files/hoprd-5.0.0/deploy/compose . && \
+  rm -rf v5.0.0.zip extracted_files
 ```
 
 ---
@@ -248,8 +248,7 @@ mv .env.sample .env
 Adjust the following environment variables in the `.env` file:
 
 - `HOPRD_IMAGE`:  
-  Sets the HOPRd Docker image. Change the tag at the end from `stable` to `5.0.0-rc.2`:  
-  `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2`
+  Sets the HOPRd Docker image. Default is `europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable`, the current release. You don't need to change it.
 
 - `HOPRD_API_PORT`:  
   Sets the port on your machine that forwards to your node's REST API. Default is `3001`.  

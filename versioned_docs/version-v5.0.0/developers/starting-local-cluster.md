@@ -8,7 +8,7 @@ A series of HOPR nodes fully interconnected with each other is called a HOPR clu
 
 The local cluster starts several `hoprd` nodes on your machine, a local Ethereum chain (Anvil) and a HOPR indexer (Blokli), and opens payment channels between every pair of nodes. The chain state is temporary and the node configuration is simplified, so the cluster is not equivalent to a production network.
 
-The full reference is the [local cluster README](https://github.com/hoprnet/hoprd/blob/v5.0.0-rc.1/docs/localcluster/README.md) in the HOPRd repository.
+The full reference is the [local cluster README](https://github.com/hoprnet/hoprd/blob/v5.0.0/docs/localcluster/README.md) in the HOPRd repository.
 
 ## Requirements
 

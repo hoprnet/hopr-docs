@@ -21,8 +21,8 @@ hopr:
     safe_address: "<SAFE_ADDRESS>" # NOTE: fill in value
     module_address: "<MODULE_ADDRESS>" # NOTE: fill in value
   network:
-    probe_interval: 30s
-    probe_recheck_threshold: 60s
+    probe_interval: 60s
+    probe_recheck_threshold: 120s
 strategy:
   allow_recursive: false
   strategies:

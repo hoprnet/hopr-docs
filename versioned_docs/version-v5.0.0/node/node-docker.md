@@ -211,7 +211,7 @@ Your node reads all its settings from a configuration file in your `~/hoprd` fol
    Check the file before you start the node:
 
    ```bash
-   docker run --rm -v $HOME/hoprd/:/app/hoprd-db europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2 hoprd-cfg --validate /app/hoprd-db/hoprd-docker.cfg.yaml
+   docker run --rm -v $HOME/hoprd/:/app/hoprd-db europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable hoprd-cfg --validate /app/hoprd-db/hoprd-docker.cfg.yaml
    ```
 
    If the command prints nothing, the file is valid. Otherwise it shows the setting to fix, for example a placeholder you haven't replaced.
@@ -234,7 +234,7 @@ Your node reads all its settings from a configuration file in your `~/hoprd` fol
      -p 3001:3001 \
      -p 1422:1422/tcp -p 1422:1422/udp \
      -e RUST_LOG=info \
-     europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:5.0.0-rc.2 \
+     europe-west3-docker.pkg.dev/hoprassociation/docker-images/hoprd:stable \
      --configurationFilePath /app/hoprd-db/hoprd-docker.cfg.yaml
    ```
 
