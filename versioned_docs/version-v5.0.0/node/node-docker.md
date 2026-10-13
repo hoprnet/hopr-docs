@@ -39,7 +39,7 @@ Depending on your distribution, please follow the official guidelines to install
 ## Create your node identity, Safe and node module
 
 :::tip Migrating from v3.0.x?
-If you came here from the [migration guide](./backup-restore-update.md), your identity file is already in `~/hoprd` and you already have your new Safe and node module addresses. Skip to [Configure your node](#configure-hoprd-command).
+If you came here from the [migration guide](./migrate-node-from-v3.md), your identity file is already in `~/hoprd` and you already have your new Safe and node module addresses. Skip to [Configure your node](#configure-hoprd-command).
 :::
 
 Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because the command in step 2.4 asks for a private key.
@@ -296,4 +296,4 @@ Once your configuration file is filled in and valid, start your node with the [D
 To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
 :::
 
-If you are migrating from v3.0.x, go back to the migration guide and continue with [Verify and clean up](./backup-restore-update.md#verify-and-clean-up).
+If you are migrating from v3.0.x, go back to the migration guide and continue with [Verify and clean up](./migrate-node-from-v3.md#verify-and-clean-up).

@@ -21,7 +21,7 @@ This guide installs the HOPRd binary in `/root/hoprd` and runs it as a systemd s
 ## Create your node identity, Safe and node module
 
 :::tip Migrating from v3.0.x?
-If you came here from the [migration guide](./backup-restore-update.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download the HOPRd binary](#download-the-hoprd-binary). In step 3.2, use your backed-up `hopr.id` and the identity password you used on v3.0.x.
+If you came here from the [migration guide](./migrate-node-from-v3.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download the HOPRd binary](#download-the-hoprd-binary). In step 3.2, use your backed-up `hopr.id` and the identity password you used on v3.0.x.
 :::
 
 Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because the command in step 1.4 asks for a private key.

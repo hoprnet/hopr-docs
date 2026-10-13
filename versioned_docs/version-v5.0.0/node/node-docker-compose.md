@@ -96,7 +96,7 @@ If you are migrating from v3.0.x, Docker and Docker Compose are already installe
 ## Create your node identity, Safe and node module
 
 :::tip Migrating from v3.0.x?
-If you came here from the [migration guide](./backup-restore-update.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download compose folder](#download-compose-folder).
+If you came here from the [migration guide](./migrate-node-from-v3.md), you already have your identity file and your new Safe and node module addresses. Skip to [Download compose folder](#download-compose-folder).
 :::
 
 Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because the command in step 2.4 asks for a private key.
@@ -361,4 +361,4 @@ Until both the Safe and the node are funded, the node may stop and restart a few
 To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
 :::
 
-If you are migrating from v3.0.x, go back to the migration guide and continue with [Verify and clean up](./backup-restore-update.md#verify-and-clean-up).
+If you are migrating from v3.0.x, go back to the migration guide and continue with [Verify and clean up](./migrate-node-from-v3.md#verify-and-clean-up).
