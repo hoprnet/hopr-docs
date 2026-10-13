@@ -200,7 +200,7 @@ Please select platform to configure Fast Sync feature:
 
 2. **Adjust Your Configuration File**
 
-    1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/hoprd.cfg.yaml)
+    1. Download the example file specifically for the Dappnode: [hoprd.cfg.yaml](pathname:///files/legacy/hoprd.cfg.yaml)
     2. Inside configuration file locate the **chain** section and add the following settings below, aligned with the other configurations: `enable_logs_snapshot: true` and `logs_snapshot_url: "https://logs-snapshots.hoprnet.org/dufour-v3.0-latest.tar.xz"`. Save the changes to the configuration file.
 
 3. **Upload Configuration File**

@@ -24,7 +24,7 @@ const FeatureList = [
     title: 'Token Economics',
     Svg: <img class="svg_icon" src={'/img/front_icons/hopr-staking.svg'} />,
     description: <>Learn the principles of token value, utility and operations.</>,
-    docName: 'token/safestaking'
+    docName: 'token/acquiring-hopr-tokens'
   },
   {
     title: 'dApps',
