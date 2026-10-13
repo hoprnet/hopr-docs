@@ -13,7 +13,7 @@ This page provides comprehensive information on the latest HOPRd Node and HOPR A
 
 | HOPRd version | Environment | Release date | Eligible for CT rewards |  Changelog |
 |-----|-----|------|-----|-----|
-| **5.0.0 (Recommended)** | Piz Palu | 2026-10-12 | Yes | [Changelog](https://github.com/hoprnet/hoprd/releases/tag/v5.0.0) |
+| **5.0.0 (Recommended)** | Piz Palu | 2026-10-13 | Yes | [Changelog](https://github.com/hoprnet/hoprd/releases/tag/v5.0.0) |
 | 3.0.0 | Dufour | 2025-09-24 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v3.0.0) |
 | 2.2.3 | Dufour | 2025-03-30 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.3) |
 | 2.2.1 | Dufour | 2025-01-29 | Yes | [Changelog](https://github.com/hoprnet/hoprnet/releases/tag/v2.2.1) |
