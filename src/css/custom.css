@@ -711,6 +711,8 @@ span.theme-code-block-highlighted-line {
   .docs-version-v5\.0\.0 .markdown ol.steps > li > ol > li::before {
     position: static; float: left; width: 26px; margin: 5px 8px 0 0; font-size: 11px;
   }
+  /* Titled sub-steps get their own rail; with no indent it would cross the text. */
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li::after { display: none; }
 }
 
 /* ---------- Code blocks ---------- */

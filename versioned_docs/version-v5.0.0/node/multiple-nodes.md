@@ -11,15 +11,17 @@ import TabItem from '@theme/TabItem';
 
 ## Add a node to your Safe
 
-Each additional node needs its own identity file, added to your existing Safe and node module. There is no waitlist: once the node is added, you can run it.
+Each additional node needs its own identity file, added to your existing node module. You can add one node or several at once. There is no waitlist: once a node is added, you can run it.
 
-Run these steps on any computer with Docker Desktop. This can be your node machine if it is your own computer. Don't run them on a rented or shared server, because step 1.4 asks for a private key.
+You create the identities with Docker on any computer with Docker Desktop, then add the nodes in Safe\{Wallet\} with a wallet that is a signer of your Safe. You never paste a private key.
 
-1. **Create the identity**
+1. **Create the identities**
 
-    Create an empty `hopr-identity` folder and create one identity in it, as described in [Create your node identity](./node-docker.md#create-your-node-identity-safe-and-node-module) (steps 2.2 and 2.3). Use `--number 1`. The folder must contain only the new identity file, `hopr0.id`, so the next step shows only its address.
+    Create an empty `hopr-identity` folder and create the identities in it, as described in [Create your node identity](./node-docker.md#create-your-node-identity-safe-and-node-module) (steps 2.2 and 2.3). Every node needs its own identity, so set `--number` to how many nodes you want to add: `--number 1` for one more node, `--number 3` for three. The files are named `hopr0.id`, `hopr1.id`, and so on.
 
-2. **Read the new node's address**
+    The folder must contain only these new identity files, so the next step shows only the new nodes' addresses.
+
+2. **Read the new nodes' addresses**
 
     **Linux / macOS** (Terminal):
 
@@ -43,62 +45,56 @@ Run these steps on any computer with Docker Desktop. This can be your node machi
     --identity-directory /data
     ```
 
-    The output shows the node address in square brackets. Write it down without the brackets. Example:
+    The output shows the node addresses in square brackets, one per identity, separated by commas. Copy the whole list, including the brackets: you paste it in step 1.4.4. Example for two identities:
 
     ```text
-    Identity addresses: [0x24046f39f0a4ef55dbe975e70ea0c6ac9a2d970e]
+    Identity addresses: [0x24046f39f0a4ef55dbe975e70ea0c6ac9a2d970e, 0x8f1c2a6d3b4e5f60718293a4b5c6d7e8f9012345]
     ```
 
-3. **Gather the values for adding the node**
+3. **Gather the values for adding the nodes**
 
-    | Placeholder | What it is | Where to find it |
-    |---|---|---|
-    | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint, used only for this command. Your node doesn't need it. | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
-    | `<SAFE_ADDRESS>` | Your existing Safe | The `--safeAddress` value of your first node, or `hopr.safe_module.safe_address` in its `hoprd.cfg.yaml` for Docker Compose. |
-    | `<MODULE_ADDRESS>` | Your existing node module | The `--moduleAddress` value of your first node, or `hopr.safe_module.module_address` in its `hoprd.cfg.yaml` for Docker Compose. |
-    | `<NODE_ADDRESS>` | The address of the new node | The address from step 1.2. |
+    | What | Where to find it |
+    |---|---|
+    | Your node module address | The `--moduleAddress` value of your first node, or `hopr.safe_module.module_address` in its `hoprd.cfg.yaml` for Docker Compose. |
+    | Your new nodes' addresses | The list from step 1.2, with the square brackets. |
 
-4. **Add the node to your Safe and node module**
+4. **Add the nodes in Safe\{Wallet\}**
 
-    :::important
-    Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees, so you never need to paste your Safe owner's private key.
-    :::
+    You send one transaction from your Safe that calls `includeNodes` on your node module. Your Safe doesn't need any xDai for this: the signer wallet that executes the transaction pays the fee, so that wallet needs a small amount of xDai.
 
-    Replace every value in `<...>` with your own from the previous step. Then run the command for your system. Only the line-continuation character differs.
+    1. **Open your Safe**
 
-    **Linux / macOS** (Terminal):
+        Open your Safe in Safe\{Wallet\} with a wallet that is a signer of your Safe, as described in [Open your Safe](./staking-hub.md#open-your-safe).
 
-    ```bash
-    docker run --rm -it --pull always \
-    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest \
-    safe-module add-node \
-    --network piz-palu-prod \
-    --provider-url <YOUR_RPC_PROVIDER_URL> \
-    --safe-address <SAFE_ADDRESS> \
-    --module-address <MODULE_ADDRESS> \
-    --node-address <NODE_ADDRESS>
-    ```
+    2. **Open Transaction Builder**
 
-    **Windows** (PowerShell):
+        Click **New transaction**, then **Transaction Builder**. If Safe\{Wallet\} shows a disclaimer about third-party apps, read it, select the checkbox to agree, then click **Continue**.
 
-    ```powershell
-    docker run --rm -it --pull always `
-    europe-west3-docker.pkg.dev/hoprassociation/docker-images/hopli:latest `
-    safe-module add-node `
-    --network piz-palu-prod `
-    --provider-url <YOUR_RPC_PROVIDER_URL> `
-    --safe-address <SAFE_ADDRESS> `
-    --module-address <MODULE_ADDRESS> `
-    --node-address <NODE_ADDRESS>
-    ```
+    3. **Enter your node module address**
 
-    At the **Enter private key:** prompt, paste the private key of your **burner wallet** and press Enter. Nothing appears on screen while you paste, which is expected.
+        In **Enter Address or ENS Name**, paste your node module address. The node module is a proxy contract, so Transaction Builder asks which ABI to use: click **Use Implementation ABI**.
 
-5. **Move the identity file to your node machine**
+    4. **Fill in the includeNodes call**
 
-    - In the `hopr-identity` folder, rename `hopr0.id` to `hopr.id`.
-    - Copy it into the second node's folder: `~/hoprd-2` for Docker, or `hoprd/conf` inside the **HOPRd-node-2** folder for Docker Compose.
-    - Keep a backup of `hopr.id` and its password somewhere safe outside the node folder, then delete the temporary `hopr-identity` folder.
+        - In **Contract Method Selector**, select `includeNodes`.
+        - In **nodeAddresses (address[])**, paste the list of addresses from step 1.2, with the square brackets, for example `[0x24046f39f0a4ef55dbe975e70ea0c6ac9a2d970e]`. With several identities, the list adds all the new nodes in one transaction.
+        - Leave the **XDAI value** at `0`.
+
+    5. **Create the batch**
+
+        Click **Add new transaction**, then **Create Batch**.
+
+    6. **Send the batch**
+
+        Check the transaction, click **Send Batch**, and sign and execute it with your wallet. If your Safe needs more than one confirmation, the other signers confirm the transaction in Safe\{Wallet\} before it can be executed.
+
+5. **Move the identity files to your node machines**
+
+    Each node gets one identity file, renamed to `hopr.id`:
+
+    - Copy `hopr0.id` into the second node's folder: `~/hoprd-2` for Docker, or `hoprd/conf` inside the **HOPRd-node-2** folder for Docker Compose. Rename it to `hopr.id`.
+    - If you created more identities, copy `hopr1.id` into the third node's folder (`~/hoprd-3` or **HOPRd-node-3**), and so on. Rename each one to `hopr.id`.
+    - Keep a backup of every identity file and its password somewhere safe outside the node folders. Note which file went to which node, then delete the temporary `hopr-identity` folder.
 
 ---
 

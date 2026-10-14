@@ -30,7 +30,7 @@ To check that your node is online, relaying traffic and earning tickets, see [Ho
 
 ## Add another node
 
-To add another node to your Safe, follow [Running multiple nodes](./multiple-nodes.md). You add the node to your Safe with `hopli`.
+To add another node to your Safe, follow [Running multiple nodes](./multiple-nodes.md). You add the node to your node module in Safe\{Wallet\} with Transaction Builder.
 
 ---
 
