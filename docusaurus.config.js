@@ -124,10 +124,9 @@ const config = {
           }
         ]
       },
-      image: 'img/node/HOPR-Twitter-Logo.png',
+      image: 'img/social-card.png',
       metadata: [
         {name: 'twitter:card', content: 'summary_large_image'},
-        {name: 'twitter:image', content: 'https://docs.hoprnet.org/assets/images/HOPR-Twitter-Logo-649fa3ab2ca122f5dd52833a06f48fe6.png'},
       ],
       ...extraThemeConfig,
       footer: {
