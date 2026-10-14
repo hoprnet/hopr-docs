@@ -715,6 +715,29 @@ span.theme-code-block-highlighted-line {
   .docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li::after { display: none; }
 }
 
+/* Titled sub-steps (a step list inside a step): the label sits on the title line
+   with a gap before the title, the rail runs under the label's centre, and the
+   space between sub-steps matches the space between paragraphs. The label is
+   28px for "1.1" and 52px for "2.1.1" on pages with numbered headings. */
+@media (min-width: 601px) {
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps { --sg-sub-label: 28px; }
+  .docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li > ol.steps { --sg-sub-label: 52px; }
+  .docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li > ol.steps > li,
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li {
+    padding-left: calc(var(--sg-sub-label) + 14px);
+  }
+  .docs-version-v5\.0\.0 .markdown ol.steps:not(.no-counter ol, .h-no-count ol, .re-counter ol) > li > ol.steps > li::before,
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li::before {
+    top: calc((var(--sg-badge) - 24px) / 2); width: var(--sg-sub-label); min-width: 0; height: 24px; padding: 0;
+  }
+  .docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li::after {
+    left: calc(var(--sg-sub-label) / 2 - 1px); top: calc(var(--sg-badge) + 4px); bottom: 12px;
+  }
+}
+.docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li { padding-bottom: 0; margin: 0 0 24px; }
+.docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li:last-child { margin-bottom: 0; }
+.docs-version-v5\.0\.0 .markdown ol.steps > li > ol.steps > li > p:first-child { margin-bottom: 8px; }
+
 /* ---------- Code blocks ---------- */
 .docs-version-v5\.0\.0 .markdown .theme-code-block {
   margin: 0 0 24px; border: 1px solid var(--sg-border); border-radius: var(--sg-radius);
