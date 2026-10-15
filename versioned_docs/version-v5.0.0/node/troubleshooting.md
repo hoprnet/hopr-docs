@@ -14,7 +14,7 @@ import { NoCounter } from '@site/src/components/Counter';
 <details>
 <summary> 
 
-### How to check if my node is working correctly? {#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful}
+### How to check if my node is working correctly?
 </summary>
 
 Every HOPRd node comes with the **Node API Swagger UI**, a web page where you can send requests to your node and see its answers.
@@ -102,7 +102,7 @@ The eligibility and burst settings below are the first values used on Piz Palu. 
 
 1. **Check that your node is running**
 
-    Follow [How to check if my node is working correctly?](#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful). Your node must appear in the network dashboard and show **Online**, because a Cover Traffic node skips nodes it can't reach.
+    Follow [How to check if my node is working correctly?](#how-to-check-if-my-node-is-working-correctly). Your node must appear in the network dashboard and show **Online**, because a Cover Traffic node skips nodes it can't reach.
 
 2. **Check that your node is eligible**
 
