@@ -217,7 +217,7 @@ There are five Cover Traffic nodes on Piz Palu:
 </summary>
 Your node is eligible when:
 
-1. A Cover Traffic node can reach it. Check this with [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful)
+1. A Cover Traffic node can reach it. Check this with [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly)
 2. It has at least 5 open outgoing payment channels with at least `100 wxHOPR` each. Your stake, Safe balance and location don't count.
 
 Your node earns a ticket for every packet it relays. When a ticket wins, your node redeems it automatically and the reward goes to your Safe. If your node has an open outgoing payment channel to one of the Cover Traffic nodes, the reward goes to that channel's balance instead, and moves to your Safe when you close the channel. To check that your node relays traffic and earns tickets, see [How can I verify if Cover Traffic is being relayed through my node(s)?](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards)
@@ -261,7 +261,7 @@ Each time your node opens or tops up a channel, the allowance goes down by that 
 
 1. **Open the Swagger UI and authorize**
 
-    Follow steps 1 to 3 of [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful)
+    Follow steps 1 to 3 of [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly)
 
 2. **Read your allowance**
 

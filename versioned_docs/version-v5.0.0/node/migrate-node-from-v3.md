@@ -286,7 +286,7 @@ When the logs show `node announced successfully` or `node already announced on c
 
 1. **Verify your migration**
 
-    Check that your node works on v5.0.0 by following [this guide](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
+    Check that your node works on v5.0.0 by following [this guide](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly).
 
 2. **Delete your v3.0.x files**
 

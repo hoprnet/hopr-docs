@@ -62,9 +62,9 @@ const config = {
           editUrl: 'https://github.com/hoprnet/hopr-docs/edit/master/',
           lastVersion: 'v5.0.0',
           onlyIncludeVersions: ['v3.0.0', 'v5.0.0'],
-          // The Developers section is disabled. Files are kept in versioned_docs/
-          // so it can be re-enabled by dropping the 'developers/**' entry below and
-          // restoring the tutorialSidebar entries in the sidebar files.
+          // The Developers section is disabled and removed from v5.0.0. Older versions
+          // still keep their files in versioned_docs/, so the 'developers/**' entry
+          // below stays to keep them out of the build.
           // NOTE: specifying `exclude` replaces Docusaurus' defaults rather than
           // extending them, so the default patterns are repeated here.
           exclude: [

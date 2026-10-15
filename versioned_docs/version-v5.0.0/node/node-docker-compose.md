@@ -358,7 +358,7 @@ Until both the Safe and the node are funded, the node may stop and restart a few
 ---
 
 :::tip Your node is running
-To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
+To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-my-node-is-working-correctly).
 :::
 
 If you are migrating from v3.0.x, go back to the migration guide and continue with [Verify and clean up](./migrate-node-from-v3.md#verify-and-clean-up).
