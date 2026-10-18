@@ -7,7 +7,7 @@ import { NoCounter } from '@site/src/components/Counter';
 
 <NoCounter>
 
-This page provides comprehensive information on the latest HOPRd Node and HOPR Admin UI releases, including detailed changelogs for each version. Whether you're a developer, node runner, or end user, staying updated is crucial to ensure optimal performance and security for your HOPR network.
+This page provides comprehensive information on the latest HOPRd Node releases, including detailed changelogs for each version. Whether you're a developer, node runner, or end user, staying updated is crucial to ensure optimal performance and security for your HOPR network.
 
 ## HOPRd node public releases 
 

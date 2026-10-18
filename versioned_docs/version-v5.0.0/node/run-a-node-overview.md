@@ -14,7 +14,7 @@ The diagram below illustrates the relationship between key components involved i
 
 - **HOPR Safe and node module**: You create them with `hopli`. Your [HOPR Safe](../token/safestaking.md#why-is-hopr-using-safe) holds the **wxHOPR** that funds your node's payment channels and receives your rewards. You manage it in [Safe\{Wallet\}](./staking-hub.md).
 
-- **REST API and Swagger UI**: Built into your node, to check its status and manage it. See [Interact with your node](./interaction-with-node.md).
+- **REST API and Swagger UI**: Built into your node, to check its status and manage it. See [How to check if my node is working correctly](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly).
 
 - **[HOPR Network Dashboard](https://network.hoprnet.org/dashboard)**: Shows whether your node is online in the network.
 

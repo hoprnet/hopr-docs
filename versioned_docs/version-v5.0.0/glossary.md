@@ -34,10 +34,6 @@ A decentralized structure that governs the HOPR protocol, allowing token holders
 
 A decentralized, incentivized network for private data transfer that ensures complete privacy by preventing metadata tracking. Read more about [what HOPR is](./core/what-is-hopr.md).
 
-### HOPR Admin UI
-
-The HOPR Admin provides a graphical interface you can use to interact with your node as well as diagnose any potential issues. Read more about [HOPR Admin UI](./node/node-management-admin-ui.md).
-
 ### HOPR Node
 
 A **HOPR node** is a software instance that relays data across the HOPR network, contributing to its decentralization and privacy features. By running a node and relaying data, participants help secure the network and are rewarded with HOPR tokens. Learn more about setting up and operating a [HOPR node](./node/./run-a-node-overview.md).
