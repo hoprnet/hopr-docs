@@ -288,7 +288,11 @@ When the logs show `node announced successfully` or `node already announced on c
 
     Check that your node works on v5.0.0 by following [this guide](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly).
 
-2. **Delete your v3.0.x files**
+2. **Fund your channels for Cover Traffic**
+
+    Once your node works as expected, change the channel funding values in your configuration file to get full Cover Traffic rewards, as described in [Fund your channels for Cover Traffic](./manage-node-strategies.md#fund-your-channels-for-cover-traffic). With the default values, your node doesn't keep enough wxHOPR in its channels to be eligible for Cover Traffic.
+
+3. **Delete your v3.0.x files**
 
     :::warning
     This permanently deletes your old node files, including the copy of your identity file on this machine. Keep the backup of `hopr.id` and your identity password that you stored off this machine.

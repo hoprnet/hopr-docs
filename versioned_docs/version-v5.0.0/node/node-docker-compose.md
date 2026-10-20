@@ -362,3 +362,7 @@ To verify that it's working properly, follow [this guide](troubleshooting.md#how
 :::
 
 If you are migrating from v3.0.x, go back to the migration guide and continue with [Verify and clean up](./migrate-node-from-v3.md#verify-and-clean-up).
+
+## Fund your channels for Cover Traffic
+
+Once your node works as expected, change the channel funding values in your configuration file to get full Cover Traffic rewards, as described in [Fund your channels for Cover Traffic](./manage-node-strategies.md#fund-your-channels-for-cover-traffic). With the default values, your node doesn't keep enough wxHOPR in its channels to be eligible for Cover Traffic.
