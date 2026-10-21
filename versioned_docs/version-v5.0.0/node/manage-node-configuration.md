@@ -235,7 +235,7 @@ The latest sample configuration file is available in the [HOPRd GitHub repositor
 
 ### blokli_url
 
-The URL of the Blokli indexer your node uses to read the blockchain. HOPRd v5 doesn't connect to an RPC provider directly.
+The URL of the Blokli indexer your node uses to read the blockchain. HOPRd v5 doesn't connect to an RPC provider directly. To use your own Blokli instead of the hosted one, see [Run Blokli Locally](./run-blokli-locally.md).
 
 ```yaml
 blokli_url: https://blokli.piz-palu.gnosisvpn.io
