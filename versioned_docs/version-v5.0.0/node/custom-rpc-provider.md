@@ -11,7 +11,7 @@ import { NoCounter, ReCounter } from '@site/src/components/Counter';
 
 ## Overview
 
-RPC (Remote Procedure Call) enables communication between external applications like the **HOPRd** node and the blockchain network. For reliable syncing, balance checks, and blockchain interactions, we highly recommend setting up your own Gnosis Chain node.
+RPC (Remote Procedure Call) enables communication between external applications and the blockchain network. Your HOPRd v5 node doesn't use an RPC provider directly: it reads on-chain data from [Blokli](./run-blokli-locally.md). You need a Gnosis Chain RPC endpoint for `hopli`, when you create your Safe and node module, and for Blokli, if you [run it locally](./run-blokli-locally.md). For reliable syncing, we highly recommend setting up your own Gnosis Chain node.
 
 ## RPC provider methods {#rpc-provider-methods}
 

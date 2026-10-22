@@ -86,6 +86,7 @@
         "node/multiple-nodes",
         "node/manage-node-configuration",
         "node/manage-node-strategies",
+        "node/run-blokli-locally",
         "node/custom-rpc-provider",
         "node/ac-migration-from-legacy"
       ]

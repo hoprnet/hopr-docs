@@ -354,7 +354,11 @@ You need **root** access to set up the systemd service. If you don't have it, yo
    The response shows your node address, for example `{"native":"0x07eaf07d6624f741e04f4092a755a9027aaab7f6"}`.
 
 :::tip Your node is running
-To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful).
+To verify that it's working properly, follow [this guide](troubleshooting.md#how-to-check-if-my-node-is-working-correctly).
 :::
 
 To start, stop, upgrade or uninstall your node, see [Managing Node Service](./node-operations.md?node_service=binary).
+
+## Fund your channels for Cover Traffic
+
+Once your node works as expected, change the channel funding values in your configuration file to get full Cover Traffic rewards, as described in [Fund your channels for Cover Traffic](./manage-node-strategies.md#fund-your-channels-for-cover-traffic). With the default values, your node doesn't keep enough wxHOPR in its channels to be eligible for Cover Traffic.

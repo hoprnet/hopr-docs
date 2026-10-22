@@ -14,7 +14,7 @@ import { NoCounter } from '@site/src/components/Counter';
 <details>
 <summary> 
 
-### How to check if my node is working correctly? {#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful}
+### How to check if my node is working correctly?
 </summary>
 
 Every HOPRd node comes with the **Node API Swagger UI**, a web page where you can send requests to your node and see its answers.
@@ -102,7 +102,7 @@ The eligibility and burst settings below are the first values used on Piz Palu. 
 
 1. **Check that your node is running**
 
-    Follow [How to check if my node is working correctly?](#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful). Your node must appear in the network dashboard and show **Online**, because a Cover Traffic node skips nodes it can't reach.
+    Follow [How to check if my node is working correctly?](#how-to-check-if-my-node-is-working-correctly). Your node must appear in the network dashboard and show **Online**, because a Cover Traffic node skips nodes it can't reach.
 
 2. **Check that your node is eligible**
 
@@ -177,6 +177,107 @@ A node that is eligible for Cover Traffic also relays real traffic, for example 
 
 </TabItem>
 </Tabs>
+</details>
+
+## Troubleshooting Blokli issues {#troubleshooting-blokli-issues}
+
+These answers apply if you [run Blokli locally](./run-blokli-locally.md). Run all commands from the `docker` folder of the Blokli repository.
+
+<details>
+<summary> 
+
+### Why does Blokli keep restarting? {#why-does-blokli-keep-restarting}
+</summary>
+
+If `docker compose ps` shows `bloklid` as `Restarting (1)`, Blokli exits at startup.
+
+1. **Find the error**
+
+    ```bash
+    docker compose logs bloklid --tail 50
+    ```
+
+2. **Fix the error**
+
+    Find the error in the logs and fix it:
+
+    - **`TOML parse error at line N`**: there's a typo in `config-docker.toml`, for example a stray `"`. Fix the line shown, then run `docker compose restart bloklid`.
+    - **`RPC does not support debug_traceTransaction`**: the tracing check is on and your RPC has no debug API. Set `enable_revert_reason_tracing = false` under `[api.transactions]`, or use an RPC with the debug API. Then run `docker compose restart bloklid`.
+    - **`Unknown network 'piz-palu-prod'`**: your Blokli image is too old. Pull or build a newer `bloklid:latest` image as described in step 3 of [Set up Blokli](./run-blokli-locally.md#set-up-blokli), then run `docker compose up -d --force-recreate bloklid`.
+    - **PostgreSQL exits with `Error: in 18+ …`**: the PostgreSQL volume path is outdated. Fix it as described in step 4 of [Set up Blokli](./run-blokli-locally.md#set-up-blokli), then run `docker compose down -v` and `docker compose up -d`.
+
+</details>
+
+<details>
+<summary> 
+
+### Why can't I connect to Blokli's API? {#why-cant-i-connect-to-bloklis-api}
+</summary>
+
+1. **Check the error**
+
+    - **`curl: (7) Failed to connect … Connection refused`**: `bloklid` isn't running, keeps restarting, or its port isn't published. Run `docker compose ps -a` and check that `bloklid` is `Up` with `0.0.0.0:8080->8080/tcp`. If it keeps restarting, see [Why does Blokli keep restarting?](#why-does-blokli-keep-restarting)
+    - **`connection reset` or `empty reply`**: the API listens on `127.0.0.1` inside the container. Set `bind_address = "0.0.0.0:8080"` under `[api]` in `config-docker.toml`, then run `docker compose restart bloklid`.
+
+2. **Check the connection from your node**
+
+    If Blokli responds on its own machine but your node can't reach it, check that you use the right Blokli URL for your setup, as described in [Connect your node to Blokli](./run-blokli-locally.md#connect-your-node-to-blokli). If your node runs on another machine, allow port `8080` in the firewall of the Blokli machine.
+
+</details>
+
+<details>
+<summary> 
+
+### Why doesn't my Blokli configuration change take effect? {#why-doesnt-my-blokli-configuration-change-take-effect}
+</summary>
+
+The container wasn't restarted, or you edited another file.
+
+1. **Recreate the container**
+
+    ```bash
+    docker compose up -d --force-recreate bloklid
+    ```
+
+2. **Check the loaded configuration**
+
+    Run `docker compose logs bloklid --tail 50`. The configuration Blokli loaded is printed at the top of the logs. Check that it shows your change.
+
+</details>
+
+<details>
+<summary> 
+
+### Why does Blokli show RPC errors? {#why-does-blokli-show-rpc-errors}
+</summary>
+
+Errors such as `429` or timeouts mean that your RPC endpoint limits your requests.
+
+1. **Limit the requests or change the RPC endpoint**
+
+    In `config-docker.toml`, set `max_rpc_requests_per_sec = 20` or lower. Or use a faster RPC endpoint in `rpc_url`, as described in the [Custom RPC provider guide](./custom-rpc-provider.md).
+
+2. **Restart Blokli**
+
+    ```bash
+    docker compose restart bloklid
+    ```
+
+</details>
+
+<details>
+<summary> 
+
+### Why isn't Blokli ready yet? {#why-isnt-blokli-ready-yet}
+</summary>
+
+Blokli is ready only after its first sync. Until then:
+
+- `/readyz` reports `"status":"not_ready"`, with `"last_indexed_block":0` and a very large `lag`. Blokli sets `last_indexed_block` only after both historical phases finish.
+- GraphQL queries return `GraphQL API is not ready yet. Indexer is still catching up.`
+
+Both are expected. Follow the sync progress with the metrics and wait until `/readyz` reports `ready`, as described in [Wait for the first sync](./run-blokli-locally.md#wait-for-the-first-sync).
+
 </details>
 
 </NoCounter>

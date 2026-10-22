@@ -30,4 +30,4 @@ If chosen to join the registry, you will be sent an NFT to your provided staking
 
 Once you have both the NFT in your staking account and your peerID, you can visit our registration site and enter both details. These are checked automatically, and if you are indeed eligible, your NFT will be staked, your node will be funded with both mHOPR and xDAI, and your details will be added to the Network Registry smart contract.
 
-You can then proceed to (or continue) our tutorial and begin using the hopr-admin!
+You can then proceed to (or continue) our tutorial and begin using your node!

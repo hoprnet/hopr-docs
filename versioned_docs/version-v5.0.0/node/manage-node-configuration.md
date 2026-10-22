@@ -40,7 +40,7 @@ Please select your platform:
 
     3. Paste your Docker command into the terminal window and execute it.
 
-    4. Wait about a minute, then follow [Verify your migration](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful) in the Troubleshooting guide to confirm your node is running correctly on HOPRd v5.0.0.
+    4. Wait about a minute, then follow [How to check if my node is working correctly?](troubleshooting.md#how-to-check-if-my-node-is-working-correctly) in the Troubleshooting guide.
  
 </TabItem>
 <TabItem value="docker-compose" label="Docker compose">
@@ -116,7 +116,7 @@ By default, the strategy settings file is pre-configured and works well as is. H
 
     1. Go to the **Info** page within your HOPR package, and click the **Restart** button to restart your node.
 
-    2. Wait about a minute, then follow [Verify your migration](troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful) in the Troubleshooting guide to confirm your node is running correctly on HOPRd v5.0.0.
+    2. Wait about a minute, then follow [How to check if my node is working correctly?](troubleshooting.md#how-to-check-if-my-node-is-working-correctly) in the Troubleshooting guide.
 </TabItem>
 <TabItem value="native-binary" label="Native">
 
@@ -235,7 +235,7 @@ The latest sample configuration file is available in the [HOPRd GitHub repositor
 
 ### blokli_url
 
-The URL of the Blokli indexer your node uses to read the blockchain. HOPRd v5 doesn't connect to an RPC provider directly.
+The URL of the Blokli indexer your node uses to read the blockchain. HOPRd v5 doesn't connect to an RPC provider directly. To use your own Blokli instead of the hosted one, see [Run Blokli Locally](./run-blokli-locally.md).
 
 ```yaml
 blokli_url: https://blokli.piz-palu.gnosisvpn.io
@@ -291,14 +291,14 @@ Network, session and ticket settings. All of them are optional.
 ```yaml
 hopr:
   network:
-    probe_interval: "3s"
-    probe_recheck_threshold: "10s"
+    probe_interval: "60s"
+    probe_recheck_threshold: "120s"
 ```
 
 | Settings | Default value | Description |
 | --- | --- | --- |
-| `hopr.network.probe_interval` | `3s` | Delay between probing rounds used to discover and measure neighboring nodes. |
-| `hopr.network.probe_recheck_threshold` | `10s` | How long to wait before re-probing a peer. |
+| `hopr.network.probe_interval` | `60s` | Delay between probing rounds used to discover and measure neighboring nodes. |
+| `hopr.network.probe_recheck_threshold` | `120s` | How long to wait before re-probing a peer. |
 | `hopr.network.session_idle_timeout` | `3m` | How long a session can stay idle before it's closed automatically. |
 | `hopr.network.maximum_sessions` | `2048` | Maximum number of incoming or outgoing sessions. |
 | `hopr.network.session_establish_max_retries` | `3` | How many times the node retries to establish an outgoing session. |

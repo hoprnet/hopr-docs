@@ -24,7 +24,7 @@ The [HOPR Staking Hub](https://hub.hoprnet.org) is used only to [wrap and unwrap
 
 ## Monitor your node
 
-To check that your node is online, relaying traffic and earning tickets, see [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-the-migration-from-hoprd-v30x-to-hoprd-v500-was-successful) and the [HOPR Network Dashboard](https://network.hoprnet.org/dashboard).
+To check that your node is online, relaying traffic and earning tickets, see [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly) and the [HOPR Network Dashboard](https://network.hoprnet.org/dashboard).
 
 ---
 
