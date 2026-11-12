@@ -24,6 +24,14 @@ it from a Windows computer, but the node itself must run on Linux or macOS.
 | Your node address and the xDai on it | You move your wxHOPR from your old Safe to the new one | |
 | | Your node no longer needs an RPC provider. You need an RPC URL only to create your new Safe. | |
 
+Three addresses matter in this migration:
+
+- **Node address**: belongs to your identity file (`hopr.id`). It doesn't change.
+- **Safe**: holds your wxHOPR. You get a new, empty one on `piz-palu-prod`.
+- **Safe owner**: the wallet that controls the Safe. It also owns the new Safe.
+
+Your old Safe isn't converted or linked to the new one. You only use it at the end, to withdraw your wxHOPR and send it to the new Safe.
+
 The Dufour network stops two weeks after the v5.0.0 release. Redeem your tickets and close your outgoing channels before then. If you migrate later, you can still withdraw your wxHOPR from your old Safe in the Staking Hub. You can't go back to v3.0.x, so if a step fails, fix it and continue.
 
 ## Before you start {#before-you-start}
@@ -145,8 +153,9 @@ Do this once, even if you run several nodes under one Safe.
         | `<YOUR_RPC_PROVIDER_URL>` | The URL of a Gnosis Chain RPC endpoint, used only for this migration. Your node doesn't need it. | See the [Custom RPC provider guide](./custom-rpc-provider.md). |
         | `<SAFE_OWNER>` | The address of the wallet that owns your current Safe. It will also own the new Safe. | The address you wrote down in [Prepare your migration](#prepare-your-migration). |
         | `<NODE1,NODE2,NODE3>` | The addresses of the nodes you ran on v3.0.x, separated by commas with no spaces. For one node, enter one address. | The addresses you wrote down in [Prepare your migration](#prepare-your-migration). |
+        | Your old Safe address | Not used in this command. `--node-address` takes your node's own address, not your Safe. | – |
 
-    2. This command creates a new Safe and node module, and adds the nodes you ran on v3.0.x to them.
+    2. This command creates a new, empty Safe and node module. It doesn't read or change your old Safe, so your old Safe address isn't part of the command. It needs two addresses: who owns the new Safe (`--admin-address`) and which nodes may use it (`--node-address`).
 
         :::important
         Before you run the command, create a new **burner wallet** (a fresh wallet with no other funds) and send it `0.02 xDai`. The command asks for this wallet's private key and uses it only to pay the transaction fees. Your new Safe is owned by your `<SAFE_OWNER>` wallet, not the burner wallet, so you never need to paste your Safe owner's private key.
