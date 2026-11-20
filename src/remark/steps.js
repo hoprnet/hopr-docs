@@ -8,7 +8,7 @@
 //   directly followed by a code block ("**Linux / macOS** (Terminal):"), gets
 //   class "code-label".
 //
-// Only v5.0.0 docs are touched, so older versions render exactly as before.
+// Only v5.x docs are touched, so older versions render exactly as before.
 
 const MAX_LABEL_LENGTH = 60;
 
@@ -66,7 +66,7 @@ function walk(node) {
 module.exports = function remarkSteps() {
   return (tree, file) => {
     const filePath = (file && (file.path || (file.history && file.history[0]))) || '';
-    if (!filePath.includes('version-v5.0.0')) return;
+    if (!/version-v5\.\d+\.\d+/.test(filePath)) return;
     walk(tree);
   };
 };
