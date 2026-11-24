@@ -97,7 +97,7 @@ The Cover Traffic nodes on Piz Palu are:
 ```
 
 :::note
-The eligibility and burst settings below are the first values used on Piz Palu. They may change as the network grows.
+The burst settings below are the first values used on Piz Palu. They may change as the network grows. The eligibility requirements are set in the latest announcement on [HOPR's Telegram](https://t.me/hoprnet).
 :::
 
 1. **Check that your node is running**
@@ -106,11 +106,11 @@ The eligibility and burst settings below are the first values used on Piz Palu. 
 
 2. **Check that your node is eligible**
 
-    Your node is eligible when it has at least **5 open outgoing payment channels**, each with at least **100 wxHOPR**. Your stake, your Safe balance and your location don't count.
+    Your node is eligible when it has at least the number of open outgoing payment channels, each with at least the amount of wxHOPR, set in the latest announcement on [HOPR's Telegram](https://t.me/hoprnet). Your stake, your Safe balance and your location don't count.
 
-    In the Swagger UI, run `GET …/channels` and look at the `outgoing` list. Count the channels with `status` `Open` and a `balance` of `100 wxHOPR` or more.
+    In the Swagger UI, run `GET …/channels` and look at the `outgoing` list. Count the channels with `status` `Open` and a `balance` of at least the required amount.
 
-    Keep at least **150 wxHOPR** in each channel. When your node relays traffic, it pays the next node from its channel, so the balance drops over time and could fall below 100 wxHOPR. The default channel strategy doesn't fund your channels this high. To have your node keep them at about `150 wxHOPR`, change your funding values as described in [Fund your channels for Cover Traffic](./manage-node-strategies.md#fund-your-channels-for-cover-traffic).
+    Keep your channels above the required amount, with some margin. When your node relays traffic, it pays the next node from its channel, so the balance drops over time. The channel funding values in the hosted configuration files aren't sized for the requirement. To set values that keep your channels above it, see [How do I keep 2 outgoing channels with at least 25 wxHOPR each?](./frequently-asked-questions.md#how-do-i-keep-2-outgoing-channels-with-at-least-25-wxhopr-each).
 
 3. **Check that your node relays traffic and earns tickets**
 

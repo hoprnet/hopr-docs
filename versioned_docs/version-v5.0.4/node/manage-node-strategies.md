@@ -11,57 +11,7 @@ import { NoCounter } from '@site/src/components/Counter';
 
 <NoCounter>
 
-Node strategies offer advanced users detailed control over their node's behavior and HOPR protocol interactions. Configure settings like ticket redemption thresholds and automatic channel management to optimize performance. To modify or manage these strategies, implement the configuration file as described in the [node configuration guide](manage-node-configuration.md).
-
-## Fund your channels for Cover Traffic {#fund-your-channels-for-cover-traffic}
-
-The strategy in the hosted configuration files gets your node onto the network: it opens and funds payment channels so your node can relay traffic. To be [eligible for Cover Traffic](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards), your node also needs at least **5 open outgoing channels with at least `100 wxHOPR` each**. The default funding values don't keep that much in your channels, so change the `funding` settings of `ChannelLifecycle` in your configuration file:
-
-```yaml {12-17}
-strategy:
-  allow_recursive: false
-  strategies:
-    - AutoRedeeming:
-        redeem_on_winning: true
-    - ChannelLifecycle:
-        population:
-          min_open_channels: 5
-          target_open_channels: 20
-          peer_reopen_cooldown: 30m
-        funding:
-          sizing_mode:
-            probabilistic:
-              success_probability: 0.99
-          initial_capacity: "8964 MiB" # 150 wxHOPR
-          lower_capacity_threshold: "6148 MiB" # 112.5 wxHOPR
-          topup_capacity: "1225 MiB" # 37.5 wxHOPR
-        finalizer:
-          finalize_max_concurrent: 5
-        concurrency:
-          max_concurrent_actions: 5
-```
-
-:::caution
-Copy `sizing_mode` too. If a `funding` section leaves it out, the node uses `deterministic`, and the same capacities fund only about `90 wxHOPR` per channel, which isn't enough for Cover Traffic.
-:::
-
-With these values:
-
-- Your node opens each new channel with `150 wxHOPR`.
-- When a channel's balance drops to `112.5 wxHOPR` or less, your node tops it up with `37.5 wxHOPR`, back to `150 wxHOPR`. This keeps your channels above `100 wxHOPR` while your node relays traffic.
-
-Your node takes this wxHOPR from your Safe:
-
-- Keep at least `750 wxHOPR` in your Safe for the 5 channels (5 × `150 wxHOPR`), plus extra for top-ups.
-- Your node also uses any wxHOPR left in your Safe to open more channels, up to `target_open_channels` (`20` in the hosted configuration files, which needs `3,000 wxHOPR`). If these extra channels use up your Safe, your node can't top up your first 5 channels. If you keep less wxHOPR in your Safe, lower `target_open_channels`, for example to `5`.
-
-:::note
-Channel funding is set as data capacity, not as wxHOPR. Your node converts it using the current ticket price and winning probability, and always funds whole winning tickets. The wxHOPR amounts in the comments apply to the current network values. After your node opens its channels, check their balances with `GET …/channels`, as described in [How can I verify if Cover Traffic is being relayed through my node(s)?](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards)
-:::
-
-After you change the configuration file, restart your node as described in [Managing Node Service](./node-operations.md).
-
----
+Node strategies offer advanced users detailed control over their node's behavior and HOPR protocol interactions. Configure settings like ticket redemption thresholds and automatic channel management to optimize performance. To modify or manage these strategies, implement the configuration file as described in the [node configuration guide](manage-node-configuration.md). To set up your channels for Cover Traffic, see [How do I keep 2 outgoing channels with at least 25 wxHOPR each?](./frequently-asked-questions.md#how-do-i-keep-2-outgoing-channels-with-at-least-25-wxhopr-each).
 
 ## Understanding node strategies
 
@@ -117,14 +67,14 @@ Automatically redeems winning tickets.
 
 #### strategy.strategies: ChannelLifecycle
 
-Automatically opens, funds, tops up, closes and finalizes your outgoing payment channels based on peer connectivity and quality. Channel stakes are set as data capacity (for example `"1 GiB"`) and converted to wxHOPR by the node.
+Automatically opens, funds, tops up, closes and finalizes your outgoing payment channels based on peer connectivity and quality. Channel stakes are set as data capacity (for example `"1 GiB"`) and converted to wxHOPR by the node, as described in [How capacity becomes wxHOPR](./frequently-asked-questions.md#how-capacity-becomes-wxhopr).
 
 | Settings | Default value | Description |
 | --- | --- | --- |
 | `tick_interval` | `60s` | Time between full evaluation passes. |
 | `jitter` | `5s` | Maximum random offset added to `tick_interval`. |
-| `population.min_open_channels` | `5` | Minimum number of open outgoing channels. Closures are paused when the count would drop below this. |
-| `population.target_open_channels` | `8` | Target number of open outgoing channels. New channels are opened until this target is reached. |
+| `population.min_open_channels` | `5` | Minimum number of open outgoing channels. Closures stop at this number. It doesn't open channels: see `target_open_channels`. If your Safe can't keep channels usable, the node can close channels below this. |
+| `population.target_open_channels` | `8` | Target number of open outgoing channels. New channels are opened until this target is reached, as long as your Safe can pay the opening stake. |
 | `population.peer_reopen_cooldown` | `15m` | How long a peer is ineligible for a new channel after its previous channel closed. |
 | `eligibility.require_currently_connected` | `true` | Only open channels to peers that are currently connected. |
 | `eligibility.min_peer_quality_score` | `0.5` | Minimum peer quality score (0 to 1) for opening a channel. |
@@ -136,13 +86,15 @@ Automatically opens, funds, tops up, closes and finalizes your outgoing payment 
 | `eligibility.demote_non_forwarding_peers` | `true` | Prefer peers that fund their own outgoing channels, so they can relay traffic further. |
 | `eligibility.minimum_peer_outgoing_channels` | `1` | Funded outgoing channels a peer needs to count as able to relay. |
 | `funding.initial_capacity` | `1 GiB` | Data volume a new channel's stake should be able to carry. |
-| `funding.topup_capacity` | `1 GiB` | Data volume added when a channel is topped up. |
-| `funding.lower_capacity_threshold` | `256 MiB` | Remaining capacity below which a channel is topped up. |
-| `funding.sizing_mode` | `deterministic` | How capacity is converted to a wxHOPR stake. If you leave the whole `strategy` section out, the node uses `probabilistic` with `success_probability: 0.99` instead. `deterministic` funds the expected usage. `probabilistic` with `success_probability` (between 0.5 and 1, default `0.999`) adds a safety buffer so the channel rarely runs out before a top-up. |
+| `funding.topup_capacity` | `1 GiB` | Data volume added to the channel's current balance when it's topped up. |
+| `funding.lower_capacity_threshold` | `256 MiB` | Remaining capacity at or below which a channel is topped up. |
+| `funding.sizing_mode` | `deterministic` | How capacity is converted to a wxHOPR stake. If you leave the whole `strategy` section out, the node uses `probabilistic` with `success_probability: 0.99` instead. `deterministic` funds the expected usage. `probabilistic` with `success_probability` (from `0.5001` to `0.99999`, default `0.999`) adds a safety buffer so the channel rarely runs out before a top-up. |
 | `proactive_funding.enabled` | `true` | Top up channels early based on how fast they are being used. |
 | `proactive_funding.safety_margin` | `1.5` | Multiplier applied to the projected usage when deciding to top up. |
 | `proactive_funding.balance_drain_weight` | `1.0` | Weight of balance decreases in the usage estimate. |
 | `proactive_funding.ticket_index_drain_weight` | `1.0` | Weight of ticket activity in the usage estimate. |
+| `proactive_funding.fallback_chain_op_duration` | `60s` | Expected transaction confirmation time, used when the node can't get it from the chain. |
+| `proactive_funding.depletion_lookback` | `10m` | How far back the node looks to measure how fast a channel is draining. |
 | `closure.close_when_peer_unseen_for` | `24h` | Close a channel after the peer has been absent for this long. |
 | `closure.close_below_quality_score` | `0.3` | Close channels to peers whose quality score dropped below this. |
 | `closure.close_when_drained_below` | `0 wxHOPR` | Close channels whose balance dropped below this amount. |
@@ -154,6 +106,8 @@ Automatically opens, funds, tops up, closes and finalizes your outgoing payment 
 | `restart.startup_observation_period` | `1m` | No channel is closed for this long after the node starts. |
 | `restart.startup_close_grace_period` | `5m` | Channels to connected peers are protected from closure for this long after the node starts. |
 | `concurrency.max_concurrent_actions` | `4` | Maximum number of channel transactions (open, fund, close, finalize) in progress at once. |
+| `concurrency.action_lease_timeout` | `5m` | How long a channel transaction blocks further actions on that channel if no confirmation arrives. Must be greater than `0`. |
+| `concurrency.chain_read_timeout` | `30s` | Time allowed for all chain reads in one pass. Reads that take longer are retried on the next pass. Must be greater than `0`. |
 | `selector` | `default` | How peers are chosen for opening and closing: `default`, `low_latency`, `balanced`, `dispersed` or `economical`. |
 
 #### strategy.strategies: AutoFunding
