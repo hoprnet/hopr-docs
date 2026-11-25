@@ -22,7 +22,7 @@ The diagram below illustrates the relationship between key components involved i
 
 ## Requirements for participating in the HOPR network
 
-There is no minimum stake. Your node needs at least `1 wxHOPR` in your Safe, at least `0.01 xDai` on the node, and at least 5 open outgoing channels with at least `100 wxHOPR` each to be eligible for Cover Traffic. See [Do I need a minimum stake to run a node?](./frequently-asked-questions.md#do-i-need-a-minimum-stake-to-run-a-node)
+There is no minimum stake. Your node needs at least `1 wxHOPR` in your Safe, at least `0.01 xDai` on the node, and enough funded outgoing channels to be eligible for Cover Traffic. The current requirement is set in the latest announcement on [HOPR's Telegram](https://t.me/hoprnet). See [Do I need a minimum stake to run a node?](./frequently-asked-questions.md#do-i-need-a-minimum-stake-to-run-a-node)
 
 ## Node system requirements
 

@@ -179,7 +179,7 @@ No. On the Piz Palu network, your stake doesn't affect your rewards. Your node n
 - **A Safe and node module**, created with `hopli` as described in the setup guide for your platform, for example [Docker](./node-docker.md#create-your-node-identity-safe-and-node-module).
 - **At least `1 wxHOPR` in your Safe**, which pays the fee for announcing your node on the network.
 - **At least `0.01 xDai` on your node address.**
-- **At least 5 open outgoing payment channels with at least `100 wxHOPR` each** to be eligible for Cover Traffic. Your node funds them from your Safe, so keep at least `750 wxHOPR` in your Safe, plus extra for top-ups. You also need to change your channel funding values, as described in [Fund your channels for Cover Traffic](./manage-node-strategies.md#fund-your-channels-for-cover-traffic).
+- **Enough funded outgoing payment channels** to be eligible for Cover Traffic. The number of channels and the wxHOPR each one must hold are set in the latest announcement on [HOPR's Telegram](https://t.me/hoprnet). Your node funds these channels from your Safe, so keep enough wxHOPR in your Safe for them, plus extra for top-ups. To set your channel funding values, see [How do I keep 2 outgoing channels with at least 25 wxHOPR each?](#how-do-i-keep-2-outgoing-channels-with-at-least-25-wxhopr-each).
 
 You can find where to get wxHOPR and xDai [here](../token/acquiring-hopr-tokens.md).
 </details>
@@ -218,9 +218,87 @@ There are five Cover Traffic nodes on Piz Palu:
 Your node is eligible when:
 
 1. A Cover Traffic node can reach it. Check this with [How to check if my node is working correctly?](./troubleshooting.md#how-to-check-if-my-node-is-working-correctly)
-2. It has at least 5 open outgoing payment channels with at least `100 wxHOPR` each. Your stake, Safe balance and location don't count.
+2. It has at least the number of open outgoing payment channels, each with at least the amount of wxHOPR, set in the latest announcement on [HOPR's Telegram](https://t.me/hoprnet). Your stake, Safe balance and location don't count. For an example of setting up your channels, see [How do I keep 2 outgoing channels with at least 25 wxHOPR each?](#how-do-i-keep-2-outgoing-channels-with-at-least-25-wxhopr-each)
 
 Your node earns a ticket for every packet it relays. When a ticket wins, your node redeems it automatically and the reward goes to your Safe. If your node has an open outgoing payment channel to one of the Cover Traffic nodes, the reward goes to that channel's balance instead, and moves to your Safe when you close the channel. To check that your node relays traffic and earns tickets, see [How can I verify if Cover Traffic is being relayed through my node(s)?](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards)
+</details>
+
+<details>
+<summary>
+
+### How do I keep 2 outgoing channels with at least 25 wxHOPR each? {#how-do-i-keep-2-outgoing-channels-with-at-least-25-wxhopr-each}
+</summary>
+
+To be [eligible for Cover Traffic](./troubleshooting.md#how-can-i-verify-if-cover-traffic-is-being-relayed-through-my-nodes-and-if-im-receiving-rewards), your node must keep a minimum number of outgoing payment channels open, each holding at least a minimum amount of wxHOPR. HOPR sets both numbers in its announcements and can change them, so always take them from the latest announcement on [HOPR's Telegram](https://t.me/hoprnet).
+
+The hosted configuration files get your node onto the network, but they aren't sized for any eligibility requirement. The `ChannelLifecycle` strategy opens and funds your channels: understand its settings below, then set values that meet the current requirement yourself.
+
+#### Settings that open and fund channels {#settings-that-open-and-fund-channels}
+
+| Setting | Default value | What it does |
+| --- | --- | --- |
+| `population.min_open_channels` | `5` | The lowest number of open outgoing channels your node keeps. It won't close a channel if that would leave fewer than this. It doesn't open channels itself. |
+| `population.target_open_channels` | `8` | Your node opens new channels until it has this many, as long as your Safe can pay for each one. |
+| `funding.initial_capacity` | `1 GiB` | How much a new channel is funded with when it opens. |
+| `funding.lower_capacity_threshold` | `256 MiB` | When a channel's balance drops to this or below, your node tops it up. |
+| `funding.topup_capacity` | `1 GiB` | How much each top-up adds to the channel's current balance. A top-up doesn't refill the channel to `initial_capacity`. |
+| `funding.sizing_mode` | `deterministic` | How your node converts the three capacities to wxHOPR. See [How capacity becomes wxHOPR](#how-capacity-becomes-wxhopr). |
+| `proactive_funding.enabled` | `true` | Tops up a channel before it reaches `lower_capacity_threshold` if it's draining fast. |
+
+If you leave the whole `strategy` section out of your configuration file, `sizing_mode` is `probabilistic` with `success_probability: 0.99` instead of `deterministic`. For every setting, see [strategy.strategies: ChannelLifecycle](./manage-node-strategies.md#strategystrategies-channellifecycle).
+
+#### How capacity becomes wxHOPR {#how-capacity-becomes-wxhopr}
+
+You set channel funding as a data volume, for example `"1 GiB"`, not as wxHOPR. The requirement in the announcement is in wxHOPR, so set your values, check how much wxHOPR your channels actually hold, and adjust the values until they meet the requirement.
+
+Your node converts the data volumes to wxHOPR itself:
+
+- It uses the network's current ticket price and winning probability. When either changes, the same values fund a different amount of wxHOPR.
+- `probabilistic` mode adds a safety buffer on top of the `deterministic` amount, so the same values always fund more wxHOPR. The higher `success_probability`, the bigger the buffer.
+
+#### How the settings work together {#how-the-settings-work-together}
+
+- **Opening:** your node opens channels until it reaches `target_open_channels`, funding each with `initial_capacity`. It stops when your Safe can't pay for another one. `min_open_channels` doesn't open channels, so set `target_open_channels` to at least the same value.
+- **Topping up:** when a channel's balance drops to `lower_capacity_threshold` or below, your node adds `topup_capacity`. After the first top-up, a channel's balance moves between about `lower_capacity_threshold` and `lower_capacity_threshold` + `topup_capacity`. Set `initial_capacity` above `lower_capacity_threshold`, or your node tops up new channels straight away.
+- **Order:** on each pass, your node tops up channels first, lowest balance first, and only then opens new ones with what's left in your Safe. wxHOPR already locked in extra channels can't be used for top-ups, so a high `target_open_channels` can leave too little in your Safe to keep your channels topped up.
+- **Closing:** your node closes channels to peers that have gone offline or perform poorly, and the other side of a channel can close it too. Your node stops closing at `min_open_channels`. If `target_open_channels` is higher, the spare channels keep you above the minimum while your node opens replacements. If your Safe runs too low to keep your channels usable, your node can close channels below `min_open_channels` and use their wxHOPR for the rest.
+- **Spending limit:** your node spends at most your Safe balance or your Safe allowance, whichever is lower. See [How to check your Safe allowance and increase it?](#how-to-check-your-safe-allowance-and-increase-it)
+
+#### Example: 2 channels with at least 25 wxHOPR each {#channel-funding-example}
+
+:::caution Example numbers only
+2 channels with at least `25 wxHOPR` each is only an example, not the Cover Traffic requirement. The latest announcement on [HOPR's Telegram](https://t.me/hoprnet) sets how many channels your node needs and the minimum balance each one must hold. Use this example to see what each value does, then adjust the values to meet the requirement in the announcement.
+:::
+
+In the `ChannelLifecycle` part of your `strategy` section, change these values and keep the other settings as they are. Any strategy you leave out of the `strategies` list is turned off.
+
+```yaml
+    - ChannelLifecycle:
+        population:
+          min_open_channels: 2
+          target_open_channels: 3
+        funding:
+          lower_capacity_threshold: "4 GiB"
+          topup_capacity: "1 GiB"
+          initial_capacity: "5 GiB"
+```
+
+| Setting | Value | What it means here |
+| --- | --- | --- |
+| `min_open_channels` | `2` | The number of channels you need. Your node doesn't close channels below this. |
+| `target_open_channels` | `3` | One spare channel. If a channel closes, you still have 2 while your node opens a replacement. |
+| `lower_capacity_threshold` | `4 GiB` | The lowest balance you want your channels to have. Your node tops up a channel when it drops to this. Set it comfortably above `25 wxHOPR`: the balance can drop a little further while the top-up goes through. |
+| `topup_capacity` | `1 GiB` | How much each top-up adds. Bigger top-ups mean fewer transactions, but more wxHOPR locked in each channel. |
+| `initial_capacity` | `5 GiB` | The balance a new channel opens with. Keep it above `lower_capacity_threshold`, or your node tops up new channels straight away. |
+
+Your node converts these GiB values to wxHOPR itself, so check the result and adjust:
+
+1. Restart your node as described in [Managing Node Service](./node-operations.md), and wait for it to open its channels.
+2. Run `GET …/channels` and look at the `balance` of your `outgoing` channels. A new channel holds what `initial_capacity` is worth, which tells you roughly what 1 GiB is worth on your node.
+3. If the threshold isn't worth comfortably more than `25 wxHOPR`, raise `lower_capacity_threshold`, and `initial_capacity` with it. If your channels hold far more than you need, lower the values to keep more wxHOPR in your Safe.
+4. Check your balances again when a new announcement comes out or the ticket price changes: the same GiB values can then fund a different amount of wxHOPR.
+
+Your Safe needs enough wxHOPR, and enough Safe allowance, to open `target_open_channels` channels with `initial_capacity` each, plus extra for top-ups.
 </details>
 
 <details>
@@ -244,7 +322,7 @@ There is no APR and no fixed reward. Your node earns tickets for the packets it 
 
 ### Is there a lock-up period for my wxHOPR?
 </summary>
-No. You can withdraw wxHOPR from your Safe at any time, as described in [Withdraw wxHOPR from your Safe](./staking-hub.md#withdraw-wxhopr-from-your-safe). wxHOPR in your payment channels returns to your Safe when the channels close. If your channels drop below 5 open channels with `100 wxHOPR` each, your node stops being eligible for Cover Traffic.
+No. You can withdraw wxHOPR from your Safe at any time, as described in [Withdraw wxHOPR from your Safe](./staking-hub.md#withdraw-wxhopr-from-your-safe). wxHOPR in your payment channels returns to your Safe when the channels close. If your node no longer has enough open channels with the required wxHOPR, your node stops being eligible for Cover Traffic.
 </details>
 
 <details>
@@ -361,7 +439,7 @@ The minimum for a relay node is **4 CPU cores, 4 GB of RAM and 5 GB of disk**, w
 
 ### Can I run multiple nodes?
 </summary>
-Yes. Each node needs its own identity, folder and ports, and must be added to your Safe. Each node also needs its own 5 funded outgoing channels to be eligible for Cover Traffic. See [Running multiple nodes](./multiple-nodes.md).
+Yes. Each node needs its own identity, folder and ports, and must be added to your Safe. Each node also needs its own funded outgoing channels, as many as the Cover Traffic requirement asks for, to be eligible for Cover Traffic. See [Running multiple nodes](./multiple-nodes.md).
 </details>
 
 </NoCounter>

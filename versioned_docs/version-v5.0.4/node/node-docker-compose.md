@@ -365,4 +365,4 @@ If you are migrating from v3.0.x, go back to the migration guide and continue wi
 
 ## Fund your channels for Cover Traffic
 
-Once your node works as expected, change the channel funding values in your configuration file to get full Cover Traffic rewards, as described in [Fund your channels for Cover Traffic](./manage-node-strategies.md#fund-your-channels-for-cover-traffic). With the default values, your node doesn't keep enough wxHOPR in its channels to be eligible for Cover Traffic.
+Once your node works as expected, change the channel funding values in your configuration file to get full Cover Traffic rewards, as described in [How do I keep 2 outgoing channels with at least 25 wxHOPR each?](./frequently-asked-questions.md#how-do-i-keep-2-outgoing-channels-with-at-least-25-wxhopr-each). The values in the hosted configuration files aren't sized for the Cover Traffic requirement.

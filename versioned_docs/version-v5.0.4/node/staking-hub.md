@@ -38,7 +38,7 @@ To add another node to your Safe, follow [Running multiple nodes](./multiple-nod
 
 Go to the [Staking Hub](https://hub.hoprnet.org/staking/dashboard#staking), connect your Safe owner wallet, and withdraw your `wxHOPR` to the address you choose.
 
-Your node funds its payment channels from your Safe. If you withdraw too much, it can't keep at least 5 channels with `100 wxHOPR` each, and it stops being eligible for Cover Traffic.
+Your node funds its payment channels from your Safe. If you withdraw too much, it can't keep the channels the Cover Traffic requirement asks for funded, and it stops being eligible for Cover Traffic.
 
 ---
 
